@@ -1,0 +1,89 @@
+\chapter{Preparing meshes}
+\label{chap:mpas_grid_preparation}
+
+This chapter describes the steps used to prepare SCVT meshes for use in MPAS-A.
+For quasi-uniform meshes, very little preparation is actually needed, and
+generally, one only needs to prepare mesh decomposition files --- files that
+describe the decomposition of the SCVT mesh across processors --- when running
+MPAS-A using multiple MPI tasks. The procedure for creating these mesh
+decomposition files is described in the first section. 
+
+For variable-resolution SCVT meshes, the area of mesh refinement may be rotated
+to any part of the sphere using a program, grid\_rotate, described in the second
+section. This utility program may be obtained from the MPAS-A download page.
+\section{Graph partitioning with METIS} 
+\label{sec:metis}
+
+Before MPAS can be run in parallel, a mesh decomposition file with an
+appropriate number of partitions (equal to the number of MPI tasks that will be
+used) is required. A limited number of mesh decomposition files, named {\tt
+graph.info.part.*}, are provided with each mesh, as is the mesh
+connectivity file, named {\tt graph.info}. In order to create new mesh
+decomposition files for some particular number of MPI tasks, only the {\tt
+graph.info} file is required.  The currently supported method for partitioning
+a graph.info file uses the METIS software
+(http://glaros.dtc.umn.edu/gkhome/views/metis).  The serial graph partitioning
+program, METIS (rather than ParMETIS or hMETIS) should be sufficient for
+quickly partitioning any mesh usable by MPAS.
+
+After installing METIS, a {\tt graph.info} file may be partitioned into $N$
+partitions by running
+
+\vspace{12pt}
+{\tt > gpmetis graph.info} $N$
+\vspace{12pt}
+
+\noindent The resulting file, {\tt graph.info.part.}$N$, can then be copied into
+the MPAS run directory before running the model with $N$ MPI tasks.
+
+
+\section{Relocating refinement regions on the sphere}
+\label{sec:grid_rotate} 
+
+The purpose of the grid\_rotate program is simply to rotate an MPAS mesh file,
+moving a refinement region from one geographic location to another, so that the
+mesh can be re-used for different applications. This utility was developed out
+of the need to save computational resources, since generating an SCVT ---
+particularly one with a large number of generating points or a high degree of
+refinement --- can take considerable time.
+
+To build the grid\_rotate program, the Makefile should first be edited to set
+the Fortran compiler to be used; if the netCDF installation pointed to by the
+{\tt NETCDF} environment variable was build with a separate Fortran interface
+library, it will also be necessary to add {\tt -lnetcdff} just before {\tt
+-lnetcdf} in the Makefile. After editing the Makefile, running `make' should
+result in a grid\_rotate executable file.
+
+Besides the MPAS grid file to be rotated, grid\_rotate requires a namelist file,
+{\tt namelist.input}, which specifies the rotation to be applied to the mesh.
+The namelist variables are summarized in the table below
+   
+\vspace{12pt}
+\begin{longtable}{|p{3.25in} |p{2.5in}|}
+\hline
+config\_original\_latitude\_degrees & original latitude of any point on the sphere \\ \hline
+config\_original\_longitude\_degrees & original longitude of any point on the sphere \\ \hline
+config\_new\_latitude\_degrees &  latitude to which the original point should be shifted \\ \hline
+config\_new\_longitude\_degrees &  longitude to which the original point should be shifted \\ \hline
+config\_birdseye\_rotation\_counter\_clockwise\_degrees & rotation about a vector from the sphere center through the original point \\ \hline
+\end{longtable}
+\vspace{12pt}
+
+\noindent Essentially, one chooses any point on the sphere, decides where that
+point should be shifted to, and specifies any change to the orientation (i.e.,
+rotation) of the mesh about that point. 
+
+Having set the rotation parameters in the {\tt namelist.input} file, the
+grid\_rotate program should be run with two command-line options specifying the
+original grid file name and the name of the rotated grid file to be produced,
+e.g.,
+
+\vspace{12pt}
+{\tt > grid\_rotate grid.nc grid\_SE\_Asia\_refinement.nc}
+\vspace{12pt}
+
+The original grid file will not be altered, and a new, rotated grid file will be
+created. The NCL script {\tt mesh.ncl} may be used to plot either of the
+original or rotated grid files after suitable setting the name of the grid file
+in the script.
+   

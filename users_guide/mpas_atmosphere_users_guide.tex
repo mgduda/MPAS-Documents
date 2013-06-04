@@ -14,35 +14,37 @@
 \setlength{\evensidemargin}{0in}
 \setlength{\oddsidemargin}{0in}
 
-
 \setlength\LTleft\parindent
 \setlength\LTright\fill
+
+\input{atmosphere/version.tex}
 
 \newcommand{\core}{atmosphere}
 
 \begin{document}
 
-\title{MPAS - Non-Hydrostatic Atmosphere Model Users Guide}
+\title{MPAS -- Atmosphere Model User's Guide}
 
-
-
-\author{MPAS-Developer Team}
+\author{Version \version}
 
 \maketitle
+
+\input{atmosphere/mpas_atm_foreword.tex}
+
 \tableofcontents
 
-\part{The MPAS Framework}
-\input{shared/mpas_build_instructions.tex}
-\input{shared/mpas_grid_information.tex}
-%\input{shared/mpas_visualization.tex}
-%\input{shared/mpas_grid_generation.tex}
-
-\part{Non-hydrostatic Atomospheric Core}
+\input{atmosphere/mpas_atm_overview.tex}
+\input{atmosphere/mpas_atm_build_instructions.tex}
+\input{atmosphere/mpas_atm_grid_preparation.tex}
 \input{atmosphere/mpas_atm_core.tex}
 \input{atmosphere/mpas_atm_visualization.tex}
 \input{atmosphere/mpas_atm_field_description.tex}
 \input{atmosphere/mpas_atm_init_namelist_options.tex}
 \input{atmosphere/mpas_atm_namelist_options.tex}
+
+\appendix
+\input{shared/mpas_grid_description.tex}
+\input{shared/mpas_grid_information.tex}
 
 \end{document}
 
