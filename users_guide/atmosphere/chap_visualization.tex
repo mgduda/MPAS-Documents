@@ -5,8 +5,6 @@
 \chapter{Visualization}
 \label{chap:atmosphere_visualization}
 
-This chapter discusses visualization tools that are specific to this core.  For instructions on visualization tools that may be used by all cores, such as Paraview, see Chapter \ref{chap:mpas_visualization}.
-
 Since the MPAS input and output files are in netCDF format, a wide variety of software
 tools may be used to manipulate and visualize fields in these files. As a starting point, several NCL \footnote{NCAR Command Language; \url{http://ncl.ucar.edu}}
 scripts are provided in the {\tt graphics/ncl} sub-directory
@@ -27,7 +25,7 @@ within a script before running that script.
 
 \begin{figure}[htb]
 \begin{center}
-\includegraphics[width=6.5in]{atmosphere/figures/ncl_plots.pdf}
+\includegraphics[width=6.5in]{figures/ncl_plots.pdf}
 \caption{Various plot types that can be produced from MPAS input or output files using example scripts provided with the MPAS code.
 (a) A plot of an MPAS SCVT mesh against a filled map background. (b) A simple horizontal contour plot. (c) A cell-filled horizontal plot, with
 individual cells of the mesh drawn as polygons colored according to the field value. (d) A vertical cross-section in height, with areas below the
@@ -40,7 +38,7 @@ terrain left unshaded.}
 \section{Meshes}
 
 A plot showing just an MPAS SCVT mesh can be produced using the {\tt atm\_mesh.ncl} script, as in Figure \ref{fig:ncl_plots}(a). This script
-reads a subset of the mesh description fields in Appendix \ref{sec:var_sec_mesh} and uses this information to draw the SCVT mesh over a 
+reads a subset of the mesh description fields in Chapter \ref{chap:grid_information} and uses this information to draw the SCVT mesh over a 
 color-filled map background. Parameters in the script can be used to control the type of map projection (e.g., orthographic, cylindrical equidistant, etc.), 
 the colors used to fill land and water points, and the widths of lines used for the Voronoi cells.
 

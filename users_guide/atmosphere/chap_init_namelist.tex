@@ -4,15 +4,25 @@
 
 \chapter{Initialization namelist options}
 
-This chapter summarizes the complete set of namelist options available when running the MPAS non-hydrostatic atmosphere initialization core.
-The applicability of certain options depends on the type of initial conditions to be created --- idealized or `real-data' --- and such applicability 
-is identified in the description when it exists.
+This chapter summarizes the complete set of namelist options available when
+running the MPAS non-hydrostatic atmosphere initialization core.  The
+applicability of certain options depends on the type of initial conditions to be
+created --- idealized or `real-data' --- and such applicability is identified in
+the description when it exists.
 
-Date-time strings throughout all MPAS namelists assume a common format. Specifically, time intervals are of the form {\tt '[DDD\_]HH:MM:SS[.sss]'},
-where {\tt DDD} is an integer number of days with any number of digits, {\tt HH} is a two-digit hour value, {\tt MM} is a two-digit minute value, {\tt SS} is a two-digit second value, and {\tt sss} are fractions of a second with any number of digits;
-any part of the time interval format in square bracktes ({\tt [ ]}) may be omitted, and if days are omitted, {\tt HH} may be either a one- or two-digit hour specification.
-Time instants (e.g., start time or end time) are of the form {\tt 'YYYY-MM-DD[\_HH:MM:SS[.sss]]'}, where {\tt YYYY} is an integer year with any number of digits, {\tt MM}
-is a two-digit month value, {\tt DD} is a two-digit day value, and {\tt HH:MM:SS.sss} is a time with the same format as in a time interval specification. For both time instants and time intervals, a value of {\tt 'none'} represents `no value'.
+Date-time strings throughout all MPAS namelists assume a common format.
+Specifically, time intervals are of the form {\tt '[DDD\_]HH:MM:SS[.sss]'},
+where {\tt DDD} is an integer number of days with any number of digits, {\tt HH}
+is a two-digit hour value, {\tt MM} is a two-digit minute value, {\tt SS} is a
+two-digit second value, and {\tt sss} are fractions of a second with any number
+of digits; any part of the time interval format in square bracktes ({\tt [ ]})
+may be omitted, and if days are omitted, {\tt HH} may be either a one- or
+two-digit hour specification.  Time instants (e.g., start time or end time) are
+of the form {\tt 'YYYY-MM-DD[\_HH:MM:SS[.sss]]'}, where {\tt YYYY} is an integer
+year with any number of digits, {\tt MM} is a two-digit month value, {\tt DD} is
+a two-digit day value, and {\tt HH:MM:SS.sss} is a time with the same format as
+in a time interval specification. For both time instants and time intervals, a
+value of {\tt 'none'} represents `no value'.
 
 \section{nhyd\_model}
 
@@ -74,10 +84,10 @@ is a two-digit month value, {\tt DD} is a two-digit day value, and {\tt HH:MM:SS
    config\_met\_prefix      & Prefix of ungrib intermediate file to use for initial conditons (case 7 only) \newline 
    {\em Default value: 'FILE'} \\ \hline
 
-   config\_sfc\_prefix      & Prefix of ungrib intermediate file to use for SST and sea-ice (case 7 only) \newline 
+   config\_sfc\_prefix      & Prefix of ungrib intermediate file to use for SST and sea-ice (cases 7 and 8 only) \newline 
    {\em Default value: 'FILE'} \\ \hline
 
-   config\_fg\_interval     & Interval between intermediate files to use for SST and sea-ice (case 7 only) \newline 
+   config\_fg\_interval     & Interval between intermediate files to use for SST and sea-ice (case 8 only) \newline 
    {\em Default value: 21600} \\ \hline
 \end{longtable}
 }
@@ -112,9 +122,6 @@ is a two-digit month value, {\tt DD} is a two-digit day value, and {\tt HH:MM:SS
    config\_met\_interp      & Whether to interpolate first-guess fields from intermediate file \newline 
    {\em Default value: .true.} \\ \hline
   
-%   config\_physics\_init    & Whether to perform initialization of other physics fields \newline 
-%   {\em Default value: .false.} \\ \hline
- 
    config\_input\_sst       & Whether to re-compute SST and sea-ice fields from surface input data set; should be set to .true. if Case 8 was run \newline 
    {\em Default value: .false.} \\ \hline
     
