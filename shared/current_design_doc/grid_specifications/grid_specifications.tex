@@ -65,8 +65,6 @@ The following list of fields are required by all MPAS cores, and the MPAS framew
 		  Dimensions: nVertices
 	\item indexToVertexID - Global vertex ID for all cell vertices. \\
 		  Dimensions: nVertices
-	\item meshDensity - Value of the density function used to generate the mesh at all cell centers. \\
-		  Dimensions: nCells
 	\item cellsOnEdge - Cell indices that saddle a given edge. \\
 		  Dimensions: 2 * nEdges
 	\item nEdgesOnCell - Number of edges on a given cell. \\
@@ -109,28 +107,8 @@ The following list of fields are required by all MPAS cores, and the MPAS framew
 		  Dimensions: vertexDegree * nVertices
 	\item kiteAreasOnVertex - The intersection area of areaTriangle with each cell that radiates from a given vertex. \\
 		  Dimensions: vertexDegree * nVertices
-	\item fEdge - Coriolis parameter for a given edge. \\
-		  Dimensions: nEdges
-	\item fVertex - Coriolis parameter for a given vertex. \\
-		  Dimensions: nVertices
-	\item fCell - Coriolis parameter for a given cell. \\
-		  Dimensions: nCells
-	\item derivTwo - Value of the second derivative of the polynomial used for reconstruction of cell center quantities at edges. \\
-		  Dimensions: maxEdge2 * 2 * nEdges
 	\item coeffs\_reconstruct - Coefficients to reconstruct velocity vectors at cells centers. \\
 		  Dimensions: 3 * maxEdges * nCells
-	\item boundaryEdge - Integer flag defining if an edge has active cells on both sides of it (0) or not (1). \\
-		  Dimensions: nEdges
-	\item boundaryVertex - Integer flag defining if a vertex has active cells on all sides of it (0) or not (1). \\
-		  Dimensions: nVertices
-	\item boundaryCell - Integer flag defining if a cell has active cells on all sides of it (0) or not (1). \\
-		  Dimensions: nCells
-	\item edgeMask - Integer flag defining if an edge is active (1) or not (0). \\
-		  Dimensions: nEdges
-	\item vertexMask - Integer flag defining if a vertex is active (1) or not (0). \\
-		  Dimensions: nVertices
-	\item cellMask - Integer flag defining if a cell is active(1) or not (0). \\
-		  Dimensions: nCells
 \end{itemize}
 
 %-----------------------------------------------------------------------
@@ -143,6 +121,7 @@ This chapter defines the general requirements for all MPAS meshes. Along with sp
 	\item MPAS meshes must be defined using a right handed coordinate system.
 	\item Spherical grids must be centered at (0,0,0).
 	\item Two arrays that are both relative to the element type must be ordered in the exact same way if possible.
+	\item Input meshes are required to have a time dimension that is the unlimited (record) dimension.
 \end{itemize}
 
 When creating an MPAS mesh, it is recommended to ensure the correct ordering
