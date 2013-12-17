@@ -29,10 +29,12 @@ understand what makes an MPAS mesh.
 The following list of fields are required by all MPAS cores, and the MPAS framework assumes these fields exist.
 
 \begin{itemize}
-	\item latCell - Latitude in radians of all cell centers. \\
-		  Dimensions: nCells
-	\item lonCell - Longitude in radians of all cell centers. \\
-		  Dimensions: nCells
+	\item latCell - Latitude in radians of all cell centers. Valid range of $-\frac{\pi}{2}$ to $\frac{\pi}{2}$.\\
+		  Dimensions: nCells \\
+		  Could be computed internally. 
+	\item lonCell - Longitude in radians of all cell centers. Valid range of $0$ to $\pi$. \\
+		  Dimensions: nCells \\
+		  Could be computed internally. 
 	\item xCell - x axis position of all cell centers. \\
 		  Dimensions: nCells
 	\item yCell - y axis position of all cell centers. \\
@@ -41,10 +43,12 @@ The following list of fields are required by all MPAS cores, and the MPAS framew
 		  Dimensions: nCells
 	\item indexToCellID - Global cell ID for all cell centers. \\
 		  Dimensions: nCells
-	\item latEdge - Latitude in radians of all edge locations. \\
+	\item latEdge - Latitude in radians of all edge locations. Valid range of $-\frac{\pi}{2}$ to $\frac{\pi}{2}$. \\
 		  Dimensions: nEdges
-	\item lonEdge - Longitude in radians of all edge locations. \\
+		  Could be computed internally. 
+	\item lonEdge - Longitude in radians of all edge locations. Valid range of $0$ to $\pi$. \\
 		  Dimensions: nEdges
+		  Could be computed internally. 
 	\item xEdge - x axis position of all edge locations. \\
 		  Dimensions: nEdges
 	\item yEdge - y axis position of all edge locations. \\
@@ -53,10 +57,12 @@ The following list of fields are required by all MPAS cores, and the MPAS framew
 		  Dimensions: nEdges
 	\item indexToEdgeID - Global edge ID for all edge locations. \\
 		  Dimensions: nEdges
-	\item latVertex - Latitude in radians of all cell vertices. \\
+	\item latVertex - Latitude in radians of all cell vertices. Valid range of $-\frac{\pi}{2}$ to $\frac{\pi}{2}$. \\
 		  Dimensions: nVertices
-	\item lonVertex - Longitude in radians of all cell vertices. \\
+		  Could be computed internally. 
+	\item lonVertex - Longitude in radians of all cell vertices. Valid range of $0$ to $\pi$. \\
 		  Dimensions: nVertices
+		  Could be computed internally. 
 	\item xVertex - x axis position of all cell vertices. \\
 		  Dimensions: nVertices
 	\item yVertex - y axis position of all cell vertices. \\
@@ -77,24 +83,34 @@ The following list of fields are required by all MPAS cores, and the MPAS framew
 		  Dimensions: maxEdges2 * nEdges
 	\item weightsOnEdge - Weights used to reconstruct tangential velocities. \\
 		  Dimensions: maxEdges2 * nEdges
+		  Could be computed internally. 
 	\item dvEdge - Distance in meters between the vertices that saddle a given edge. \\
 		  Dimensions: nEdges
+		  Could be computed internally. 
 	\item dcEdge - Distance in meters between the cells that saddle a given edge. \\
 		  Dimensions: nEdges
+		  Could be computed internally. 
 	\item angleEdge - Angle in radians an edge's normal vector makes with the local eastward direction. \\
 		  Dimensions: nEdges
+		  Could be computed internally. 
 	\item areaCell - Area in square meters for a given cell of the primary mesh. \\
 		  Dimensions: nCells
+		  Could be computed internally. 
 	\item areaTriangle - Area in square meters for a given triangle of the dual mesh. \\
 		  Dimensions: nVertices
+		  Could be computed internally. 
 	\item edgeNormalVectors - Cartesian coordinates for the normal vector of a given edge. \\
 		  Dimensions: 3 * nEdges
+		  Could be computed internally. 
 	\item edgeTangentVectors - Cartesian coordinates for the tangent vector of a given edge. \\
 		  Dimensions: 3 * nEdges
+		  Could be computed internally. 
 	\item localVerticalUnitVectors - Unit surface normal vectors defined at a given cell. \\
 		  Dimensions: 3 * nCells
+		  Could be computed internally. 
 	\item cellTangentPlane - The two vectors that define a tangent plane at a given cell. \\
 		  Dimensions: 3 * 2 * nCells
+		  Could be computed internally. 
 	\item cellsOnCell - Cell indices that surround a given cell. \\
 		  Dimensions: maxEdges * nCells
 	\item verticesOnCell - Vertex indices that surround a given cell. \\
@@ -107,8 +123,10 @@ The following list of fields are required by all MPAS cores, and the MPAS framew
 		  Dimensions: vertexDegree * nVertices
 	\item kiteAreasOnVertex - The intersection area of areaTriangle with each cell that radiates from a given vertex. \\
 		  Dimensions: vertexDegree * nVertices
+		  Could be computed internally. 
 	\item coeffs\_reconstruct - Coefficients to reconstruct velocity vectors at cells centers. \\
 		  Dimensions: 3 * maxEdges * nCells
+		  Computed internally. 
 \end{itemize}
 
 %-----------------------------------------------------------------------
