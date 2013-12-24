@@ -4,10 +4,17 @@
 \usepackage{graphicx}
 \usepackage{mathtools}
 
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\textheight}{9.0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\evensidemargin}{0in}
+\setlength{\oddsidemargin}{0in}
+
 \begin{document}
 
-\title{MPAS-Mesh Specifications and Definitions}
-\author{MPAS Development Team}
+\title{MPAS Mesh Specification \\ Version 1.0}
 
 \maketitle
 \tableofcontents
@@ -21,6 +28,32 @@ This document will describe the required fields for a MPAS mesh. In addition, it
 will define required orderings when creating an MPAS mesh. These together
 should fully describe the MPAS mesh type and allow users to more easily
 understand what makes an MPAS mesh.
+
+%-----------------------------------------------------------------------
+
+\chapter{Definitions and Conventions}
+
+The meshes used by MPAS are centroidal Voronoi tessellations (CVTs), in which MPAS identifies three types of 
+elements: {\it cells}, {\it edges}, and {\it vertices}. {\it Cells} are simply the Voronoi cells in the tessellation, {\it edges} are the boundaries
+between adjacent Voronoi cells, and {\it vertices} are the corners of cells. In MPAS, cells are nominally located at the Voronoi generating points, which, for centroidal Voronoi tessellations, are the mass centoids of the Voronoi cells with respect to a density function, and edges are nominally located at the midpoints of edges. Figure \ref{fig:voronoi} shows three cells with their associated edges and vertices.
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=3.5in]{figures/blank_figure.pdf}
+\caption{Blah.}
+\label{fig:voronoi}
+\end{center}
+\end{figure}
+
+The CVT meshes used by MPAS may be defined on the Cartesian plane or on a sphere. In the case of planar meshes, areas and distances are assumed to be Euclidean, and the mesh is defined on the plane $z=0$. In the case of spherical meshes, areas and distances are computed in spherical geometry; cells, edges, and vertices are constrained to lie on the surface of the sphere, and the sphere is centered at the origin, $(x,y,z)=(0,0,0)$. In all cases, the coordinate systems assumed by MPAS meshes are right-handed. Figure \ref{fig:planar_spherical} provides and illustration of CVT meshes on the Cartesian plane and on the sphere.
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=3.5in]{figures/blank_figure.pdf}
+\caption{Blah.}
+\label{fig:planar_spherical}
+\end{center}
+\end{figure}
 
 %-----------------------------------------------------------------------
 
