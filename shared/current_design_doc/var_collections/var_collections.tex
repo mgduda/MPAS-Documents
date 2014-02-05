@@ -1,0 +1,123 @@
+\documentclass[11pt]{report}
+
+\usepackage{epsf,amsmath,amsfonts}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\textheight}{9.0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\evensidemargin}{0in}
+\setlength{\oddsidemargin}{0in}
+
+\begin{document}
+
+\title{Generic Variable Collections}
+\author{}
+
+\maketitle
+\tableofcontents
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Introduction
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introduction}
+
+Future plans call for an MPAS framework that permits multiple MPAS cores to be compiled into a single executable. In order to achieve this goal,
+the MPAS infrastructure must be free from namespace conflicts in all data structures that it provides for a core. The objective of this document is to develop 
+requirements and a design for core-independent data structures that will be used to store run-time configuration (i.e., namelist) options, fields, and groups of fields. 
+
+To illustrate the problem with the current framework, consider that at present, the MPAS ocean core may define a field group (known within the MPAS Registry as a {\em var\_struct}) called `state' that contains the fields `temperature', `salinity', and `ssh':
+
+
+\begin{lstlisting}[language=fortran,escapechar=@,frame=single]
+type state_type
+	type (field2dReal), pointer :: temperature
+	type (field2dReal), pointer :: salinity
+	type (field1dReal), pointer :: ssh
+end type state_type
+\end{lstlisting}
+
+\noindent On the other hand, the MPAS atmosphere core also defines a field group called `state' that instead contains the fields `theta', `rho', and `u':
+
+\begin{lstlisting}[language=fortran,escapechar=@,frame=single]
+type state_type
+	type (field2dReal), pointer :: theta
+	type (field2dReal), pointer :: rho
+	type (field2dReal), pointer :: u
+end type state_type
+\end{lstlisting}
+
+\noindent When only one core is compiled into an executable, the current infrastructure is able to accommodate the differences in the contents of the field structures by generating different definitions of, e.g., the derived type `state\_type' that contains the fields in the `state' group. However, such conflicting definitions of a derived type would clearly preclude the compilation of two or more MPAS cores at the same time. 
+
+This document proposes generic variable collections and option collections as a solution to the issue of namespace conflicts in field and option storage. These generic collections are envisioned as data types that can be instantiated multiple times, with each instance made to contain an independent, arbitrary set of fields or set of options. We recognize that there exist other approaches to resolving namespace conflicts among cores --- one such approach involves modifying the {\em Registry} program to generate data structures whose names are specific to a particular core, e.g., 'ocn\_state\_type' and 'atm\_state\_type' in the case of the ocean and atmosphere state variable groups mentioned above --- however, based on discussions, generic data types were identified as the most elegant solution among all those considered, and will be the focus of this proposal.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Requirements
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Requirements}
+ 
+We require the following from generic field, field array, and configuration option data structures. Note, however, that we propose separate data structures for fields, field groups, and options; supporting all three types within a single data structure is considered infeasible.
+
+\section{Requirement: Core-independence}
+
+In order for the data structures to 
+
+\section{Requirement: Support arbitrary sets of fields, field groups, or options}
+
+blah
+
+\section{Requirement: Detection of incorrect usage}
+
+blah
+
+\section{Requirement: Discoverable contents}
+
+blah
+
+\section{Requirement: Negligible performance impact}
+
+blah
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Design
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Design}
+
+To meet the requirements described in the previous chapter, three new modules are proposed: one module to support collections of fields, one module to support collections of collections, and one module to support collections of configuration options.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Testing
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Testing}
+
+\section{No change to results}
+
+blah
+
+\section{Performance}
+
+blah
+
+\section{Error detection}
+
+blah
+
+%-----------------------------------------------------------------------
+
+\end{document}
