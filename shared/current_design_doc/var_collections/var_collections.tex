@@ -15,7 +15,7 @@
 
 \begin{document}
 
-\title{Generic Variable Collections}
+\title{Generic Variable and Option Collections}
 \author{}
 
 \maketitle
@@ -66,27 +66,45 @@ This document proposes generic variable collections and option collections as a 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Requirements}
  
-We require the following from generic field, field array, and configuration option data structures. Note, however, that we propose separate data structures for fields, field groups, and options; supporting all three types within a single data structure is considered infeasible.
+We require the following from generic data structures for representing collections of fields (e.g., `theta', `salinity'), field groups (e.g., `mesh', `state'), and configuration options (e.g., `config\_dt`, `config\_apvm\_upwinding`). Note, however, that we propose separate data structures for fields, field groups, and options; supporting all three types within a single data structure is considered infeasible.
 
 \section{Requirement: Core-independence}
 
-In order for the data structures to 
+Any definitions of Fortran derived types for representing collections of fields, field groups, or options must not contain information that is specific to any particular MPAS core. This implies that resolving namespace conflicts by, e.g., creating a field collection that contains the union of all fields in all MPAS cores or by creating uniquely named types for each MPAS core (`ocn\_state\_type' and `atm\_state\_type' as in the Introduction) is ruled out. 
 
-\section{Requirement: Support arbitrary sets of fields, field groups, or options}
+\section{Requirement: Detection of erroneous usage}
 
-blah
+Generic collection types should allow developers to trap --- either at run-time or at compile-time --- errors in field, field group, or option references that can be caught by compiler errors or run-time checks in the current MPAS code. Primarily, errors that are caught at compile time include references to fields that have not been defined in the Registry.xml file, e.g., 
 
-\section{Requirement: Detection of incorrect usage}
+\newpage
+\begin{lstlisting}[language=fortran,escapechar=@,frame=single]
+real (kind=RKIND), dimension(:,:), pointer :: foo
 
-blah
+! A compile-time error occurs if foo has not been defined 
+!    in the Registry as part of mesh
+foo => mesh % foo % array
+\end{lstlisting}
+
+\noindent and errors that are caught at run-time include uses of unassociated (null) field and array pointers, e.g.,
+
+\begin{lstlisting}[language=fortran,escapechar=@,frame=single]
+real (kind=RKIND), dimension(:,:), pointer :: foo
+
+! A run-time pointer error occurs if foo is not set to a field array
+! foo => mesh % foo % array
+
+foo(:,:) = 3.14159265
+\end{lstlisting}
+
+\noindent . 
 
 \section{Requirement: Discoverable contents}
 
-blah
+Since a field collection may contain an arbitrary set of fields, subroutines that need to perform operations on groups of fields (e.g., registration with an I/O stream) must be provided with a mechanism for discovering which fields are contained in a collection and ultimately retrieving those fields; the same requirement holds for field groups and for configuration options.
 
 \section{Requirement: Negligible performance impact}
 
-blah
+Since the retrieval of field and array pointers, and namelist options, takes place many times throughout the execution of an MPAS core, changing the storage of collections of fields and configuration options has the potential to significantly impact the computational performance of MPAS. The use of generic data structures should lead to no more than a 0.1\% increase in runtime for current MPAS cores.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -96,7 +114,7 @@ blah
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Design}
 
-To meet the requirements described in the previous chapter, three new modules are proposed: one module to support collections of fields, one module to support collections of collections, and one module to support collections of configuration options.
+TBD
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -108,15 +126,15 @@ To meet the requirements described in the previous chapter, three new modules ar
 
 \section{No change to results}
 
-blah
+TBD
 
 \section{Performance}
 
-blah
+TBD
 
 \section{Error detection}
 
-blah
+TBD
 
 %-----------------------------------------------------------------------
 
