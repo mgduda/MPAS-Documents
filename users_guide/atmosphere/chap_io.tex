@@ -1,28 +1,150 @@
-\chapter{File Input and Output}
+\chapter{Configuring Model Input and Output}
 \label{chap:mpas_io}
 
-This chapter describes the io system used in the MPAS models. 
+\newlength{\immindent}
+\settowidth{\immindent}{{\tt <immutable\_stream }}
 
-\section{Blah blah blah}
-\label{sec:io_overview} 
 
-For quasi-uniform meshes, very little preparation is actually needed, and
-generally, one only needs to prepare mesh decomposition files --- files that
-describe the decomposition of the SCVT mesh across processors --- when running
-MPAS-A using multiple MPI tasks. The procedure for creating these mesh
-decomposition files is described in the first section. 
+\newlength{\mutindent}
+\settowidth{\mutindent}{{\tt <stream }}
 
-\section{Blah blah blah}
-\label{sec:io_overview2} 
+The reading and writing of model fields in MPAS is handled by user-configurable {\em streams}. 
+A stream represents a fixed set of model fields, together with dimensions and attributes, that are
+all written or read together to or from the same file or set of files. Each MPAS model core may define
+its own set of default streams that it typically uses for reading initial conditions, for writing and reading
+restart fields, and for writing additional model history fields. Besides these default streams, users may define
+new streams to, e.g., write certain diagnostic fields at a higher temporal frequency than the usual model
+history fields.
 
-For quasi-uniform meshes, very little preparation is actually needed, and
-generally, one only needs to prepare mesh decomposition files --- files that
-describe the decomposition of the SCVT mesh across processors --- when running
-MPAS-A using multiple MPI tasks. The procedure for creating these mesh
-decomposition files is described in the first section. 
+Streams are defined in XML configuration files, which are created at build time for each model core. The name 
+of this XML file is simply `streams.' suffixed with the name of the core. For example, the streams for 
+the {\em atmosphere} core are defined in a file named `streams.atmosphere', and the streams for 
+the {\em init\_atmosphere} core are defined in a file named `streams.init\_atmosphere'. An XML stream
+file may further reference other text files that contain lists of the model fields that are read or written in
+each of the streams defined in the XML stream file.
 
-\section{Blah blah blah}
-\label{sec:io_overview3} 
+Changes to the XML stream configuration file will take effect the next time an MPAS core is run; there is no need
+to re-compile after making modifications to the XML files. As described in the next section, it is therefore possible, e.g.,
+to change the interval at which a stream is written, the template for the filenames associated with a stream, or the 
+set of fields that are written to a stream, without the need to re-compile any code.
+
+Two classes of streams exist in MPAS: {\em immutable} streams and {\em mutable} streams. Immutable streams
+are those for which the set of fields that belong to the stream may not be modified at model run-time; however, it is
+possible to modify the interval at which the stream is read or written, the filename template describing the files
+containing the stream on disk, and several other parameters of the stream. In contrast, all aspects of mutable streams,
+including the set of fields that belong to the stream, may be modified at run-time. The motivation for the creation of
+two stream classes is the idea that an MPAS core may not function correctly if certain fields are not read in upon 
+model start-up, and it is therefore not reasonable for users to modify this set of required fields at run-time. Consequently,
+new immutable streams may not be defined at run-time; the only type of new stream that may be defined at run-time
+is the mutable stream type.
+
+\section{XML stream configuration files}
+\label{sec:xml_stream_format} 
+
+The XML stream configuration file for an MPAS core always has a parent XML {\em element} named {\tt streams}, within which 
+individual streams are defined:
+
+\vspace{12pt}
+\noindent {\tt <streams>} \newline
+... one or more stream definitions ... \newline
+\noindent {\tt </streams>} \newline
+\vspace{12pt}
+
+Immutable streams are defined with the {\tt immutable\_stream} element, and mutable streams are defined with the {\tt stream}
+element: 
+
+\vspace{12pt}
+\noindent {\tt <immutable\_stream name="initial\_conditions"} \newline
+\hspace*{\immindent}{\tt type="input"} \newline
+\hspace*{\immindent}{\tt filename\_template="init.nc"} \newline
+\hspace*{\immindent}{\tt input\_interval="initial\_only"} \newline
+\hspace*{\immindent}{\tt />} \newline
+\vspace{12pt} \newline
+\noindent {\tt <stream name="history"} \newline
+\hspace*{\mutindent}{\tt type="output"} \newline
+\hspace*{\mutindent}{\tt filename\_template="output.\$Y-\$M-\$D\_\$h.\$m.\$s.nc"} \newline
+\hspace*{\mutindent}{\tt output\_interval="6:00:00"} \newline
+... model fields belonging to this stream ... \newline
+\noindent {\tt </stream>} \newline
+\vspace{12pt}
+
+As shown in the example stream definitions, above, both classes of stream have the following required attributes:
+
+\begin{itemize}
+\item {\tt name} --- A unique name used to reference the stream
+\item {\tt type} --- The type of stream, either {\tt "input"}, {\tt "output"}, {\tt "input;output"}, or {\tt "none"}. A stream may be both an input
+and and output stream (i.e., {\tt "input;output"}) if, for example, it is read once at model start-up to provide initial conditions and thereafter written 
+periodically to provide model checkpoints. A stream may be defined as neither input nor output (i.e., {\tt "none"}) for the purposes of defining a 
+set of fields for inclusion other streams.
+\item {\tt filename\_template} --- The template for files that exist or will be created by the stream. The filename template may include any of the
+following variables, which are expanded based on the simulated time at which files are first created.
+\begin{itemize}
+\item {\tt \$Y} --- Year
+\item {\tt \$M} --- Month
+\item {\tt \$D} --- Day of the month
+\item {\tt \$d} --- Day of the year
+\item {\tt \$h} --- Hour
+\item {\tt \$m} --- Minute
+\item {\tt \$s} --- Second
+\end{itemize}
+\item {\tt input\_interval} --- For streams that have type {\tt "input"} or {\tt "input;output"}, the interval, beginning at the model initial time
+at which the stream will be read. Possible values include a time interval specification in the format {\tt "YYYY-MM-DD\_hh:mm:ss"}; the value 
+{\tt "initial\_only"}, which specifies that the stream is read only once at the model initial time; or the value {\tt "none"}, which specifies that 
+the stream is not read during a model run.
+\item {\tt output\_interval} --- For streams that have type {\tt "output"} or {\tt "input;output"}, the interval, beginning at the model initial time
+at which the stream will be written. Possible values include a time interval specification in the format {\tt "YYYY-MM-DD\_hh:mm:ss"}; the value 
+{\tt "initial\_only"}, which specifies that the stream is written only once at the model initial time; or the value {\tt "none"}, which specifies that 
+the stream is not written during a model run.
+\end{itemize}
+
+Finally, the set of fields that belong to a mutable stream may be specified with any combination of the following elements. Note that, for 
+immutable streams, no fields are specified at run-time in the XML configuration file.
+
+\begin{itemize}
+\item {\tt var} --- Associates the specified variable with the stream.
+\item {\tt var\_array} --- Associates the constituent variables in a var\_array, defined in an MPAS core's Registry.xml file, with the stream.
+\item {\tt var\_struct} --- Associates all variables in a var\_struct, defined in an MPAS core's Registry.xml file, with the stream.
+\item {\tt stream} --- Associates all explicitly associated fields in the specified stream with the stream; streams are not recursively included.
+\item {\tt file} --- Associates all variables listed in the specified text file with the stream.
+\end{itemize}
+
+\section{Optional stream attributes}
+\label{sec:optional_stream_atts} 
+
+Besides the required attributes described in the preceding section, several additional, optional attributes may be added to
+the definition of a stream.
+
+\begin{itemize}
+\item {\tt filename\_interval} --- The interval between the timestamps used in the construction of the names of files associated with
+a stream. Possible values include a time interval specification in the format {\tt "YYYY-MM-DD\_hh:mm:ss"}; the value {\tt "none"}, indicating
+that only one file containing all times is associated with the stream; the value {\tt "input\_interval"} that, for input type streams, indicates that
+each time to be read from the stream will come from a unique file; or the value {\tt "output\_interval"} that, for output type streams, indicates 
+that each time to be written to the stream will go to a unique file whose name is based on the timestamp of the data being written. The default
+value is {\tt "input\_interval"} for input type streams and {\tt "output\_interval"} for output type streams.
+\item {\tt reference\_time} --- A time that is an integral number of filename intervals from the timestamp of any file associated with the stream.
+The default value is the start time of the model run.
+\item {\tt clobber\_mode} --- Specifies how a stream should handle attempts to write to a file that already exists. Possible values
+for the mode include:
+\begin{itemize}
+\item {\tt "overwrite"} --- The stream is allowed to overwrite records in existing files and to append new records 
+to existing files; records not explicitly written to are left untouched.
+\item {\tt "truncate"} or {\tt "replace\_files"} --- The stream is allowed to overwrite existing files, which are first truncated 
+to remove any existing records; this is equivalent to replacing any existing files with newly created files of the same name.
+\item {\tt "append"} --- The stream is only allowed to append new records to existing files; existing records may not be overwritten.
+\item {\tt "never\_modify"} --- The stream is not allowed to modify existing files in any way.
+\end{itemize}
+The default clobber mode for streams is {\tt "never\_modify"}.
+\item {\tt precision} --- The precision with which real-valued fields will be written or read in a stream. Possible values include 
+{\tt "single"} for 4-byte real values, {\tt "double"} for 8-byte real values, or {\tt "native"}, which specifies that real-valued fields
+will be written or read in whatever precision the MPAS core was compiled. The default value is {\tt "native"}.
+\item {\tt packages} --- A list of packages attached to the stream. A stream will be active (i.e., read or written) only if at least one of 
+the packages attached to it is active, or if no packages at all are attached. Package names are provided as a semi-colon-separated
+list. Note that packages may only be defined in an MPAS core's Registry.xml file at build time. By default, no packages are attached
+to a stream.
+\end{itemize}
+
+\section{Example: Defining a new output stream}
+\label{sec:stream_example} 
 
 For quasi-uniform meshes, very little preparation is actually needed, and
 generally, one only needs to prepare mesh decomposition files --- files that
