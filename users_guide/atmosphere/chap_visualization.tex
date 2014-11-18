@@ -5,10 +5,9 @@
 \chapter{Visualization}
 \label{chap:atmosphere_visualization}
 
-Since the MPAS input and output files are in netCDF format, a wide variety of software
-tools may be used to manipulate and visualize fields in these files. As a starting point, several NCL \footnote{NCAR Command Language; \url{http://ncl.ucar.edu}}
-scripts are provided in the {\tt graphics/ncl} sub-directory
-of the main MPAS directory for making the basic types of plots illustrated in Figure \ref{fig:ncl_plots}. Each of
+Since the MPAS input and output files are in NetCDF format, a wide variety of software
+tools may be used to manipulate and visualize fields in these files. As a starting point, several NCL\footnote{NCAR Command Language; \url{http://ncl.ucar.edu}}
+scripts for making the basic types of plots illustrated in Figure \ref{fig:ncl_plots} are provided through the MPAS-Atmosphere download page. Each of
 these scripts reads the name of the file from which fields should be plotted from the environment variable {\tt FNAME},
 and all but the mesh-plotting script read the time frame to be plotted from the environment variable {\tt T}. To plot
 a field from the first frame (indexed from 0) of the file {\tt output.2010-10-23\_00:00:00.nc}, for example, one would set the 
@@ -20,7 +19,7 @@ following environment variables
 {\tt > setenv T 0}
 \vspace{12pt}
 
-\noindent before running one of the scripts. In general, the specific field to be plotted from the netCDF file must be set 
+\noindent before running one of the scripts. In general, the specific field to be plotted from the NetCDF file must be set 
 within a script before running that script. 
 
 \begin{figure}[htb]
@@ -38,7 +37,7 @@ terrain left unshaded.}
 \section{Meshes}
 
 A plot showing just an MPAS SCVT mesh can be produced using the {\tt atm\_mesh.ncl} script, as in Figure \ref{fig:ncl_plots}(a). This script
-reads a subset of the mesh description fields in Chapter \ref{chap:grid_information} and uses this information to draw the SCVT mesh over a 
+reads a subset of the mesh description fields in Appendix \ref{chap:mpas_grid_description} and uses this information to draw the SCVT mesh over a 
 color-filled map background. Parameters in the script can be used to control the type of map projection (e.g., orthographic, cylindrical equidistant, etc.), 
 the colors used to fill land and water points, and the widths of lines used for the Voronoi cells.
 

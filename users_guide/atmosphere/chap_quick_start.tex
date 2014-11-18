@@ -9,25 +9,25 @@ chapters.
 In general, the build process follows the following steps.
 
 \begin{enumerate}
-	\item Build MPI Layer (OpenMPI, MVAPICH2, etc; Section \ref{build_prerequisites})
-	\item Build serial NetCDF library (v3.6.3, v4.1.3, etc; Section \ref{serial_netcdf})
-	\item Build Parallel-NetCDF library (v1.2.1, v1.3.0, etc; Section \ref{parallel_netcdf})
-	\item Build Parallel I/O library (v1.4.1, v1.6.1, etc; Section \ref{pio_build})
-	\item Build METIS library and executables (v4.0, v5.0.2, etc; Section \ref{sec:metis})
-	\item Checkout MPAS-Atmosphere from repository
-	\item Build init\_atmosphere and atmosphere cores; Section \ref{compiling_MPAS}
+	\item Build or locate an implementation of MPI (MPICH, OpenMPI, MVAPICH2, etc; Section \ref{build_prerequisites}).
+	\item Build the serial NetCDF library (Section \ref{serial_netcdf}).
+	\item Build the Parallel-NetCDF library (Section \ref{parallel_netcdf}).
+	\item Build the Parallel I/O library (Section \ref{pio_build}).
+	\item {\bf Optionally,} build the METIS package (Section \ref{sec:metis}).
+	\item Obtain the MPAS source code.
+	\item Build the {\em init\_atmosphere} and {\em atmosphere} cores (Section \ref{compiling_MPAS}).
 \end{enumerate}
 
 After completing these steps, executable files named {\tt init\_atmosphere\_model} and
 {\tt atmosphere\_model} should have been created in the top-level MPAS directory. Once
-both executables have been created, one can begin the run process as follows:
+both executables have been created, a complete model run can be completed with the following steps:
 
 \begin{enumerate}
-	\item Create run directory.
-	\item Copy executables to run directory.
-	\item Copy namelist.input, input and graph files into run directory. 
-	\item Edit namelist.input to have the proper parameters.
-	\item (Optional) Create graph files, using METIS executable (pmetis or gpmetis depending on version).  A graph file is required for each processor count you want to use.
-	\item Run MPAS-Atmosphere (e.g.\ {\tt mpirun -np 8 atmosphere\_model}).
+	\item Create a run directory.
+	\item Link the {\tt init\_atmosphere\_model} and {\tt atmosphere\_model} executables to the run directory.
+	\item Copy the {\tt namelist.*}, {\tt streams.*}, and {\tt stream\_list.*} files to the run directory. 
+	\item Edit the namelist files and the stream files appropriately (Chapter \ref{chap:running_mpas_a}).
+	\item {\bf Optionally,} prepare meshes for the simulation (Chapter \ref{chap:mpas_grid_preparation}).
+	\item Run {\tt init\_atmosphere\_model} to create initial conditions, then run {\tt atmosphere\_model} to perform model integration.
 	\item Visualize output, and perform analyses.
 \end{enumerate}

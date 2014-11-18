@@ -7,18 +7,19 @@
 
 \setlength\LTleft{0.0in}
 
-Given an SCVT mesh, this chapter describes the two main steps to running the non-hydrostatic model: creating initial conditions and running the model itself.  This chapter makes use of two MPAS cores, {\tt init\_atmosphere} and {\tt atmosphere}, which are, respectively, used for initializing and running the non-hydrostatic atmospheric model.  Sections 3.1 and 3.2 of this chapter describe the creation of idealized and real-data non-hydrostatic initial condition files using the {\tt init\_atmosphere} core.   Section 3.3 describes the basic procedure of running the model itself.
+Given an SCVT mesh, this chapter describes the two main steps to running the MPAS-Atmosphere model: creating initial conditions and running the model itself.  This chapter makes use of two MPAS cores, {\tt init\_atmosphere} and {\tt atmosphere}, which are, respectively, used for initializing and running the non-hydrostatic atmospheric model.  Sections \ref{sec:atm_ideal_init} and \ref{sec:atm_real_init} of this chapter describe the creation of idealized and real-data non-hydrostatic initial condition files using the {\tt init\_atmosphere} core. Section \ref{sec:atm_model_run} describes the basic procedure of running the model itself.
 
-Each section of this chapter follows a familiar pattern of compiling and executing MPAS model components, albeit using different cores depending on its intended use.  The compilation will create either an initialization or a model executable, which are named, respectively, {\tt init\_atmosphere\_model} and {\tt atmosphere\_model}.  In general, if an MPAS executable was compiled for serial use, simply call the executable by name. If compiled to be run in parallel, the executable is called with {\tt mpiexec} or {\tt mpirun}, for example:
+Each section of this chapter follows a familiar pattern of compiling and executing MPAS model components, albeit using different cores depending on its intended use.  The compilation will create either an initialization or a model executable, which are named, respectively, {\tt init\_atmosphere\_model} and {\tt atmosphere\_model}.  In general, an executable is run with {\tt mpiexec} or {\tt mpirun}, for example:
 
 \vspace{12pt}
 {\tt > mpiexec -n 8 atmosphere\_model}
 \vspace{12pt}
 
 
-\noindent where {\tt 8} is the number of MPI tasks to be used.  In any case where {\tt n} $>$ 1, there must exist a corresponding graph decomposition file, e.g., {\tt graph.info.part.8}. For more on graph decomposition, see \S 2.4.  
+\noindent where {\tt 8} is the number of MPI tasks to be used.  In any case where {\tt n} $>$ 1, there must exist a corresponding graph decomposition file, e.g., {\tt graph.info.part.8}. For more on graph decomposition, see Section \ref{sec:metis}.  
 
 \section{Creating idealized ICs}
+\label{sec:atm_ideal_init}
 
 There are several idealized test cases supported within the {\tt init\_atmosphere} model initialization core:
 
@@ -40,30 +41,27 @@ Creating idealized initial conditions is fairly straightforward, as no external 
 The following steps summarize the creation of {\tt init.nc}:
 
 \begin{itemize}
-\item Include a {\tt grid.nc} file, which contains the SCVT mesh, in the working directory (\S 2)
-\item If running in parallel, include a {\tt graph.info.part.*} file in the working directory (\S 2.4)
-\item Compile MPAS with the {\tt init\_atmosphere} core specified (\S 1.2)
-\item Create an appropriate {\tt namelist.input} configuration file (described below)
-\item Run {\tt init\_atmosphere\_model} to create {\tt init.nc}
-\end{itemize}~\\
+\item Include a {\tt grid.nc} file, which contains the SCVT mesh, in the working directory
+\item If running with more than one MPI task, include a {\tt graph.info.part.*} file in the working directory (Section \ref{sec:metis})
+\item Compile MPAS with the {\tt init\_atmosphere} core specified (Section \ref{compiling_MPAS})
+\item Edit the {\tt namelist.init\_atmosphere} configuration file (described below)
+\item Edit the {\tt streams.init\_atmosphere} I/O configuration file (described below)
+\item Run {\tt init\_atmosphere\_model} to create the initial condition file, {\tt init.nc}
+\end{itemize}
 
-Included in the MPAS directory is a sample initialization namelist, {\tt namelist.input.init\_atmosphere}, which can be copied or linked to the {\tt namelist.input} file for use in this step.  A number of the namelist parameters found in {\tt namelist.input.init\_atmosphere} are irrelevant to creating idealized conditions and can be removed or ignored.  The following table outlines the namelist parameters that are required; comments are given on the right for certain key parameters, and formal explanations for all namelist parameters can be found in Appendix A.
+When the {\tt init\_atmosphere\_model} executable is built, a default initialization namelist, {\tt namelist.init\_atmosphere}, will have been created. A number of the namelist parameters found in {\tt namelist.init\_atmosphere} are irrelevant to creating idealized conditions and can be removed or ignored.  The following table outlines the namelist parameters that are required; comments are given on the right for certain key parameters, and formal explanations for all namelist parameters can be found in Appendix \ref{chap:init_atm_namelist}.
 
 
 \begin{longtable}{p{3in}|p{3.25in}}
 
 \&nhyd\_model\\
-   config\_init\_case       = 1                      & a number between 1 and 6 corresponding to the cases listed at the beginning of this section\\
+   config\_init\_case = 2                      & a number between 1 and 6 corresponding to the cases listed at the beginning of this section\\
+   config\_start\_time = '0000-01-01\_00:00:00' & the starting time for the simulation\\
    config\_theta\_adv\_order = 3                     & advection order for theta \\
 /\\
 \\
 \&dimensions\\
-   config\_nvertlevels     = 41                      & the number of vertical levels to be used in the model \\
-/\\
-\\
-\&io\\
-   config\_input\_name         = 'grid.nc'           & the name of the netCDF grid file from \S2 \\
-   config\_output\_name        = 'init.nc'           & the name of the IC file to be created \\
+   config\_nvertlevels = 26                      & the number of vertical levels to be used in the model \\
 /\\
 \\
 \&decomposition\\
@@ -72,31 +70,35 @@ Included in the MPAS directory is a sample initialization namelist, {\tt namelis
 
 \end{longtable}
 
+After editing the {\tt namelist.init\_atmosphere} namelist file, the name of the input SCVT grid file, as well as the name of the initial condition file to be created, must be set in the XML I/O configuration file, {\tt streams.init\_atmosphere}. For a detailed description of the format of the XML I/O configuration file, refer to Chapter \ref{chap:mpas_io}. Specifically, the {\tt filename\_template} attribute must be set to the name of the SCVT grid file in the {\tt "input"} stream definition, and the {\tt filename\_template} attribute must be set to name of the initial condition file to be created in the {\tt "output"} stream definition.
 
 
 \section{Creating real-data ICs}
+\label{sec:atm_real_init}
 
-Creating real-data initial conditions is similar to that of the idealized case described in the previous section, but is more involved as it requires interpolation of static geographic data (e.g., topography, land cover, soil category, etc.), surface fields such as SST, and the atmospheric initial conditions associated with a particular date/time.  The static datasets are the same as those used by the WRF model, and the surface fields and atmospheric initial conditions can be obtained from GFS data using the WRF pre-processing system (WPS).
+Creating real-data initial conditions is similar to that of the idealized case described in the previous section, but is more involved as it requires interpolation of static geographic data (e.g., topography, land cover, soil category, etc.), surface fields such as soil temperature and SST, and the atmospheric initial conditions valid at a specific date and time. The static datasets are the same as those used by the WRF model, and the surface fields and atmospheric initial conditions can be obtained from, e.g., NCEP's GFS data using the WRF pre-processing system (WPS).
 
 Creating real-data initial conditions requires a single compilation of the {\tt init\_atmosphere} core, but the actual generation of the IC files will take place using three separate runs of {\tt init\_atmosphere}, where each of these runs is described individually in the following sub-sections.  While it is possible to condense the three real-data initialization steps into fewer executions, running each step separately will both improve clarity and, as will become apparent, save a significant amount of time when generating subsequent initial conditions, that is, when making initial conditions using the same mesh but different starting times.
 
-The first of the three steps, described in \S 3.2.1, is the interpolation of static fields onto the mesh to create a {\tt static.nc} file.  This step cannot be run in parallel and takes considerably longer than the steps that follow, however, the fields being static, this step need only be run once for a particular mesh, regardless of the number of initial condition files that are ultimately created from the {\tt static.nc} output file.  Described in \S 3.2.2 is an optional step that creates a file {\tt surface.nc} that contains surface data at regular intervals. This file is used in the case where the model run makes periodic external updates to surface fields (currently only sea-ice and SST).  Finally, \S 3.2.3 describes the processing of the atmospheric initial conditions beginning with the {\tt static.nc} file created in \S 3.2.1.  Naturally, each of the initialization runs described in the three following sections will make use of a {\tt namelist.input} file, and as was the case for idealized initial conditions, the file {\tt namelist.input.init\_atmosphere} in the MPAS directory can be used as a starting point.  Not every variable in this namelist is needed for any particular step, and therefore each section will elaborate only on the namelist variables that are immediately relevant.
+The first of the three steps, described in Section \ref{sec:atm_real_static}, is the interpolation of static fields onto the mesh to create a {\tt static.nc} file.  This step cannot be run in parallel and takes considerably longer than the steps that follow, however, the fields being static, this step need only be run once for a particular mesh, regardless of the number of initial condition files that are ultimately created from the {\tt static.nc} output file.  Described in Section \ref{sec:atm_real_surface} is an optional step that creates a file {\tt surface.nc} containing surface data at regular intervals. This file is used in the case where the model run makes periodic external updates to surface fields (currently only sea-ice and SST).  Finally, Section \ref{sec:atm_real_met} describes the processing of the atmospheric initial conditions beginning with the {\tt static.nc} file created in Section \ref{sec:atm_real_static}.  Naturally, each of the initialization runs described in the three following sections will make use of a {\tt namelist.init\_atmosphere} namelist file, and as was the case for idealized initial conditions, the default {\tt namelist.init\_atmosphere} file in the MPAS directory may be used as a starting point.  Not every variable in this namelist is needed for any particular step, and therefore each section will elaborate only on the namelist variables that are immediately relevant.
 
 \subsection{Static fields}
+\label{sec:atm_real_static}
 
 The generation of a file {\tt static.nc} requires a set of static geographic data.  A suitable dataset can be obtained from the WRF model's download page \\
- \url{http://www.mmm.ucar.edu/wrf/users/download/get\_source.html}.  These static data files should be downloaded to a directory, which will be specified the {\tt namelist.input} file (described below) prior to running this interpolation step.  The result of this run will be the creation of a netCDF file ({\tt static.nc}), which is used in the two steps, described in \S 3.2.2 and \S 3.2.3, following this to create surface update files and dynamic initial conditions.  Note that {\tt static.nc} can be generated once and then used repeatedly to generate surface update and initial condition files for different start times.
+ \url{http://www.mmm.ucar.edu/wrf/users/download/get\_source.html}.  These static data files should be downloaded to a directory, which will be specified the {\tt namelist.init\_atmosphere} file (described below) prior to running this interpolation step.  The result of this run will be the creation of a NetCDF file ({\tt static.nc}), which is used in the two steps, described in Sections \label{sec:atm_real_surface} and \label{sec:atm_real_met}, following this to create surface update files and dynamic initial conditions.  Note that {\tt static.nc} can be generated once and then used repeatedly to generate surface update and initial condition files for different start times.
 
 The following steps summarize the creation of {\tt static.nc}:
 
 \begin{itemize}
 \item Download geographic data from the WRF download page (described above) 
-\item Compile MPAS with the {\tt init\_atmosphere} core specified (\S 1.2)
-\item Include a {\tt grid.nc} file in the working directory (\S 2)
-\item Create an appropriate {\tt namelist.input} configuration file (described below)
-\item Run {\tt init\_atmosphere\_model} {\em either in serial or with only one MPI task specified} to create {\tt static.nc}
-\end{itemize}~\\
-Note that it is critical for this step that the initialization core is run serially; if the core was compiled in parallel, one only MPI task must be used ({\tt mpiexec -n 1 init\_atmosphere\_model}).  The steps described in \S 3.2.2 and \S 3.2.3 may be run in serial or parallel.
+\item Compile MPAS with the {\tt init\_atmosphere} core specified (Section \ref{compiling_MPAS})
+\item Include a {\tt grid.nc} file in the working directory
+\item Edit the {\tt namelist.init\_atmosphere} configuration file (described below)
+\item Edit the {\tt streams.init\_atmosphere} I/O configuration file (described below)
+\item Run {\tt init\_atmosphere\_model} {\em with only one MPI task specified} to create {\tt static.nc}
+\end{itemize}
+Note that it is critical for this step that the initialization core is run serially; afterward, however, the steps described in \ref{sec:atm_real_surface} and \ref{sec:atm_real_met} may be run with more than one MPI task.
 
 \begin{longtable}{p{3.0in} |p{3.25in}}
 
@@ -105,8 +107,8 @@ Note that it is critical for this step that the initialization core is run seria
 /\\
 \\
 \&dimensions                                         & the following two variables must be present now, though their values do not become significant until \S 3.2.3 \\
-   config\_nvertlevels     = 41                      &  \\
-   config\_nsoillevels     = 4                       &  \\
+   config\_nvertlevels     = 1                      &  \\
+   config\_nsoillevels     = 1                       &  \\
 /\\
 \\
 \&data\_sources\\
@@ -119,16 +121,14 @@ Note that it is critical for this step that the initialization core is run seria
    config\_met\_interp      = .false.                & \\
    config\_input\_sst       = .false.                & \\
 /\\
-\\
-\&io\\
-   config\_input\_name         = 'grid.nc'           & the name of the netCDF grid file from \S 2 \\
-   config\_output\_name        = 'static.nc'         & file name for static netCDF output \\
-/\\
 
 \end{longtable}
 
+After editing the {\tt namelist.init\_atmosphere} namelist file, the name of the input SCVT grid file, as well as the name of the static file to be created, must be set in the XML I/O configuration file, {\tt streams.init\_atmosphere}. For a detailed description of the format of the XML I/O configuration file, refer to Chapter \ref{chap:mpas_io}. Specifically, the {\tt filename\_template} attribute must be set to the name of the SCVT grid file in the {\tt "input"} stream definition, and the {\tt filename\_template} attribute must be set to name of the static file to be created in the {\tt "output"} stream definition.
+
 
 \subsection{Surface field updates}
+\label{sec:atm_real_surface}
 
 This step is optional --- it is required only if surface fields are to be periodically updated during the model run.  The surface data could originate from any number of sources, though the most straightforward way to obtain a dataset in the appropriate format is to process GRIB data (e.g., GFS GRIB data) with the {\em ungrib} program of the WRF model's pre-processing system (WPS).  Detailed instructions for building and running the WPS, and the process of generating intermediate data files from GFS data, can be found in Chapter 3 of the WRF User Guide: \url{http://www.mmm.ucar.edu/wrf/users/docs/user\_guide/users\_guide\_chap3.htm}.
 
@@ -136,9 +136,10 @@ The following steps summarize the creation of {\tt surface.nc}:
 
 \begin{itemize}
 \item Include surface data intermediate files in the working directory
-\item Include a {\tt static.nc} file in the working directory (\S 3.2.1)
-\item If running in parallel, include a {\tt graph.info.part.*} in the working directory (\S 2.4)
-\item Create an appropriate {\tt namelist.input} configuration file (see below)
+\item Include a {\tt static.nc} file in the working directory (Section \ref{sec:atm_init_static})
+\item If running in parallel, include a {\tt graph.info.part.*} in the working directory (Section \ref{sec:metis})
+\item Edit the {\tt namelist.init\_atmosphere} configuration file (see below)
+\item Edit the {\tt streams.init\_atmosphere} I/O configuration file (described below)
 \item Run {\tt init\_atmosphere\_model} to create {\tt surface.nc}
 \end{itemize}
 
@@ -148,12 +149,12 @@ The following steps summarize the creation of {\tt surface.nc}:
 \&nhyd\_model\\
    config\_init\_case       = 8                      & must be 8, the surface field initialization case \\
    config\_start\_time      = '2010-10-23\_00:00:00' & time to begin processing surface data \\
-   config\_stop\_time       = '2010-10-24\_00:00:00' & time to end processing surface data \\
+   config\_stop\_time       = '2010-10-30\_00:00:00' & time to end processing surface data \\
 /\\
 \\
 \&data\_sources\\
    config\_sfc\_prefix      = 'SST'                  & the prefix of the intermediate data files containing SST and sea-ice \\
-   config\_fg\_interval     = 21600                  & interval between intermediate files to use for SST and sea-ice \\
+   config\_fg\_interval     = 86400                  & interval between intermediate files to use for SST and sea-ice \\
 /\\
 \\
 \\
@@ -162,11 +163,7 @@ The following steps summarize the creation of {\tt surface.nc}:
    config\_vertical\_grid   = .false.                & \\
    config\_met\_interp      = .false.                & \\
    config\_input\_sst       = .true.                 & \\
-/\\
-\\
-\&io\\
-   config\_input\_name          = 'static.nc'        & name of the netCDF static data file \S 3.2.1 \\
-   config\_sfc\_update\_name    = 'surface.nc'       & surface-update file name \\
+   config\_frac\_seaice    = .true.                 & \\
 /\\
 \\
 \&decomposition\\
@@ -175,9 +172,10 @@ The following steps summarize the creation of {\tt surface.nc}:
 
 \end{longtable}
 
-
+After editing the {\tt namelist.init\_atmosphere} namelist file, the name of the static file, as well as the name of the surface update file to be created, must be set in the XML I/O configuration file, {\tt streams.init\_atmosphere}. Specifically, the {\tt filename\_template} attribute must be set to the name of the static file in the {\tt "input"} stream definition, and the {\tt filename\_template} attribute must be set to name of the surface update file to be created in the {\tt "output"} stream definition.
 
 \subsection{Vertical grid generation and initial field interpolation}
+\label{sec:atm_real_met}
 
 The final step for creating a real-data initial conditions file ({\tt init.nc}) is to generate a vertical grid, the parameters of which will be specified in the {\tt namelist.input} file, and to obtain an initial conditions dataset and interpolate it onto the model grid. As stated previously, while initial conditions could ultimately be obtained from many different data sources, here we assume the use of intermediate data files obtained from GFS data using the WPS ungrib program.  Detailed instructions for building and running the WPS, and how to generate intermediate data files from GFS data, can be found in Chapter 3 of the WRF user guide: \\
 \url{http://www.mmm.ucar.edu/wrf/users/docs/user\_guide/users\_guide\_chap3.htm}.
@@ -186,9 +184,10 @@ The following steps summarize the creation of {\tt init.nc}:
 
 \begin{itemize}
 \item Include a WPS intermediate data file in the working directory
-\item Include the {\tt static.nc} file in the working directory (\S 3.2.1)
-\item If running in parallel, include a {\tt graph.info.part.*} file in the working directory (\S 2.4)
-\item Create an appropriate {\tt namelist.input} configuration file (described below)
+\item Include the {\tt static.nc} file in the working directory (Section \ref{sec:atm_init_static})
+\item If running in parallel, include a {\tt graph.info.part.*} file in the working directory (Section \ref{sec:metis})
+\item Edit the {\tt namelist.init\_atmosphere} configuration file (described below)
+\item Edit the {\tt streams.init\_atmosphere} I/O configuration file (described below)
 \item Run {\tt init\_atmosphere\_model} to create {\tt init.nc}
 \end{itemize}
 
@@ -197,8 +196,8 @@ The following steps summarize the creation of {\tt init.nc}:
 
 \&nhyd\_model\\
    config\_init\_case       = 7                      & must be 7 \\
-   config\_theta\_adv\_order = 3                     & advection order for theta \\
    config\_start\_time      = '2010-10-23\_00:00:00' & time to process first-guess data \\
+   config\_theta\_adv\_order = 3                     & advection order for theta \\
 /\\
 \\
 \&dimensions\\
@@ -225,31 +224,29 @@ The following steps summarize the creation of {\tt init.nc}:
    config\_input\_sst       = .false.                & \\
 /\\
 \\
-\&io\\
-   config\_input\_name         = 'static.nc'         & the netCDF static file \S 3.2.1 \\
-   config\_output\_name        = 'init.nc'           & name of the IC file to be created \\
-/\\
-\\
 \&decomposition\\
    config\_block\_decomp\_file\_prefix = 'graph.info.part.' & if running in parallel, needs to match the grid decomposition file prefix \\
 /\\
 \end{longtable}
 
+After editing the {\tt namelist.init\_atmosphere} namelist file, the name of the static file, as well as the name of the initial condition file to be created, must be set in the XML I/O configuration file, {\tt streams.init\_atmosphere}. Specifically, the {\tt filename\_template} attribute must be set to the name of the static file in the {\tt "input"} stream definition, and the {\tt filename\_template} attribute must be set to name of the initial condition file to be created in the {\tt "output"} stream definition.
 
 \section{Running the model}
+\label{sec:atm_model_run}
 
 With the files {\tt init.nc} and, optionally, {\tt surface.nc}, generated as in the previous sections, we have completed the prerequisites to run the model.  The only step remaining before running the model itself is the configuration of {\tt namelist.input}.  As a starting point, the MPAS directory contains {\tt namelist.input.atmosphere}, along with three other namelists corresponding to the various idealized cases, that can be copied or linked to {\tt namelist.input}.  This section will discuss both running the model from a cold start and restarting the model from some point in a previous run.
 
 The following steps summarize running the model:
 
 \begin{itemize}
-\item Include an initial condition netCDF file (e.g., {\tt init.nc}) in the working directory(\S 3.1, \S 3.2)
-\item If using surface updates, include a surface netCDF file (e.g., {\tt surface.nc}) in the working directory (\S 3.2.2)
-\item If running in parallel, include a graph decomposition file in the working directory (\S 2.4)
-\item If the MPAS directory has not been cleaned since running initialization, run {\tt make clean} with the {\tt init\_atmosphere} core specified
-\item Compile MPAS with the {\tt atmosphere} core specified (\S 1.2)
-\item Create an appropriate {\tt namelist.input} configuration file (described below)
-\item Run the compiled executable
+\item Include an initial condition netCDF file (e.g., {\tt init.nc}) in the working directory(Section \ref{sec:atm_ideal_init}, Section \ref{sec:atm_real_init})
+\item If using surface updates, include a surface netCDF file (e.g., {\tt surface.nc}) in the working directory (Section \ref{sec:atm_real_surface})
+\item If running in parallel, include a graph decomposition file in the working directory (Section \ref{sec:metis})
+\item If the MPAS directory has not been cleaned since running initialization, run {\tt make clean} with the {\tt atmosphere} core specified
+\item Compile MPAS with the {\tt atmosphere} core specified (Section \ref{compiling_MPAS})
+\item Edit the default {\tt namelist.atmosphere} configuration file (described below)
+\item Edit the {\tt streams.atmosphere} I/O configuration file (described below)
+\item Run the {\tt atmosphere\_model} executable
 \end{itemize}
 
 Below is a list of variables in {\tt namelist.input} that pertain to input, output, and model restarts.  A number of namelist variables are not listed here (specifications for dynamical core configuration, physics parameters, etc.) and Appendix A should be consulted for the purpose and acceptable values of these parameters.
@@ -259,31 +256,20 @@ Below is a list of variables in {\tt namelist.input} that pertain to input, outp
 \&nhyd\_model                                        & \\
    config\_dt = 450.0                                & the model timestep; an appropriate value must be chosen relative to the grid cell spacing \\
    config\_start\_time = '2010-10-23\_00:00:00'      & the model start time corresponding to {\tt init.nc}\\
-   config\_run\_duration = '5\_00:00:00'             & the duration of the model run; for format rules, see Appendix A \\
-   config\_sfc\_update\_interval = 'none'            & the frequency of surface updates; for format rules, see Appendix A \\
+   config\_run\_duration = '5\_00:00:00'             & the duration of the model run; for format rules, see Appendix \ref{sec:model_namelist} \\
 /                                                    & \\
-   config\_stop\_time  = '0000-01-16\_00:00:00'      & this can be used in place of {\tt config\_run\_duration} \\
-                                                     & \\
-\&io                                                 & \\
-   config\_input\_name = 'init.nc'                   & the IC file from \S 3.1 or 3.2 \\
-   config\_output\_name = 'output.nc'                & the name of the output netCDF file (if necessary, date/time will be inserted automatically) \\
-   config\_restart\_name = 'restart.nc'              & the name given to restart files will that will be created (date/time will be inserted automatically) \\
-   config\_output\_interval = '1\_00:00:00'          & the interval to write data to the output file\\
-   config\_frames\_per\_outfile = 1                  & a non-negative integer; 0 specifies a single output file \\
-   config\_sfc\_update\_name = 'surface.nc'          & only needed if using surface updates (file from \S 3.2.2) \\
-/ 
+
 \\
 \&decomposition                                            & \\
    config\_block\_decomp\_file\_prefix = 'graph.info.part.' & if running in parallel, must match the prefix of the graph decomposition file \\
 /                                                    & \\
 \\
 \&restart                                            & \\
-   config\_restart\_interval = '1\_00:00:00'         & the interval to create restart files; for format rules, see Appendix A \\
    config\_do\_restart = .false.                     & if true, will select the appropriate {\tt restart.nc} file generated from a previous run \\
 / 
 \end{longtable}
 
-When running the model from a cold start, {\tt config\_start\_time} should match the time that was used when creating {\tt init.nc}, and the file names specified in the {\tt \&io} section should be present in the working directory.  The model output can be written to a single file, e.g., {\tt output.nc}, or written to multiple files differentiated by the date of the file's first output frame.  This behaviour is determined by the variable {\tt config\_frames\_per\_outfile}: if set to 0, all output will be written to the single file {\tt output.nc}, and any number greater than 0 determines the maximum number of output frames written per output file.  For example, given the namelist values displayed above, an output file would be written for each day of the model run and each file would contain a single output frame.  Dates are inserted automatically into the output file names, so the output would be {\tt output.2010-10-23\_00:00:00.nc, output.2010-10-24\_00:00:00.nc}, etc.  In this example, if {\tt config\_frames\_per\_outfile} were changed to 3, a new output file would be created every third day and each would contain three frames per file.
+When running the model from a cold start, {\tt config\_start\_time} should match the time that was used when creating {\tt init.nc}, and the file names specified in the {\tt \&io} section should be present in the working directory.  The model output can be written to a single file, e.g., {\tt output.nc}, or written to multiple files differentiated by the date of the file's first output frame.  This behavior is determined by the variable {\tt config\_frames\_per\_outfile}: if set to 0, all output will be written to the single file {\tt output.nc}, and any number greater than 0 determines the maximum number of output frames written per output file.  For example, given the namelist values displayed above, an output file would be written for each day of the model run and each file would contain a single output frame.  Dates are inserted automatically into the output file names, so the output would be {\tt output.2010-10-23\_00:00:00.nc, output.2010-10-24\_00:00:00.nc}, etc.  In this example, if {\tt config\_frames\_per\_outfile} were changed to 3, a new output file would be created every third day and each would contain three frames per file.
 
 During the course of a model run, restart files are created at an interval specified by the namelist variable {\tt config\_restart\_interval}.  A unique restart file is created for each restart time, and as was the case when multiple output files are created, they are differentiated by the automatic insertion of the restart date in the filename.  For example, the namelist values listed above would create the files {\tt restart.2010-10-24\_00:00:00.nc, restart.2010-10-25\_00:00:00.nc}, etc. Unlike with history output files, no restart file is created at the model initial time.
 

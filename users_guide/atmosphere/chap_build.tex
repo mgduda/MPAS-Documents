@@ -6,16 +6,16 @@
 
 To build MPAS, compatible C and Fortran compilers are required. Additionally,
 the MPAS software relies on the PIO parallel I/O library to read and write model
-fields, and the PIO library requires the standard netCDF library as well as the
-parallel-netCDF library from Argonne National Labs. All libraries must be
+fields, and the PIO library requires the standard NetCDF library as well as the
+Parallel-NetCDF library from Argonne National Labs. All libraries must be
 compiled with the same compilers that will be used to build MPAS. Section
 \ref{sec:build_io} summarizes the basic procedure of installing the required I/O
 libraries for MPAS.
 
-In order for the MPAS makefiles to find the PIO, parallel-netCDF, and netCDF
+In order for the MPAS makefiles to find the PIO, Parallel-NetCDF, and NetCDF
 include files and libraries, the environment variables {\tt PIO}, {\tt PNETCDF},
 and {\tt NETCDF} should be set to the root installation directories of the PIO,
-parallel-netCDF, and netCDF installations, respectively. 
+Parallel-NetCDF, and NetCDF installations, respectively. 
 
 An MPI installation such as MPICH or OpenMPI is also required, and there is no
 option to build a serial version of the MPAS executables. There is currently no
@@ -33,17 +33,18 @@ vendors should problems arise during installation. The MPAS developers take no
 responsibility for third-party libraries.} \vspace{12pt}
 
 Although most recent versions of the I/O libraries should work, the most tested
-versions of these libraries are: netCDF 4.1.3, parallel-netCDF 1.3.1, and PIO
-1.6.7. The netCDF and parallel-netCDF libraries must be installed before
+versions of these libraries are: NetCDF 4.1.3, Parallel-NetCDF 1.3.1, and PIO
+1.7.1. The NetCDF and Parallel-NetCDF libraries must be installed before
 building PIO library.
 
-\subsection{netCDF}
+\subsection{NetCDF}
 \label{serial_netcdf}
 
-Version 4.1.3 of the netCDF library may be downloaded from
+Version 4.1.3 of the NetCDF library may be downloaded from
 \url{http://www.unidata.ucar.edu/downloads/netcdf/netcdf-4\_1\_3/index.jsp}.
 Assuming the gfortran and gcc compilers will be used, the following shell
-commands are generally sufficient to install netCDF.
+commands (in csh/tcsh) are generally sufficient to install NetCDF. Of course, other compilers
+may be used by making suitable substitutions in the commands, below.
 
 \vspace{12pt}
 {\tt > setenv FC gfortran}
@@ -62,20 +63,21 @@ commands are generally sufficient to install netCDF.
 \vspace{12pt}
 
 Here, {\tt XXXXX} should be replaced with the directory that will serve as the
-root installation directory for netCDF.  {\em Before proceeding to compile PIO
-the {\tt NETCDF\_PATH} environment variable should be set to the netCDF root
+root installation directory for NetCDF.  {\em Before proceeding to compile PIO
+the {\tt NETCDF\_PATH} environment variable should be set to the NetCDF root
 installation directory.}
 
 Certain compilers require addition flags in the CPPFLAGS environment variable.
-Please refer to the netCDF installation instructions for these flags.
+Please refer to the NetCDF installation instructions for these flags.
 
-\subsection{parallel-netCDF}
+\subsection{Parallel-NetCDF}
 \label{parallel_netcdf}
 
-Version 1.3.1 of the parallel-netCDF library may be downloaded from
-\url{https://trac.mcs.anl.gov/projects/parallel-netcdf/wiki/Download}.  Assuming
+Version 1.3.1 of the Parallel-NetCDF library may be downloaded from
+\url{https://trac.mcs.anl.gov/projects/parallel-netcdf/wiki/Download}. Again, assuming
 the gfortran and gcc compilers will be used, the following shell commands are
-generally sufficient to install parallel-netCDF.
+generally sufficient to install Parallel-NetCDF; environment variables set during the
+installation of the NetCDF library are assumed to be already set.
 
 \vspace{12pt}
 {\tt > setenv MPIF90 mpif90}
@@ -92,9 +94,9 @@ generally sufficient to install parallel-netCDF.
 \vspace{12pt}
 
 Here, {\tt XXXXX} should be replaced with the directory that will serve as the
-root installation directory for parallel-netCDF.  {\em Before proceeding to
+root installation directory for Parallel-NetCDF.  {\em Before proceeding to
 compile PIO the {\tt PNETCDF\_PATH} environment variable should be set to the
-parallel-netCDF root installation directory.}
+Parallel-NetCDF root installation directory.}
 
 
 \subsection{PIO}
@@ -141,7 +143,7 @@ Target & Fortran compiler & C compiler & MPI wrappers \\ \hline \hline
 {\tt pgi} & pgf90 & pgcc & mpif90 / mpicc \\ \hline
 {\tt ifort} & ifort & gcc & mpif90 / mpicc \\ \hline
 {\tt gfortran} & gfortran & gcc & mpif90 / mpicc \\ \hline
-{\tt g95} & g95 & gcc & mpif90 / mpicc \\ \hline
+{\tt bluegene} & bgxlf95\_r & bgxlc\_r & mpxlf95\_r / mpxlc\_r \\ \hline
 \end{longtable}
 \vspace{12pt}
 
@@ -170,10 +172,10 @@ command-line, the command-line value takes precedence; if no core is specified,
 either on the command line or via the {\tt CORE} environment variable, the build
 process will stop with an error message stating such.  Assuming compilation is
 successful, the model executable, named {\tt \$\{CORE\}\_model} (e.g., {\tt
-sw\_model}), should be created in the top-level MPAS directory.
+atmosphere\_model}), should be created in the top-level MPAS directory.
 
 In order to get a list of available cores, one can simply run the top-level {\tt
-Makefile} without setting the {\tt CORE} environment variable, or passing the
+Makefile} without setting the {\tt CORE} environment variable or passing the
 core via the command-line. An example of the output from this can be seen
 below.
 
@@ -191,9 +193,9 @@ Example targets:
     pgi
 
 Availabe Cores:
-    atmos_physics
     atmosphere
     init_atmosphere
+    landice
     ocean
     sw
 
@@ -202,6 +204,7 @@ Available Options:
     USE_PAPI=true - builds version using PAPI for timers. Default is off.
     TAU=true      - builds version using TAU hooks for profiling. Default is off.
     AUTOCLEAN=true    - forces a clean of infrastructure prior to build new core.
+    GEN_F90=true  - Generates intermediate .f90 files through CPP, and builds with them.
 
 Ensure that NETCDF, PNETCDF, PIO, and PAPI (if USE_PAPI=true) are environment variables
 that point to the absolute paths for the libraries.
