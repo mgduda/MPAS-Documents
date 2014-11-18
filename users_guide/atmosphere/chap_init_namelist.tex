@@ -80,16 +80,19 @@ value of {\tt 'none'} represents `no value'.
 \begin{longtable}{|p{1.5in} |p{4.75in}|}
  \hline
    config\_geog\_data\_path  & Path to the WPS static data files (case 7 only) \newline 
-   {\em Default value: '/mmm/users/wrfhelp/WPS\_GEOG/'} \\ \hline
+   {\em Default value: `/mmm/users/wrfhelp/WPS\_GEOG/'} \\ \hline
   
    config\_met\_prefix      & Prefix of ungrib intermediate file to use for initial conditons (case 7 only) \newline 
-   {\em Default value: 'FILE'} \\ \hline
+   {\em Default value: `FILE'} \\ \hline
 
    config\_sfc\_prefix      & Prefix of ungrib intermediate file to use for SST and sea-ice (cases 7 and 8 only) \newline 
-   {\em Default value: 'FILE'} \\ \hline
+   {\em Default value: `FILE'} \\ \hline
 
    config\_fg\_interval     & Interval between intermediate files to use for SST and sea-ice (case 8 only) \newline 
    {\em Default value: 21600} \\ \hline
+   
+   config\_landuse\_data     & The land use classification to use, either `USGS' or `MODIFIED\_IGBP\_MODIS\_NOAH' (case 7 only) \newline 
+   {\em Default value: `USGS'} \\ \hline
 \end{longtable}
 }
 
@@ -136,15 +139,6 @@ value of {\tt 'none'} represents `no value'.
 {\small
 \begin{longtable}{|p{1.75in} |p{4.5in}|}
  \hline
-   config\_input\_name         & Input file name \newline 
-   {\em Default value: 'grid.nc'} \\ \hline
-   
-   config\_sfc\_update\_name        & Surface update file name \newline 
-   {\em Default value: 'sfc\_update.nc'} \\ \hline   
- 
-   config\_output\_name        & Output file name \newline 
-   {\em Default value: 'init.nc'} \\ \hline
-
    config\_pio\_num\_iotasks        & Number of I/O tasks to use \hfill\break 0 implies all MPI tasks are I/O tasks \newline 
    {\em Default value: 0} \\ \hline
 

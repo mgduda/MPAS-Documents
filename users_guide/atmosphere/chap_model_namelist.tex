@@ -6,7 +6,7 @@
 \label{chap:atm_namelist}
 
 This chapter summarizes the complete set of namelist options available when running the MPAS non-hydrostatic atmosphere model.
-All date-time string specifications are of the form described at the beginning of Appendix A.
+All date-time string specifications are of the form described at the beginning of Appendix \ref{chap:init_atm_namelist}.
 
 \section{nhyd\_model}
 
@@ -102,10 +102,6 @@ All date-time string specifications are of the form described at the beginning o
    config\_apvm\_upwinding & Amount of upwinding in APVM \newline 
    {\em Default value: 0.5} \\ \hline   
 
-   config\_sfc\_update\_interval & Interval between updates to surface fields provided in surface update file, 
-   format {\em 'yyyy-mm-dd\_hh:mm:ss'} \newline 
-   {\em Default value: 'none'} \\ \hline
-
 %   config\_newpx & Use new horizontal pressure gradient calculation \newline 
 %   {\em Default value: .false.} \\ \hline
 \end{longtable}
@@ -127,25 +123,14 @@ All date-time string specifications are of the form described at the beginning o
 \section{io}
 
 {\small
-\begin{longtable}{|p{2.0in} |p{4.25in}|}
+\begin{longtable}{|p{1.75in} |p{4.5in}|}
  \hline
-   config\_input\_name & Input file name \newline 
-   {\em Default value: 'init.nc'} \\ \hline
-
-   config\_output\_name & History file name \newline 
-   {\em Default value: 'output.nc'} \\ \hline
-
-   config\_restart\_name & Restart file name \newline 
-   {\em Default value: 'restart.nc'} \\ \hline
-
-   config\_output\_interval & Interval between history writes \newline 
-   {\em Default value: '6:00:00'} \\ \hline
-
-   config\_frames\_per\_outfile & Maximum number of frames per history file \newline 
+   config\_pio\_num\_iotasks        & Number of I/O tasks to use \hfill\break 0 implies all MPI tasks are I/O tasks \newline 
    {\em Default value: 0} \\ \hline
 
-   config\_sfc\_update\_name & Name of surface update file \newline 
-   {\em Default value: 'sfc\_update.nc'} \\ \hline
+   config\_pio\_stride        & The separation (stride) in MPI rank between I/O tasks \newline 
+   {\em Default value: 1} \\ \hline
+   
 \end{longtable}
 }
 
@@ -166,9 +151,6 @@ All date-time string specifications are of the form described at the beginning o
 {\small
 \begin{longtable}{|p{2.0in} |p{4.25in}|}
  \hline
-   config\_restart\_interval & Interval between restart writes \newline 
-   {\em Default value: 'none'} \\ \hline
- 
    config\_do\_restart & Whether this run of the model is a restart run \newline 
    {\em Default value: .false.} \\ \hline
  
@@ -182,9 +164,6 @@ All date-time string specifications are of the form described at the beginning o
 {\small
 \begin{longtable}{|p{2.0in} |p{4.25in}|}
  \hline
-  input\_landuse\_data         &   Acronym used to define landuse categories \hfill\break (Refer to the file LANDUSE.TBL). \newline 
-  {\em Default value: 'USGS'} \\ \hline
-
   input\_soil\_data         &  Acronym used to define the soil categories \hfill\break (Refer to the file SOILPARM.TBL).  \newline 
   {\em Default value: 'STAS'} \\ \hline  
 
@@ -255,8 +234,8 @@ All date-time string specifications are of the form described at the beginning o
                                              `wsm6       ' = WSM6 \newline
   {\em Default value: 'off'} \\ \hline
 
-  config\_conv\_deep\_scheme & Deep convection schemes: \newline
-                                             `off' = no deep convection scheme, \newline
+  config\_convection\_scheme & Convection schemes: \newline
+                                             `off' = no convection scheme, \newline
                                              `kain\_fritsch' = Kain-Fritsch, \newline 
                                              `tiedtke' = Tiedtke \newline
   {\em Default value: 'off'} \\ \hline
