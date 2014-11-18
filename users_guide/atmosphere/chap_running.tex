@@ -49,7 +49,7 @@ The following steps summarize the creation of {\tt init.nc}:
 \item Run {\tt init\_atmosphere\_model} to create the initial condition file, {\tt init.nc}
 \end{itemize}
 
-When the {\tt init\_atmosphere\_model} executable is built, a default initialization namelist, {\tt namelist.init\_atmosphere}, will have been created. A number of the namelist parameters found in {\tt namelist.init\_atmosphere} are irrelevant to creating idealized conditions and can be removed or ignored.  The following table outlines the namelist parameters that are required; comments are given on the right for certain key parameters, and formal explanations for all namelist parameters can be found in Appendix \ref{chap:init_atm_namelist}.
+When the {\tt init\_atmosphere\_model} executable is built, a default namelist, {\tt namelist.init\_atmosphere}, will have been created. A number of the namelist parameters found in {\tt namelist.init\_atmosphere} are irrelevant to creating idealized conditions and can be removed or ignored.  The following table outlines the namelist parameters that are required; comments are given on the right for certain key parameters, and formal explanations for all namelist parameters can be found in Appendix \ref{chap:init_atm_namelist}.
 
 
 \begin{longtable}{p{3in}|p{3.25in}}
@@ -172,7 +172,7 @@ The following steps summarize the creation of {\tt surface.nc}:
 
 \end{longtable}
 
-After editing the {\tt namelist.init\_atmosphere} namelist file, the name of the static file, as well as the name of the surface update file to be created, must be set in the XML I/O configuration file, {\tt streams.init\_atmosphere}. Specifically, the {\tt filename\_template} attribute must be set to the name of the static file in the {\tt "input"} stream definition, and the {\tt filename\_template} attribute must be set to name of the surface update file to be created in the {\tt "output"} stream definition.
+After editing the {\tt namelist.init\_atmosphere} namelist file, the name of the static file, as well as the name of the surface update file to be created, must be set in the XML I/O configuration file, {\tt streams.init\_atmosphere}. Specifically, the {\tt filename\_template} attribute must be set to the name of the static file in the {\tt "input"} stream definition, and the {\tt filename\_template} attribute must be set to name of the surface update file to be created in the {\tt "surface"} stream definition. {\em Also, for the ``surface'' stream, ensure that the ``output\_interval'' attribute is set to the interval at which the surface intermediate files are provided.}
 
 \subsection{Vertical grid generation and initial field interpolation}
 \label{sec:atm_real_met}
@@ -213,8 +213,8 @@ The following steps summarize the creation of {\tt init.nc}:
 \\
 \&vertical\_grid\\
    config\_ztop            = 30000.0                 & model top height (m) \\
-   config\_nsmterrain      = 2                       & number of smoothing passes for terrain \\
-   config\_smooth\_surfaces = .false.                 & whether to smooth zeta surfaces \\
+   config\_nsmterrain      = 1                       & number of smoothing passes for terrain \\
+   config\_smooth\_surfaces = .true.                 & whether to smooth zeta surfaces \\
 /\\
 \\
 \&preproc\_stages                                    & \\
