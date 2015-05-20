@@ -1,0 +1,47 @@
+\chapter{Physics Suites}
+\label{chap:phys_suites}
+
+Beginning with version 4.0, MPAS-Atmosphere introduces a new way of selecting the physics schemes to be used in a simulation. Rather than selecting individual parameterization schemes for different processes (e.g., convection, microphysics, etc.), the preferred method is for the user to select a {\em suite} of parameterization schemes that have been tested together. The selection of a physics suite is made via the new namelist option {\tt config\_physics\_suite} in the {\tt \&physics} namelist record. Each of the available suites are described in the sections that follow.
+
+Although the preferred method for selecting the schemes in a simulation is via the choice of a suite, the need to enable or disable individual schemes, or to substitute alternative schemes for the suite default, is recognized. Accordingly, it is possible to override the choice of any individual parameterization scheme through the namelist options described in Appendix \ref{sec:physics_namelist}. This is useful, e.g., to disable all parameterization except for microphysics when running some idealized simulations, or to turn off the cumulus scheme when running at cloud-resolving resolutions.
+
+\section{Suite: mesoscale\_reference}
+\label{sec:phys_mesoscale_reference} 
+
+The default physics suite in MPAS-Atmosphere is the `mesoscale\_reference' suite, which contains the schemes listed in Table \ref{tab:mesoscale_reference_schemes}. This suite has been tested for mesoscale resolutions ($> 10$ km cell spacing), and is not appropriate for convective-scale simulations because the Tiedtke scheme will remove convective instability before resolved-scale motions (convective cells) can respond to it.
+
+\begin{table}[h]
+\label{tab:mesoscale_reference_schemes}
+\begin{center}
+\caption{The set of parameterization schemes used by the `mesoscale\_reference' physics suite.}
+\vspace{12pt}
+\begin{tabular*}{0.6\textwidth}{@{\extracolsep{\fill} } l l}
+\hline
+\hline
+Parameterization & Scheme \\
+\hline
+Convection & Tiedtke  \\
+Microphysics & WSM6  \\
+Land surface & Noah \\
+Boundary layer & YSU \\
+Surface layer & Monin-Obukhov \\
+Radiation, LW & RRTMG \\
+Radiation, SW & RRTMG \\
+Gravity wave drag & none \\
+\hline
+\end{tabular*}
+\end{center}
+\end{table}
+
+
+\section{Suite: none}
+\label{sec:phys_none} 
+
+As of Version 4.0, the only other recognized physics suite in MPAS-Atmosphere is the `none' suite, which sets all physics parameterizations to `off'. This suite is primarily intended for use with idealized simulations. For example, the idealized supercell test case makes use of the `none' suite, but with the microphysics scheme explicitly overridden:
+
+\begin{verbatim}
+    config_physics_suite = `none'
+    config_microp_scheme = `kessler'
+\end{verbatim}
+
+

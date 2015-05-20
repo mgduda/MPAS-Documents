@@ -25,8 +25,14 @@ All date-time string specifications are of the form described at the beginning o
    config\_stop\_time  & Stopping time for model run \newline 
    {\em Default value: 'none'} \\ \hline
 
+   config\_split\_dynamics\_transport & Whether to split integration of dynamics equations from scalar transport \newline 
+   {\em Default value: .true.} \\ \hline
+   
    config\_number\_of\_sub\_steps & Number of acoustic steps per large RK step \newline 
-   {\em Default value: 6} \\ \hline
+   {\em Default value: 2} \\ \hline
+
+   config\_dynamics\_split\_steps & Number of full RK steps per timestep \newline 
+   {\em Default value: 3} \\ \hline
 
    config\_h\_mom\_eddy\_visc2 & $\nabla^2$ eddy viscosity for horizontal diffusion of momentum \newline 
    {\em Default value: 0.0} \\ \hline
@@ -173,40 +179,11 @@ All date-time string specifications are of the form described at the beginning o
 }
          
 \section{physics}
+\label{sec:physics_namelist}
 
 {\small
 \begin{longtable}{|p{2.0in} |p{4.25in}|}
  \hline
-  input\_soil\_data         &  Acronym used to define the soil categories \hfill\break (Refer to the file SOILPARM.TBL).  \newline 
-  {\em Default value: 'STAS'} \\ \hline  
-
-  input\_soil\_temperature\_lag &  Time lag (number of days) needed when updating the deep soil temperature.  \newline 
-  {\em Default value: 140} \\ \hline
-
-  num\_soil\_layers         & Number of soil layers. \newline 
-  {\em Default value: 4} \\ \hline 
-  
-  months         &  Number of months per year. \newline 
-  {\em Default value: 12} \\ \hline   
-  
-  noznlev         &  Number of input ozone data levels needed for the CAM radiation. \newline 
-  {\em Default value: 59} \\ \hline
-  
-  naerlev         &  Number of input aerosol data levels needed for the CAM radiation.  \newline 
-  {\em Default value: 29} \\ \hline
-  
-  camdim1         &  Dimension needed in the declaration of array absnxt for the CAM radiation code. \newline 
-  {\em Default value: 4} \\ \hline
-         
-  config\_frac\_seaice &  Logical used to define fractional sea-ice. If set to true, fractional sea ice varies between 0 and 1. If set to false, fractional sea-ice is set to a sea-ice flag equal to 1 when sea-ice is present, or zero otherwise. \newline 
-  {\em Default value: .false.} \\ \hline
-
-  config\_sfc\_albedo & Logical used for initializing the background surface albedo. If set to true, the background surface albedo is initialized and updated daily using the monthly mean input static data. If set to false, it is initialized using the file LANDUSE.TBL, and it remains fixed during the entire model run. \newline 
-  {\em Default value: .true.} \\ \hline
-  
-    config\_sfc\_snowalbedo & Logical used for initializing the background surface snow albedo. If set to true, the snow albedo is initialized using the input static data. 
-    If set to false, it is initialized using the file LANDUSE.TBL.\newline 
-  {\em Default value: .true.} \\ \hline
 
   config\_sst\_update & Logical used to update the Sea-Surface Temperatures (SSTs), and fractional sea-ice (if available). If set to true, SSTs are updated using the file config\_sfc\_update\_name. If set to false, SSTs remain fixed during the entire model run. \newline 
   {\em Default value: .false.} \\ \hline
@@ -216,84 +193,82 @@ All date-time string specifications are of the form described at the beginning o
 
   config\_deepsoiltemp\_update & If set to true, deep soil temperatures are slowly updated during the model run. If set to false, deep soil temperatures remain fixed during the entire run. \newline 
   {\em Default value: .false.} \\ \hline
-
-  config\_n\_microp & Number of cloud microphysics time-steps per dynamic time-step. We currently keep cloud microphysics time-steps to values equal or less than 90 seconds. \newline 
-  {\em Default value: 1} \\ \hline
   
   config\_radtlw\_interval & Temporal interval between calls to the parameterizations of long wave radiation, format {\em 'yyyy-mm-dd\_hh:mm:ss'}. \newline 
-  {\em Default value: 'none'} \\ \hline
+  {\em Default value: '00:30:00'} \\ \hline
 
   config\_radtsw\_interval & Temporal interval between calls to the parameterizations of short wave radiation, format {\em 'yyyy-mm-dd\_hh:mm:ss'}. \newline 
-  {\em Default value: 'none'} \\ \hline
-
- config\_conv\_interval & Temporal interval between calls to the parameterizations of convection, format {\em 'yyyy-mm-dd\_hh:mm:ss'}. Note that, for now, we need to use config\_n\_conv instead. \newline
-  {\em Default value: 'none'} \\ \hline
-
-  config\_pbl\_interval & Temporal interval between calls to the PBL parameterizations, format {\em 'yyyy-mm-dd\_hh:mm:ss'}.  \newline 
-  {\em Default value: 'none'} \\ \hline
-
-  config\_camrad\_abs\_update & Temporal interval between updates to the arrays for spectral absorption and emission for the CAM long wave radiation, format {\em 'yyyy-mm-dd\_hh:mm:ss'}. \newline 
-  {\em Default value: '06:00:00'} \\ \hline
-
-  config\_greeness\_update & Temporal interval between updates to the greeness fraction used in the land surface scheme, format {\em 'yyyy-mm-dd\_hh:mm:ss'}. \newline 
-  {\em Default value: '24:00:00'} \\ \hline      
+  {\em Default value: '00:30:00'} \\ \hline     
 
   config\_bucket\_update & Temporal interval between updates to restoring the accumulated rain and radiation fields below their respective bucket values, format {\em 'yyyy-mm-dd\_hh:mm:ss'}. \newline 
   {\em Default value: 'none'} \\ \hline      
 
+  config\_physics\_suite & Physics suite: \newline
+                                             `mesoscale\_reference' = a suite of physics tested for mesoscale resolutions, \newline
+                                             `none' = no physics parameterizations, \newline
+  {\em Default value: 'mesoscale\_reference'} \\ \hline
+
   config\_microp\_scheme & Cloud Microphysics schemes: \newline
-                                             `off '  = no microphysics, \newline
+                                             `off'  = no microphysics, \newline
+                                             `suite'  = scheme determined by the choice of config\_physics\_suite, \newline
                                              `kessler' = Kessler, \newline 
                                              `wsm6       ' = WSM6 \newline
-  {\em Default value: 'off'} \\ \hline
+  {\em Default value: 'suite'} \\ \hline
 
   config\_convection\_scheme & Convection schemes: \newline
                                              `off' = no convection scheme, \newline
+                                             `suite'  = scheme determined by the choice of config\_physics\_suite, \newline
                                              `kain\_fritsch' = Kain-Fritsch, \newline 
                                              `tiedtke' = Tiedtke \newline
-  {\em Default value: 'off'} \\ \hline
+  {\em Default value: 'suite'} \\ \hline
 
   config\_lsm\_scheme & Land-surface schemes: \newline
                                              `off' = no land surface option, \newline
+                                             `suite'  = scheme determined by the choice of config\_physics\_suite, \newline
                                              `noah' = NOAH land-surface scheme \newline                                              
-  {\em Default value: 'off'} \\ \hline
+  {\em Default value: 'suite'} \\ \hline
 
   config\_pbl\_scheme & Planetary Boundary Layer schemes: \newline
                                              `off' = no boundary layer scheme, \newline
+                                             `suite'  = scheme determined by the choice of config\_physics\_suite, \newline
                                              `ysu' = YSU PBL scheme \newline 
-  {\em Default value: 'off'} \\ \hline
+  {\em Default value: 'suite'} \\ \hline
 
   config\_radt\_cld\_scheme & Parameterization of the cloud fraction for the long wave and short wave radiation schemes: \newline
                                               `off' = if LW and SW radiation schemes are both `off', \newline
+                                              `suite'  = scheme determined by the choice of config\_physics\_suite, \newline
                                               'cld\_incidence' = the cloud fraction is equal to 0 or 1, \newline
                                               'cld\_fraction' = the cloud fraction varies between 0 and 1,  as a function of the relative humidity \newline
-   {\em Default value: 'off'} \\ \hline
+   {\em Default value: 'suite'} \\ \hline
 
   config\_radt\_lw\_scheme & Long wave (LW) radiation schemes: \newline
                                              `off' = no long-wave radiation scheme, \newline
+                                             `suite'  = scheme determined by the choice of config\_physics\_suite, \newline
                                              `cam\_lw' = CAM LW radiation scheme, \newline 
                                              `rrtmg\_lw' = RRTMG LW radiation scheme \newline
-  {\em Default value: 'off'} \\ \hline
+  {\em Default value: 'suite'} \\ \hline
 
   config\_radt\_sw\_scheme & Short wave (SW) radiation scheme: \newline
                                              `off' = no short-wave radiation scheme, \newline
+                                             `suite'  = scheme determined by the choice of config\_physics\_suite, \newline
                                              `cam\_sw' = CAM SW radiation scheme, \newline
                                              `rrtmg\_sw' = RRTMG SW radiation scheme \newline                                                                                           
-  {\em Default value: 'off'} \\ \hline
+  {\em Default value: 'suite'} \\ \hline
 
   config\_sfclayer\_scheme &  Surface-layer schemes \newline
                                              `off' = no surface-layer scheme, \newline
+                                             `suite'  = scheme determined by the choice of config\_physics\_suite, \newline
                                              `monin\_obukhov' = Monin-Obukhov scheme \newline                                              
-  {\em Default value: 'off'} \\ \hline
+  {\em Default value: 'suite'} \\ \hline
  
-  config\_bucket\_radt &  Threshold value below which accumulated long wave and short wave radiation fields are restored to if config\_bucket\_update is different than \em 'none'. \newline
-  {\em Default value: '0.0'} \\ \hline
+  config\_bucket\_radt &  Threshold value below which accumulated long wave and short wave radiation fields are restored to if config\_bucket\_update is different from \em 'none'. \newline
+  {\em Default value: '1.0e9'} \\ \hline
   
-  config\_bucket\_rainc &  Threshold value below which the accumulated convective precipitation is restored to if config\_bucket\_update is different than \em 'none'.\newline
-  {\em Default value: '0.0'} \\ \hline
+  config\_bucket\_rainc &  Threshold value below which the accumulated convective precipitation is restored to if config\_bucket\_update is different from \em 'none'.\newline
+  {\em Default value: '100.0'} \\ \hline
   
-  config\_bucket\_rainnc &  Threshold value below which the accumulated grid-scale precipitation is restored to if config\_bucket\_update is different than \em 'none'. \newline
-  {\em Default value: '0.0'} \\ \hline
+  config\_bucket\_rainnc &  Threshold value below which the accumulated grid-scale precipitation is restored to if config\_bucket\_update is different from \em 'none'. \newline
+  {\em Default value: '100.0'} \\ \hline
   
 \end{longtable}
 }

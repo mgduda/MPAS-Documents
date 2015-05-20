@@ -215,6 +215,33 @@ No CORE specified. Quitting.
 \end{verbatim}
 }
 
+\section{Selecting a single-precision build}
+
+Beginning with version 2.0, MPAS-Atmosphere can be compiled and run in single-precision, offering faster 
+model execution and smaller input and output files. To compile a single-precision MPAS-Atmosphere executable, it 
+is necessary to first add {\tt -DSINGLE\_PRECISION} to the definition of {\tt MODEL\_FORMULATION} at the top 
+of the main {\tt Makefile}. Additionally, any compiler flags, such as {\tt -fdefault-real-8}, {\tt -r8}, or {\tt -real-size 64} must be removed 
+from the compiler target that will be used. For example, if compiling with the gfortran compiler, one would change the line
+
+\begin{verbatim}
+        "FFLAGS_OPT = -O3 -m64 -ffree-line-length-none -fdefault-real-8 -fdefault-double-8 
+                                                           -fconvert=big-endian -ffree-form" \
+\end{verbatim}
+
+\noindent in the top-level Makefile to
+
+\begin{verbatim}
+        "FFLAGS_OPT = -O3 -m64 -ffree-line-length-none -fconvert=big-endian -ffree-form" \
+\end{verbatim}
+
+\noindent before compiling the {\em init\_atmsophere\_model} and {\em atmosphere\_model} executables as usual.
+
+Note that running MPAS-Atmosphere in single-precision requires the user to begin with single-precision SCVT grid files, 
+and all pre-processing steps must be run using a single-precision version of init\_atmosphere\_model with these grid files. 
+In order to obtain suitable grid files, any existing double-precision SCVT grid file that was downloaded from the MPAS-Atmosphere 
+meshes download page may be run through the {\tt double\_to\_float\_grid} converter program to produce a single-precision grid file. 
+Using the double-precision grid files with single-precision executables will not work.
+
 \section{Cleaning}
 
 To remove all files  that were created when the model was built,
