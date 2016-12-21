@@ -6,6 +6,7 @@
 \usepackage{hyperref}
 \usepackage{color}
 \usepackage{calc}
+\usepackage{url}
 
 \setlength{\topmargin}{0in}
 \setlength{\headheight}{0in}
@@ -20,6 +21,19 @@
 
 \newcommand{\version}{5.0}
 \newcommand{\core}{atmosphere}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=red
+}
+
+
+% Thanks, StackExchange!
+% http://tex.stackexchange.com/questions/20890/define-an-escape-underscore-environment
+\DeclareUrlCommand\UScore{\urlstyle{rm}}
+
+\newcommand{\namelist}[1]{\hyperlink{#1}{\UScore{#1}}}
+\newcommand{\field}[1]{\hyperlink{#1}{\UScore{#1}}}
 
 \begin{document}
 
