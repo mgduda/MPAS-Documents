@@ -1,275 +1,1098 @@
-%--------------------------------------------------------------------------------------------
-% Model Namelist Options
-%--------------------------------------------------------------------------------------------
-
 \chapter{Model Namelist Options}
 \label{chap:atm_namelist}
-
-This chapter summarizes the complete set of namelist options available when running the MPAS non-hydrostatic atmosphere model.
-All date-time string specifications are of the form described at the beginning of Appendix \ref{chap:init_atm_namelist}.
-
+This chapter summarizes the complete set of namelist options available when running the MPAS non-hydrostatic atmosphere model. All date-time string specifications are of the form described at the beginning of Appendix \ref{chap:init_atm_namelist}.
+\renewcommand{\arraystretch}{1.5}
 \section{nhyd\_model}
+\small
 
-{\small
-\begin{longtable}{|p{1.75in} |p{4.5in}|}
- \hline   
-   config\_dt & Model time step, in seconds \newline 
-   {\em Default value: 600.0} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_time_integration}
+\noindent\textbf{\large{config\_time\_integration}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Time integration scheme (hidden by default)} \\ \hline
+Possible Values & `SRK3' \textit{(default: SRK3)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_start\_time & Starting time for model run \newline 
-   {\em Default value: '0000-01-01\_00:00:00'} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_time_integration_order}
+\noindent\textbf{\large{config\_time\_integration\_order}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Order for RK time integration} \\ \hline
+Possible Values & 2 or 3 \textit{(default: 2)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_run\_duration & Length of model run \newline 
-   {\em Default value: 'none'} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_dt}
+\noindent\textbf{\large{config\_dt}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{s} \\ \hline
+Description & \textit{Model time step, seconds} \\ \hline
+Possible Values & Positive real values \textit{(default: 720.0)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_stop\_time  & Stopping time for model run \newline 
-   {\em Default value: 'none'} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_calendar_type}
+\noindent\textbf{\large{config\_calendar\_type}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Simulation calendar type (hidden by default)} \\ \hline
+Possible Values & `gregorian',`gregorian\_noleap' \textit{(default: gregorian)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_split\_dynamics\_transport & Whether to split integration of dynamics equations from scalar transport \newline 
-   {\em Default value: .true.} \\ \hline
-   
-   config\_number\_of\_sub\_steps & Number of acoustic steps per large RK step \newline 
-   {\em Default value: 2} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_start_time}
+\noindent\textbf{\large{config\_start\_time}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Starting time for model simulation} \\ \hline
+Possible Values & `YYYY-MM-DD\_hh:mm:ss' \textit{(default: 2010-10-23\_00:00:00)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_dynamics\_split\_steps & Number of full RK steps per timestep \newline 
-   {\em Default value: 3} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_stop_time}
+\noindent\textbf{\large{config\_stop\_time}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Stopping time for model simulation (hidden by default)} \\ \hline
+Possible Values & `YYYY-MM-DD\_hh:mm:ss' \textit{(default: none)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_h\_mom\_eddy\_visc2 & $\nabla^2$ eddy viscosity for horizontal diffusion of momentum \newline 
-   {\em Default value: 0.0} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_run_duration}
+\noindent\textbf{\large{config\_run\_duration}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Length of model simulation} \\ \hline
+Possible Values & [DDD\_]hh:mm:ss \textit{(default: 5\_00:00:00)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_h\_mom\_eddy\_visc4 & $\nabla^4$ eddy hyper-viscosity for horizontal diffusion of momentum \newline 
-   {\em Default value: 0.0} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_split_dynamics_transport}
+\noindent\textbf{\large{config\_split\_dynamics\_transport}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Whether to super-cycle scalar transport} \\ \hline
+Possible Values & Logical values \textit{(default: true)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_v\_mom\_eddy\_visc2 & $\nabla^2$ eddy viscosity for vertical diffusion of momentum \newline 
-   {\em Default value: 0.0} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_number_of_sub_steps}
+\noindent\textbf{\large{config\_number\_of\_sub\_steps}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Number of acoustic steps per full RK step} \\ \hline
+Possible Values & Positive, even integer values, typically 2 or 6 depending on transport splitting \textit{(default: 2)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_h\_theta\_eddy\_visc2 & $\nabla^2$ eddy viscosity for horizontal diffusion of theta \newline 
-   {\em Default value: 0.0} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_dynamics_split_steps}
+\noindent\textbf{\large{config\_dynamics\_split\_steps}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{When config\_split\_dynamics\_transport = T, the number of RK steps per transport step} \\ \hline
+Possible Values & Positive integer values \textit{(default: 3)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_h\_theta\_eddy\_visc4 & $\nabla^4$ eddy hyper-viscosity for horizontal diffusion of theta \newline 
-   {\em Default value: 0.0} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_h_mom_eddy_visc2}
+\noindent\textbf{\large{config\_h\_mom\_eddy\_visc2}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m\textsuperscript2 s\textsuperscript{-1}} \\ \hline
+Description & \textit{$\nabla^2$ eddy viscosity for horizontal diffusion of momentum} \\ \hline
+Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_v\_theta\_eddy\_visc2 & $\nabla^2$ eddy viscosity for vertical diffusion of theta \newline 
-   {\em Default value: 0.0} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_h_mom_eddy_visc4}
+\noindent\textbf{\large{config\_h\_mom\_eddy\_visc4}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m\textsuperscript4 s\textsuperscript{-1}} \\ \hline
+Description & \textit{$\nabla^4$ eddy hyper-viscosity for horizontal diffusion of momentum} \\ \hline
+Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_horiz\_mixing & Formulation of horizontal mixing: \newline
-                                           `2d\_smagorinsky' = 2-d Smagorinsky formulation, \newline
-                                           `2d\_fixed' = fixed eddy viscosity, \newline 
-   {\em Default value: '2d\_smagorinsky'} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_v_mom_eddy_visc2}
+\noindent\textbf{\large{config\_v\_mom\_eddy\_visc2}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m\textsuperscript2 s\textsuperscript{-1}} \\ \hline
+Description & \textit{$\nabla^2$ eddy viscosity for vertical diffusion of momentum} \\ \hline
+Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_len\_disp & Horizontal length scale for Smagorinsky formulation of horizontal diffusion \newline 
-   {\em Default value: 120000.0} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_h_theta_eddy_visc2}
+\noindent\textbf{\large{config\_h\_theta\_eddy\_visc2}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m\textsuperscript2 s\textsuperscript{-1}} \\ \hline
+Description & \textit{$\nabla^2$ eddy viscosity for horizontal diffusion of theta} \\ \hline
+Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_theta\_adv\_order & Horizontal advection order for theta \newline 
-   {\em Default value: 3} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_h_theta_eddy_visc4}
+\noindent\textbf{\large{config\_h\_theta\_eddy\_visc4}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m\textsuperscript4 s\textsuperscript{-1}} \\ \hline
+Description & \textit{$\nabla^4$ eddy hyper-viscosity for horizontal diffusion of theta} \\ \hline
+Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_scalar\_adv\_order & Horizontal advection order for scalars \newline 
-   {\em Default value: 3} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_v_theta_eddy_visc2}
+\noindent\textbf{\large{config\_v\_theta\_eddy\_visc2}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m\textsuperscript2 s\textsuperscript{-1}} \\ \hline
+Description & \textit{$\nabla^2$ eddy viscosity for vertical diffusion of theta} \\ \hline
+Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_w\_adv\_order & Horizontal advection order for w \newline 
-   {\em Default value: 3} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_horiz_mixing}
+\noindent\textbf{\large{config\_horiz\_mixing}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Formulation of horizontal mixing} \\ \hline
+Possible Values & `2d\_fixed' or `2d\_smagorinsky' \textit{(default: 2d\_smagorinsky)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_u\_vadv\_order & Vertical advection order for normal velocities (u) \newline 
-   {\em Default value: 3} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_len_disp}
+\noindent\textbf{\large{config\_len\_disp}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Horizontal length scale for Smagorinsky formulation of horizontal diffusion} \\ \hline
+Possible Values & Positive real values \textit{(default: 120000.0)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_w\_vadv\_order & Vertical advection order for w \newline 
-   {\em Default value: 3} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_visc4_2dsmag}
+\noindent\textbf{\large{config\_visc4\_2dsmag}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Scaling coefficient of $\delta x^3$ to obtain $\nabla^4$ diffusion coefficient} \\ \hline
+Possible Values & Non-negative real values \textit{(default: 0.05)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_theta\_vadv\_order & Vertical advection order for theta \newline 
-   {\em Default value: 3} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_del4u_div_factor}
+\noindent\textbf{\large{config\_del4u\_div\_factor}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Scaling factor for the divergent component of $\nabla^4 u$ calculation (hidden by default)} \\ \hline
+Possible Values & Positive real values \textit{(default: 10.0)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_scalar\_vadv\_order & Vertical advection order for scalars \newline 
-   {\em Default value: 3} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_w_adv_order}
+\noindent\textbf{\large{config\_w\_adv\_order}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Horizontal advection order for w} \\ \hline
+Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_coef\_3rd\_order & Upwinding coefficient in the 3rd order advection scheme. \hfill\break 0 $\le$ config\_coef\_3rd\_order $\le$ 1 \newline 
-   {\em Default value: 0.25} \\ \hline
-   
-   config\_scalar\_advection & Whether to advect scalar fields \newline 
-   {\em Default value: .true.} \\ \hline   
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_theta_adv_order}
+\noindent\textbf{\large{config\_theta\_adv\_order}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Horizontal advection order for theta} \\ \hline
+Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_positive\_definite & Whether to enable positive-definite advection of scalars \newline 
-   {\em Default value: .false.} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_scalar_adv_order}
+\noindent\textbf{\large{config\_scalar\_adv\_order}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Horizontal advection order for scalars} \\ \hline
+Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_monotonic & Whether to enable monotonic limiter in scalar advection \newline 
-   {\em Default value: .true.} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_u_vadv_order}
+\noindent\textbf{\large{config\_u\_vadv\_order}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Vertical advection order for normal velocities (u)} \\ \hline
+Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_mix\_full & mix full $\theta$ and $u$ fields, or mix perturbation from initial state \newline 
-   {\em Default value: .true.} \\ \hline   
-      
-   config\_epssm & Off-centering parameter for the vertically implicit acoustic \hfill \break integration, dimensionless \newline 
-   {\em Default value: 0.1} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_w_vadv_order}
+\noindent\textbf{\large{config\_w\_vadv\_order}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Vertical advection order for w} \\ \hline
+Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_smdiv & 3D divergence damping coefficient, dimensionless. \newline 
-   {\em Default value: 0.1} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_theta_vadv_order}
+\noindent\textbf{\large{config\_theta\_vadv\_order}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Vertical advection order for theta} \\ \hline
+Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_h\_ScaleWithMesh & Scale eddy viscosities with mesh-density function for horizontal diffusion \newline 
-   {\em Default value: .false.} \\ \hline
-   
-   config\_apvm\_upwinding & Amount of upwinding in APVM \newline 
-   {\em Default value: 0.5} \\ \hline   
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_scalar_vadv_order}
+\noindent\textbf{\large{config\_scalar\_vadv\_order}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Vertical advection order for scalars} \\ \hline
+Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-%   config\_newpx & Use new horizontal pressure gradient calculation \newline 
-%   {\em Default value: .false.} \\ \hline
-\end{longtable}
-}
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_scalar_advection}
+\noindent\textbf{\large{config\_scalar\_advection}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Whether to advect scalar fields} \\ \hline
+Possible Values & .true. or .false. \textit{(default: true)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_positive_definite}
+\noindent\textbf{\large{config\_positive\_definite}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Whether to enable positive-definite advection of scalars} \\ \hline
+Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_monotonic}
+\noindent\textbf{\large{config\_monotonic}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Whether to enable monotonic limiter in scalar advection} \\ \hline
+Possible Values & .true. or .false. \textit{(default: true)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_coef_3rd_order}
+\noindent\textbf{\large{config\_coef\_3rd\_order}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Upwinding coefficient in the 3rd order advection scheme} \\ \hline
+Possible Values & 0 $\leq$ config\_coef\_3rd\_order $\leq$ 1 \textit{(default: 0.25)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_smagorinsky_coef}
+\noindent\textbf{\large{config\_smagorinsky\_coef}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Dimensionless empirical parameter relating the strain tensor to the eddy viscosity in the Smagorinsky turbulence model (hidden by default)} \\ \hline
+Possible Values & Real values typically in the range 0.1 to 0.4 \textit{(default: 0.125)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_mix_full}
+\noindent\textbf{\large{config\_mix\_full}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Mix full $\theta$ and $u$ fields, or mix perturbation from intitial state (hidden by default)} \\ \hline
+Possible Values & .true. or .false. \textit{(default: true)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_epssm}
+\noindent\textbf{\large{config\_epssm}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Off-centering parameter for the vertically implicit acoustic integration} \\ \hline
+Possible Values & Positive real values \textit{(default: 0.1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_smdiv}
+\noindent\textbf{\large{config\_smdiv}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{3-d divergence damping coefficient} \\ \hline
+Possible Values & Positive real values \textit{(default: 0.025)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_smdiv_p_forward}
+\noindent\textbf{\large{config\_smdiv\_p\_forward}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Fractional forward weighting of the pressure during the acoustic step --- a form of 3D divergence damping} \\ \hline
+Possible Values & Real values typically in the range 0 to 0.2 \textit{(default: 0.1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_apvm_upwinding}
+\noindent\textbf{\large{config\_apvm\_upwinding}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Amount of upwinding in APVM (hidden by default)} \\ \hline
+Possible Values & 0 $\leq$ config\_apvm\_upwinding $\leq$ 1 \textit{(default: 0.5)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_h_ScaleWithMesh}
+\noindent\textbf{\large{config\_h\_ScaleWithMesh}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Scale eddy viscosities with mesh-density function for horizontal diffusion (hidden by default)} \\ \hline
+Possible Values & .true. or .false. \textit{(default: true)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_num_halos}
+\noindent\textbf{\large{config\_num\_halos}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Number of halo layers for fields (hidden by default)} \\ \hline
+Possible Values & Integer values, typically 2 or 3; DO NOT CHANGE \textit{(default: 2)} \\ \hline
+\end{tabular} 
+\end{minipage}
 \section{damping}
+\small
 
-{\small
-\begin{longtable}{|p{2.0in} |p{4.25in}|}
- \hline
-   config\_zd & Height MSL to begin w-damping profile \newline 
-   {\em Default value: 22000.0} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_zd}
+\noindent\textbf{\large{config\_zd}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Height MSL to begin w-damping profile} \\ \hline
+Possible Values & Positive real values \textit{(default: 22000.0)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_xnutr & Maximum w-damping coefficient at model top \newline 
-   {\em Default value: 0.0} \\ \hline
-\end{longtable}
-}
-
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_xnutr}
+\noindent\textbf{\large{config\_xnutr}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Maximum w-damping coefficient at model top} \\ \hline
+Possible Values & 0 $\leq$ config\_xnutr $\leq$ 1 \textit{(default: 0.2)} \\ \hline
+\end{tabular} 
+\end{minipage}
 \section{io}
+\small
 
-{\small
-\begin{longtable}{|p{1.75in} |p{4.5in}|}
- \hline
-   config\_pio\_num\_iotasks        & Number of I/O tasks to use \hfill\break 0 implies all MPI tasks are I/O tasks \newline 
-   {\em Default value: 0} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_restart_timestamp_name}
+\noindent\textbf{\large{config\_restart\_timestamp\_name}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Filename used to store most recent restart time stamp (hidden by default)} \\ \hline
+Possible Values & Any valid filename \textit{(default: restart\_timestamp)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_pio\_stride        & The separation (stride) in MPI rank between I/O tasks \newline 
-   {\em Default value: 1} \\ \hline
-   
-\end{longtable}
-}
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_pio_num_iotasks}
+\noindent\textbf{\large{config\_pio\_num\_iotasks}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Number of tasks to perform file I/O} \\ \hline
+Possible Values & Integer valued, 0 $\leq$ config\_pio\_num\_iotasks $\leq$ \# MPI tasks, 0 indicates all tasks perform I/O \textit{(default: 0)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_pio_stride}
+\noindent\textbf{\large{config\_pio\_stride}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Stride between file I/O tasks} \\ \hline
+Possible Values & Integer valued, $\leq$ (\# MPI tasks) / config\_pio\_num\_iotasks \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
 \section{decomposition}
+\small
 
-{\small
-\begin{longtable}{|p{2.0in} |p{4.25in}|}
- \hline
- 
-   config\_block\_decomp\_file\_prefix & Prefix of graph decomposition file, to be suffixed with the MPI task count \newline 
-   {\em Default value: 'graph.info.part.'} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_block_decomp_file_prefix}
+\noindent\textbf{\large{config\_block\_decomp\_file\_prefix}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Prefix of graph decomposition file, to be suffixed with the MPI task count} \\ \hline
+Possible Values & Any valid filename \textit{(default: x1.40962.graph.info.part.)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-\end{longtable}
-}
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_number_of_blocks}
+\noindent\textbf{\large{config\_number\_of\_blocks}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Number of blocks to assign to each MPI task (hidden by default)} \\ \hline
+Possible Values & Positive integer values \textit{(default: 0)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_explicit_proc_decomp}
+\noindent\textbf{\large{config\_explicit\_proc\_decomp}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Whether to use an explicit mapping of blocks to MPI tasks (hidden by default)} \\ \hline
+Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_proc_decomp_file_prefix}
+\noindent\textbf{\large{config\_proc\_decomp\_file\_prefix}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Prefix of block mapping file (hidden by default)} \\ \hline
+Possible Values & Any valid filename \textit{(default: graph.info.part.)} \\ \hline
+\end{tabular} 
+\end{minipage}
 \section{restart}
+\small
 
-{\small
-\begin{longtable}{|p{2.0in} |p{4.25in}|}
- \hline
-   config\_do\_restart & Whether this run of the model is a restart run \newline 
-   {\em Default value: .false.} \\ \hline
- 
-   config\_do\_DAcycling & Whether to re-compute coupled fields $\theta_m$, $\tilde\rho$, $\rho u$,  etc. from uncoupled fields when restarting the model; used for cycling DA experiments that analyze uncoupled fields in restart files \newline 
-   {\em Default value: .false.} \\ \hline   
-\end{longtable}
-}
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_do_restart}
+\noindent\textbf{\large{config\_do\_restart}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Whether this run of the model is to restart from a previous restart file or not} \\ \hline
+Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_do_DAcycling}
+\noindent\textbf{\large{config\_do\_DAcycling}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Whether to re-compute coupled fields $\theta_m$, $\tilde{\rho}$, $\rho u$, etc. from uncoupled fields when restarting the model; used for cycling DA experiments that analyze uncoupled fields in restart files (hidden by default)} \\ \hline
+Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
+\end{tabular} 
+\end{minipage}
 \section{printout}
+\small
 
-{\small
-\begin{longtable}{|p{2.0in} |p{4.25in}|}
- \hline
-   config\_print\_global\_minmax\_vel & Whether to print the global min/max of the horizontal normal velocity field at the end of each timestep \newline 
-   {\em Default value: .true.} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_print_global_minmax_vel}
+\noindent\textbf{\large{config\_print\_global\_minmax\_vel}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Whether to print the global min/max of horizontal normal velocity and vertical velocity each timestep} \\ \hline
+Possible Values & .true. or .false. \textit{(default: true)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-   config\_print\_global\_minmax\_sca & Whether to print the global min/max of scalar fields at the end of each timestep \newline 
-   {\em Default value: .false.} \\ \hline    
-\end{longtable}
-}
-         
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_print_detailed_minmax_vel}
+\noindent\textbf{\large{config\_print\_detailed\_minmax\_vel}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Whether to print the global min/max of horizontal normal velocity and vertical velocity each timestep, along with the location in the domain where those extrema occurred} \\ \hline
+Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_print_global_minmax_sca}
+\noindent\textbf{\large{config\_print\_global\_minmax\_sca}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Whether to print the global min/max of scalar fields each timestep (hidden by default)} \\ \hline
+Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
+\end{tabular} 
+\end{minipage}
+\section{IAU}
+\small
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_IAU_option}
+\noindent\textbf{\large{config\_IAU\_option}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Incremental Analysis Update scheme} \\ \hline
+Possible Values & 0 or 1; 0 turns off IAU, 1 uses equal weighting of increments across the IAU window \textit{(default: 0)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_IAU_window_length_s}
+\noindent\textbf{\large{config\_IAU\_window\_length\_s}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{s} \\ \hline
+Description & \textit{Length of window over which analysis increments are applied} \\ \hline
+Possible Values & Non-negative real values \textit{(default: 21600.)} \\ \hline
+\end{tabular} 
+\end{minipage}
 \section{physics}
-\label{sec:physics_namelist}
+\small
 
-{\small
-\begin{longtable}{|p{2.0in} |p{4.25in}|}
- \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{input_soil_data}
+\noindent\textbf{\large{input\_soil\_data}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{input soil use classification (hidden by default)} \\ \hline
+Possible Values & `STAS` \textit{(default: STAS)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-  config\_sst\_update & Logical used to update the Sea-Surface Temperatures (SSTs), and fractional sea-ice (if available). If set to true, SSTs are updated using the file config\_sfc\_update\_name. If set to false, SSTs remain fixed during the entire model run. \newline 
-  {\em Default value: .false.} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{input_soil_temperature_lag}
+\noindent\textbf{\large{input\_soil\_temperature\_lag}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{days over which the deep soil temperature is computed using skin temperature (hidden by default)} \\ \hline
+Possible Values & Positive integers \textit{(default: 140)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-  config\_sstdiurn\_update & If set to true, a diurnal cycle is applied to the SSTs. If set to false, SSTs remain constant during the entire day.\newline 
-  {\em Default value: .false.} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{num_soil_layers}
+\noindent\textbf{\large{num\_soil\_layers}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{number of soil layers in Noah land surface scheme (hidden by default)} \\ \hline
+Possible Values & Positive integers. For Noah LSM, must be set to 4. \textit{(default: 4)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-  config\_deepsoiltemp\_update & If set to true, deep soil temperatures are slowly updated during the model run. If set to false, deep soil temperatures remain fixed during the entire run. \newline 
-  {\em Default value: .false.} \\ \hline
-  
-  config\_radtlw\_interval & Temporal interval between calls to the parameterizations of long wave radiation, format {\em 'yyyy-mm-dd\_hh:mm:ss'}. \newline 
-  {\em Default value: '00:30:00'} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{months}
+\noindent\textbf{\large{months}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{number of months per year (hidden by default)} \\ \hline
+Possible Values & Positive integer values. DO NOT CHANGE. \textit{(default: 12)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-  config\_radtsw\_interval & Temporal interval between calls to the parameterizations of short wave radiation, format {\em 'yyyy-mm-dd\_hh:mm:ss'}. \newline 
-  {\em Default value: '00:30:00'} \\ \hline     
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{noznlev}
+\noindent\textbf{\large{noznlev}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{number of prescribed pressure levels for input climatological ozone volume mixing ratios (hidden by default)} \\ \hline
+Possible Values & Positive integers \textit{(default: 59)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-  config\_bucket\_update & Temporal interval between updates to restoring the accumulated rain and radiation fields below their respective bucket values, format {\em 'yyyy-mm-dd\_hh:mm:ss'}. \newline 
-  {\em Default value: 'none'} \\ \hline      
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{naerlev}
+\noindent\textbf{\large{naerlev}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{number of prescribed pressure levels for input climatological aerosol mixing ratio (hidden by default)} \\ \hline
+Possible Values & Positive integers \textit{(default: 29)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-  config\_physics\_suite & Physics suite: \newline
-                                             `mesoscale\_reference' = a suite of physics tested for mesoscale resolutions, \newline
-                                             `none' = no physics parameterizations, \newline
-  {\em Default value: 'mesoscale\_reference'} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{camdim1}
+\noindent\textbf{\large{camdim1}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{dimension of CAM radiation absorption save array (hidden by default)} \\ \hline
+Possible Values & Positive integers \textit{(default: 4)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-  config\_microp\_scheme & Cloud Microphysics schemes: \newline
-                                             `off'  = no microphysics, \newline
-                                             `suite'  = scheme determined by the choice of config\_physics\_suite, \newline
-                                             `kessler' = Kessler, \newline 
-                                             `wsm6       ' = WSM6 \newline
-  {\em Default value: 'suite'} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_frac_seaice}
+\noindent\textbf{\large{config\_frac\_seaice}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{logical for configuration of fractional sea-ice (hidden by default)} \\ \hline
+Possible Values & .true. for sea-ice between 0 or 1; .false. for sea-ice equal to 0 or 1 (flag). \textit{(default: true)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-  config\_convection\_scheme & Convection schemes: \newline
-                                             `off' = no convection scheme, \newline
-                                             `suite'  = scheme determined by the choice of config\_physics\_suite, \newline
-                                             `kain\_fritsch' = Kain-Fritsch, \newline 
-                                             `tiedtke' = Tiedtke \newline
-  {\em Default value: 'suite'} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_sfc_albedo}
+\noindent\textbf{\large{config\_sfc\_albedo}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{logical for configuration of surface albedo (hidden by default)} \\ \hline
+Possible Values & .true. for climatologically varying surface albedo; .false. for fixed input data \textit{(default: true)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-  config\_lsm\_scheme & Land-surface schemes: \newline
-                                             `off' = no land surface option, \newline
-                                             `suite'  = scheme determined by the choice of config\_physics\_suite, \newline
-                                             `noah' = NOAH land-surface scheme \newline                                              
-  {\em Default value: 'suite'} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_sfc_snowalbedo}
+\noindent\textbf{\large{config\_sfc\_snowalbedo}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{logical for configuration of maximum surface albedo for snow (hidden by default)} \\ \hline
+Possible Values & .true. for geographical distribution; .false. for fixed input data \textit{(default: true)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-  config\_pbl\_scheme & Planetary Boundary Layer schemes: \newline
-                                             `off' = no boundary layer scheme, \newline
-                                             `suite'  = scheme determined by the choice of config\_physics\_suite, \newline
-                                             `ysu' = YSU PBL scheme \newline 
-  {\em Default value: 'suite'} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_sst_update}
+\noindent\textbf{\large{config\_sst\_update}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{logical for configuration of sea-surface temperature} \\ \hline
+Possible Values & .true. for time-varying sea-surface temperatures; .false., otherwise \textit{(default: false)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-  config\_radt\_cld\_scheme & Parameterization of the cloud fraction for the long wave and short wave radiation schemes: \newline
-                                              `off' = if LW and SW radiation schemes are both `off', \newline
-                                              `suite'  = scheme determined by the choice of config\_physics\_suite, \newline
-                                              'cld\_incidence' = the cloud fraction is equal to 0 or 1, \newline
-                                              'cld\_fraction' = the cloud fraction varies between 0 and 1,  as a function of the relative humidity \newline
-   {\em Default value: 'suite'} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_sstdiurn_update}
+\noindent\textbf{\large{config\_sstdiurn\_update}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{logical for configuration of diurnal cycle of sea-surface temperatures} \\ \hline
+Possible Values & .true. for applying a diurnal cycle to sea-surface temperatures; .false., otherwise \textit{(default: false)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-  config\_radt\_lw\_scheme & Long wave (LW) radiation schemes: \newline
-                                             `off' = no long-wave radiation scheme, \newline
-                                             `suite'  = scheme determined by the choice of config\_physics\_suite, \newline
-                                             `cam\_lw' = CAM LW radiation scheme, \newline 
-                                             `rrtmg\_lw' = RRTMG LW radiation scheme \newline
-  {\em Default value: 'suite'} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_deepsoiltemp_update}
+\noindent\textbf{\large{config\_deepsoiltemp\_update}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{logical for configuration of deep soil temperatures} \\ \hline
+Possible Values & .true. for slowly time-varying deep soil temperatures; .false. otherwise \textit{(default: false)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-  config\_radt\_sw\_scheme & Short wave (SW) radiation scheme: \newline
-                                             `off' = no short-wave radiation scheme, \newline
-                                             `suite'  = scheme determined by the choice of config\_physics\_suite, \newline
-                                             `cam\_sw' = CAM SW radiation scheme, \newline
-                                             `rrtmg\_sw' = RRTMG SW radiation scheme \newline                                                                                           
-  {\em Default value: 'suite'} \\ \hline
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_o3climatology}
+\noindent\textbf{\large{config\_o3climatology}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{logical for configuration of input ozone data in RRMTG long- and short-wave radiation (hidden by default)} \\ \hline
+Possible Values & .true. for using monthly-varying ozone data; .false. for using fixed vertical profile \textit{(default: false)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
-  config\_sfclayer\_scheme &  Surface-layer schemes \newline
-                                             `off' = no surface-layer scheme, \newline
-                                             `suite'  = scheme determined by the choice of config\_physics\_suite, \newline
-                                             `monin\_obukhov' = Monin-Obukhov scheme \newline                                              
-  {\em Default value: 'suite'} \\ \hline
- 
-  config\_bucket\_radt &  Threshold value below which accumulated long wave and short wave radiation fields are restored to if config\_bucket\_update is different from \em 'none'. \newline
-  {\em Default value: '1.0e9'} \\ \hline
-  
-  config\_bucket\_rainc &  Threshold value below which the accumulated convective precipitation is restored to if config\_bucket\_update is different from \em 'none'.\newline
-  {\em Default value: '100.0'} \\ \hline
-  
-  config\_bucket\_rainnc &  Threshold value below which the accumulated grid-scale precipitation is restored to if config\_bucket\_update is different from \em 'none'. \newline
-  {\em Default value: '100.0'} \\ \hline
-  
-\end{longtable}
-}
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_microp_re}
+\noindent\textbf{\large{config\_microp\_re}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{logical for calculation of the effective radii for cloud water, cloud ice, and snow (hidden by default)} \\ \hline
+Possible Values & .true. for calculating effective radii; .false. for using defaults in RRTMG radiation \textit{(default: false)} \\ \hline
+\end{tabular} 
+\end{minipage}
 
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_ysu_pblmix}
+\noindent\textbf{\large{config\_ysu\_pblmix}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{logical for turning on/off top-down, radiation\_driven mixing (hidden by default)} \\ \hline
+Possible Values & .true. to turn on top-down radiation\_driven mixing; .false. otherwise \textit{(default: false)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_n_microp}
+\noindent\textbf{\large{config\_n\_microp}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{number of microphysics time-steps per physics time-steps (hidden by default)} \\ \hline
+Possible Values & Positive integers \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_radtlw_interval}
+\noindent\textbf{\large{config\_radtlw\_interval}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{time interval between calls to parameterization of long-wave radiation} \\ \hline
+Possible Values & `DD\_HH:MM:SS' or `none' \textit{(default: 00:30:00)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_radtsw_interval}
+\noindent\textbf{\large{config\_radtsw\_interval}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{time interval between calls to parameterization of short-wave radiation} \\ \hline
+Possible Values & `DD\_HH:MM:SS' or `none' \textit{(default: 00:30:00)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_conv_interval}
+\noindent\textbf{\large{config\_conv\_interval}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{time interval between calls to parameterization of convection (hidden by default)} \\ \hline
+Possible Values & `DD\_HH:MM:SS' or `none' \textit{(default: none)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_pbl_interval}
+\noindent\textbf{\large{config\_pbl\_interval}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{time interval between calls to parameterization of planetary boundary layer (hidden by default)} \\ \hline
+Possible Values & `DD\_HH:MM:SS' or `none' \textit{(default: none)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_camrad_abs_update}
+\noindent\textbf{\large{config\_camrad\_abs\_update}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{time interval between updates of absorption/emission coefficients in CAM radiation (hidden by default)} \\ \hline
+Possible Values & `DD\_HH:MM:SS' or `none' \textit{(default: 06:00:00)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_greeness_update}
+\noindent\textbf{\large{config\_greeness\_update}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{time interval between updates of greeness fraction (hidden by default)} \\ \hline
+Possible Values & `DD\_HH:MM:SS' or `none' \textit{(default: 24:00:00)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_bucket_update}
+\noindent\textbf{\large{config\_bucket\_update}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{time interval between updates of accumulated rain and radiation diagnostics} \\ \hline
+Possible Values & `DD\_HH:MM:SS' or `none' \textit{(default: none)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_physics_suite}
+\noindent\textbf{\large{config\_physics\_suite}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Choice of physics suite} \\ \hline
+Possible Values & `mesoscale\_reference',`convection\_scale\_aware',`none' \textit{(default: mesoscale\_reference)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_microp_scheme}
+\noindent\textbf{\large{config\_microp\_scheme}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{configuration for cloud microphysics schemes (hidden by default)} \\ \hline
+Possible Values & `suite',`wsm6',`off' \textit{(default: suite)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_convection_scheme}
+\noindent\textbf{\large{config\_convection\_scheme}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{configuration for convection schemes (hidden by default)} \\ \hline
+Possible Values & `suite',`kain\_fritsch',`tiedtke',`off' \textit{(default: suite)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_lsm_scheme}
+\noindent\textbf{\large{config\_lsm\_scheme}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{configuration for land-surface schemes (hidden by default)} \\ \hline
+Possible Values & `suite',`noah',`off' \textit{(default: suite)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_pbl_scheme}
+\noindent\textbf{\large{config\_pbl\_scheme}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{configuration for planetary boundary layer schemes (hidden by default)} \\ \hline
+Possible Values & `suite',`ysu',`off' \textit{(default: suite)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_gwdo_scheme}
+\noindent\textbf{\large{config\_gwdo\_scheme}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{configuration of gravity wave drag over orography (hidden by default)} \\ \hline
+Possible Values & `suite',`ysu\_gwdo',`off' \textit{(default: suite)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_radt_cld_scheme}
+\noindent\textbf{\large{config\_radt\_cld\_scheme}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{configuration for calculation of horizontal cloud fraction (hidden by default)} \\ \hline
+Possible Values & `suite',`cld\_fraction',`cld\_incidence' \textit{(default: suite)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_radt_lw_scheme}
+\noindent\textbf{\large{config\_radt\_lw\_scheme}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{configuration for long-wave radiation schemes (hidden by default)} \\ \hline
+Possible Values & `suite',`rrtmg\_lw',`cam\_lw',`off' \textit{(default: suite)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_radt_sw_scheme}
+\noindent\textbf{\large{config\_radt\_sw\_scheme}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{configuration for short-wave radiation schemes (hidden by default)} \\ \hline
+Possible Values & `suite',`rrtmg\_sw',`cam\_sw',`off' \textit{(default: suite)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_sfclayer_scheme}
+\noindent\textbf{\large{config\_sfclayer\_scheme}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{configuration for surface layer-scheme (hidden by default)} \\ \hline
+Possible Values & `suite',`monin\_obukhov',`off' \textit{(default: suite)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_gfconv_closure_deep}
+\noindent\textbf{\large{config\_gfconv\_closure\_deep}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{closure option for deep convection in Grell-Freitas convection scheme (hidden by default)} \\ \hline
+Possible Values & 0 \textit{(default: 0)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_gfconv_closure_shallow}
+\noindent\textbf{\large{config\_gfconv\_closure\_shallow}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{closure option for shallow convection in Grell-Freitas convection scheme (hidden by default)} \\ \hline
+Possible Values & 8 \textit{(default: 8)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_bucket_radt}
+\noindent\textbf{\large{config\_bucket\_radt}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{threshold above which accumulated radiation diagnostics are reset (hidden by default)} \\ \hline
+Possible Values & Positive real values \textit{(default: 1.0e9)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_bucket_rainc}
+\noindent\textbf{\large{config\_bucket\_rainc}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{threshold above which the accumulated convective precipitation is reset (hidden by default)} \\ \hline
+Possible Values & Positive real values \textit{(default: 100.0)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_bucket_rainnc}
+\noindent\textbf{\large{config\_bucket\_rainnc}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{threshold above which the accumulated grid-scale precipitation is reset (hidden by default)} \\ \hline
+Possible Values & Positive real values \textit{(default: 100.0)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_oml1d}
+\noindent\textbf{\large{config\_oml1d}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Whether to activate the 1-d ocean mixed-layer model (hidden by default)} \\ \hline
+Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_oml_hml0}
+\noindent\textbf{\large{config\_oml\_hml0}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{If greater than zero, provides the constant, initial mixed-layer depth; if zero, initial mixed-layer depth will be taken from the `oml\_initial` field. (hidden by default)} \\ \hline
+Possible Values & Non-negative real values \textit{(default: 30.0)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_oml_gamma}
+\noindent\textbf{\large{config\_oml\_gamma}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K m\textsuperscript{-1}} \\ \hline
+Description & \textit{Deep water lapse rate in 1-d OML model (hidden by default)} \\ \hline
+Possible Values & Real values \textit{(default: 0.14)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{config_oml_relaxation_time}
+\noindent\textbf{\large{config\_oml\_relaxation\_time}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{s} \\ \hline
+Description & \textit{Relaxation time to initial values in 1-d OML (hidden by default)} \\ \hline
+Possible Values & Non-negative real values \textit{(default: 864000.)} \\ \hline
+\end{tabular} 
+\end{minipage}
