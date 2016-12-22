@@ -1,9 +1,10 @@
 \chapter{Physics Suites}
 \label{chap:phys_suites}
 
-Beginning with version 4.0, MPAS-Atmosphere introduces a new way of selecting the physics schemes to be used in a simulation. Rather than selecting individual parameterization schemes for different processes (e.g., convection, microphysics, etc.), the preferred method is for the user to select a {\em suite} of parameterization schemes that have been tested together. The selection of a physics suite is made via the new namelist option {\tt config\_physics\_suite} in the {\tt \&physics} namelist record. Each of the available suites are described in the sections that follow.
+Beginning with version 4.0, MPAS-Atmosphere introduces a new way of selecting the physics schemes to be used in a simulation. Rather than selecting individual parameterization schemes for different processes (e.g., convection, microphysics, etc.), the preferred method is for the user to select a {\em suite} of parameterization schemes that have been tested together. The selection of a physics suite is made via the new namelist option \namelist{config_physics_suite} in the \namelistrecord{mrec:physics} namelist record. Each of the available suites are described in the sections that follow.
 
-Although the preferred method for selecting the schemes in a simulation is via the choice of a suite, the need to enable or disable individual schemes, or to substitute alternative schemes for the suite default, is recognized. Accordingly, it is possible to override the choice of any individual parameterization scheme through the namelist options described in Appendix \ref{sec:physics_namelist}. This is useful, e.g., to disable all parameterization except for microphysics when running some idealized simulations, or to turn off the cumulus scheme when running at cloud-resolving resolutions.
+Although the preferred method for selecting the schemes in a simulation is via the choice of a suite, the need to enable or disable individual schemes, or to substitute alternative schemes for the suite default, is recognized. Accordingly, it is possible to override the choice of any individual parameterization scheme through the namelist options described in Appendix \ref{chap:atm_namelist}. This is useful, e.g., to disable all parameterization except for microphysics when running some idealized simulations, or to turn off the cumulus scheme when running at cloud-resolving resolutions. The details of selecting individual physics parameterizations is explained in Section \ref{sec:individual_physics_opts}.
+
 
 \section{Suite: mesoscale\_reference}
 \label{sec:phys_mesoscale_reference} 
@@ -11,9 +12,9 @@ Although the preferred method for selecting the schemes in a simulation is via t
 The default physics suite in MPAS-Atmosphere is the `mesoscale\_reference' suite, which contains the schemes listed in Table \ref{tab:mesoscale_reference_schemes}. This suite has been tested for mesoscale resolutions ($>10$ km cell spacing), and is not appropriate for convective-scale simulations because the Tiedtke scheme will remove convective instability before resolved-scale motions (convective cells) can respond to it.
 
 \begin{table}[h]
-\label{tab:mesoscale_reference_schemes}
 \begin{center}
 \caption{The set of parameterization schemes used by the `mesoscale\_reference' physics suite.}
+\label{tab:mesoscale_reference_schemes}
 \vspace{12pt}
 \begin{tabular*}{0.6\textwidth}{@{\extracolsep{\fill} } l l}
 \hline
@@ -27,7 +28,36 @@ Boundary layer & YSU \\
 Surface layer & Monin-Obukhov \\
 Radiation, LW & RRTMG \\
 Radiation, SW & RRTMG \\
-Gravity wave drag & none \\
+Gravity wave drag by orography & YSU \\
+\hline
+\end{tabular*}
+\end{center}
+\end{table}
+
+
+\section{Suite: convection\_permitting}
+\label{sec:phys_convection_permitting} 
+
+The `convection\_permitting' physics suite is appropriate at spatial resolutions allowing for both explicitly resolved hydrostatic and nonhydrostatic motions.  It has been tested for mesh spacings from several hundred kilometers down to 3 km in MPAS. The Grell-Freitas convection scheme transitions from a conventional parameterization of deep convection at hydrostatic scales (cell spacings of several tens of kilometers) to a parameterization of precipitating shallow convection at cell spacings less than 10 km. This is the recommended suite for any MPAS applications where convection-permitting meshes (dx $<$ 10 km) are employed.
+
+\begin{table}[h]
+\begin{center}
+\caption{The set of parameterization schemes used by the `convection\_permitting' physics suite.}
+\label{tab:convection_permitting_schemes}
+\vspace{12pt}
+\begin{tabular*}{0.6\textwidth}{@{\extracolsep{\fill} } l l}
+\hline
+\hline
+Parameterization & Scheme \\
+\hline
+Convection & Grell-Freitas  \\
+Microphysics & Thompson (non-aerosol aware)  \\
+Land surface & Noah \\
+Boundary layer & MYNN \\
+Surface layer & MYNN \\
+Radiation, LW & RRTMG \\
+Radiation, SW & RRTMG \\
+Gravity wave drag by orography & YSU \\
 \hline
 \end{tabular*}
 \end{center}
@@ -37,11 +67,59 @@ Gravity wave drag & none \\
 \section{Suite: none}
 \label{sec:phys_none} 
 
-As of Version 4.0, the only other recognized physics suite in MPAS-Atmosphere is the `none' suite, which sets all physics parameterizations to `off'. This suite is primarily intended for use with idealized simulations. For example, the idealized supercell test case makes use of the `none' suite, but with the microphysics scheme explicitly overridden:
+The only other recognized physics suite in MPAS-Atmosphere is the `none' suite, which sets all physics parameterizations to `off'. This suite is primarily intended for use with idealized simulations. For example, the idealized supercell test case makes use of the `none' suite, but with the microphysics scheme explicitly overridden:
 
 \begin{verbatim}
     config_physics_suite = `none'
     config_microp_scheme = `kessler'
 \end{verbatim}
+
+
+\section{Selecting individual physics options}
+\label{sec:individual_physics_opts} 
+
+Selecting or disabling an individual physics parameterization may be accomplished by setting the appropriate namelist variable to one of its possible options; possible options for individual parameterizations, along with details of those options, are give in Table \ref{tab:individual_physics_opts}. Note that all parameterization options may be set to {\tt `off'} to disable the parameterization of the associated process.
+
+\begin{landscape}
+\begin{table}[h]
+\begin{center}
+\caption{Possible options for individual physics parameterizations. Namelist variables should be added to the \&physics namelist record.}
+\label{tab:individual_physics_opts}
+\vspace{12pt}
+\begin{tabular*}{9.0in}{@{\extracolsep{\fill} } l l l l}
+\hline
+\hline
+Parameterization & Namelist variable & Possible options & Details \\
+\hline
+Convection & config\_convection\_scheme & {\tt cu\_tiedtke} & Tiedtke \\
+ &  & {\tt cu\_ntiedtke} & New Tiedtke (WRF 3.7)  \\
+ &  & {\tt cu\_grell\_freitas} & Modified version of scale-aware Grell-Freitas (WRF 3.6.1)  \\
+ &  & {\tt cu\_kain\_fritsch} & Kain-Fritsch  \\
+ \hline
+Microphysics & config\_microp\_scheme & {\tt mp\_wsm6} & WSM 6-class (WRF)  \\
+ &  & {\tt mp\_thompson} & Thompson non-aerosol aware (WRF 3.7)  \\
+ &  & {\tt mp\_kessler} & Kessler  \\
+ \hline
+Land surface & config\_lsm\_scheme & {\tt noah} & Noah (WRF 3.3.1) \\
+\hline
+Boundary layer & config\_pbl\_scheme & {\tt bl\_ysu} & YSU (WRF) \\
+ &  & {\tt bl\_mynn} & MYNN (WRF 3.8)  \\
+\hline
+Surface layer & config\_sfclay\_scheme & {\tt sf\_monin\_obukhov} & Monin-Obukhov \\
+&  & {\tt sf\_mynn} & MYNN (WRF 3.8)  \\
+\hline
+Radiation, LW & config\_radt\_lw\_scheme & {\tt rrtmg\_lw} & RRTMG \\
+&  & {\tt cam\_lw} & CAM  \\
+\hline
+Radiation, SW & config\_radt\_sw\_scheme & {\tt rrtmg\_sw} & RRTMG \\
+&  & {\tt cam\_sw} & CAM  \\
+\hline
+Gravity wave drag by orography & config\_gwdo\_scheme & {\tt bl\_ysu\_gwdo} & YSU (WRF 3.6.1) \\
+\hline
+\end{tabular*}
+\end{center}
+\end{table}
+\end{landscape}
+
 
 
