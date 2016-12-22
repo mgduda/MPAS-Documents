@@ -6,12 +6,13 @@
  Date-time strings throughout all MPAS namelists assume a common format. Specifically, time intervals are of the form {\tt \bsq{[DDD\_]HH:MM:SS[.sss]}}, where {\tt DDD} is an integer number of days with any number of digits, {\tt HH} is a two-digit hour value, {\tt MM} is a two-digit minute value, {\tt SS} is a two-digit second value, and {\tt sss} are fractions of a second with any number of digits; any part of the time interval format in square brackets ({\tt [ ]}) may be omitted, and if days are omitted, {\tt HH} may be either a one- or two-digit hour specification.  Time instants (e.g., start time or end time) are of the form {\tt \bsq{YYYY-MM-DD[\_HH:MM:SS[.sss]]}}, where {\tt YYYY} is an integer year with any number of digits, {\tt MM} is a two-digit month value, {\tt DD} is a two-digit day value, and {\tt HH:MM:SS.sss} is a time with the same format as in a time interval specification. For both time instants and time intervals, a value of {\tt \bsq{none}} represents \bsq{no value}.
 
 \renewcommand{\arraystretch}{1.5}
+\hypertarget{irec:nhyd_model}{}
 \section{nhyd\_model}
 \small
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_init_case}
+\hypertarget{inl:config_init_case}
 \noindent\textbf{\large{config\_init\_case}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -31,7 +32,7 @@ Possible Values & 1 -- 8 \textit{(default: 7)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_calendar_type}
+\hypertarget{inl:config_calendar_type}
 \noindent\textbf{\large{config\_calendar\_type}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -42,7 +43,7 @@ Possible Values & `gregorian',`gregorian\_noleap' \textit{(default: gregorian)} 
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_start_time}
+\hypertarget{inl:config_start_time}
 \noindent\textbf{\large{config\_start\_time}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -53,7 +54,7 @@ Possible Values & `YYYY-MM-DD\_hh:mm:ss' \textit{(default: 2010-10-23\_00:00:00)
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_stop_time}
+\hypertarget{inl:config_stop_time}
 \noindent\textbf{\large{config\_stop\_time}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -64,7 +65,7 @@ Possible Values & `YYYY-MM-DD\_hh:mm:ss' \textit{(default: 2010-10-23\_00:00:00)
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_theta_adv_order}
+\hypertarget{inl:config_theta_adv_order}
 \noindent\textbf{\large{config\_theta\_adv\_order}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -75,7 +76,7 @@ Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_coef_3rd_order}
+\hypertarget{inl:config_coef_3rd_order}
 \noindent\textbf{\large{config\_coef\_3rd\_order}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -86,7 +87,7 @@ Possible Values & 0 $\leq$ config\_coef\_3rd\_order $\leq$ 1 \textit{(default: 0
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_num_halos}
+\hypertarget{inl:config_num_halos}
 \noindent\textbf{\large{config\_num\_halos}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -94,12 +95,14 @@ Description & \textit{Number of halo layers for fields (hidden by default)} \\ \
 Possible Values & Integer values, typically 2 or 3; DO NOT CHANGE \textit{(default: 2)} \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\hypertarget{irec:dimensions}{}
 \section{dimensions}
 \small
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_nvertlevels}
+\hypertarget{inl:config_nvertlevels}
 \noindent\textbf{\large{config\_nvertlevels}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -110,7 +113,7 @@ Possible Values & Positive integer values \textit{(default: 41)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_nsoillevels}
+\hypertarget{inl:config_nsoillevels}
 \noindent\textbf{\large{config\_nsoillevels}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -121,7 +124,7 @@ Possible Values & Positive integer values \textit{(default: 4)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_nfglevels}
+\hypertarget{inl:config_nfglevels}
 \noindent\textbf{\large{config\_nfglevels}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -132,7 +135,7 @@ Possible Values & Positive integer values \textit{(default: 38)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_nfgsoillevels}
+\hypertarget{inl:config_nfgsoillevels}
 \noindent\textbf{\large{config\_nfgsoillevels}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -143,7 +146,7 @@ Possible Values & Positive integer values \textit{(default: 4)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_months}
+\hypertarget{inl:config_months}
 \noindent\textbf{\large{config\_months}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -151,12 +154,14 @@ Description & \textit{The number of months in a year (hidden by default)} \\ \hl
 Possible Values & Positive integer values \textit{(default: 12)} \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\hypertarget{irec:data_sources}{}
 \section{data\_sources}
 \small
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_geog_data_path}
+\hypertarget{inl:config_geog_data_path}
 \noindent\textbf{\large{config\_geog\_data\_path}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -167,7 +172,7 @@ Possible Values & Any valid path \textit{(default: /glade/p/work/wrfhelp/WPS\_GE
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_met_prefix}
+\hypertarget{inl:config_met_prefix}
 \noindent\textbf{\large{config\_met\_prefix}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -178,7 +183,7 @@ Possible Values & Any alpha-numeric string \textit{(default: CFSR)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_sfc_prefix}
+\hypertarget{inl:config_sfc_prefix}
 \noindent\textbf{\large{config\_sfc\_prefix}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -189,7 +194,7 @@ Possible Values & Any alpha-numeric string \textit{(default: SST)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_fg_interval}
+\hypertarget{inl:config_fg_interval}
 \noindent\textbf{\large{config\_fg\_interval}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -200,7 +205,7 @@ Possible Values & [DDD\_]hh:mm:ss \textit{(default: 86400)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_landuse_data}
+\hypertarget{inl:config_landuse_data}
 \noindent\textbf{\large{config\_landuse\_data}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -211,7 +216,7 @@ Possible Values & `USGS' or `MODIFIED\_IGBP\_MODIS\_NOAH' \textit{(default: USGS
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_use_spechumd}
+\hypertarget{inl:config_use_spechumd}
 \noindent\textbf{\large{config\_use\_spechumd}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -219,12 +224,14 @@ Description & \textit{Whether to use specific-humidity as the first-guess moistu
 Possible Values & true or false \textit{(default: false)} \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\hypertarget{irec:vertical_grid}{}
 \section{vertical\_grid}
 \small
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_ztop}
+\hypertarget{inl:config_ztop}
 \noindent\textbf{\large{config\_ztop}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m} \\ \hline
@@ -235,7 +242,7 @@ Possible Values & Positive real values \textit{(default: 30000.0)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_nsmterrain}
+\hypertarget{inl:config_nsmterrain}
 \noindent\textbf{\large{config\_nsmterrain}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -246,7 +253,7 @@ Possible Values & Non-negative integer values \textit{(default: 1)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_smooth_surfaces}
+\hypertarget{inl:config_smooth_surfaces}
 \noindent\textbf{\large{config\_smooth\_surfaces}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -257,7 +264,7 @@ Possible Values & true or false \textit{(default: true)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_dzmin}
+\hypertarget{inl:config_dzmin}
 \noindent\textbf{\large{config\_dzmin}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -268,7 +275,7 @@ Possible Values & Real values in the interval (0,1) \textit{(default: 0.3)} \\ \
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_nsm}
+\hypertarget{inl:config_nsm}
 \noindent\textbf{\large{config\_nsm}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -279,7 +286,7 @@ Possible Values & Positive integer values \textit{(default: 30)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_tc_vertical_grid}
+\hypertarget{inl:config_tc_vertical_grid}
 \noindent\textbf{\large{config\_tc\_vertical\_grid}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -287,12 +294,14 @@ Description & \textit{Whether to use the vertical layer profile that was develop
 Possible Values & true or false \textit{(default: true)} \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\hypertarget{irec:preproc_stages}{}
 \section{preproc\_stages}
 \small
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_static_interp}
+\hypertarget{inl:config_static_interp}
 \noindent\textbf{\large{config\_static\_interp}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -303,7 +312,7 @@ Possible Values & true or false \textit{(default: true)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_native_gwd_static}
+\hypertarget{inl:config_native_gwd_static}
 \noindent\textbf{\large{config\_native\_gwd\_static}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -314,7 +323,7 @@ Possible Values & true or false \textit{(default: true)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_gwd_cell_scaling}
+\hypertarget{inl:config_gwd_cell_scaling}
 \noindent\textbf{\large{config\_gwd\_cell\_scaling}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -325,7 +334,7 @@ Possible Values & Positive real values \textit{(default: 1.0)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_vertical_grid}
+\hypertarget{inl:config_vertical_grid}
 \noindent\textbf{\large{config\_vertical\_grid}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -336,7 +345,7 @@ Possible Values & true or false \textit{(default: true)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_met_interp}
+\hypertarget{inl:config_met_interp}
 \noindent\textbf{\large{config\_met\_interp}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -347,7 +356,7 @@ Possible Values & true or false \textit{(default: true)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_input_sst}
+\hypertarget{inl:config_input_sst}
 \noindent\textbf{\large{config\_input\_sst}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -358,7 +367,7 @@ Possible Values & true or false \textit{(default: false)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_frac_seaice}
+\hypertarget{inl:config_frac_seaice}
 \noindent\textbf{\large{config\_frac\_seaice}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -366,12 +375,14 @@ Description & \textit{Whether to switch sea-ice threshold from 0.5 to 0.02} \\ \
 Possible Values & true or false \textit{(default: true)} \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\hypertarget{irec:io}{}
 \section{io}
 \small
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_pio_num_iotasks}
+\hypertarget{inl:config_pio_num_iotasks}
 \noindent\textbf{\large{config\_pio\_num\_iotasks}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -382,7 +393,7 @@ Possible Values & Integer valued, 0 $\leq$ config\_pio\_num\_iotasks $\leq$ \# M
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_pio_stride}
+\hypertarget{inl:config_pio_stride}
 \noindent\textbf{\large{config\_pio\_stride}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -390,12 +401,14 @@ Description & \textit{Stride between file I/O tasks} \\ \hline
 Possible Values & Integer valued, $\leq$ (\# MPI tasks) / config\_pio\_num\_iotasks \textit{(default: 1)} \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\hypertarget{irec:decomposition}{}
 \section{decomposition}
 \small
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_block_decomp_file_prefix}
+\hypertarget{inl:config_block_decomp_file_prefix}
 \noindent\textbf{\large{config\_block\_decomp\_file\_prefix}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -406,7 +419,7 @@ Possible Values & Any valid filename \textit{(default: x1.40962.graph.info.part.
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_number_of_blocks}
+\hypertarget{inl:config_number_of_blocks}
 \noindent\textbf{\large{config\_number\_of\_blocks}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -417,7 +430,7 @@ Possible Values & Positive integer values \textit{(default: 0)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_explicit_proc_decomp}
+\hypertarget{inl:config_explicit_proc_decomp}
 \noindent\textbf{\large{config\_explicit\_proc\_decomp}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -428,7 +441,7 @@ Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_proc_decomp_file_prefix}
+\hypertarget{inl:config_proc_decomp_file_prefix}
 \noindent\textbf{\large{config\_proc\_decomp\_file\_prefix}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline

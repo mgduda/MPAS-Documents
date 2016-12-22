@@ -2,12 +2,13 @@
 \label{chap:atm_namelist}
 This chapter summarizes the complete set of namelist options available when running the MPAS non-hydrostatic atmosphere model. All date-time string specifications are of the form described at the beginning of Appendix \ref{chap:init_atm_namelist}.
 \renewcommand{\arraystretch}{1.5}
+\hypertarget{mrec:nhyd_model}{}
 \section{nhyd\_model}
 \small
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_time_integration}
+\hypertarget{mnl:config_time_integration}
 \noindent\textbf{\large{config\_time\_integration}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -18,7 +19,7 @@ Possible Values & `SRK3' \textit{(default: SRK3)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_time_integration_order}
+\hypertarget{mnl:config_time_integration_order}
 \noindent\textbf{\large{config\_time\_integration\_order}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -29,7 +30,7 @@ Possible Values & 2 or 3 \textit{(default: 2)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_dt}
+\hypertarget{mnl:config_dt}
 \noindent\textbf{\large{config\_dt}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{s} \\ \hline
@@ -40,7 +41,7 @@ Possible Values & Positive real values \textit{(default: 720.0)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_calendar_type}
+\hypertarget{mnl:config_calendar_type}
 \noindent\textbf{\large{config\_calendar\_type}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -51,7 +52,7 @@ Possible Values & `gregorian',`gregorian\_noleap' \textit{(default: gregorian)} 
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_start_time}
+\hypertarget{mnl:config_start_time}
 \noindent\textbf{\large{config\_start\_time}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -62,7 +63,7 @@ Possible Values & `YYYY-MM-DD\_hh:mm:ss' \textit{(default: 2010-10-23\_00:00:00)
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_stop_time}
+\hypertarget{mnl:config_stop_time}
 \noindent\textbf{\large{config\_stop\_time}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -73,7 +74,7 @@ Possible Values & `YYYY-MM-DD\_hh:mm:ss' \textit{(default: none)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_run_duration}
+\hypertarget{mnl:config_run_duration}
 \noindent\textbf{\large{config\_run\_duration}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -84,7 +85,7 @@ Possible Values & [DDD\_]hh:mm:ss \textit{(default: 5\_00:00:00)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_split_dynamics_transport}
+\hypertarget{mnl:config_split_dynamics_transport}
 \noindent\textbf{\large{config\_split\_dynamics\_transport}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -95,7 +96,7 @@ Possible Values & Logical values \textit{(default: true)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_number_of_sub_steps}
+\hypertarget{mnl:config_number_of_sub_steps}
 \noindent\textbf{\large{config\_number\_of\_sub\_steps}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -106,7 +107,7 @@ Possible Values & Positive, even integer values, typically 2 or 6 depending on t
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_dynamics_split_steps}
+\hypertarget{mnl:config_dynamics_split_steps}
 \noindent\textbf{\large{config\_dynamics\_split\_steps}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -117,7 +118,7 @@ Possible Values & Positive integer values \textit{(default: 3)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_h_mom_eddy_visc2}
+\hypertarget{mnl:config_h_mom_eddy_visc2}
 \noindent\textbf{\large{config\_h\_mom\_eddy\_visc2}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript2 s\textsuperscript{-1}} \\ \hline
@@ -128,7 +129,7 @@ Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_h_mom_eddy_visc4}
+\hypertarget{mnl:config_h_mom_eddy_visc4}
 \noindent\textbf{\large{config\_h\_mom\_eddy\_visc4}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript4 s\textsuperscript{-1}} \\ \hline
@@ -139,7 +140,7 @@ Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_v_mom_eddy_visc2}
+\hypertarget{mnl:config_v_mom_eddy_visc2}
 \noindent\textbf{\large{config\_v\_mom\_eddy\_visc2}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript2 s\textsuperscript{-1}} \\ \hline
@@ -150,7 +151,7 @@ Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_h_theta_eddy_visc2}
+\hypertarget{mnl:config_h_theta_eddy_visc2}
 \noindent\textbf{\large{config\_h\_theta\_eddy\_visc2}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript2 s\textsuperscript{-1}} \\ \hline
@@ -161,7 +162,7 @@ Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_h_theta_eddy_visc4}
+\hypertarget{mnl:config_h_theta_eddy_visc4}
 \noindent\textbf{\large{config\_h\_theta\_eddy\_visc4}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript4 s\textsuperscript{-1}} \\ \hline
@@ -172,7 +173,7 @@ Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_v_theta_eddy_visc2}
+\hypertarget{mnl:config_v_theta_eddy_visc2}
 \noindent\textbf{\large{config\_v\_theta\_eddy\_visc2}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript2 s\textsuperscript{-1}} \\ \hline
@@ -183,7 +184,7 @@ Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_horiz_mixing}
+\hypertarget{mnl:config_horiz_mixing}
 \noindent\textbf{\large{config\_horiz\_mixing}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -194,7 +195,7 @@ Possible Values & `2d\_fixed' or `2d\_smagorinsky' \textit{(default: 2d\_smagori
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_len_disp}
+\hypertarget{mnl:config_len_disp}
 \noindent\textbf{\large{config\_len\_disp}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m} \\ \hline
@@ -205,7 +206,7 @@ Possible Values & Positive real values \textit{(default: 120000.0)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_visc4_2dsmag}
+\hypertarget{mnl:config_visc4_2dsmag}
 \noindent\textbf{\large{config\_visc4\_2dsmag}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -216,7 +217,7 @@ Possible Values & Non-negative real values \textit{(default: 0.05)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_del4u_div_factor}
+\hypertarget{mnl:config_del4u_div_factor}
 \noindent\textbf{\large{config\_del4u\_div\_factor}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -227,7 +228,7 @@ Possible Values & Positive real values \textit{(default: 10.0)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_w_adv_order}
+\hypertarget{mnl:config_w_adv_order}
 \noindent\textbf{\large{config\_w\_adv\_order}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -238,7 +239,7 @@ Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_theta_adv_order}
+\hypertarget{mnl:config_theta_adv_order}
 \noindent\textbf{\large{config\_theta\_adv\_order}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -249,7 +250,7 @@ Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_scalar_adv_order}
+\hypertarget{mnl:config_scalar_adv_order}
 \noindent\textbf{\large{config\_scalar\_adv\_order}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -260,7 +261,7 @@ Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_u_vadv_order}
+\hypertarget{mnl:config_u_vadv_order}
 \noindent\textbf{\large{config\_u\_vadv\_order}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -271,7 +272,7 @@ Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_w_vadv_order}
+\hypertarget{mnl:config_w_vadv_order}
 \noindent\textbf{\large{config\_w\_vadv\_order}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -282,7 +283,7 @@ Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_theta_vadv_order}
+\hypertarget{mnl:config_theta_vadv_order}
 \noindent\textbf{\large{config\_theta\_vadv\_order}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -293,7 +294,7 @@ Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_scalar_vadv_order}
+\hypertarget{mnl:config_scalar_vadv_order}
 \noindent\textbf{\large{config\_scalar\_vadv\_order}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -304,7 +305,7 @@ Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_scalar_advection}
+\hypertarget{mnl:config_scalar_advection}
 \noindent\textbf{\large{config\_scalar\_advection}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -315,7 +316,7 @@ Possible Values & .true. or .false. \textit{(default: true)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_positive_definite}
+\hypertarget{mnl:config_positive_definite}
 \noindent\textbf{\large{config\_positive\_definite}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -326,7 +327,7 @@ Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_monotonic}
+\hypertarget{mnl:config_monotonic}
 \noindent\textbf{\large{config\_monotonic}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -337,7 +338,7 @@ Possible Values & .true. or .false. \textit{(default: true)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_coef_3rd_order}
+\hypertarget{mnl:config_coef_3rd_order}
 \noindent\textbf{\large{config\_coef\_3rd\_order}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -348,7 +349,7 @@ Possible Values & 0 $\leq$ config\_coef\_3rd\_order $\leq$ 1 \textit{(default: 0
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_smagorinsky_coef}
+\hypertarget{mnl:config_smagorinsky_coef}
 \noindent\textbf{\large{config\_smagorinsky\_coef}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -359,7 +360,7 @@ Possible Values & Real values typically in the range 0.1 to 0.4 \textit{(default
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_mix_full}
+\hypertarget{mnl:config_mix_full}
 \noindent\textbf{\large{config\_mix\_full}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -370,7 +371,7 @@ Possible Values & .true. or .false. \textit{(default: true)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_epssm}
+\hypertarget{mnl:config_epssm}
 \noindent\textbf{\large{config\_epssm}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -381,7 +382,7 @@ Possible Values & Positive real values \textit{(default: 0.1)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_smdiv}
+\hypertarget{mnl:config_smdiv}
 \noindent\textbf{\large{config\_smdiv}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -392,7 +393,7 @@ Possible Values & Positive real values \textit{(default: 0.025)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_smdiv_p_forward}
+\hypertarget{mnl:config_smdiv_p_forward}
 \noindent\textbf{\large{config\_smdiv\_p\_forward}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -403,7 +404,7 @@ Possible Values & Real values typically in the range 0 to 0.2 \textit{(default: 
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_apvm_upwinding}
+\hypertarget{mnl:config_apvm_upwinding}
 \noindent\textbf{\large{config\_apvm\_upwinding}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -414,7 +415,7 @@ Possible Values & 0 $\leq$ config\_apvm\_upwinding $\leq$ 1 \textit{(default: 0.
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_h_ScaleWithMesh}
+\hypertarget{mnl:config_h_ScaleWithMesh}
 \noindent\textbf{\large{config\_h\_ScaleWithMesh}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -425,7 +426,7 @@ Possible Values & .true. or .false. \textit{(default: true)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_num_halos}
+\hypertarget{mnl:config_num_halos}
 \noindent\textbf{\large{config\_num\_halos}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -433,12 +434,14 @@ Description & \textit{Number of halo layers for fields (hidden by default)} \\ \
 Possible Values & Integer values, typically 2 or 3; DO NOT CHANGE \textit{(default: 2)} \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\hypertarget{mrec:damping}{}
 \section{damping}
 \small
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_zd}
+\hypertarget{mnl:config_zd}
 \noindent\textbf{\large{config\_zd}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m} \\ \hline
@@ -449,7 +452,7 @@ Possible Values & Positive real values \textit{(default: 22000.0)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_xnutr}
+\hypertarget{mnl:config_xnutr}
 \noindent\textbf{\large{config\_xnutr}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -457,12 +460,14 @@ Description & \textit{Maximum w-damping coefficient at model top} \\ \hline
 Possible Values & 0 $\leq$ config\_xnutr $\leq$ 1 \textit{(default: 0.2)} \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\hypertarget{mrec:io.model}{}
 \section{io}
 \small
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_restart_timestamp_name}
+\hypertarget{mnl:config_restart_timestamp_name}
 \noindent\textbf{\large{config\_restart\_timestamp\_name}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -473,7 +478,7 @@ Possible Values & Any valid filename \textit{(default: restart\_timestamp)} \\ \
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_pio_num_iotasks}
+\hypertarget{mnl:config_pio_num_iotasks}
 \noindent\textbf{\large{config\_pio\_num\_iotasks}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -484,7 +489,7 @@ Possible Values & Integer valued, 0 $\leq$ config\_pio\_num\_iotasks $\leq$ \# M
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_pio_stride}
+\hypertarget{mnl:config_pio_stride}
 \noindent\textbf{\large{config\_pio\_stride}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -492,12 +497,14 @@ Description & \textit{Stride between file I/O tasks} \\ \hline
 Possible Values & Integer valued, $\leq$ (\# MPI tasks) / config\_pio\_num\_iotasks \textit{(default: 1)} \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\hypertarget{mrec:decomposition.model}{}
 \section{decomposition}
 \small
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_block_decomp_file_prefix}
+\hypertarget{mnl:config_block_decomp_file_prefix}
 \noindent\textbf{\large{config\_block\_decomp\_file\_prefix}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -508,7 +515,7 @@ Possible Values & Any valid filename \textit{(default: x1.40962.graph.info.part.
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_number_of_blocks}
+\hypertarget{mnl:config_number_of_blocks}
 \noindent\textbf{\large{config\_number\_of\_blocks}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -519,7 +526,7 @@ Possible Values & Positive integer values \textit{(default: 0)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_explicit_proc_decomp}
+\hypertarget{mnl:config_explicit_proc_decomp}
 \noindent\textbf{\large{config\_explicit\_proc\_decomp}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -530,7 +537,7 @@ Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_proc_decomp_file_prefix}
+\hypertarget{mnl:config_proc_decomp_file_prefix}
 \noindent\textbf{\large{config\_proc\_decomp\_file\_prefix}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -538,12 +545,14 @@ Description & \textit{Prefix of block mapping file (hidden by default)} \\ \hlin
 Possible Values & Any valid filename \textit{(default: graph.info.part.)} \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\hypertarget{mrec:restart}{}
 \section{restart}
 \small
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_do_restart}
+\hypertarget{mnl:config_do_restart}
 \noindent\textbf{\large{config\_do\_restart}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -554,7 +563,7 @@ Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_do_DAcycling}
+\hypertarget{mnl:config_do_DAcycling}
 \noindent\textbf{\large{config\_do\_DAcycling}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -562,12 +571,14 @@ Description & \textit{Whether to re-compute coupled fields $\theta_m$, $\tilde{\
 Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\hypertarget{mrec:printout}{}
 \section{printout}
 \small
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_print_global_minmax_vel}
+\hypertarget{mnl:config_print_global_minmax_vel}
 \noindent\textbf{\large{config\_print\_global\_minmax\_vel}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -578,7 +589,7 @@ Possible Values & .true. or .false. \textit{(default: true)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_print_detailed_minmax_vel}
+\hypertarget{mnl:config_print_detailed_minmax_vel}
 \noindent\textbf{\large{config\_print\_detailed\_minmax\_vel}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -589,7 +600,7 @@ Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_print_global_minmax_sca}
+\hypertarget{mnl:config_print_global_minmax_sca}
 \noindent\textbf{\large{config\_print\_global\_minmax\_sca}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -597,12 +608,14 @@ Description & \textit{Whether to print the global min/max of scalar fields each 
 Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\hypertarget{mrec:IAU}{}
 \section{IAU}
 \small
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_IAU_option}
+\hypertarget{mnl:config_IAU_option}
 \noindent\textbf{\large{config\_IAU\_option}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -613,7 +626,7 @@ Possible Values & 0 or 1; 0 turns off IAU, 1 uses equal weighting of increments 
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_IAU_window_length_s}
+\hypertarget{mnl:config_IAU_window_length_s}
 \noindent\textbf{\large{config\_IAU\_window\_length\_s}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{s} \\ \hline
@@ -621,12 +634,14 @@ Description & \textit{Length of window over which analysis increments are applie
 Possible Values & Non-negative real values \textit{(default: 21600.)} \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\hypertarget{mrec:physics}{}
 \section{physics}
 \small
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{input_soil_data}
+\hypertarget{mnl:input_soil_data}
 \noindent\textbf{\large{input\_soil\_data}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -637,7 +652,7 @@ Possible Values & `STAS` \textit{(default: STAS)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{input_soil_temperature_lag}
+\hypertarget{mnl:input_soil_temperature_lag}
 \noindent\textbf{\large{input\_soil\_temperature\_lag}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -648,7 +663,7 @@ Possible Values & Positive integers \textit{(default: 140)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{num_soil_layers}
+\hypertarget{mnl:num_soil_layers}
 \noindent\textbf{\large{num\_soil\_layers}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -659,7 +674,7 @@ Possible Values & Positive integers. For Noah LSM, must be set to 4. \textit{(de
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{months}
+\hypertarget{mnl:months}
 \noindent\textbf{\large{months}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -670,7 +685,7 @@ Possible Values & Positive integer values. DO NOT CHANGE. \textit{(default: 12)}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{noznlev}
+\hypertarget{mnl:noznlev}
 \noindent\textbf{\large{noznlev}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -681,7 +696,7 @@ Possible Values & Positive integers \textit{(default: 59)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{naerlev}
+\hypertarget{mnl:naerlev}
 \noindent\textbf{\large{naerlev}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -692,7 +707,7 @@ Possible Values & Positive integers \textit{(default: 29)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{camdim1}
+\hypertarget{mnl:camdim1}
 \noindent\textbf{\large{camdim1}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -703,7 +718,7 @@ Possible Values & Positive integers \textit{(default: 4)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_frac_seaice}
+\hypertarget{mnl:config_frac_seaice}
 \noindent\textbf{\large{config\_frac\_seaice}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -714,7 +729,7 @@ Possible Values & .true. for sea-ice between 0 or 1; .false. for sea-ice equal t
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_sfc_albedo}
+\hypertarget{mnl:config_sfc_albedo}
 \noindent\textbf{\large{config\_sfc\_albedo}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -725,7 +740,7 @@ Possible Values & .true. for climatologically varying surface albedo; .false. fo
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_sfc_snowalbedo}
+\hypertarget{mnl:config_sfc_snowalbedo}
 \noindent\textbf{\large{config\_sfc\_snowalbedo}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -736,7 +751,7 @@ Possible Values & .true. for geographical distribution; .false. for fixed input 
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_sst_update}
+\hypertarget{mnl:config_sst_update}
 \noindent\textbf{\large{config\_sst\_update}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -747,7 +762,7 @@ Possible Values & .true. for time-varying sea-surface temperatures; .false., oth
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_sstdiurn_update}
+\hypertarget{mnl:config_sstdiurn_update}
 \noindent\textbf{\large{config\_sstdiurn\_update}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -758,7 +773,7 @@ Possible Values & .true. for applying a diurnal cycle to sea-surface temperature
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_deepsoiltemp_update}
+\hypertarget{mnl:config_deepsoiltemp_update}
 \noindent\textbf{\large{config\_deepsoiltemp\_update}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -769,7 +784,7 @@ Possible Values & .true. for slowly time-varying deep soil temperatures; .false.
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_o3climatology}
+\hypertarget{mnl:config_o3climatology}
 \noindent\textbf{\large{config\_o3climatology}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -780,7 +795,7 @@ Possible Values & .true. for using monthly-varying ozone data; .false. for using
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_microp_re}
+\hypertarget{mnl:config_microp_re}
 \noindent\textbf{\large{config\_microp\_re}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -791,7 +806,7 @@ Possible Values & .true. for calculating effective radii; .false. for using defa
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_ysu_pblmix}
+\hypertarget{mnl:config_ysu_pblmix}
 \noindent\textbf{\large{config\_ysu\_pblmix}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -802,7 +817,7 @@ Possible Values & .true. to turn on top-down radiation\_driven mixing; .false. o
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_n_microp}
+\hypertarget{mnl:config_n_microp}
 \noindent\textbf{\large{config\_n\_microp}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -813,7 +828,7 @@ Possible Values & Positive integers \textit{(default: 1)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_radtlw_interval}
+\hypertarget{mnl:config_radtlw_interval}
 \noindent\textbf{\large{config\_radtlw\_interval}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -824,7 +839,7 @@ Possible Values & `DD\_HH:MM:SS' or `none' \textit{(default: 00:30:00)} \\ \hlin
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_radtsw_interval}
+\hypertarget{mnl:config_radtsw_interval}
 \noindent\textbf{\large{config\_radtsw\_interval}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -835,7 +850,7 @@ Possible Values & `DD\_HH:MM:SS' or `none' \textit{(default: 00:30:00)} \\ \hlin
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_conv_interval}
+\hypertarget{mnl:config_conv_interval}
 \noindent\textbf{\large{config\_conv\_interval}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -846,7 +861,7 @@ Possible Values & `DD\_HH:MM:SS' or `none' \textit{(default: none)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_pbl_interval}
+\hypertarget{mnl:config_pbl_interval}
 \noindent\textbf{\large{config\_pbl\_interval}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -857,7 +872,7 @@ Possible Values & `DD\_HH:MM:SS' or `none' \textit{(default: none)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_camrad_abs_update}
+\hypertarget{mnl:config_camrad_abs_update}
 \noindent\textbf{\large{config\_camrad\_abs\_update}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -868,7 +883,7 @@ Possible Values & `DD\_HH:MM:SS' or `none' \textit{(default: 06:00:00)} \\ \hlin
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_greeness_update}
+\hypertarget{mnl:config_greeness_update}
 \noindent\textbf{\large{config\_greeness\_update}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -879,7 +894,7 @@ Possible Values & `DD\_HH:MM:SS' or `none' \textit{(default: 24:00:00)} \\ \hlin
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_bucket_update}
+\hypertarget{mnl:config_bucket_update}
 \noindent\textbf{\large{config\_bucket\_update}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -890,18 +905,18 @@ Possible Values & `DD\_HH:MM:SS' or `none' \textit{(default: none)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_physics_suite}
+\hypertarget{mnl:config_physics_suite}
 \noindent\textbf{\large{config\_physics\_suite}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
 Description & \textit{Choice of physics suite} \\ \hline
-Possible Values & `mesoscale\_reference',`convection\_scale\_aware',`none' \textit{(default: mesoscale\_reference)} \\ \hline
+Possible Values & `mesoscale\_reference',`convection\_permitting',`none' \textit{(default: mesoscale\_reference)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_microp_scheme}
+\hypertarget{mnl:config_microp_scheme}
 \noindent\textbf{\large{config\_microp\_scheme}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -912,7 +927,7 @@ Possible Values & `suite',`wsm6',`off' \textit{(default: suite)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_convection_scheme}
+\hypertarget{mnl:config_convection_scheme}
 \noindent\textbf{\large{config\_convection\_scheme}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -923,7 +938,7 @@ Possible Values & `suite',`kain\_fritsch',`tiedtke',`off' \textit{(default: suit
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_lsm_scheme}
+\hypertarget{mnl:config_lsm_scheme}
 \noindent\textbf{\large{config\_lsm\_scheme}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -934,7 +949,7 @@ Possible Values & `suite',`noah',`off' \textit{(default: suite)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_pbl_scheme}
+\hypertarget{mnl:config_pbl_scheme}
 \noindent\textbf{\large{config\_pbl\_scheme}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -945,7 +960,7 @@ Possible Values & `suite',`ysu',`off' \textit{(default: suite)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_gwdo_scheme}
+\hypertarget{mnl:config_gwdo_scheme}
 \noindent\textbf{\large{config\_gwdo\_scheme}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -956,7 +971,7 @@ Possible Values & `suite',`ysu\_gwdo',`off' \textit{(default: suite)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_radt_cld_scheme}
+\hypertarget{mnl:config_radt_cld_scheme}
 \noindent\textbf{\large{config\_radt\_cld\_scheme}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -967,7 +982,7 @@ Possible Values & `suite',`cld\_fraction',`cld\_incidence' \textit{(default: sui
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_radt_lw_scheme}
+\hypertarget{mnl:config_radt_lw_scheme}
 \noindent\textbf{\large{config\_radt\_lw\_scheme}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -978,7 +993,7 @@ Possible Values & `suite',`rrtmg\_lw',`cam\_lw',`off' \textit{(default: suite)} 
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_radt_sw_scheme}
+\hypertarget{mnl:config_radt_sw_scheme}
 \noindent\textbf{\large{config\_radt\_sw\_scheme}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -989,7 +1004,7 @@ Possible Values & `suite',`rrtmg\_sw',`cam\_sw',`off' \textit{(default: suite)} 
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_sfclayer_scheme}
+\hypertarget{mnl:config_sfclayer_scheme}
 \noindent\textbf{\large{config\_sfclayer\_scheme}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -1000,7 +1015,7 @@ Possible Values & `suite',`monin\_obukhov',`off' \textit{(default: suite)} \\ \h
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_gfconv_closure_deep}
+\hypertarget{mnl:config_gfconv_closure_deep}
 \noindent\textbf{\large{config\_gfconv\_closure\_deep}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -1011,7 +1026,7 @@ Possible Values & 0 \textit{(default: 0)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_gfconv_closure_shallow}
+\hypertarget{mnl:config_gfconv_closure_shallow}
 \noindent\textbf{\large{config\_gfconv\_closure\_shallow}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -1022,7 +1037,7 @@ Possible Values & 8 \textit{(default: 8)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_bucket_radt}
+\hypertarget{mnl:config_bucket_radt}
 \noindent\textbf{\large{config\_bucket\_radt}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -1033,7 +1048,7 @@ Possible Values & Positive real values \textit{(default: 1.0e9)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_bucket_rainc}
+\hypertarget{mnl:config_bucket_rainc}
 \noindent\textbf{\large{config\_bucket\_rainc}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -1044,7 +1059,7 @@ Possible Values & Positive real values \textit{(default: 100.0)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_bucket_rainnc}
+\hypertarget{mnl:config_bucket_rainnc}
 \noindent\textbf{\large{config\_bucket\_rainnc}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -1055,7 +1070,7 @@ Possible Values & Positive real values \textit{(default: 100.0)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_oml1d}
+\hypertarget{mnl:config_oml1d}
 \noindent\textbf{\large{config\_oml1d}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
@@ -1066,7 +1081,7 @@ Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_oml_hml0}
+\hypertarget{mnl:config_oml_hml0}
 \noindent\textbf{\large{config\_oml\_hml0}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m} \\ \hline
@@ -1077,7 +1092,7 @@ Possible Values & Non-negative real values \textit{(default: 30.0)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_oml_gamma}
+\hypertarget{mnl:config_oml_gamma}
 \noindent\textbf{\large{config\_oml\_gamma}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{K m\textsuperscript{-1}} \\ \hline
@@ -1088,7 +1103,7 @@ Possible Values & Real values \textit{(default: 0.14)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{config_oml_relaxation_time}
+\hypertarget{mnl:config_oml_relaxation_time}
 \noindent\textbf{\large{config\_oml\_relaxation\_time}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{s} \\ \hline
