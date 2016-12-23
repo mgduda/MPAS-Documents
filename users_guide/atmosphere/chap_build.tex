@@ -18,8 +18,11 @@ and {\tt NETCDF} should be set to the root installation directories of the PIO,
 Parallel-NetCDF, and NetCDF installations, respectively. 
 
 An MPI installation such as MPICH or OpenMPI is also required, and there is no
-option to build a serial version of the MPAS executables. There is currently no
-support for shared-memory parallelism with OpenMP within the MPAS framework.
+option to build a serial version of the MPAS executables. MPAS-Atmosphere v5.0
+introduces the capability to use hybrid parallelism using MPI and OpenMP; however,
+the use of OpenMP {\em should be considered experimental} and generally does not
+offer any performance advantage. The primary reason for releasing a shared-memory
+capability is to make this code available to collaborators for future development.
 
 
 \section{Compiling I/O Libraries}
@@ -32,10 +35,11 @@ recommended that users consult documentation provided by individual library
 vendors should problems arise during installation. The MPAS developers take no
 responsibility for third-party libraries.} \vspace{12pt}
 
-Although most recent versions of the I/O libraries should work, the most tested
-versions of these libraries are: NetCDF 4.1.3, Parallel-NetCDF 1.3.1, and PIO
-1.7.1. The NetCDF and Parallel-NetCDF libraries must be installed before
-building PIO library.
+Although most recent versions of the NetCDF and Parallel-netCDF libraries should work,
+the most tested versions of these libraries are NetCDF 4.1.3 and Parallel-NetCDF 1.3.1.
+Users are strongly encouraged to use PIO versions 1.7.1 or 1.9.23, as other versions
+have not been tested or are known to not work with MPAS. The NetCDF and Parallel-NetCDF
+libraries must be installed before building the PIO library.
 
 \subsection{NetCDF}
 \label{serial_netcdf}
@@ -148,8 +152,8 @@ Target & Fortran compiler & C compiler & MPI wrappers \\ \hline \hline
 \vspace{12pt}
 
 The MPAS framework supports multiple {\em cores} --- currently a shallow water
-model, an ocean model, a non-hydrostatic atmosphere model, and a non-hydrostatic
-atmosphere initialization core --- so the build process must be told which core
+model, an ocean model, a land-ice model, a non-hydrostatic atmosphere model, and
+a non-hydrostatic atmosphere initialization core --- so the build process must be told which core
 to build. This is done by either setting the environment variable {\tt CORE} to
 the name of the model core to build, or by specifying the core to be built
 explicitly on the command-line when running {\tt make}. For the atmosphere
@@ -183,6 +187,7 @@ below.
 \begin{verbatim}
 > make
 ( make error )
+make[1]: Entering directory `/disk1/MPAS-Release'
 
 Usage: make target CORE=[core] [options]
 
@@ -198,6 +203,7 @@ Availabe Cores:
     landice
     ocean
     sw
+    test
 
 Available Options:
     DEBUG=true    - builds debug version. Default is optimized version.
@@ -205,6 +211,13 @@ Available Options:
     TAU=true      - builds version using TAU hooks for profiling. Default is off.
     AUTOCLEAN=true    - forces a clean of infrastructure prior to build new core.
     GEN_F90=true  - Generates intermediate .f90 files through CPP, and builds with them.
+    TIMER_LIB=opt - Selects the timer library interface to be used for profiling the model. Options are:
+                    TIMER_LIB=native - Uses native built-in timers in MPAS
+                    TIMER_LIB=gptl - Uses gptl for the timer interface instead of the native interface
+                    TIMER_LIB=tau - Uses TAU for the timer interface instead of the native interface
+    OPENMP=true   - builds and links with OpenMP flags. Default is to not use OpenMP.
+    USE_PIO2=true - links with the PIO 2 library. Default is to use the PIO 1.x library.
+    PRECISION=single - builds with default single-precision real kind. Default is to use double-precision.
 
 Ensure that NETCDF, PNETCDF, PIO, and PAPI (if USE_PAPI=true) are environment variables
 that point to the absolute paths for the libraries.
@@ -218,23 +231,13 @@ No CORE specified. Quitting.
 \section{Selecting a single-precision build}
 
 Beginning with version 2.0, MPAS-Atmosphere can be compiled and run in single-precision, offering faster 
-model execution and smaller input and output files. To compile a single-precision MPAS-Atmosphere executable, it 
-is necessary to first add {\tt -DSINGLE\_PRECISION} to the definition of {\tt MODEL\_FORMULATION} at the top 
-of the main {\tt Makefile}. Additionally, any compiler flags, such as {\tt -fdefault-real-8}, {\tt -r8}, or {\tt -real-size 64} must be removed 
-from the compiler target that will be used. For example, if compiling with the gfortran compiler, one would change the line
+model execution and smaller input and output files. Beginning with version 5.0, the selection of the
+model precision can be made on the command-line, with no need to edit the {\tt Makefile}.
+To compile a single-precision MPAS-Atmosphere executable, add {\tt PRECISION=single} to the build command, e.g.,
 
-\begin{verbatim}
-        "FFLAGS_OPT = -O3 -m64 -ffree-line-length-none -fdefault-real-8 -fdefault-double-8 
-                                                           -fconvert=big-endian -ffree-form" \
-\end{verbatim}
-
-\noindent in the top-level {\tt Makefile} to
-
-\begin{verbatim}
-        "FFLAGS_OPT = -O3 -m64 -ffree-line-length-none -fconvert=big-endian -ffree-form" \
-\end{verbatim}
-
-\noindent before compiling the {\em init\_atmsophere\_model} and {\em atmosphere\_model} executables as usual.
+\vspace{12pt}
+{\tt > make gfortran CORE=atmosphere PRECISION=single}
+\vspace{12pt}
 
 Note that running MPAS-Atmosphere in single-precision requires the user to begin with single-precision SCVT grid files, 
 and all pre-processing steps must be run using a single-precision version of init\_atmosphere\_model with these grid files. 
