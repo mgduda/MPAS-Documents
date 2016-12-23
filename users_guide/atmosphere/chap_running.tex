@@ -7,7 +7,7 @@
 
 \setlength\LTleft{0.0in}
 
-Given an SCVT mesh, this chapter describes the two main steps to running the MPAS-Atmosphere model: creating initial conditions and running the model itself.  This chapter makes use of two MPAS cores, {\tt init\_atmosphere} and {\tt atmosphere}, which are, respectively, used for initializing and running the non-hydrostatic atmospheric model.  Sections \ref{sec:atm_ideal_init} and \ref{sec:atm_real_init} of this chapter describe the creation of idealized and real-data non-hydrostatic initial condition files using the {\tt init\_atmosphere} core. Section \ref{sec:atm_model_run} describes the basic procedure of running the model itself.
+Given an SCVT mesh, this chapter describes the two main steps to running the MPAS-Atmosphere model: creating initial conditions and running the model itself.  This chapter makes use of two MPAS cores, {\tt init\_atmosphere} and {\tt atmosphere}, which are, respectively, used for initializing and running the non-hydrostatic atmospheric model.  Sections \ref{sec:atm_ideal_init} and \ref{sec:atm_real_init} of this chapter describe the creation of idealized and real-data initial condition files using the {\tt init\_atmosphere} core. Section \ref{sec:atm_model_run} describes the basic procedure of running the model itself.
 
 Each section of this chapter follows a familiar pattern of compiling and executing MPAS model components, albeit using different cores depending on its intended use.  The compilation will create either an initialization or a model executable, which are named, respectively, {\tt init\_atmosphere\_model} and {\tt atmosphere\_model}.  In general, an executable is run with {\tt mpiexec} or {\tt mpirun}, for example:
 
@@ -36,7 +36,7 @@ There are several idealized test cases supported within the {\tt init\_atmospher
 
 6 --- mountain wave\\
 \\
-Creating idealized initial conditions is fairly straightforward, as no external data are required and the starting date/time is irrelevant to building the {\tt init.nc} file that will be used to run the model.
+Creating idealized initial conditions is fairly straightforward, as no external data are required and the starting date/time is irrelevant to building the initial conditions file (hereafter referred to as {\tt init.nc}) that will be used to run the model.
 
 The following steps summarize the creation of {\tt init.nc}:
 
@@ -55,17 +55,18 @@ When the {\tt init\_atmosphere\_model} executable is built, a default namelist, 
 \begin{longtable}{p{3in}|p{3.25in}}
 
 \&nhyd\_model\\
-   config\_init\_case = 2                      & a number between 1 and 6 corresponding to the cases listed at the beginning of this section\\
-   config\_start\_time = '0000-01-01\_00:00:00' & the starting time for the simulation\\
-   config\_theta\_adv\_order = 3                     & advection order for theta \\
+   \namelist{inl:config_init_case} = 2                      & a number between 1 and 6 corresponding to the cases listed at the beginning of this section\\
+   \namelist{inl:config_start_time} = '0000-01-01\_00:00:00' & the starting time for the simulation\\
+   \namelist{inl:config_theta_adv_order} = 3                     & advection order for theta \\
+   \namelist{inl:config_coef_3rd_order} = 0.25              & \\
 /\\
 \\
 \&dimensions\\
-   config\_nvertlevels = 26                      & the number of vertical levels to be used in the model \\
+   \namelist{inl:config_nvertlevels} = 26                      & the number of vertical levels to be used in the model \\
 /\\
 \\
 \&decomposition\\
-   config\_block\_decomp\_file\_prefix = 'graph.info.part.' & if running in parallel, needs to match the grid decomposition file prefix \\
+   \namelist{inl:config_block_decomp_file_prefix} = 'graph.info.part.' & if running in parallel, needs to match the grid decomposition file prefix \\
 /\\
 
 \end{longtable}
@@ -76,17 +77,17 @@ After editing the {\tt namelist.init\_atmosphere} namelist file, the name of the
 \section{Creating real-data ICs}
 \label{sec:atm_real_init}
 
-Creating real-data initial conditions is similar to that of the idealized case described in the previous section, but is more involved as it requires interpolation of static geographic data (e.g., topography, land cover, soil category, etc.), surface fields such as soil temperature and SST, and the atmospheric initial conditions valid at a specific date and time. The static datasets are the same as those used by the WRF model, and the surface fields and atmospheric initial conditions can be obtained from, e.g., NCEP's GFS data using the WRF pre-processing system (WPS).
+Creating real-data initial conditions is similar to that of the idealized case described in the previous section, but is more involved as it requires interpolation of static geographic data (e.g., topography, land cover, soil category, etc.), surface fields such as soil temperature and SST, and the atmospheric initial conditions valid at a specific date and time. The static datasets are the same as those used by the WRF model, and the surface fields and atmospheric initial conditions can be obtained from, e.g., NCEP's GFS data using the WRF Pre-processing System (WPS).
 
-Creating real-data initial conditions requires a single compilation of the {\tt init\_atmosphere} core, but the actual generation of the IC files will take place using three separate runs of {\tt init\_atmosphere}, where each of these runs is described individually in the following sub-sections.  While it is possible to condense the three real-data initialization steps into fewer executions, running each step separately will both improve clarity and, as will become apparent, save a significant amount of time when generating subsequent initial conditions, that is, when making initial conditions using the same mesh but different starting times.
+Creating real-data initial conditions requires a single compilation of the {\tt init\_atmosphere} core, but the actual generation of the IC files will take place using three separate executions of the {\tt init\_atmosphere\_model} program, where each of these runs is described individually in the following sub-sections.  While it is possible to condense the three real-data initialization steps into fewer executions, running each step separately will both improve clarity and, as will become apparent, save a significant amount of time when generating subsequent initial conditions, that is, when making initial conditions using the same mesh but different starting times.
 
 The first of the three steps, described in Section \ref{sec:atm_real_static}, is the interpolation of static fields onto the mesh to create a {\tt static.nc} file.  This step cannot be run in parallel and takes considerably longer than the steps that follow, however, the fields being static, this step need only be run once for a particular mesh, regardless of the number of initial condition files that are ultimately created from the {\tt static.nc} output file.  Described in Section \ref{sec:atm_real_surface} is an optional step that creates a file {\tt surface.nc} containing surface data at regular intervals. This file is used in the case where the model run makes periodic external updates to surface fields (currently only sea-ice and SST).  Finally, Section \ref{sec:atm_real_met} describes the processing of the atmospheric initial conditions beginning with the {\tt static.nc} file created in Section \ref{sec:atm_real_static}.  Naturally, each of the initialization runs described in the three following sections will make use of a {\tt namelist.init\_atmosphere} namelist file, and as was the case for idealized initial conditions, the default {\tt namelist.init\_atmosphere} file in the MPAS directory may be used as a starting point.  Not every variable in this namelist is needed for any particular step, and therefore each section will elaborate only on the namelist variables that are immediately relevant.
 
 \subsection{Static fields}
 \label{sec:atm_real_static}
 
-The generation of a file {\tt static.nc} requires a set of static geographic data.  A suitable dataset can be obtained from the WRF model's download page \\
- \url{http://www.mmm.ucar.edu/wrf/users/download/get\_source.html}.  These static data files should be downloaded to a directory, which will be specified the {\tt namelist.init\_atmosphere} file (described below) prior to running this interpolation step.  The result of this run will be the creation of a NetCDF file ({\tt static.nc}), which is used in the two steps, described in Sections \label{sec:atm_real_surface} and \label{sec:atm_real_met}, following this to create surface update files and dynamic initial conditions.  Note that {\tt static.nc} can be generated once and then used repeatedly to generate surface update and initial condition files for different start times.
+The generation of a {\tt static.nc} file requires a set of static geographic data.  A suitable dataset can be obtained from the WRF model's download page \\
+ \url{http://www2.mmm.ucar.edu/wrf/users/download/get\_source.html}.  These static data files should be downloaded to a directory, which will be specified the {\tt namelist.init\_atmosphere} file (described below) prior to running this interpolation step.  The result of this run will be the creation of a NetCDF file ({\tt static.nc}), which is used in the two steps, described in Sections \ref{sec:atm_real_surface} and \ref{sec:atm_real_met}, following this to create surface update files and dynamic initial conditions.  Note that {\tt static.nc} can be generated once and then used repeatedly to generate surface update and initial condition files for different start times.
 
 The following steps summarize the creation of {\tt static.nc}:
 
@@ -103,23 +104,27 @@ Note that it is critical for this step that the initialization core is run seria
 \begin{longtable}{p{3.0in} |p{3.25in}}
 
 \&nhyd\_model\\
-   config\_init\_case       = 7                      & must be 7, the real-data initialization case \\
+   \namelist{inl:config_init_case}       = 7                      & must be 7, the real-data initialization case \\
 /\\
 \\
-\&dimensions                                         & the following two variables must be present now, though their values do not become significant until \S 3.2.3 \\
-   config\_nvertlevels     = 1                      &  \\
-   config\_nsoillevels     = 1                       &  \\
+\&dimensions                                         & the following dimensions should be set to 1 now,\\
+   \namelist{inl:config_nvertlevels}     = 1                      &  and their values will become significant in \S \ref{sec:atm_real_met} \\
+   \namelist{inl:config_nsoillevels}     = 1                       & \\
+    \namelist{inl:config_nfglevels} = 1                             & \\
+    \namelist{inl:config_nfgsoillevels} = 1                        & \\
 /\\
 \\
 \&data\_sources\\
-   config\_geog\_data\_path  = '/WPS\_GEOG/'         & absolute path to static files obtained from the WRF download page\\
+   \namelist{inl:config_geog_data_path}  = '/WPS\_GEOG/'         & absolute path to static files obtained from the WRF download page \\
+   \namelist{inl:config_landuse_data} = 'USGS'                               & land-use classification to use in MPAS-Atmosphere \\
 /\\
 \\
-\&preproc\_stages                                    & only the static\_interp stage should be enabled \\
-   config\_static\_interp   = .true.                 & \\
-   config\_vertical\_grid   = .false.                & \\
-   config\_met\_interp      = .false.                & \\
-   config\_input\_sst       = .false.                & \\
+\&preproc\_stages                                    & only the static\_interp and native\_gwd\_static \\
+   \namelist{inl:config_static_interp}   = true                 & stages should be enabled \\
+   \namelist{inl:config_native_gwd_static} = true           & \\
+   \namelist{inl:config_vertical_grid}   = false                & \\
+   \namelist{inl:config_met_interp}      = false                & \\
+   \namelist{inl:config_input_sst}       = false                & \\
 /\\
 
 \end{longtable}
@@ -130,7 +135,7 @@ After editing the {\tt namelist.init\_atmosphere} namelist file, the name of the
 \subsection{Surface field updates}
 \label{sec:atm_real_surface}
 
-This step is optional --- it is required only if surface fields are to be periodically updated during the model run.  The surface data could originate from any number of sources, though the most straightforward way to obtain a dataset in the appropriate format is to process GRIB data (e.g., GFS GRIB data) with the {\em ungrib} program of the WRF model's pre-processing system (WPS).  Detailed instructions for building and running the WPS, and the process of generating intermediate data files from GFS data, can be found in Chapter 3 of the WRF User Guide: \url{http://www.mmm.ucar.edu/wrf/users/docs/user\_guide/users\_guide\_chap3.htm}.
+This step is optional --- it is required only if surface fields are to be periodically updated during the model run.  The surface data could originate from any number of sources, though the most straightforward way to obtain a dataset in the appropriate format is to process GRIB data (e.g., GFS GRIB data) with the {\em ungrib} program of the WRF model's pre-processing system (WPS).  Detailed instructions for building and running the WPS, and the process of generating intermediate data files from GFS data, can be found in Chapter 3 of the WRF User Guide: \url{http://www2.mmm.ucar.edu/wrf/users/docs/user_guide_V3.8/users_guide_chap3.htm}.
 
 The following steps summarize the creation of {\tt surface.nc}:
 
@@ -147,27 +152,28 @@ The following steps summarize the creation of {\tt surface.nc}:
 \begin{longtable}{p{3.0in} |p{3.25in}}
 
 \&nhyd\_model\\
-   config\_init\_case       = 8                      & must be 8, the surface field initialization case \\
-   config\_start\_time      = '2010-10-23\_00:00:00' & time to begin processing surface data \\
-   config\_stop\_time       = '2010-10-30\_00:00:00' & time to end processing surface data \\
+   \namelist{inl:config_init_case}       = 8                      & must be 8, the surface field initialization case \\
+   \namelist{inl:config_start_time}      = '2010-10-23\_00:00:00' & time to begin processing surface data \\
+   \namelist{inl:config_stop_time}       = '2010-10-30\_00:00:00' & time to end processing surface data \\
 /\\
 \\
 \&data\_sources\\
-   config\_sfc\_prefix      = 'SST'                  & the prefix of the intermediate data files containing SST and sea-ice \\
-   config\_fg\_interval     = 86400                  & interval between intermediate files to use for SST and sea-ice \\
+   \namelist{inl:config_sfc_prefix}      = 'SST'                  & the prefix of the intermediate data files containing SST and sea-ice \\
+   \namelist{inl:config_fg_interval}     = 86400                  & interval between intermediate files to use for SST and sea-ice \\
 /\\
 \\
 \\
-\&preproc\_stages                                    & only the config\_input\_sst step should be enabled \\
-   config\_static\_interp   = .false.                & \\
-   config\_vertical\_grid   = .false.                & \\
-   config\_met\_interp      = .false.                & \\
-   config\_input\_sst       = .true.                 & \\
-   config\_frac\_seaice    = .true.                 & \\
+\&preproc\_stages                                    & only the input\_sst and frac\_seaice stages \\
+   \namelist{inl:config_static_interp}   = false                & should be enabled \\
+   \namelist{inl:config_native_gwd_static} = false           & \\
+   \namelist{inl:config_vertical_grid}   = false                & \\
+   \namelist{inl:config_met_interp}      = false                & \\
+   \namelist{inl:config_input_sst}       = true                 & \\
+   \namelist{inl:config_frac_seaice}    = true                 & \\
 /\\
 \\
 \&decomposition\\
-   config\_block\_decomp\_file\_prefix = 'graph.info.part.' & if running in parallel, needs to match the grid decomposition file prefix \\
+   \namelist{inl:config_block_decomp_file_prefix} = 'graph.info.part.' & if running in parallel, needs to match the grid decomposition file prefix \\
 /\\
 
 \end{longtable}
@@ -178,7 +184,7 @@ After editing the {\tt namelist.init\_atmosphere} namelist file, the name of the
 \label{sec:atm_real_met}
 
 The final step for creating a real-data initial conditions file ({\tt init.nc}) is to generate a vertical grid, the parameters of which will be specified in the {\tt namelist.init\_atmosphere} file, and to obtain an initial conditions dataset and interpolate it onto the model grid. As stated previously, while initial conditions could ultimately be obtained from many different data sources, here we assume the use of intermediate data files obtained from GFS data using the WPS ungrib program.  Detailed instructions for building and running the WPS, and how to generate intermediate data files from GFS data, can be found in Chapter 3 of the WRF user guide: \\
-\url{http://www.mmm.ucar.edu/wrf/users/docs/user\_guide/users\_guide\_chap3.htm}.
+\url{http://www2.mmm.ucar.edu/wrf/users/docs/user_guide_V3.8/users_guide_chap3.htm}.
 
 The following steps summarize the creation of {\tt init.nc}:
 
@@ -195,37 +201,42 @@ The following steps summarize the creation of {\tt init.nc}:
 \begin{longtable}{p{3.0in} |p{3.25in}}
 
 \&nhyd\_model\\
-   config\_init\_case       = 7                      & must be 7 \\
-   config\_start\_time      = '2010-10-23\_00:00:00' & time to process first-guess data \\
-   config\_theta\_adv\_order = 3                     & advection order for theta \\
+   \namelist{inl:config_init_case}       = 7                      & must be 7 \\
+   \namelist{inl:config_start_time}      = '2010-10-23\_00:00:00' & time to process first-guess data \\
+   \namelist{inl:config_theta_adv_order} = 3                     & advection order for theta \\
+   \namelist{inl:config_coef_3rd_order} = 0.25              & \\
 /\\
 \\
 \&dimensions\\
-   config\_nvertlevels     = 41                      & number of vertical levels to be used in MPAS \\
-   config\_nsoillevels     = 4                       & number of soil layers to be used in MPAS \\
-   config\_nfglevels       = 38                      & number of vertical levels in intermediate file \\
-   config\_nfgsoillevels   = 4                       & number of soil layers in intermediate file \\
+   \namelist{inl:config_nvertlevels}     = 41                      & number of vertical levels to be used in MPAS \\
+   \namelist{inl:config_nsoillevels}     = 4                       & number of soil layers to be used in MPAS \\
+   \namelist{inl:config_nfglevels}       = 38                      & number of vertical levels in intermediate file \\
+   \namelist{inl:config_nfgsoillevels}   = 4                       & number of soil layers in intermediate file \\
 /\\
 \\
 \&data\_sources\\
-   config\_met\_prefix      = 'FILE'                 & the prefix of the intermediate file to be used for initial conditions \\
+   \namelist{inl:config_met_prefix}      = 'FILE'                 & the prefix of the intermediate file to be used for initial conditions \\
+   \namelist{inl:config_landuse_data} = 'USGS'               & must be consistent with choice in \S \ref{sec:atm_real_static} \\
+   \namelist{inl:config_use_spechumd} = true                  & if available, use specific humidity rather than relative humidity \\
 /\\
 \\
 \&vertical\_grid\\
-   config\_ztop            = 30000.0                 & model top height (m) \\
-   config\_nsmterrain      = 1                       & number of smoothing passes for terrain \\
-   config\_smooth\_surfaces = .true.                 & whether to smooth zeta surfaces \\
+   \namelist{inl:config_ztop}            = 30000.0                 & model top height (m) \\
+   \namelist{inl:config_nsmterrain}      = 1                       & number of smoothing passes for terrain \\
+   \namelist{inl:config_smooth_surfaces} = true                 & whether to smooth zeta surfaces \\
 /\\
 \\
 \&preproc\_stages                                    & \\
-   config\_static\_interp   = .false.                & \\
-   config\_vertical\_grid   = .true.                 & only these three stages should be enabled \\
-   config\_met\_interp      = .true.                 & \\
-   config\_input\_sst       = .false.                & \\
+   \namelist{inl:config_static_interp}   = false                & \\
+   \namelist{inl:config_native_gwd_static} = false           & \\
+   \namelist{inl:config_vertical_grid}   = true                 & only these three stages should be enabled \\
+   \namelist{inl:config_met_interp}      = true                 & \\
+   \namelist{inl:config_input_sst}       = false                & \\
+   \namelist{inl:config_frac_seaice} = true                   & \\
 /\\
 \\
 \&decomposition\\
-   config\_block\_decomp\_file\_prefix = 'graph.info.part.' & if running in parallel, needs to match the grid decomposition file prefix \\
+   \namelist{inl:config_block_decomp_file_prefix} = 'graph.info.part.' & if running in parallel, needs to match the grid decomposition file prefix \\
 /\\
 \end{longtable}
 
@@ -254,19 +265,24 @@ Below is a list of variables in {\tt namelist.atmosphere} that pertain to model 
 \begin{longtable}{p{3.0in} |p{3.25in}}
 
 \&nhyd\_model                                        & \\
-   config\_dt = 450.0                                & the model timestep; an appropriate value must be chosen relative to the grid cell spacing \\
-   config\_start\_time = '2010-10-23\_00:00:00'      & the model start time corresponding to {\tt init.nc}\\
-   config\_run\_duration = '5\_00:00:00'             & the duration of the model run; for format rules, see Appendix \ref{chap:atm_namelist} \\
-   config\_len\_disp = 120000.0            & the smallest cell-to-cell distance in the mesh, used for computing a dissipation length scale\\
+   \namelist{mnl:config_dt} = 720.0                                & the model timestep; an appropriate value must be chosen relative to the grid cell spacing \\
+   \namelist{mnl:config_start_time} = '2010-10-23\_00:00:00'      & the model start time corresponding to {\tt init.nc}\\
+   \namelist{mnl:config_run_duration} = '5\_00:00:00'             & the duration of the model run; for format rules, see Appendix \ref{chap:atm_namelist} \\
+   \namelist{mnl:config_len_disp} = 120000.0            & the smallest cell-to-cell distance in the mesh, used for computing a dissipation length scale\\
 /                                                    & \\
 \\
 \&decomposition                                            & \\
-   config\_block\_decomp\_file\_prefix = 'graph.info.part.' & if running in parallel, must match the prefix of the graph decomposition file \\
+   \namelist{mnl:config_block_decomp_file_prefix} = 'graph.info.part.' & if running in parallel, must match the prefix of the graph decomposition file \\
 /                                                    & \\
 \\
 \&restart                                            & \\
-   config\_do\_restart = .false.                     & if true, will select the appropriate {\tt restart.nc} file generated from a previous run \\
-/ 
+   \namelist{mnl:config_do_restart} = false                     & if true, will select the appropriate {\tt restart.nc} file generated from a previous run \\
+/  & \\
+\\
+\&physics & \\
+    \namelist{mnl:config_sst_update} = true & if updating sea-ice and SST with an {\tt surface.nc} file, set to {\tt true}, and edit the ``surface'' stream in the {\tt streams.atmosphere} file accordingly \\
+    \namelist{mnl:config_physics_suite} = `mesoscale\_reference' & \\
+/
 \end{longtable}
 
 When running the model from a cold start, {\tt config\_start\_time} should match the time that was used when creating {\tt init.nc}.
@@ -282,9 +298,10 @@ core:
    diagnostics & the stream responsible for writing (mostly) 2-d diagnostic fields, typically at higher temporal frequency than the history files \\ \hline
    surface    & the stream used to read periodic updates of sea-ice and SST from a surface update file created as described in Section 
 \ref{sec:atm_real_surface} \\ \hline
+   iau          & the stream used to read analysis increments for the Incremental Analysis Update (IAU) scheme \\ \hline
 \end{longtable}
 
 \noindent For more information on the options available in the XML I/O configuration file, users are referred to Chapter \ref{chap:mpas_io}.
 
-During the course of a model run, restart files are created at an interval specified by the {\tt output\_interval} attribute in the definition of the {\tt "restart"} stream. Running the model from a restart file is similar to running the model from {\tt init.nc}.  The required changes are that {\tt config\_do\_restart} must be set to {\tt .true.} and {\tt config\_start\_time} must correspond to a restart file existing in the working directory.
+During the course of a model run, restart files are created at an interval specified by the {\tt output\_interval} attribute in the definition of the {\tt "restart"} stream. Running the model from a restart file is similar to running the model from {\tt init.nc}.  The required changes are that {\tt config\_do\_restart} must be set to {\tt true} and {\tt config\_start\_time} must correspond to a restart file existing in the working directory.
 
