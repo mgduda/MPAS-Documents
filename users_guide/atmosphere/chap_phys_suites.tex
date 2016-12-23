@@ -1,9 +1,9 @@
 \chapter{Physics Suites}
 \label{chap:phys_suites}
 
-Beginning with version 4.0, MPAS-Atmosphere introduces a new way of selecting the physics schemes to be used in a simulation. Rather than selecting individual parameterization schemes for different processes (e.g., convection, microphysics, etc.), the preferred method is for the user to select a {\em suite} of parameterization schemes that have been tested together. The selection of a physics suite is made via the new namelist option \namelist{config_physics_suite} in the \namelistrecord{mrec:physics} namelist record. Each of the available suites are described in the sections that follow.
+Beginning with version 4.0, MPAS-Atmosphere introduces a new way of selecting the physics schemes to be used in a simulation. Rather than selecting individual parameterization schemes for different processes (e.g., convection, microphysics, etc.), the preferred method is for the user to select a {\em suite} of parameterization schemes that have been tested together. The selection of a physics suite is made via the new namelist option \namelist{mnl:config_physics_suite} in the \namelistrecord{mrec:physics} namelist record. Each of the available suites are described in the sections that follow.
 
-Although the preferred method for selecting the schemes in a simulation is via the choice of a suite, the need to enable or disable individual schemes, or to substitute alternative schemes for the suite default, is recognized. Accordingly, it is possible to override the choice of any individual parameterization scheme through the namelist options described in Appendix \ref{chap:atm_namelist}. This is useful, e.g., to disable all parameterization except for microphysics when running some idealized simulations, or to turn off the cumulus scheme when running at cloud-resolving resolutions. The details of selecting individual physics parameterizations is explained in Section \ref{sec:individual_physics_opts}.
+Although the preferred method for selecting the schemes in a simulation is via the choice of a suite, the need to enable or disable individual schemes, or to substitute alternative schemes for the suite default, is recognized. Accordingly, it is possible to override the choice of any individual parameterization scheme through the namelist options described in Appendix \ref{chap:atm_namelist}. This is useful, e.g., to disable all parameterizations except for microphysics when running some idealized simulations. The details of selecting individual physics parameterizations are explained in Section \ref{sec:individual_physics_opts}.
 
 
 \section{Suite: mesoscale\_reference}
@@ -21,7 +21,7 @@ The default physics suite in MPAS-Atmosphere is the `mesoscale\_reference' suite
 \hline
 Parameterization & Scheme \\
 \hline
-Convection & Tiedtke  \\
+Convection & New Tiedtke  \\
 Microphysics & WSM6  \\
 Land surface & Noah \\
 Boundary layer & YSU \\
@@ -78,7 +78,7 @@ The only other recognized physics suite in MPAS-Atmosphere is the `none' suite, 
 \section{Selecting individual physics options}
 \label{sec:individual_physics_opts} 
 
-Selecting or disabling an individual physics parameterization may be accomplished by setting the appropriate namelist variable to one of its possible options; possible options for individual parameterizations, along with details of those options, are give in Table \ref{tab:individual_physics_opts}. Note that all parameterization options may be set to {\tt `off'} to disable the parameterization of the associated process.
+Selecting or disabling an individual physics parameterization may be accomplished by setting the appropriate namelist variable to one of its possible options; possible options for individual parameterizations, along with details of those options, are given in Table \ref{tab:individual_physics_opts}. Note that all parameterization options may be set to {\tt `off'} to disable the parameterization of the associated process.
 
 \begin{landscape}
 \begin{table}[h]
@@ -91,30 +91,30 @@ Selecting or disabling an individual physics parameterization may be accomplishe
 \hline
 Parameterization & Namelist variable & Possible options & Details \\
 \hline
-Convection & config\_convection\_scheme & {\tt cu\_tiedtke} & Tiedtke \\
+Convection & \namelist{mnl:config_convection_scheme} & {\tt cu\_tiedtke} & Tiedtke \\
  &  & {\tt cu\_ntiedtke} & New Tiedtke (WRF 3.7)  \\
  &  & {\tt cu\_grell\_freitas} & Modified version of scale-aware Grell-Freitas (WRF 3.6.1)  \\
- &  & {\tt cu\_kain\_fritsch} & Kain-Fritsch  \\
+ &  & {\tt cu\_kain\_fritsch} & Kain-Fritsch (WRF 3.2.1) \\
  \hline
-Microphysics & config\_microp\_scheme & {\tt mp\_wsm6} & WSM 6-class (WRF)  \\
+Microphysics & \namelist{mnl:config_microp_scheme} & {\tt mp\_wsm6} & WSM 6-class (WRF)  \\
  &  & {\tt mp\_thompson} & Thompson non-aerosol aware (WRF 3.7)  \\
  &  & {\tt mp\_kessler} & Kessler  \\
  \hline
-Land surface & config\_lsm\_scheme & {\tt noah} & Noah (WRF 3.3.1) \\
+Land surface & \namelist{mnl:config_lsm_scheme} & {\tt noah} & Noah (WRF 3.3.1) \\
 \hline
-Boundary layer & config\_pbl\_scheme & {\tt bl\_ysu} & YSU (WRF) \\
+Boundary layer & \namelist{mnl:config_pbl_scheme} & {\tt bl\_ysu} & YSU (WRF) \\
  &  & {\tt bl\_mynn} & MYNN (WRF 3.8)  \\
 \hline
-Surface layer & config\_sfclay\_scheme & {\tt sf\_monin\_obukhov} & Monin-Obukhov \\
+Surface layer & \namelist{mnl:config_sfclayer_scheme} & {\tt sf\_monin\_obukhov} & Monin-Obukhov \\
 &  & {\tt sf\_mynn} & MYNN (WRF 3.8)  \\
 \hline
-Radiation, LW & config\_radt\_lw\_scheme & {\tt rrtmg\_lw} & RRTMG \\
-&  & {\tt cam\_lw} & CAM  \\
+Radiation, LW & \namelist{mnl:config_radt_lw_scheme} & {\tt rrtmg\_lw} & RRTMG \\
+&  & {\tt cam\_lw} & CAM (WRF 3.3.1) \\
 \hline
-Radiation, SW & config\_radt\_sw\_scheme & {\tt rrtmg\_sw} & RRTMG \\
-&  & {\tt cam\_sw} & CAM  \\
+Radiation, SW & \namelist{mnl:config_radt_sw_scheme} & {\tt rrtmg\_sw} & RRTMG \\
+&  & {\tt cam\_sw} & CAM (WRF 3.3.1) \\
 \hline
-Gravity wave drag by orography & config\_gwdo\_scheme & {\tt bl\_ysu\_gwdo} & YSU (WRF 3.6.1) \\
+Gravity wave drag by orography & \namelist{mnl:config_gwdo_scheme} & {\tt bl\_ysu\_gwdo} & YSU (WRF 3.6.1) \\
 \hline
 \end{tabular*}
 \end{center}
