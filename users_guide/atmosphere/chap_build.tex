@@ -211,13 +211,17 @@ Available Options:
     TAU=true      - builds version using TAU hooks for profiling. Default is off.
     AUTOCLEAN=true    - forces a clean of infrastructure prior to build new core.
     GEN_F90=true  - Generates intermediate .f90 files through CPP, and builds with them.
-    TIMER_LIB=opt - Selects the timer library interface to be used for profiling the model. Options are:
+    TIMER_LIB=opt - Selects the timer library interface to be used for profiling the model.
+                    Options are:
                     TIMER_LIB=native - Uses native built-in timers in MPAS
-                    TIMER_LIB=gptl - Uses gptl for the timer interface instead of the native interface
-                    TIMER_LIB=tau - Uses TAU for the timer interface instead of the native interface
+                    TIMER_LIB=gptl - Uses gptl for the timer interface instead of
+                                     the native interface
+                    TIMER_LIB=tau - Uses TAU for the timer interface instead of
+                                    the native interface
     OPENMP=true   - builds and links with OpenMP flags. Default is to not use OpenMP.
     USE_PIO2=true - links with the PIO 2 library. Default is to use the PIO 1.x library.
-    PRECISION=single - builds with default single-precision real kind. Default is to use double-precision.
+    PRECISION=single - builds with default single-precision real kind. Default is to use
+                       double-precision.
 
 Ensure that NETCDF, PNETCDF, PIO, and PAPI (if USE_PAPI=true) are environment variables
 that point to the absolute paths for the libraries.
