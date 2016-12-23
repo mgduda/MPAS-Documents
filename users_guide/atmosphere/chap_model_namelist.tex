@@ -921,7 +921,7 @@ Possible Values & `mesoscale\_reference',`convection\_permitting',`none' \textit
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
 Description & \textit{configuration for cloud microphysics schemes (hidden by default)} \\ \hline
-Possible Values & `suite',`wsm6',`off' \textit{(default: suite)} \\ \hline
+Possible Values & `suite',`mp\_wsm6',`mp\_thompson',`mp\_kessler',`off' \textit{(default: suite)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -932,7 +932,7 @@ Possible Values & `suite',`wsm6',`off' \textit{(default: suite)} \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
 Description & \textit{configuration for convection schemes (hidden by default)} \\ \hline
-Possible Values & `suite',`kain\_fritsch',`tiedtke',`off' \textit{(default: suite)} \\ \hline
+Possible Values & `suite',`cu\_kain\_fritsch',`cu\_tiedtke',`cu\_ntiedtke',`cu\_grell\_freitas',`off' \textit{(default: suite)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -954,7 +954,7 @@ Possible Values & `suite',`noah',`off' \textit{(default: suite)} \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
 Description & \textit{configuration for planetary boundary layer schemes (hidden by default)} \\ \hline
-Possible Values & `suite',`ysu',`off' \textit{(default: suite)} \\ \hline
+Possible Values & `suite',`bl\_ysu',`bl\_mynn',`off' \textit{(default: suite)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -965,7 +965,7 @@ Possible Values & `suite',`ysu',`off' \textit{(default: suite)} \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
 Description & \textit{configuration of gravity wave drag over orography (hidden by default)} \\ \hline
-Possible Values & `suite',`ysu\_gwdo',`off' \textit{(default: suite)} \\ \hline
+Possible Values & `suite',`bl\_ysu\_gwdo',`off' \textit{(default: suite)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1009,7 +1009,7 @@ Possible Values & `suite',`rrtmg\_sw',`cam\_sw',`off' \textit{(default: suite)} 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
 Description & \textit{configuration for surface layer-scheme (hidden by default)} \\ \hline
-Possible Values & `suite',`monin\_obukhov',`off' \textit{(default: suite)} \\ \hline
+Possible Values & `suite',`sf\_monin\_obukhov',`sf\_mynn',`off' \textit{(default: suite)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
