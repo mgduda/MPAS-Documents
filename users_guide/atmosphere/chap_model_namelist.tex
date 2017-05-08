@@ -387,18 +387,7 @@ Possible Values & Positive real values \textit{(default: 0.1)} \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
 Description & \textit{3-d divergence damping coefficient} \\ \hline
-Possible Values & Positive real values \textit{(default: 0.025)} \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
-\hypertarget{mnl:config_smdiv_p_forward}
-\noindent\textbf{\large{config\_smdiv\_p\_forward}} (real) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{-} \\ \hline
-Description & \textit{Fractional forward weighting of the pressure during the acoustic step --- a form of 3D divergence damping} \\ \hline
-Possible Values & Real values typically in the range 0 to 0.2 \textit{(default: 0.1)} \\ \hline
+Possible Values & Positive real values \textit{(default: 0.1)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -434,7 +423,6 @@ Description & \textit{Number of halo layers for fields (hidden by default)} \\ \
 Possible Values & Integer values, typically 2 or 3; DO NOT CHANGE \textit{(default: 2)} \\ \hline
 \end{tabular} 
 \end{minipage}
-
 \hypertarget{mrec:damping}{}
 \section{damping}
 \small
@@ -460,8 +448,7 @@ Description & \textit{Maximum w-damping coefficient at model top} \\ \hline
 Possible Values & 0 $\leq$ config\_xnutr $\leq$ 1 \textit{(default: 0.2)} \\ \hline
 \end{tabular} 
 \end{minipage}
-
-\hypertarget{mrec:io.model}{}
+\hypertarget{mrec:io}{}
 \section{io}
 \small
 
@@ -497,8 +484,7 @@ Description & \textit{Stride between file I/O tasks} \\ \hline
 Possible Values & Integer valued, $\leq$ (\# MPI tasks) / config\_pio\_num\_iotasks \textit{(default: 1)} \\ \hline
 \end{tabular} 
 \end{minipage}
-
-\hypertarget{mrec:decomposition.model}{}
+\hypertarget{mrec:decomposition}{}
 \section{decomposition}
 \small
 
@@ -545,7 +531,6 @@ Description & \textit{Prefix of block mapping file (hidden by default)} \\ \hlin
 Possible Values & Any valid filename \textit{(default: graph.info.part.)} \\ \hline
 \end{tabular} 
 \end{minipage}
-
 \hypertarget{mrec:restart}{}
 \section{restart}
 \small
@@ -571,7 +556,6 @@ Description & \textit{Whether to re-compute coupled fields $\theta_m$, $\tilde{\
 Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
 \end{tabular} 
 \end{minipage}
-
 \hypertarget{mrec:printout}{}
 \section{printout}
 \small
@@ -608,7 +592,6 @@ Description & \textit{Whether to print the global min/max of scalar fields each 
 Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
 \end{tabular} 
 \end{minipage}
-
 \hypertarget{mrec:IAU}{}
 \section{IAU}
 \small
@@ -616,11 +599,11 @@ Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
 \hypertarget{mnl:config_IAU_option}
-\noindent\textbf{\large{config\_IAU\_option}} (integer) \\ 
+\noindent\textbf{\large{config\_IAU\_option}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
 Description & \textit{Incremental Analysis Update scheme} \\ \hline
-Possible Values & 0 or 1; 0 turns off IAU, 1 uses equal weighting of increments across the IAU window \textit{(default: 0)} \\ \hline
+Possible Values & `off' or `on'; `off' turns off IAU, `on' uses equal weighting of increments across the IAU window \textit{(default: off)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -634,7 +617,6 @@ Description & \textit{Length of window over which analysis increments are applie
 Possible Values & Non-negative real values \textit{(default: 21600.)} \\ \hline
 \end{tabular} 
 \end{minipage}
-
 \hypertarget{mrec:physics}{}
 \section{physics}
 \small

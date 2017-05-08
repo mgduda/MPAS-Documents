@@ -16,16 +16,7 @@
 \noindent\textbf{\large{config\_init\_case}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
-Description & \textit{ Type of initial conditions to create: \newline
-                       1 = Jablonowski \& Williamson barolinic wave (no initial perturbation), \newline
-                       2 = Jablonowski \& Williamson barolinic wave (with initial perturbation), \newline
-                       3 = Jablonowski \& Williamson barolinic wave (with normal-mode perturbation), \newline
-                       4 = squall line, \newline
-                       5 = super-cell, \newline
-                       6 = mountain wave, \newline
-                       7 = real-data initial conditions from, e.g., GFS, \newline
-                       8 = surface field (SST, sea-ice) update file for use with real-data simulations
-} \\ \hline
+Description & \textit{Type of initial conditions to create: \newline                                         1 = Jablonowski \& Williamson barolinic wave (no initial perturbation), \newline                                         2 = Jablonowski \& Williamson barolinic wave (with initial perturbation), \newline                                         3 = Jablonowski \& Williamson barolinic wave (with normal-mode perturbation), \newline                                         4 = squall line, \newline                                         5 = super-cell, \newline                                         6 = mountain wave, \newline                                         7 = real-data initial conditions from, e.g., GFS, \newline                                         8 = surface field (SST, sea-ice) update file for use with real-data simulations} \\ \hline
 Possible Values & 1 -- 8 \textit{(default: 7)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -95,7 +86,6 @@ Description & \textit{Number of halo layers for fields (hidden by default)} \\ \
 Possible Values & Integer values, typically 2 or 3; DO NOT CHANGE \textit{(default: 2)} \\ \hline
 \end{tabular} 
 \end{minipage}
-
 \hypertarget{irec:dimensions}{}
 \section{dimensions}
 \small
@@ -154,7 +144,6 @@ Description & \textit{The number of months in a year (hidden by default)} \\ \hl
 Possible Values & Positive integer values \textit{(default: 12)} \\ \hline
 \end{tabular} 
 \end{minipage}
-
 \hypertarget{irec:data_sources}{}
 \section{data\_sources}
 \small
@@ -224,7 +213,6 @@ Description & \textit{Whether to use specific-humidity as the first-guess moistu
 Possible Values & true or false \textit{(default: false)} \\ \hline
 \end{tabular} 
 \end{minipage}
-
 \hypertarget{irec:vertical_grid}{}
 \section{vertical\_grid}
 \small
@@ -294,7 +282,20 @@ Description & \textit{Whether to use the vertical layer profile that was develop
 Possible Values & true or false \textit{(default: true)} \\ \hline
 \end{tabular} 
 \end{minipage}
+\hypertarget{irec:interpolation_control}{}
+\section{interpolation\_control}
+\small
 
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{inl:config_extrap_airtemp}
+\noindent\textbf{\large{config\_extrap\_airtemp}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Method of extrapolation of air temperature above/below first-guess levels.} \\ \hline
+Possible Values & `constant' (last valid value), `linear' (linear extrapolation based on last two values), `lapse-rate' (0.0065 K/m from last valid value) \textit{(default: linear)} \\ \hline
+\end{tabular} 
+\end{minipage}
 \hypertarget{irec:preproc_stages}{}
 \section{preproc\_stages}
 \small
@@ -375,7 +376,6 @@ Description & \textit{Whether to switch sea-ice threshold from 0.5 to 0.02} \\ \
 Possible Values & true or false \textit{(default: true)} \\ \hline
 \end{tabular} 
 \end{minipage}
-
 \hypertarget{irec:io}{}
 \section{io}
 \small
@@ -401,7 +401,6 @@ Description & \textit{Stride between file I/O tasks} \\ \hline
 Possible Values & Integer valued, $\leq$ (\# MPI tasks) / config\_pio\_num\_iotasks \textit{(default: 1)} \\ \hline
 \end{tabular} 
 \end{minipage}
-
 \hypertarget{irec:decomposition}{}
 \section{decomposition}
 \small

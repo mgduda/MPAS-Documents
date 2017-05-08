@@ -1,17 +1,13 @@
 \chapter{Description of Model Fields}
-
-Every field that may be read or written in a NetCDF {\em stream} (as described in
-Chapter \ref{chap:mpas_io}) by the MPAS-Atmosphere model is described in this chapter.
-The dimensionality of each field is given in Fortran storage order (i.e., the fastest-varying
-dimension is inner-most).
-
+Every field that may be read or written in a NetCDF {\em stream} (as described in Chapter \ref{chap:mpas_io}) by the MPAS-Atmosphere model is described in this chapter. The dimensionality of each field is given in Fortran storage order (i.e., the fastest-varying dimension is inner-most).
 \small
-
-\phantomsection
-\addcontentsline{toc}{section}{Fields A--G}
 
 \renewcommand{\arraystretch}{1.5}
 \def\bsq#1{\lq{#1}\rq}
+\phantomsection
+\addcontentsline{toc}{section}{Fields A--H}
+
+
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
 \hypertarget{a_tri}
@@ -411,13 +407,13 @@ Accessed in code & as \bsq{alpha\_tri} from the \bsq{diag} pool \\ \hline
 \end{minipage}
 
 \vspace{10mm}
-\noindent\hyperlink{aerosols}{\textbf{\large{bcphi}} --- \textit{see \bsq{aerosols}}}
+\noindent\hyperlink{aerosols}{\color{red}{\textbf{\large{bcphi}} --- \textit{see \bsq{aerosols}}}}
 
 \vspace{10mm}
-\noindent\hyperlink{aerosols}{\textbf{\large{bcpho}} --- \textit{see \bsq{aerosols}}}
+\noindent\hyperlink{aerosols}{\color{red}{\textbf{\large{bcpho}} --- \textit{see \bsq{aerosols}}}}
 
 \vspace{10mm}
-\noindent\hyperlink{aerosols}{\textbf{\large{bg}} --- \textit{see \bsq{aerosols}}}
+\noindent\hyperlink{aerosols}{\color{red}{\textbf{\large{bg}} --- \textit{see \bsq{aerosols}}}}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -426,7 +422,7 @@ Accessed in code & as \bsq{alpha\_tri} from the \bsq{diag} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{Richardson number} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{br} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -449,7 +445,7 @@ Accessed in code & as \bsq{canwat} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{drag coefficient at 10-meter} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{cd} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -461,7 +457,7 @@ Accessed in code & as \bsq{cd} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{drag coefficient at lowest model level} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{cda} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -473,7 +469,7 @@ Accessed in code & as \bsq{cda} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m s\textsuperscript{-1}} \\ \hline
 Description & \textit{surface exchange coefficient for heat} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{ch} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -496,7 +492,7 @@ Accessed in code & as \bsq{chklowq} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m s\textsuperscript{-1}} \\ \hline
 Description & \textit{surface exchange coefficient for heat and moisture} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{chs} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -508,7 +504,7 @@ Accessed in code & as \bsq{chs} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m s\textsuperscript{-1}} \\ \hline
 Description & \textit{surface exchange coefficient for heat at 2-meter} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{chs2} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -531,7 +527,7 @@ Accessed in code & as \bsq{circulation} from the \bsq{diag} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{enthalpy exchange coeff at 10-meter} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{ck} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -543,7 +539,7 @@ Accessed in code & as \bsq{ck} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{enthalpy exchange coefficient at lowest model level} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{cka} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -643,7 +639,7 @@ Accessed in code & as \bsq{coszr} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{K kg kg\textsuperscript{-1}} \\ \hline
 Description & \textit{liquid water - liquid water potential temperature covariance} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{cov} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -655,7 +651,7 @@ Accessed in code & as \bsq{cov} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{J K\textsuperscript{-1} kg\textsuperscript{-1}} \\ \hline
 Description & \textit{specific heat of dry air at constant pressure at lowest model level} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{cpm} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -667,7 +663,7 @@ Accessed in code & as \bsq{cpm} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m s\textsuperscript{-1}} \\ \hline
 Description & \textit{surface exchange coefficient for moisture at 2-meter} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{cqs2} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -701,7 +697,7 @@ Accessed in code & as \bsq{cqw} from the \bsq{diag} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{index of highest level of convection} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in \\ \hline
 Accessed in code & as \bsq{cubot} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -713,7 +709,7 @@ Accessed in code & as \bsq{cubot} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{mm s\textsuperscript{-1}} \\ \hline
 Description & \textit{convective precipitation rate} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_tiedtke\_in \\ \hline
 Accessed in code & as \bsq{cuprec} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -725,7 +721,7 @@ Accessed in code & as \bsq{cuprec} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{index of lowest level of convection} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in \\ \hline
 Accessed in code & as \bsq{cutop} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -737,7 +733,7 @@ Accessed in code & as \bsq{cutop} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m} \\ \hline
 Description & \textit{entrainment layer depth from PBL scheme} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{delta} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -755,23 +751,12 @@ Accessed in code & as \bsq{divergence} from the \bsq{diag} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{divergence_3d}
-\noindent\textbf{\large{divergence\_3d}} (real) (nVertLevels, nCells, Time) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{kg m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
-Description & \textit{3D divergence used for acoustic filtering} \\ \hline
-Accessed in code & as \bsq{divergence\_3d} from the \bsq{diag} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
 \hypertarget{dqke}
 \noindent\textbf{\large{dqke}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript{2} s\textsuperscript{-2}} \\ \hline
 Description & \textit{TKE change} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{dqke} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -810,16 +795,16 @@ Accessed in code & as \bsq{dusfcg} from the \bsq{diag\_physics} pool \\ \hline
 \end{minipage}
 
 \vspace{10mm}
-\noindent\hyperlink{aerosols}{\textbf{\large{dust1}} --- \textit{see \bsq{aerosols}}}
+\noindent\hyperlink{aerosols}{\color{red}{\textbf{\large{dust1}} --- \textit{see \bsq{aerosols}}}}
 
 \vspace{10mm}
-\noindent\hyperlink{aerosols}{\textbf{\large{dust2}} --- \textit{see \bsq{aerosols}}}
+\noindent\hyperlink{aerosols}{\color{red}{\textbf{\large{dust2}} --- \textit{see \bsq{aerosols}}}}
 
 \vspace{10mm}
-\noindent\hyperlink{aerosols}{\textbf{\large{dust3}} --- \textit{see \bsq{aerosols}}}
+\noindent\hyperlink{aerosols}{\color{red}{\textbf{\large{dust3}} --- \textit{see \bsq{aerosols}}}}
 
 \vspace{10mm}
-\noindent\hyperlink{aerosols}{\textbf{\large{dust4}} --- \textit{see \bsq{aerosols}}}
+\noindent\hyperlink{aerosols}{\color{red}{\textbf{\large{dust4}} --- \textit{see \bsq{aerosols}}}}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -850,7 +835,7 @@ Accessed in code & as \bsq{dzs} from the \bsq{sfc\_input} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m} \\ \hline
 Description & \textit{mixing length from PBL scheme} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{el\_pbl} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -918,7 +903,7 @@ Accessed in code & as \bsq{evapprod} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript{2} s\textsuperscript{-1}} \\ \hline
 Description & \textit{exchange coefficient} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{exch\_h} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -952,7 +937,7 @@ Accessed in code & as \bsq{exner\_base} from the \bsq{diag} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{integrated stability function for heat} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{fh} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -964,7 +949,7 @@ Accessed in code & as \bsq{fh} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{W m\textsuperscript{-2} K\textsuperscript{-1}} \\ \hline
 Description & \textit{exchange coefficient for heat} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{flhc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -976,7 +961,7 @@ Accessed in code & as \bsq{flhc} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg m\textsuperscript{-2} s\textsuperscript{-1}} \\ \hline
 Description & \textit{exchange coefficient for moisture} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{flqc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -988,7 +973,7 @@ Accessed in code & as \bsq{flqc} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{integrated stability function for moisture} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{fm} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1044,7 +1029,7 @@ Accessed in code & as \bsq{gradPVt} from the \bsq{diag} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{mm} \\ \hline
 Description & \textit{accumulated grid-scale precipitation of graupel} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{graupelnc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1056,7 +1041,7 @@ Accessed in code & as \bsq{graupelnc} from the \bsq{diag\_physics} pool \\ \hlin
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{mm} \\ \hline
 Description & \textit{time-step grid-scale precipitation of graupel} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{graupelncv} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1101,13 +1086,10 @@ Accessed in code & as \bsq{gsw} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{log(z/z0) where z0 is roughness length} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{gz1oz0} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
-
-\phantomsection
-\addcontentsline{toc}{section}{Fields H--P}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -1149,7 +1131,7 @@ Accessed in code & as \bsq{h\_oml\_initial} from the \bsq{diag\_physics} pool \\
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{W m\textsuperscript{-2}} \\ \hline
 Description & \textit{upward heat flux at the surface} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{hfx} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1161,7 +1143,7 @@ Accessed in code & as \bsq{hfx} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m} \\ \hline
 Description & \textit{Planetary Boundary Layer (PBL) height} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{hpbl} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1187,6 +1169,10 @@ Description & \textit{ocean mixed layer integrated v (meridional velocity)} \\ \
 Accessed in code & as \bsq{hv\_oml} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\phantomsection
+\addcontentsline{toc}{section}{Fields I--Q}
+
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -1371,7 +1357,7 @@ Accessed in code & as \bsq{i\_acswuptc} from the \bsq{diag\_physics} pool \\ \hl
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{incidence of accumulated convective precipitation greater than config\_bucket\_rainc} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_tiedtke\_in \\ \hline
 Accessed in code & as \bsq{i\_rainc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1383,7 +1369,7 @@ Accessed in code & as \bsq{i\_rainc} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{incidence of accumulated grid-scale precipitation greater than config\_bucket\_rainnc} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{i\_rainnc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1417,7 +1403,7 @@ Accessed in code & as \bsq{ivgtyp} from the \bsq{sfc\_input} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{index of convection at k22 level in Grell-Freitas convection scheme} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in \\ \hline
 Accessed in code & as \bsq{k22\_shallow} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1429,7 +1415,7 @@ Accessed in code & as \bsq{k22\_shallow} from the \bsq{diag\_physics} pool \\ \h
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{index of lowest level of shallow convection in Grell-Freitas convection scheme} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in \\ \hline
 Accessed in code & as \bsq{kbcon\_shallow} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1463,7 +1449,7 @@ Accessed in code & as \bsq{ke} from the \bsq{diag} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{index level of PBL top} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{kpbl} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1475,7 +1461,7 @@ Accessed in code & as \bsq{kpbl} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{index of highest level of deep convection in Grell-Freitas convection scheme} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in \\ \hline
 Accessed in code & as \bsq{ktop\_deep} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1487,7 +1473,7 @@ Accessed in code & as \bsq{ktop\_deep} from the \bsq{diag\_physics} pool \\ \hli
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{index of highest level of shallow convection in Grell-Freitas convection scheme} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in \\ \hline
 Accessed in code & as \bsq{ktop\_shallow} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1499,7 +1485,7 @@ Accessed in code & as \bsq{ktop\_shallow} from the \bsq{diag\_physics} pool \\ \
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript{2} s\textsuperscript{-1}} \\ \hline
 Description & \textit{vertical diffusion coefficient of potential temperature} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{kzh} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1511,7 +1497,7 @@ Accessed in code & as \bsq{kzh} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript{2} s\textsuperscript{-1}} \\ \hline
 Description & \textit{vertical diffusion coefficient of mommentum} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{kzm} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1523,7 +1509,7 @@ Accessed in code & as \bsq{kzm} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript{2} s\textsuperscript{-1}} \\ \hline
 Description & \textit{vertical diffusion coefficient of water vapor and cloud condensates} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{kzq} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1557,7 +1543,7 @@ Accessed in code & as \bsq{landmask} from the \bsq{sfc\_input} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{W m\textsuperscript{-2}} \\ \hline
 Description & \textit{latent heat flux at the surface} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{lh} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1679,7 +1665,7 @@ Accessed in code & as \bsq{m\_ps} from the \bsq{state} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{surface moisture availability (between 0 and 1)} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{mavail} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1702,7 +1688,7 @@ Accessed in code & as \bsq{mminlu} from the \bsq{sfc\_input} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{K} \\ \hline
 Description & \textit{T* in similarity theory} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{mol} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1726,7 +1712,7 @@ Accessed in code & as \bsq{mu\_c} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{s} \\ \hline
 Description & \textit{relaxation time for KF parameterization of convection} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_kain\_fritsch\_in \\ \hline
 Accessed in code & as \bsq{nca} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1743,7 +1729,7 @@ Accessed in code & as \bsq{ndays\_accum} from the \bsq{diag\_physics} pool \\ \h
 \end{minipage}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars}{\textbf{\large{ni}} --- \textit{see \bsq{scalars}}}
+\noindent\hyperlink{scalars}{\color{red}{\textbf{\large{ni}} --- \textit{see \bsq{scalars}}}}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -1768,7 +1754,7 @@ Accessed in code & as \bsq{noahres} from the \bsq{diag\_physics} pool \\ \hline
 \end{minipage}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars}{\textbf{\large{nr}} --- \textit{see \bsq{scalars}}}
+\noindent\hyperlink{scalars}{\color{red}{\textbf{\large{nr}} --- \textit{see \bsq{scalars}}}}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -1860,10 +1846,10 @@ Accessed in code & as \bsq{oa4} from the \bsq{sfc\_input} pool \\ \hline
 \end{minipage}
 
 \vspace{10mm}
-\noindent\hyperlink{aerosols}{\textbf{\large{ocphi}} --- \textit{see \bsq{aerosols}}}
+\noindent\hyperlink{aerosols}{\color{red}{\textbf{\large{ocphi}} --- \textit{see \bsq{aerosols}}}}
 
 \vspace{10mm}
-\noindent\hyperlink{aerosols}{\textbf{\large{ocpho}} --- \textit{see \bsq{aerosols}}}
+\noindent\hyperlink{aerosols}{\color{red}{\textbf{\large{ocpho}} --- \textit{see \bsq{aerosols}}}}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -2015,7 +2001,7 @@ Accessed in code & as \bsq{pressure\_p} from the \bsq{diag} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{similarity stability function for heat} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{psih} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2027,7 +2013,7 @@ Accessed in code & as \bsq{psih} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{similarity stability function for momentum} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{psim} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2065,9 +2051,6 @@ Accessed in code & as \bsq{pv\_vertex} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
-\phantomsection
-\addcontentsline{toc}{section}{Fields Q--S}
-
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
 \hypertarget{q2}
@@ -2075,7 +2058,7 @@ Accessed in code & as \bsq{pv\_vertex} from the \bsq{diag} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Description & \textit{2-meter specific humidity} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{q2} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2087,16 +2070,16 @@ Accessed in code & as \bsq{q2} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript{2} s\textsuperscript{-2}} \\ \hline
 Description & \textit{TKE production - buoyancy} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{qbuoy} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars}{\textbf{\large{qc}} --- \textit{see \bsq{scalars}}}
+\noindent\hyperlink{scalars}{\color{red}{\textbf{\large{qc}} --- \textit{see \bsq{scalars}}}}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars_amb}{\textbf{\large{qc\_amb}} --- \textit{see \bsq{scalars\_amb}}}
+\noindent\hyperlink{scalars_amb}{\color{red}{\textbf{\large{qc\_amb}} --- \textit{see \bsq{scalars\_amb}}}}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -2105,7 +2088,7 @@ Accessed in code & as \bsq{qbuoy} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Description & \textit{in-cloud cloud water mixing ratio in Grell-Freitas cloud model} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in \\ \hline
 Accessed in code & as \bsq{qc\_cu} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2117,7 +2100,7 @@ Accessed in code & as \bsq{qc\_cu} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Description & \textit{cloud water mixing ratio at the ground surface} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{qcg} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2129,7 +2112,7 @@ Accessed in code & as \bsq{qcg} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript{2} s\textsuperscript{-2}} \\ \hline
 Description & \textit{TKE dissipation} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{qdiss} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2141,16 +2124,16 @@ Accessed in code & as \bsq{qdiss} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg m\textsuperscript{-2} s\textsuperscript{-1}} \\ \hline
 Description & \textit{upward moisture flux at the surface} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{qfx} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars}{\textbf{\large{qg}} --- \textit{see \bsq{scalars}}}
+\noindent\hyperlink{scalars}{\color{red}{\textbf{\large{qg}} --- \textit{see \bsq{scalars}}}}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars_amb}{\textbf{\large{qg\_amb}} --- \textit{see \bsq{scalars\_amb}}}
+\noindent\hyperlink{scalars_amb}{\color{red}{\textbf{\large{qg\_amb}} --- \textit{see \bsq{scalars\_amb}}}}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -2159,16 +2142,16 @@ Accessed in code & as \bsq{qfx} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Description & \textit{lowest level saturation mixing ratio} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{qgh} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars}{\textbf{\large{qi}} --- \textit{see \bsq{scalars}}}
+\noindent\hyperlink{scalars}{\color{red}{\textbf{\large{qi}} --- \textit{see \bsq{scalars}}}}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars_amb}{\textbf{\large{qi\_amb}} --- \textit{see \bsq{scalars\_amb}}}
+\noindent\hyperlink{scalars_amb}{\color{red}{\textbf{\large{qi\_amb}} --- \textit{see \bsq{scalars\_amb}}}}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -2177,7 +2160,7 @@ Accessed in code & as \bsq{qgh} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Description & \textit{in-cloud cloud ice mixing ratio in Grell-Freitas cloud model} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in \\ \hline
 Accessed in code & as \bsq{qi\_cu} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2189,7 +2172,7 @@ Accessed in code & as \bsq{qi\_cu} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript{2} s\textsuperscript{-2}} \\ \hline
 Description & \textit{twice turbulent kinetic energy} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{qke} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2201,22 +2184,22 @@ Accessed in code & as \bsq{qke} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript{2} s\textsuperscript{-2}} \\ \hline
 Description & \textit{twice turbulent kinetic energy} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{qke\_adv} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars}{\textbf{\large{qr}} --- \textit{see \bsq{scalars}}}
+\noindent\hyperlink{scalars}{\color{red}{\textbf{\large{qr}} --- \textit{see \bsq{scalars}}}}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars_amb}{\textbf{\large{qr\_amb}} --- \textit{see \bsq{scalars\_amb}}}
+\noindent\hyperlink{scalars_amb}{\color{red}{\textbf{\large{qr\_amb}} --- \textit{see \bsq{scalars\_amb}}}}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars}{\textbf{\large{qs}} --- \textit{see \bsq{scalars}}}
+\noindent\hyperlink{scalars}{\color{red}{\textbf{\large{qs}} --- \textit{see \bsq{scalars}}}}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars_amb}{\textbf{\large{qs\_amb}} --- \textit{see \bsq{scalars\_amb}}}
+\noindent\hyperlink{scalars_amb}{\color{red}{\textbf{\large{qs\_amb}} --- \textit{see \bsq{scalars\_amb}}}}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -2225,7 +2208,7 @@ Accessed in code & as \bsq{qke\_adv} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Description & \textit{specific humidity at lower boundary} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{qsfc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2237,7 +2220,7 @@ Accessed in code & as \bsq{qsfc} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript{2} s\textsuperscript{-2}} \\ \hline
 Description & \textit{TKE production - shear} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{qshear} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2249,16 +2232,16 @@ Accessed in code & as \bsq{qshear} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{{kg kg\textsuperscript{-1}}\textsuperscript2} \\ \hline
 Description & \textit{liquid water variance} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{qsq} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars}{\textbf{\large{qv}} --- \textit{see \bsq{scalars}}}
+\noindent\hyperlink{scalars}{\color{red}{\textbf{\large{qv}} --- \textit{see \bsq{scalars}}}}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars_amb}{\textbf{\large{qv\_amb}} --- \textit{see \bsq{scalars\_amb}}}
+\noindent\hyperlink{scalars_amb}{\color{red}{\textbf{\large{qv\_amb}} --- \textit{see \bsq{scalars\_amb}}}}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -2267,10 +2250,14 @@ Accessed in code & as \bsq{qsq} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript{2} s\textsuperscript{-2}} \\ \hline
 Description & \textit{TKE vertical distribution} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{qwt} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\phantomsection
+\addcontentsline{toc}{section}{Fields R--S}
+
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -2279,7 +2266,7 @@ Accessed in code & as \bsq{qwt} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{mm} \\ \hline
 Description & \textit{accumulated convective precipitation} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_tiedtke\_in \\ \hline
 Accessed in code & as \bsq{rainc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2291,7 +2278,7 @@ Accessed in code & as \bsq{rainc} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{mm} \\ \hline
 Description & \textit{time-step convective precipitation} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_tiedtke\_in \\ \hline
 Accessed in code & as \bsq{raincv} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2303,7 +2290,7 @@ Accessed in code & as \bsq{raincv} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{mm} \\ \hline
 Description & \textit{accumulated total grid-scale precipitation} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{rainnc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2315,7 +2302,7 @@ Accessed in code & as \bsq{rainnc} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{mm} \\ \hline
 Description & \textit{time-step total grid-scale precipitation} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{rainncv} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2339,7 +2326,7 @@ Accessed in code & as \bsq{rainprod} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m} \\ \hline
 Description & \textit{effective radius of cloud water droplets} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{re\_cloud} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2351,7 +2338,7 @@ Accessed in code & as \bsq{re\_cloud} from the \bsq{diag\_physics} pool \\ \hlin
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m} \\ \hline
 Description & \textit{effective radius of cloud ice crystals} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{re\_ice} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2363,7 +2350,7 @@ Accessed in code & as \bsq{re\_ice} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m} \\ \hline
 Description & \textit{effective radius of snow crystals} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{re\_snow} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2375,7 +2362,7 @@ Accessed in code & as \bsq{re\_snow} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{dBZ} \\ \hline
 Description & \textit{diagnosed 10 cm radar reflectivity at 1 km AGL} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{refl10cm\_1km} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2387,7 +2374,7 @@ Accessed in code & as \bsq{refl10cm\_1km} from the \bsq{diag\_physics} pool \\ \
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{dBZ} \\ \hline
 Description & \textit{maximum diagnosed 10 cm radar reflectivity at 1 km AGL since last output time} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{refl10cm\_1km\_max} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2399,7 +2386,7 @@ Accessed in code & as \bsq{refl10cm\_1km\_max} from the \bsq{diag\_physics} pool
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{dBZ} \\ \hline
 Description & \textit{10 cm maximum radar reflectivity} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{refl10cm\_max} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2411,7 +2398,7 @@ Accessed in code & as \bsq{refl10cm\_max} from the \bsq{diag\_physics} pool \\ \
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{flag indicating the PBL regime (stable,unstable,...)} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{regime} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2533,7 +2520,7 @@ Accessed in code & as \bsq{rho\_zz\_old\_split} from the \bsq{diag} pool \\ \hli
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{1./L Monin Obukhov length} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{rmol} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2545,7 +2532,7 @@ Accessed in code & as \bsq{rmol} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{nb kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of cloud ice number concentration due to pbl processes} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{rniblten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2557,7 +2544,7 @@ Accessed in code & as \bsq{rniblten} from the \bsq{tend\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of cloud water mixing ratio due to pbl processes} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{rqcblten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2569,7 +2556,7 @@ Accessed in code & as \bsq{rqcblten} from the \bsq{tend\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of cloud water mixing ratio due to cumulus convection} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_tiedtke\_in \\ \hline
 Accessed in code & as \bsq{rqccuten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2581,7 +2568,7 @@ Accessed in code & as \bsq{rqccuten} from the \bsq{tend\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of cloud ice mixing ratio due to pbl processes} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{rqiblten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2593,7 +2580,7 @@ Accessed in code & as \bsq{rqiblten} from the \bsq{tend\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of cloud ice mixing ratio due to cumulus convection} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_tiedtke\_in \\ \hline
 Accessed in code & as \bsq{rqicuten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2605,7 +2592,7 @@ Accessed in code & as \bsq{rqicuten} from the \bsq{tend\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of rain mixing ratio due to cumulus convection} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_kain\_fritsch\_in \\ \hline
 Accessed in code & as \bsq{rqrcuten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2617,7 +2604,7 @@ Accessed in code & as \bsq{rqrcuten} from the \bsq{tend\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of snow mixing ratio due to cumulus convection} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_kain\_fritsch\_in \\ \hline
 Accessed in code & as \bsq{rqscuten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2629,7 +2616,7 @@ Accessed in code & as \bsq{rqscuten} from the \bsq{tend\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of water vapor mixing ratio due to pbl processes} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{rqvblten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2641,7 +2628,7 @@ Accessed in code & as \bsq{rqvblten} from the \bsq{tend\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of water vapor mixing ratio due to cumulus convection} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_tiedtke\_in \\ \hline
 Accessed in code & as \bsq{rqvcuten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2653,7 +2640,7 @@ Accessed in code & as \bsq{rqvcuten} from the \bsq{tend\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of water vapor due to horizontal and vertical advections} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_tiedtke\_in \\ \hline
 Accessed in code & as \bsq{rqvdynten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2709,7 +2696,7 @@ Accessed in code & as \bsq{rt\_diabatic\_tend} from the \bsq{tend} pool \\ \hlin
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{K s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of potential temperature due to pbl processes} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{rthblten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2721,7 +2708,7 @@ Accessed in code & as \bsq{rthblten} from the \bsq{tend\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{K s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of potential temperature due to cumulus convection} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_tiedtke\_in \\ \hline
 Accessed in code & as \bsq{rthcuten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2733,7 +2720,7 @@ Accessed in code & as \bsq{rthcuten} from the \bsq{tend\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{K s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of temperature due to horizontal and vertical advections} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_tiedtke\_in \\ \hline
 Accessed in code & as \bsq{rthdynten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2788,7 +2775,7 @@ Accessed in code & as \bsq{rtheta\_pp} from the \bsq{diag} pool \\ \hline
 \noindent\textbf{\large{rtheta\_pp\_old}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg K m\textsuperscript{-3}} \\ \hline
-Description & \textit{predicted value rtheta\_pp, saved during acoustic steps for divergence damping calculation} \\ \hline
+Description & \textit{old time level values of rho*theta\_m/zz perturbation from rtheta\_p, used in 3D divergence damping} \\ \hline
 Accessed in code & as \bsq{rtheta\_pp\_old} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2888,7 +2875,7 @@ Accessed in code & as \bsq{rubldiff} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m s\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of zonal wind due to pbl processes} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{rublten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2911,7 +2898,7 @@ Accessed in code & as \bsq{rublten\_Edge} from the \bsq{tend\_physics} pool \\ \
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m s\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of zonal wind due to cumulus convection} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_tiedtke\_in \\ \hline
 Accessed in code & as \bsq{rucuten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2956,7 +2943,7 @@ Accessed in code & as \bsq{rvbldiff} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m s\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of meridional wind due to pbl processes} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{rvblten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2968,7 +2955,7 @@ Accessed in code & as \bsq{rvblten} from the \bsq{tend\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m s\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of meridional wind due to cumulus convection} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_tiedtke\_in \\ \hline
 Accessed in code & as \bsq{rvcuten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -3107,7 +3094,7 @@ Allocated by & bl\_mynn\_in, mp\_thompson\_in \\ \hline
 \hypertarget{nr}
 \noindent\textbf{\normalsize{nr}} --- \textit{constituent field of var\_array \textbf{scalars}}  \\ 
 \begin{tabular}{|p{.25\textwidth-.5\tabcolsep} |p{.65\textwidth-1.3\tabcolsep} |} \hline
-Description & \textit{} \\ \hline
+Description & \textit{Rain number concentration} \\ \hline
 Units & \textit{nb kg\textsuperscript{-1}} \\ \hline
 Array Group & number \\ \hline
 Allocated by & mp\_thompson\_in \\ \hline
@@ -3390,7 +3377,7 @@ Accessed in code & as \bsq{sh2o} from the \bsq{sfc\_input} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{stability function for heat} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{sh3d} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -3545,7 +3532,7 @@ Accessed in code & as \bsq{snowh} from the \bsq{sfc\_input} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{mm} \\ \hline
 Description & \textit{accumulated grid-scale precipitation of snow} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{snownc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -3557,7 +3544,7 @@ Accessed in code & as \bsq{snownc} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{mm} \\ \hline
 Description & \textit{time-step grid-scale precipitation of snow} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{snowncv} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -3574,7 +3561,7 @@ Accessed in code & as \bsq{sr} from the \bsq{diag\_physics} pool \\ \hline
 \end{minipage}
 
 \vspace{10mm}
-\noindent\hyperlink{aerosols}{\textbf{\large{sslt}} --- \textit{see \bsq{aerosols}}}
+\noindent\hyperlink{aerosols}{\color{red}{\textbf{\large{sslt}} --- \textit{see \bsq{aerosols}}}}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -3621,7 +3608,7 @@ Accessed in code & as \bsq{sstsk\_dtw} from the \bsq{diag\_physics} pool \\ \hli
 \end{minipage}
 
 \vspace{10mm}
-\noindent\hyperlink{aerosols}{\textbf{\large{sul}} --- \textit{see \bsq{aerosols}}}
+\noindent\hyperlink{aerosols}{\color{red}{\textbf{\large{sul}} --- \textit{see \bsq{aerosols}}}}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -3780,6 +3767,7 @@ Accessed in code & as \bsq{swuptc} from the \bsq{diag\_physics} pool \\ \hline
 \phantomsection
 \addcontentsline{toc}{section}{Fields T--Z}
 
+
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
 \hypertarget{t2m}
@@ -3787,7 +3775,7 @@ Accessed in code & as \bsq{swuptc} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{K} \\ \hline
 Description & \textit{2-meter temperature} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{t2m} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -3837,28 +3825,28 @@ Accessed in code & as \bsq{tday\_accum} from the \bsq{diag\_physics} pool \\ \hl
 \end{minipage}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars_tend}{\textbf{\large{tend\_ni}} --- \textit{see \bsq{scalars\_tend}}}
+\noindent\hyperlink{scalars_tend}{\color{red}{\textbf{\large{tend\_ni}} --- \textit{see \bsq{scalars\_tend}}}}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars_tend}{\textbf{\large{tend\_nr}} --- \textit{see \bsq{scalars\_tend}}}
+\noindent\hyperlink{scalars_tend}{\color{red}{\textbf{\large{tend\_nr}} --- \textit{see \bsq{scalars\_tend}}}}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars_tend}{\textbf{\large{tend\_qc}} --- \textit{see \bsq{scalars\_tend}}}
+\noindent\hyperlink{scalars_tend}{\color{red}{\textbf{\large{tend\_qc}} --- \textit{see \bsq{scalars\_tend}}}}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars_tend}{\textbf{\large{tend\_qg}} --- \textit{see \bsq{scalars\_tend}}}
+\noindent\hyperlink{scalars_tend}{\color{red}{\textbf{\large{tend\_qg}} --- \textit{see \bsq{scalars\_tend}}}}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars_tend}{\textbf{\large{tend\_qi}} --- \textit{see \bsq{scalars\_tend}}}
+\noindent\hyperlink{scalars_tend}{\color{red}{\textbf{\large{tend\_qi}} --- \textit{see \bsq{scalars\_tend}}}}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars_tend}{\textbf{\large{tend\_qr}} --- \textit{see \bsq{scalars\_tend}}}
+\noindent\hyperlink{scalars_tend}{\color{red}{\textbf{\large{tend\_qr}} --- \textit{see \bsq{scalars\_tend}}}}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars_tend}{\textbf{\large{tend\_qs}} --- \textit{see \bsq{scalars\_tend}}}
+\noindent\hyperlink{scalars_tend}{\color{red}{\textbf{\large{tend\_qs}} --- \textit{see \bsq{scalars\_tend}}}}
 
 \vspace{10mm}
-\noindent\hyperlink{scalars_tend}{\textbf{\large{tend\_qv}} --- \textit{see \bsq{scalars\_tend}}}
+\noindent\hyperlink{scalars_tend}{\color{red}{\textbf{\large{tend\_qv}} --- \textit{see \bsq{scalars\_tend}}}}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -3966,7 +3954,7 @@ Accessed in code & as \bsq{ter} from the \bsq{sfc\_input} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{K} \\ \hline
 Description & \textit{2-meter potential temperature} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{th2m} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4033,7 +4021,7 @@ Accessed in code & as \bsq{theta\_m} from the \bsq{state} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript{2} s\textsuperscript{-2}} \\ \hline
 Description & \textit{turbulent kinetic energy from PBL} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{tke\_pbl} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4078,7 +4066,7 @@ Accessed in code & as \bsq{tslb} from the \bsq{sfc\_input} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{K\textsuperscript{2}} \\ \hline
 Description & \textit{liquid water potential temperature variance} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{tsq} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4123,7 +4111,7 @@ Accessed in code & as \bsq{u} from the \bsq{state} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m s\textsuperscript{-1}} \\ \hline
 Description & \textit{10-meter zonal wind} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{u10} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4212,7 +4200,7 @@ Accessed in code & as \bsq{udrunoff} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m s\textsuperscript{-1}} \\ \hline
 Description & \textit{U* in similarity theory} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{ust} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4224,7 +4212,7 @@ Accessed in code & as \bsq{ust} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m s\textsuperscript{-1}} \\ \hline
 Description & \textit{U* in similarity theory without vconv} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{ustm} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4247,7 +4235,7 @@ Accessed in code & as \bsq{v} from the \bsq{diag} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m s\textsuperscript{-1}} \\ \hline
 Description & \textit{10-meter meridional wind} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{v10} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4275,7 +4263,7 @@ Accessed in code & as \bsq{vegfra} from the \bsq{sfc\_input} pool \\ \hline
 \end{minipage}
 
 \vspace{10mm}
-\noindent\hyperlink{aerosols}{\textbf{\large{volc}} --- \textit{see \bsq{aerosols}}}
+\noindent\hyperlink{aerosols}{\color{red}{\textbf{\large{volc}} --- \textit{see \bsq{aerosols}}}}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -4306,7 +4294,7 @@ Accessed in code & as \bsq{w} from the \bsq{state} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m s\textsuperscript{-1}} \\ \hline
 Description & \textit{time running-averaged vertical velocity} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_kain\_fritsch\_in \\ \hline
 Accessed in code & as \bsq{w0avg} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4318,7 +4306,7 @@ Accessed in code & as \bsq{w0avg} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m s\textsuperscript{-1}} \\ \hline
 Description & \textit{wind speed at lowest model level} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{wspd} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4330,7 +4318,7 @@ Accessed in code & as \bsq{wspd} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m s\textsuperscript{-1}} \\ \hline
 Description & \textit{mixed velocity scale from PBL scheme} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{wstar} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4397,7 +4385,7 @@ Accessed in code & as \bsq{xland} from the \bsq{sfc\_input} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg m\textsuperscript{-2} s\textsuperscript{-1}} \\ \hline
 Description & \textit{cloud base mass flux for shallow convection} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in \\ \hline
 Accessed in code & as \bsq{xmb\_shallow} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4409,7 +4397,7 @@ Accessed in code & as \bsq{xmb\_shallow} from the \bsq{diag\_physics} pool \\ \h
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg m\textsuperscript{-2} s\textsuperscript{-1}} \\ \hline
 Description & \textit{cloud-base mass flux} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in \\ \hline
 Accessed in code & as \bsq{xmb\_total} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4454,7 +4442,7 @@ Accessed in code & as \bsq{znt} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{z/L height over Monin-Obukhov length} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{zol} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4467,16 +4455,5 @@ Accessed in code & as \bsq{zol} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{m} \\ \hline
 Description & \textit{depth of centers of soil layers} \\ \hline
 Accessed in code & as \bsq{zs} from the \bsq{diag\_physics} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
-\hypertarget{zz_rtheta_pp_old}
-\noindent\textbf{\large{zz\_rtheta\_pp\_old}} (real) (nVertLevels, nCells, Time) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{kg K m\textsuperscript{-3}} \\ \hline
-Description & \textit{old time level values of rho*theta\_m/zz perturbation from rtheta\_p, used in 3D divergence damping} \\ \hline
-Accessed in code & as \bsq{zz\_rtheta\_pp\_old} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
