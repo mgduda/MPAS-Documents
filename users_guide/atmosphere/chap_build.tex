@@ -1,13 +1,13 @@
 \chapter{Building MPAS}
 \label{chap:mpas_build_instructions}
 
-\section{Prequisites}
+\section{Prerequisites}
 \label{build_prerequisites}
 
 To build MPAS, compatible C and Fortran compilers are required. Additionally,
 the MPAS software relies on the PIO parallel I/O library to read and write model
 fields, and the PIO library requires the standard NetCDF library as well as the
-Parallel-NetCDF library from Argonne National Labs. All libraries must be
+Parallel-NetCDF library from Argonne National Laboratory. All libraries must be
 compiled with the same compilers that will be used to build MPAS. Section
 \ref{sec:build_io} summarizes the basic procedure of installing the required I/O
 libraries for MPAS.
@@ -32,89 +32,55 @@ capability is to make this code available to collaborators for future developmen
 installing libraries have been successfully used by MPAS developers, but due to
 differences in library versions, compilers, and system configurations, it is
 recommended that users consult documentation provided by individual library
-vendors should problems arise during installation. The MPAS developers take no
+vendors should problems arise during installation. The MPAS developers cannot assume
 responsibility for third-party libraries.} \vspace{12pt}
 
-Although most recent versions of the NetCDF and Parallel-netCDF libraries should work,
-the most tested versions of these libraries are NetCDF 4.1.3 and Parallel-NetCDF 1.3.1.
-Users are strongly encouraged to use PIO versions 1.7.1 or 1.9.23, as other versions
-have not been tested or are known to not work with MPAS. The NetCDF and Parallel-NetCDF
-libraries must be installed before building the PIO library.
+Although most recent versions of the NetCDF and Parallel-NetCDF libraries should work,
+the most tested versions of these libraries are NetCDF 4.4.x and Parallel-NetCDF 1.8.x.
+Users are strongly encouraged to use either the latest PIO 2.x version from \url{https://github.com/NCAR/ParallelIO/},
+or PIO versions 1.7.1 or 1.9.23, as other versions have not been tested or are known to not work with MPAS.
+The NetCDF and Parallel-NetCDF libraries must be installed before building the PIO library.
 
 \subsection{NetCDF}
 \label{serial_netcdf}
 
-Version 4.1.3 of the NetCDF library may be downloaded from
-\url{http://www.unidata.ucar.edu/downloads/netcdf/netcdf-4\_1\_3/index.jsp}.
-Assuming the gfortran and gcc compilers will be used, the following shell
-commands (in csh/tcsh) are generally sufficient to install NetCDF. Of course, other compilers
-may be used by making suitable substitutions in the commands, below.
-
-\vspace{12pt}
-{\tt > setenv FC gfortran}
-
-{\tt > setenv F77 gfortran} 
-
-{\tt > setenv F90 gfortran}
-
-{\tt > setenv CC gcc} 
-
-{\tt > ./configure --prefix=XXXXX --disable-dap --disable-netcdf-4 --disable-cxx \hfill\break --disable-shared --enable-fortran} 
-
-{\tt > make all check}
-
-{\tt > make install}
-\vspace{12pt}
-
-Here, {\tt XXXXX} should be replaced with the directory that will serve as the
-root installation directory for NetCDF.  {\em Before proceeding to compile PIO
-the {\tt NETCDF\_PATH} environment variable should be set to the NetCDF root
+Version 4.4.x of the NetCDF library may be downloaded from
+\url{http://www.unidata.ucar.edu/downloads/netcdf/index.jsp}.
+The Unidata page provides detailed instructions instructions for building the NetCDF C and Fortran libraries;
+both the C and Fortran interfaces are needed by PIO. If NetCDF-4 support is desired, the zlib and HDF5 libraries
+will need to be installed prior to building NetCDF. {\em Before proceeding to compile PIO
+the {\tt NETCDF} environment variable should be set to the NetCDF root
 installation directory.}
-
-Certain compilers require addition flags in the CPPFLAGS environment variable.
-Please refer to the NetCDF installation instructions for these flags.
 
 \subsection{Parallel-NetCDF}
 \label{parallel_netcdf}
 
-Version 1.3.1 of the Parallel-NetCDF library may be downloaded from
-\url{https://trac.mcs.anl.gov/projects/parallel-netcdf/wiki/Download}. Again, assuming
-the gfortran and gcc compilers will be used, the following shell commands are
-generally sufficient to install Parallel-NetCDF; environment variables set during the
-installation of the NetCDF library are assumed to be already set.
-
-\vspace{12pt}
-{\tt > setenv MPIF90 mpif90}
-
-{\tt > setenv MPIF77 mpif90} 
-
-{\tt > setenv MPICC mpicc}  
-
-{\tt > ./configure --prefix=XXXXX} 
-
-{\tt > make}
-
-{\tt > make install}
-\vspace{12pt}
-
-Here, {\tt XXXXX} should be replaced with the directory that will serve as the
-root installation directory for Parallel-NetCDF.  {\em Before proceeding to
-compile PIO the {\tt PNETCDF\_PATH} environment variable should be set to the
+Version 1.8.x of the Parallel-NetCDF library may be downloaded from
+\url{https://trac.mcs.anl.gov/projects/parallel-netcdf/wiki/Download}. {\em Before proceeding to
+compile PIO the {\tt PNETCDF} environment variable should be set to the
 Parallel-NetCDF root installation directory.}
-
 
 \subsection{PIO}
 \label{pio_build}
 
-Due to the rapid development pace of the PIO library, it is recommended to
-obtain and install PIO following the instructions at
-\url{http://www.cesm.ucar.edu/models/pio/} for building PIO.
+Beginning with the MPAS v5.2 release, the either of the PIO 1.x or 2.x library versions
+may be used. The two major versions have slightly different APIs; by default, the MPAS build
+system assumes the PIO 1.x API, but the PIO 2.x library versions may be used by
+adding the {\tt USE\_PIO2=true} option when compiling MPAS as described in Section \ref{compiling_MPAS}.
+If compiling with the PIO 1.x library versions, users are strongly encouraged to choose
+either PIO 1.7.1 or PIO 1.9.23, as other 1.x versions may not work; these two specific versions may
+be obtained from \url{https://github.com/NCAR/ParallelIO/releases/tag/pio1_7_1} and
+\url{https://github.com/NCAR/ParallelIO/releases/tag/pio1_9_23}.
 
-After PIO is built and installed the {\tt PIO} enviroment variable should be set to 
-the directory where PIO was installed. Recent versions of PIO support a {\tt --prefix}
-option, which specifies the installation directory, while older versions do not,
-in which case the {\tt PIO} environment variable should be set to the directory where
-PIO was compiled.
+The PIO 2.x library versions support integrated performance timing with the GPTL library; however,
+the MPAS infrastructure does not currently provide calls to initialize this library when it is used in PIO 2.x.
+Therefore, it is recommended to add {\tt -DPIO\_ENABLE\_TIMING=OFF} when running the cmake command
+to build PIO 2.x versions.
+
+After PIO is built and installed the {\tt PIO} environment variable should be set to 
+the directory where PIO was installed. Recent versions of PIO support the specification of an installation
+prefix, while some older versions do not, in which case the {\tt PIO} environment variable should
+be set to the directory where PIO was compiled.
 
 \section{Compiling MPAS}
 \label{compiling_MPAS}
@@ -187,7 +153,7 @@ below.
 \begin{verbatim}
 > make
 ( make error )
-make[1]: Entering directory `/disk1/MPAS-Release'
+make[1]: Entering directory `/scratch/MPAS-Release'
 
 Usage: make target CORE=[core] [options]
 
@@ -214,14 +180,12 @@ Available Options:
     TIMER_LIB=opt - Selects the timer library interface to be used for profiling the model.
                     Options are:
                     TIMER_LIB=native - Uses native built-in timers in MPAS
-                    TIMER_LIB=gptl - Uses gptl for the timer interface instead of
-                                     the native interface
-                    TIMER_LIB=tau - Uses TAU for the timer interface instead of
-                                    the native interface
+                    TIMER_LIB=gptl - Uses gptl for the timer interface instead of the native interface
+                    TIMER_LIB=tau - Uses TAU for the timer interface instead of the native interface
     OPENMP=true   - builds and links with OpenMP flags. Default is to not use OpenMP.
     USE_PIO2=true - links with the PIO 2 library. Default is to use the PIO 1.x library.
-    PRECISION=single - builds with default single-precision real kind. Default is to use
-                       double-precision.
+    PRECISION=single - builds with default single-precision real kind.
+                       Default is to use double-precision.
 
 Ensure that NETCDF, PNETCDF, PIO, and PAPI (if USE_PAPI=true) are environment variables
 that point to the absolute paths for the libraries.
@@ -230,7 +194,6 @@ that point to the absolute paths for the libraries.
 No CORE specified. Quitting.
 ************ ERROR ************
 \end{verbatim}
-}
 
 \section{Selecting a single-precision build}
 
