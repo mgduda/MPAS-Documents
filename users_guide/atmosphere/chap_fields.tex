@@ -1377,6 +1377,17 @@ Accessed in code & as \bsq{i\_rainnc} from the \bsq{diag\_physics} pool \\ \hlin
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{initial_time}
+\noindent\textbf{\large{initial\_time}} (text) () \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{YYYY-MM-DD\_hh:mm:ss} \\ \hline
+Description & \textit{Model initialization time} \\ \hline
+Accessed in code & as \bsq{initial\_time} from the \bsq{state} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{isltyp}
 \noindent\textbf{\large{isltyp}} (integer) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -1650,12 +1661,23 @@ Accessed in code & as \bsq{lwuptc} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{m_hybi}
+\noindent\textbf{\large{m\_hybi}} (real) (nAerLevels, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Matched hybi (needs to be re-checked)} \\ \hline
+Accessed in code & as \bsq{m\_hybi} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{m_ps}
 \noindent\textbf{\large{m\_ps}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{Pa} \\ \hline
 Description & \textit{Surface pressure from match on MPAS grid} \\ \hline
-Accessed in code & as \bsq{m\_ps} from the \bsq{state} pool \\ \hline
+Accessed in code & as \bsq{m\_ps} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 

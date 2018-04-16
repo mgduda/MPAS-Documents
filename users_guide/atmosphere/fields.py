@@ -38,6 +38,7 @@ for package in packages:
 
 f = open('chap_fields.tex', 'w')
 f.write('\\chapter{Description of Model Fields}\n')
+f.write('\\label{chap:atm_fields}\n')
 f.write("Every field that may be read or written in a NetCDF {\\em stream} (as described in Chapter \\ref{chap:mpas_io}) by the MPAS-Atmosphere model is described in this chapter. The dimensionality of each field is given in Fortran storage order (i.e., the fastest-varying dimension is inner-most).\n")
 f.write ('\\small\n')
 
