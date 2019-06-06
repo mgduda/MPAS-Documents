@@ -24,12 +24,13 @@ Important features of MPAS-A include:
 \item Exact conservation of dry-air mass and scalar mass
 \item Positive-definite and monotonic transport options
 \item Generalized terrain-following height coordinate
-\item Support for unstructured variable-resolution (horizontal) mesh integrations for the sphere and Cartesian planes.
+\item Support for unstructured variable-resolution (horizontal) mesh integrations for the sphere and Cartesian planes
+\item Support for global and limited-area simulation domains
 \end{itemize}
 
 At present, MPAS-A includes parameterizations of physical processes
 taken from the Weather Research and Forecasting (WRF) Model
-\footnote{\url{http://www.wrf-model.org/}.}. Specifically, MPAS-A has
+\footnote{\url{https://www.mmm.ucar.edu/weather-research-and-forecasting-model}}. Specifically, MPAS-A has
 support for:
 
 \begin{itemize}
@@ -45,9 +46,9 @@ support for:
 
 MPAS-A is comprised of two main components: the model, which includes
 atmospheric dynamics and physics; and an initialization component for
-generating initial conditions for the atmospheric and land-surface state as well as update files for sea-surface
-temperature and sea ice. Both components (model and initialization) are built as {\it cores}
-within the MPAS software framework and make use of the same driver
+generating initial conditions for the atmospheric and land-surface state, update files for sea-surface
+temperature and sea ice, and lateral boundary conditions. Both components (model and initialization)
+are built as {\it cores} within the MPAS software framework and make use of the same driver
 program and software infrastructure.  However, each component is compiled as
 a separate executable.
 
