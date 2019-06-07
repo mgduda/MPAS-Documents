@@ -72,7 +72,54 @@ After editing the {\tt namelist.init\_atmosphere} namelist file, the name of the
 \section{Regional Simulation}
 \label{sec:regional}
 
-Describe changes needed to produce regional ICs and LBCs, and to have the model apply LBCs.
+New in MPAS v7.0 is the capability to run simulations over regional domains on the surface of the sphere. Setting up and running
+a limited-area simulation requires as a starting point a limited-area SCVT mesh, described in section \ref{sec:mesh_subset}. Given
+a limited-area mesh, the key differences from a global simulation are:
+
+\begin{itemize}
+\item the blending of the MPAS terrain field with the ``first-guess'' terrain data along the boundaries of the limited-area
+domain;
+\item the generation of a set of files containing lateral boundary conditions (LBCs); and
+\item the application of LBCs during the model integration.
+\end{itemize}
+
+The first of these differences -- the blending of terrain data -- takes place when generating the limited-area initial conditions.
+Limited-area initial conditions are prepared as in \ref{sec:atm_real_met}, except that the \namelist{inl:config_blend_bdy_terrain}
+option should be set to {\tt true} in the {\tt namelist.init\_atmosphere} file. This option instructs the {\tt init\_atmosphere\_model}
+program to perform averaging of the model terrain field from the {\tt static.nc} file with the terrain field from the atmospheric
+initial conditions dataset along the lateral boundaries of the mesh.
+
+The second difference -- the generation of LBC files -- requires running the {\tt init\_atmosphere\_model} program one additional
+time, with namelist options set as described below.
+
+\begin{longtable}{p{3.0in} |p{3.25in}}
+
+\&nhyd\_model\\
+   \namelist{inl:config_init_case}       = 9                      & the LBCs processing case \\
+   \namelist{inl:config_start_time}      = '2010-10-23\_00:00:00' & time to begin processing LBC data \\
+   \namelist{inl:config_stop_time}       = '2010-10-30\_00:00:00' & time to end processing LBC data \\
+/\\
+\\
+\&data\_sources\\
+   \namelist{inl:config_met_prefix}      = 'GFS'                  & the prefix of intermediate data files to be used for LBCs \\
+   \namelist{inl:config_fg_interval}     = 10800                  & interval between intermediate files \\
+/\\
+\\
+\\
+\&decomposition\\
+   \namelist{inl:config_block_decomp_file_prefix} = 'graph.info.part.' & if running in parallel, needs to match the grid decomposition file prefix \\
+/\\
+
+\end{longtable}
+
+\noindent When running the LBC processing case, the {\tt output\_interval} for the ``lbc'' stream in the {\tt
+streams.init\_atmosphere} file must be set to match the value of \namelist{inl:config_fg_interval} in
+the {\tt namelist.init\_atmosphere} file. The end result of the LBC processing case should be a set of netCDF files
+containing LBCs for the model integration.
+
+The final difference -- application of LBCs during the model integration -- simply requires setting \namelist{mnl:config_apply_lbcs}
+to {\tt true} in the model's {\tt namelist.atmosphere} file, as well as setting the {\tt input\_interval} for the ``lbc\_in'' stream
+in the {\tt streams.atmosphere} file to match the interval at which the LBC netCDF files were produced.
 
 
 \section{Sounding Output}
