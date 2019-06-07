@@ -16,8 +16,8 @@
 \noindent\textbf{\large{config\_init\_case}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
-Description & \textit{Type of initial conditions to create: \newline                                         1 = Jablonowski \& Williamson barolinic wave (no initial perturbation), \newline                                         2 = Jablonowski \& Williamson barolinic wave (with initial perturbation), \newline                                         3 = Jablonowski \& Williamson barolinic wave (with normal-mode perturbation), \newline                                         4 = squall line, \newline                                         5 = super-cell, \newline                                         6 = mountain wave, \newline                                         7 = real-data initial conditions from, e.g., GFS, \newline                                         8 = surface field (SST, sea-ice) update file for use with real-data simulations} \\ \hline
-Possible Values & 1 -- 8 \textit{(default: 7)} \\ \hline
+Description & \textit{Type of initial conditions to create: \newline                                         1 = Jablonowski \& Williamson barolinic wave (no initial perturbation), \newline                                         2 = Jablonowski \& Williamson barolinic wave (with initial perturbation), \newline                                         3 = Jablonowski \& Williamson barolinic wave (with normal-mode perturbation), \newline                                         4 = squall line, \newline                                         5 = super-cell, \newline                                         6 = mountain wave, \newline                                         7 = real-data initial conditions from, e.g., GFS, \newline                                         8 = surface field (SST, sea-ice) update file for use with real-data simulations \newline                                         9 = lateral boundary conditions update file for use with real-data simulations} \\ \hline
+Possible Values & 1 -- 9 \textit{(default: 7)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -38,7 +38,7 @@ Possible Values & `gregorian',`gregorian\_noleap' \textit{(default: gregorian)} 
 \noindent\textbf{\large{config\_start\_time}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
-Description & \textit{Time to begin processing first-guess data (cases 7 and 8 only)} \\ \hline
+Description & \textit{Time to begin processing first-guess data (cases 7, 8, and 9 only)} \\ \hline
 Possible Values & `YYYY-MM-DD\_hh:mm:ss' \textit{(default: 2010-10-23\_00:00:00)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -49,7 +49,7 @@ Possible Values & `YYYY-MM-DD\_hh:mm:ss' \textit{(default: 2010-10-23\_00:00:00)
 \noindent\textbf{\large{config\_stop\_time}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
-Description & \textit{Time to end processing first-guess data (case 8 only)} \\ \hline
+Description & \textit{Time to end processing first-guess data (cases 8 and 9 only)} \\ \hline
 Possible Values & `YYYY-MM-DD\_hh:mm:ss' \textit{(default: 2010-10-23\_00:00:00)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -118,7 +118,7 @@ Possible Values & Positive integer values \textit{(default: 4)} \\ \hline
 \noindent\textbf{\large{config\_nfglevels}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
-Description & \textit{The number of atmospheric levels (including surface and sea-level) in the first-guess dataset (case 7 only)} \\ \hline
+Description & \textit{The number of atmospheric levels (including surface and sea-level) in the first-guess dataset (cases 7 and 9 only)} \\ \hline
 Possible Values & Positive integer values \textit{(default: 38)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -155,7 +155,7 @@ Possible Values & Positive integer values \textit{(default: 12)} \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
 Description & \textit{Path to the WPS static data files (case 7 only)} \\ \hline
-Possible Values & Any valid path \textit{(default: /glade/p/work/wrfhelp/WPS\_GEOG/)} \\ \hline
+Possible Values & Any valid path \textit{(default: /glade/work/wrfhelp/WPS\_GEOG/)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -165,7 +165,7 @@ Possible Values & Any valid path \textit{(default: /glade/p/work/wrfhelp/WPS\_GE
 \noindent\textbf{\large{config\_met\_prefix}} (character) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
-Description & \textit{Filename prefix of ungrib intermediate file to use for initial conditions (case 7 only)} \\ \hline
+Description & \textit{Filename prefix of ungrib intermediate file to use for initial conditions (cases 7 and 9 only)} \\ \hline
 Possible Values & Any alpha-numeric string \textit{(default: CFSR)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -187,7 +187,7 @@ Possible Values & Any alpha-numeric string \textit{(default: SST)} \\ \hline
 \noindent\textbf{\large{config\_fg\_interval}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
-Description & \textit{Interval between SST and sea-ice files (case 8 only)} \\ \hline
+Description & \textit{Interval between intermediate files (cases 8 and 9 only)} \\ \hline
 Possible Values & [DDD\_]hh:mm:ss \textit{(default: 86400)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -199,7 +199,7 @@ Possible Values & [DDD\_]hh:mm:ss \textit{(default: 86400)} \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
 Description & \textit{The land use classification to use (case 7 only)} \\ \hline
-Possible Values & `USGS' or `MODIFIED\_IGBP\_MODIS\_NOAH' \textit{(default: USGS)} \\ \hline
+Possible Values & `USGS' or `MODIFIED\_IGBP\_MODIS\_NOAH' \textit{(default: MODIFIED\_IGBP\_MODIS\_NOAH)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -210,7 +210,51 @@ Possible Values & `USGS' or `MODIFIED\_IGBP\_MODIS\_NOAH' \textit{(default: USGS
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
 Description & \textit{The topography dataset to use for the model terrain and for GWDO static fields (case 7 only)} \\ \hline
-Possible Values & `GTOPO30' or `GMTED2010' \textit{(default: GTOPO30)} \\ \hline
+Possible Values & `GTOPO30' or `GMTED2010' \textit{(default: GMTED2010)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{inl:config_vegfrac_data}
+\noindent\textbf{\large{config\_vegfrac\_data}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{The climatological monthly vegetation fraction dataset to use (case 7 only)} \\ \hline
+Possible Values & `MODIS' or `NCEP' \textit{(default: MODIS)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{inl:config_albedo_data}
+\noindent\textbf{\large{config\_albedo\_data}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{The climatological monthly albedo dataset to use (case 7 only)} \\ \hline
+Possible Values & `MODIS' or `NCEP' \textit{(default: MODIS)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{inl:config_maxsnowalbedo_data}
+\noindent\textbf{\large{config\_maxsnowalbedo\_data}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{The maximum snow albedo dataset to use (case 7 only)} \\ \hline
+Possible Values & `MODIS' or `NCEP' \textit{(default: MODIS)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{inl:config_supersample_factor}
+\noindent\textbf{\large{config\_supersample\_factor}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{The supersampling factor to be used for MODIS maximum snow albedo and monthly albedo datasets (case 7 only)} \\ \hline
+Possible Values & Positive integer values \textit{(default: 3)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -291,6 +335,28 @@ Possible Values & Positive integer values \textit{(default: 30)} \\ \hline
 Units & \textit{-} \\ \hline
 Description & \textit{Whether to use the vertical layer profile that was developed for use in real-time TC experiments} \\ \hline
 Possible Values & true or false \textit{(default: true)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{inl:config_specified_zeta_levels}
+\noindent\textbf{\large{config\_specified\_zeta\_levels}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{The name of a text file containing a list of vertical coordinate (zeta) values in increasing order at layer interfaces. (hidden by default)} \\ \hline
+Possible Values & Any valid filename \textit{(default: )} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{inl:config_blend_bdy_terrain}
+\noindent\textbf{\large{config\_blend\_bdy\_terrain}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Whether to blend terrain along domain boundaries with first-guess terrain. Only useful for limited-area domains.} \\ \hline
+Possible Values & true or false \textit{(default: false)} \\ \hline
 \end{tabular} 
 \end{minipage}
 \hypertarget{irec:interpolation_control}{}

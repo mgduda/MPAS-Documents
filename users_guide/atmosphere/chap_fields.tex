@@ -6,7 +6,7 @@ Every field that may be read or written in a NetCDF {\em stream} (as described i
 \renewcommand{\arraystretch}{1.5}
 \def\bsq#1{\lq{#1}\rq}
 \phantomsection
-\addcontentsline{toc}{section}{Fields A--H}
+\addcontentsline{toc}{section}{Fields A--G}
 
 
 \vspace{10mm}
@@ -70,7 +70,7 @@ Accessed in code & as \bsq{aclwdnbc} from the \bsq{diag\_physics} pool \\ \hline
 \noindent\textbf{\large{aclwdnt}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{W m\textsuperscript{-2}} \\ \hline
-Description & \textit{accumulated clear-sky downward surface longwave radiation flux} \\ \hline
+Description & \textit{accumulated all-sky downward top-of-the-atmosphere longwave radiation flux} \\ \hline
 Accessed in code & as \bsq{aclwdnt} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -81,7 +81,7 @@ Accessed in code & as \bsq{aclwdnt} from the \bsq{diag\_physics} pool \\ \hline
 \noindent\textbf{\large{aclwdntc}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{W m\textsuperscript{-2}} \\ \hline
-Description & \textit{accumulated clear-sky downward surface longwave radiation flux} \\ \hline
+Description & \textit{accumulated clear-sky downward top-of-the-atmosphere longwave radiation flux} \\ \hline
 Accessed in code & as \bsq{aclwdntc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -103,7 +103,7 @@ Accessed in code & as \bsq{aclwupb} from the \bsq{diag\_physics} pool \\ \hline
 \noindent\textbf{\large{aclwupbc}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{W m\textsuperscript{-2}} \\ \hline
-Description & \textit{accumulated all-sky upward surface longwave radiation flux} \\ \hline
+Description & \textit{accumulated clear-sky upward surface longwave radiation flux} \\ \hline
 Accessed in code & as \bsq{aclwupbc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -114,7 +114,7 @@ Accessed in code & as \bsq{aclwupbc} from the \bsq{diag\_physics} pool \\ \hline
 \noindent\textbf{\large{aclwupt}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{W m\textsuperscript{-2}} \\ \hline
-Description & \textit{accumulated all-sky upward surface longwave radiation flux} \\ \hline
+Description & \textit{accumulated all-sky upward top-of-the-atmosphere longwave radiation flux} \\ \hline
 Accessed in code & as \bsq{aclwupt} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -125,7 +125,7 @@ Accessed in code & as \bsq{aclwupt} from the \bsq{diag\_physics} pool \\ \hline
 \noindent\textbf{\large{aclwuptc}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{W m\textsuperscript{-2}} \\ \hline
-Description & \textit{accumulated all-sky upward surface longwave radiation flux} \\ \hline
+Description & \textit{accumulated clear-sky upward top-of-the-atmosphere longwave radiation flux} \\ \hline
 Accessed in code & as \bsq{aclwuptc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -237,6 +237,39 @@ Accessed in code & as \bsq{acswupt} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{W m\textsuperscript{-2}} \\ \hline
 Description & \textit{accumulated clear-sky upward top-of-atmosphere shortwave radiation flux} \\ \hline
 Accessed in code & as \bsq{acswuptc} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{advCellsForEdge}
+\noindent\textbf{\large{advCellsForEdge}} (integer) (FIFTEEN, nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Cells used to reconstruct a cell-based field at an edge} \\ \hline
+Accessed in code & as \bsq{advCellsForEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{adv_coefs}
+\noindent\textbf{\large{adv\_coefs}} (real) (FIFTEEN, nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Weighting coefficents used for reconstructing cell-based foelds at edges} \\ \hline
+Accessed in code & as \bsq{adv\_coefs} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{adv_coefs_3rd}
+\noindent\textbf{\large{adv\_coefs\_3rd}} (real) (FIFTEEN, nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Weighting coefficents used for reconstructing cell-based foelds at edges} \\ \hline
+Accessed in code & as \bsq{adv\_coefs\_3rd} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -408,10 +441,76 @@ Accessed in code & as \bsq{alpha\_tri} from the \bsq{diag} pool \\ \hline
 \end{minipage}
 
 \vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{angleEdge}
+\noindent\textbf{\large{angleEdge}} (real) (nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{rad} \\ \hline
+Description & \textit{Angle between local north and the positive tangential direction of an edge} \\ \hline
+Accessed in code & as \bsq{angleEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{areaCell}
+\noindent\textbf{\large{areaCell}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m\textsuperscript2} \\ \hline
+Description & \textit{Spherical area of a Voronoi cell} \\ \hline
+Accessed in code & as \bsq{areaCell} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{areaTriangle}
+\noindent\textbf{\large{areaTriangle}} (real) (nVertices) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m\textsuperscript2} \\ \hline
+Description & \textit{Spherical area of a Delaunay triangle} \\ \hline
+Accessed in code & as \bsq{areaTriangle} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
 \noindent\hyperlink{aerosols}{\color{red}{\textbf{\large{bcphi}} --- \textit{see \bsq{aerosols}}}}
 
 \vspace{10mm}
 \noindent\hyperlink{aerosols}{\color{red}{\textbf{\large{bcpho}} --- \textit{see \bsq{aerosols}}}}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{bdyMaskCell}
+\noindent\textbf{\large{bdyMaskCell}} (integer) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Limited-area specified/relaxation zone index for cells} \\ \hline
+Accessed in code & as \bsq{bdyMaskCell} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{bdyMaskEdge}
+\noindent\textbf{\large{bdyMaskEdge}} (integer) (nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Limited-area specified/relaxation zone index for edges} \\ \hline
+Accessed in code & as \bsq{bdyMaskEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{bdyMaskVertex}
+\noindent\textbf{\large{bdyMaskVertex}} (integer) (nVertices) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Limited-area specified/relaxation zone index for vertices} \\ \hline
+Accessed in code & as \bsq{bdyMaskVertex} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
 
 \vspace{10mm}
 \noindent\hyperlink{aerosols}{\color{red}{\textbf{\large{bg}} --- \textit{see \bsq{aerosols}}}}
@@ -460,6 +559,83 @@ Units & \textit{unitless} \\ \hline
 Description & \textit{drag coefficient at lowest model level} \\ \hline
 Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{cda} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{cellTangentPlane}
+\noindent\textbf{\large{cellTangentPlane}} (real) (R3, TWO, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Components of a pair of vectors defining the tangent plane at a cell} \\ \hline
+Accessed in code & as \bsq{cellTangentPlane} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{cellsOnCell}
+\noindent\textbf{\large{cellsOnCell}} (integer) (maxEdges, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{IDs of cells neighboring a cell} \\ \hline
+Accessed in code & as \bsq{cellsOnCell} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{cellsOnEdge}
+\noindent\textbf{\large{cellsOnEdge}} (integer) (TWO, nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{IDs of cells divided by an edge} \\ \hline
+Accessed in code & as \bsq{cellsOnEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{cellsOnVertex}
+\noindent\textbf{\large{cellsOnVertex}} (integer) (vertexDegree, nVertices) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{IDs of the cells that meet at a vertex} \\ \hline
+Accessed in code & as \bsq{cellsOnVertex} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{cf1}
+\noindent\textbf{\large{cf1}} (real) () \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Surface interpolation weight for level k=1 value} \\ \hline
+Accessed in code & as \bsq{cf1} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{cf2}
+\noindent\textbf{\large{cf2}} (real) () \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Surface interpolation weight for level k=2 value} \\ \hline
+Accessed in code & as \bsq{cf2} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{cf3}
+\noindent\textbf{\large{cf3}} (real) () \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Surface interpolation weight for level k=3 value} \\ \hline
+Accessed in code & as \bsq{cf3} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -553,6 +729,17 @@ Accessed in code & as \bsq{cka} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{horizontal cloud fraction} \\ \hline
 Accessed in code & as \bsq{cldfrac} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{coeffs_reconstruct}
+\noindent\textbf{\large{coeffs\_reconstruct}} (real) (R3, maxEdges, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Coefficients to reconstruct velocity vectors at cell centers} \\ \hline
+Accessed in code & as \bsq{coeffs\_reconstruct} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -729,6 +916,39 @@ Accessed in code & as \bsq{cutop} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{dcEdge}
+\noindent\textbf{\large{dcEdge}} (real) (nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Spherical distance between cells separated by an edge} \\ \hline
+Accessed in code & as \bsq{dcEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{defc_a}
+\noindent\textbf{\large{defc\_a}} (real) (maxEdges, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Coefficients for computing the off-diagonal components of the horizontal deformation} \\ \hline
+Accessed in code & as \bsq{defc\_a} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{defc_b}
+\noindent\textbf{\large{defc\_b}} (real) (maxEdges, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Coefficients for computing the diagonal components of the horizontal deformation} \\ \hline
+Accessed in code & as \bsq{defc\_b} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{delta}
 \noindent\textbf{\large{delta}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -736,6 +956,17 @@ Units & \textit{m} \\ \hline
 Description & \textit{entrainment layer depth from PBL scheme} \\ \hline
 Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{delta} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{deriv_two}
+\noindent\textbf{\large{deriv\_two}} (real) (FIFTEEN, TWO, nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{weights for cell-centered second derivative, normal to edge, for transport scheme} \\ \hline
+Accessed in code & as \bsq{deriv\_two} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -759,6 +990,17 @@ Units & \textit{m\textsuperscript{2} s\textsuperscript{-2}} \\ \hline
 Description & \textit{TKE change} \\ \hline
 Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{dqke} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dss}
+\noindent\textbf{\large{dss}} (real) (nVertLevels, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{w-damping coefficient} \\ \hline
+Accessed in code & as \bsq{dss} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -809,6 +1051,17 @@ Accessed in code & as \bsq{dusfcg} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{dvEdge}
+\noindent\textbf{\large{dvEdge}} (real) (nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Spherical distance between vertex endpoints of an edge} \\ \hline
+Accessed in code & as \bsq{dvEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{dvsfcg}
 \noindent\textbf{\large{dvsfcg}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -826,6 +1079,94 @@ Accessed in code & as \bsq{dvsfcg} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{m} \\ \hline
 Description & \textit{soil layer thickness} \\ \hline
 Accessed in code & as \bsq{dzs} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dzu}
+\noindent\textbf{\large{dzu}} (real) (nVertLevels) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{d(zeta) at w levels} \\ \hline
+Accessed in code & as \bsq{dzu} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{east}
+\noindent\textbf{\large{east}} (real) (R3, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Cartesian components of the local unit vector pointing east} \\ \hline
+Accessed in code & as \bsq{east} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{edgeNormalVectors}
+\noindent\textbf{\large{edgeNormalVectors}} (real) (R3, nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Cartesian components of the vector normal to an edge and tangential to the surface of the sphere} \\ \hline
+Accessed in code & as \bsq{edgeNormalVectors} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{edgesOnCell}
+\noindent\textbf{\large{edgesOnCell}} (integer) (maxEdges, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{IDs of edges forming the boundary of a cell} \\ \hline
+Accessed in code & as \bsq{edgesOnCell} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{edgesOnCell_sign}
+\noindent\textbf{\large{edgesOnCell\_sign}} (real) (maxEdges, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Sign for edges surrounding a cell: positive for positive outward normal velocity} \\ \hline
+Accessed in code & as \bsq{edgesOnCell\_sign} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{edgesOnEdge}
+\noindent\textbf{\large{edgesOnEdge}} (integer) (maxEdges2, nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{IDs of edges involved in reconstruction of tangential velocity for an edge} \\ \hline
+Accessed in code & as \bsq{edgesOnEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{edgesOnVertex}
+\noindent\textbf{\large{edgesOnVertex}} (integer) (vertexDegree, nVertices) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{IDs of the edges that meet at a vertex} \\ \hline
+Accessed in code & as \bsq{edgesOnVertex} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{edgesOnVertex_sign}
+\noindent\textbf{\large{edgesOnVertex\_sign}} (real) (vertexDegree, nVertices) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Sign for edges incident with a vertex: positive for positive inward tengential velocity} \\ \hline
+Accessed in code & as \bsq{edgesOnVertex\_sign} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -933,6 +1274,28 @@ Accessed in code & as \bsq{exner\_base} from the \bsq{diag} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{fEdge}
+\noindent\textbf{\large{fEdge}} (real) (nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Coriolis parameter at an edge} \\ \hline
+Accessed in code & as \bsq{fEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{fVertex}
+\noindent\textbf{\large{fVertex}} (real) (nVertices) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Coriolis parameter at a vertex} \\ \hline
+Accessed in code & as \bsq{fVertex} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{fh}
 \noindent\textbf{\large{fh}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -981,6 +1344,28 @@ Accessed in code & as \bsq{fm} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{fzm}
+\noindent\textbf{\large{fzm}} (real) (nVertLevels) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Weight for linear interpolation to w(k) point for u(k) level variable} \\ \hline
+Accessed in code & as \bsq{fzm} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{fzp}
+\noindent\textbf{\large{fzp}} (real) (nVertLevels) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Weight for linear interpolation to w(k) point for u(k-1) level variable} \\ \hline
+Accessed in code & as \bsq{fzp} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{gamma_tri}
 \noindent\textbf{\large{gamma\_tri}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -996,7 +1381,7 @@ Accessed in code & as \bsq{gamma\_tri} from the \bsq{diag} pool \\ \hline
 \noindent\textbf{\large{glw}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{W m\textsuperscript{-2}} \\ \hline
-Description & \textit{all downward surface longwave radiation} \\ \hline
+Description & \textit{all-sky downward surface longwave radiation} \\ \hline
 Accessed in code & as \bsq{glw} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1092,6 +1477,10 @@ Accessed in code & as \bsq{gz1oz0} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
+\phantomsection
+\addcontentsline{toc}{section}{Fields H--O}
+
+
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
 \hypertarget{h_divergence}
@@ -1170,10 +1559,6 @@ Description & \textit{ocean mixed layer integrated v (meridional velocity)} \\ \
 Accessed in code & as \bsq{hv\_oml} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
-
-\phantomsection
-\addcontentsline{toc}{section}{Fields I--Q}
-
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -1377,6 +1762,39 @@ Accessed in code & as \bsq{i\_rainnc} from the \bsq{diag\_physics} pool \\ \hlin
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{indexToCellID}
+\noindent\textbf{\large{indexToCellID}} (integer) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Mapping from local array index to global cell ID} \\ \hline
+Accessed in code & as \bsq{indexToCellID} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{indexToEdgeID}
+\noindent\textbf{\large{indexToEdgeID}} (integer) (nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Mapping from local array index to global edge ID} \\ \hline
+Accessed in code & as \bsq{indexToEdgeID} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{indexToVertexID}
+\noindent\textbf{\large{indexToVertexID}} (integer) (nVertices) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Mapping from local array index to global vertex ID} \\ \hline
+Accessed in code & as \bsq{indexToVertexID} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{initial_time}
 \noindent\textbf{\large{initial\_time}} (text) () \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -1388,12 +1806,78 @@ Accessed in code & as \bsq{initial\_time} from the \bsq{state} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{invAreaCell}
+\noindent\textbf{\large{invAreaCell}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m\textsuperscript{-2}} \\ \hline
+Description & \textit{Inverse of Voronoi cell area} \\ \hline
+Accessed in code & as \bsq{invAreaCell} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{invAreaTriangle}
+\noindent\textbf{\large{invAreaTriangle}} (real) (nVertices) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m\textsuperscript{-2}} \\ \hline
+Description & \textit{Inverse area of a Delaunay triangle} \\ \hline
+Accessed in code & as \bsq{invAreaTriangle} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{invDcEdge}
+\noindent\textbf{\large{invDcEdge}} (real) (nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m\textsuperscript{-1}} \\ \hline
+Description & \textit{Inverse distance between cells separated by an edge} \\ \hline
+Accessed in code & as \bsq{invDcEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{invDvEdge}
+\noindent\textbf{\large{invDvEdge}} (real) (nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m\textsuperscript{-1}} \\ \hline
+Description & \textit{Inverse distance between vertex endpoints of an edge} \\ \hline
+Accessed in code & as \bsq{invDvEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{isice_lu}
+\noindent\textbf{\large{isice\_lu}} (integer) () \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Index category for snow/ice} \\ \hline
+Accessed in code & as \bsq{isice} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{isltyp}
 \noindent\textbf{\large{isltyp}} (integer) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{dominant soil category} \\ \hline
 Accessed in code & as \bsq{isltyp} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{iswater_lu}
+\noindent\textbf{\large{iswater\_lu}} (integer) () \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Index category for water} \\ \hline
+Accessed in code & as \bsq{iswater} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1451,6 +1935,28 @@ Accessed in code & as \bsq{kdiff} from the \bsq{diag} pool \\ \hline
 Units & \textit{m\textsuperscript2 s\textsuperscript{-2}} \\ \hline
 Description & \textit{Kinetic energy at a cell center} \\ \hline
 Accessed in code & as \bsq{ke} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{kiteAreasOnVertex}
+\noindent\textbf{\large{kiteAreasOnVertex}} (real) (vertexDegree, nVertices) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m\textsuperscript2} \\ \hline
+Description & \textit{Intersection areas between primal (Voronoi) and dual (triangular) mesh cells} \\ \hline
+Accessed in code & as \bsq{kiteAreasOnVertex} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{kiteForCell}
+\noindent\textbf{\large{kiteForCell}} (integer) (maxEdges, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Index of kite in kiteAreasOnVertex that lies within a cell for each of verticesOnCell} \\ \hline
+Accessed in code & as \bsq{kiteForCell} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1550,6 +2056,259 @@ Accessed in code & as \bsq{landmask} from the \bsq{sfc\_input} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{latCell}
+\noindent\textbf{\large{latCell}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{rad} \\ \hline
+Description & \textit{Latitude of cells} \\ \hline
+Accessed in code & as \bsq{latCell} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{latEdge}
+\noindent\textbf{\large{latEdge}} (real) (nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{rad} \\ \hline
+Description & \textit{Latitude of edges} \\ \hline
+Accessed in code & as \bsq{latEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{latVertex}
+\noindent\textbf{\large{latVertex}} (real) (nVertices) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{rad} \\ \hline
+Description & \textit{Latitude of vertices} \\ \hline
+Accessed in code & as \bsq{latVertex} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\hyperlink{lbc_scalars}{\color{red}{\textbf{\large{lbc\_ni}} --- \textit{see \bsq{lbc\_scalars}}}}
+
+\vspace{10mm}
+\noindent\hyperlink{lbc_scalars}{\color{red}{\textbf{\large{lbc\_nr}} --- \textit{see \bsq{lbc\_scalars}}}}
+
+\vspace{10mm}
+\noindent\hyperlink{lbc_scalars}{\color{red}{\textbf{\large{lbc\_qc}} --- \textit{see \bsq{lbc\_scalars}}}}
+
+\vspace{10mm}
+\noindent\hyperlink{lbc_scalars}{\color{red}{\textbf{\large{lbc\_qg}} --- \textit{see \bsq{lbc\_scalars}}}}
+
+\vspace{10mm}
+\noindent\hyperlink{lbc_scalars}{\color{red}{\textbf{\large{lbc\_qi}} --- \textit{see \bsq{lbc\_scalars}}}}
+
+\vspace{10mm}
+\noindent\hyperlink{lbc_scalars}{\color{red}{\textbf{\large{lbc\_qr}} --- \textit{see \bsq{lbc\_scalars}}}}
+
+\vspace{10mm}
+\noindent\hyperlink{lbc_scalars}{\color{red}{\textbf{\large{lbc\_qs}} --- \textit{see \bsq{lbc\_scalars}}}}
+
+\vspace{10mm}
+\noindent\hyperlink{lbc_scalars}{\color{red}{\textbf{\large{lbc\_qv}} --- \textit{see \bsq{lbc\_scalars}}}}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{lbc_rho}
+\noindent\textbf{\large{lbc\_rho}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
+Description & \textit{Lateral boundary tendency of rho} \\ \hline
+Accessed in code & as \bsq{lbc\_rho} from the \bsq{lbc} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{lbc_rho_edge}
+\noindent\textbf{\large{lbc\_rho\_edge}} (real) (nVertLevels, nEdges, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
+Description & \textit{Lateral boundary tendency of rho\_zz averaged from cell centers to cell faces (edges)} \\ \hline
+Accessed in code & as \bsq{lbc\_rho\_edge} from the \bsq{lbc} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{lbc_rho_zz}
+\noindent\textbf{\large{lbc\_rho\_zz}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
+Description & \textit{Lateral boundary tendency of rho\_zz} \\ \hline
+Accessed in code & as \bsq{lbc\_rho\_zz} from the \bsq{lbc} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{lbc_rtheta_m}
+\noindent\textbf{\large{lbc\_rtheta\_m}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg K m\textsuperscript{-3} s\textsuperscript{-2}} \\ \hline
+Description & \textit{Lateral boundary tendency of rho\_zz-coupled theta\_m} \\ \hline
+Accessed in code & as \bsq{lbc\_rtheta\_m} from the \bsq{lbc} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{lbc_ru}
+\noindent\textbf{\large{lbc\_ru}} (real) (nVertLevels, nEdges, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg m\textsuperscript{-2} s\textsuperscript{-2}} \\ \hline
+Description & \textit{Lateral boundary tendency of rho\_zz-coupled u} \\ \hline
+Accessed in code & as \bsq{lbc\_ru} from the \bsq{lbc} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{lbc_scalars}
+\noindent\textbf{\Large{lbc\_scalars}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Description & \textit{\bsq{lbc\_scalars} is a variable array used in code which is made up of the constituent fields listed below.} \\ \hline
+Accessed in code & as \bsq{lbc\_scalars} from the \bsq{lbc} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{5mm}
+\noindent Contains constituents:
+
+\vspace{10mm}
+\hspace{.1\textwidth}\noindent\begin{minipage}{.9\textwidth}
+\hypertarget{lbc_qv}
+\noindent\textbf{\normalsize{lbc\_qv}} --- \textit{constituent field of var\_array \textbf{lbc\_scalars}}  \\ 
+\begin{tabular}{|p{.25\textwidth-.5\tabcolsep} |p{.65\textwidth-1.3\tabcolsep} |} \hline
+Description & \textit{Lateral boundary tendency of water vapor mixing ratio} \\ \hline
+Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Array Group & moist \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\hspace{.1\textwidth}\noindent\begin{minipage}{.9\textwidth}
+\hypertarget{lbc_qc}
+\noindent\textbf{\normalsize{lbc\_qc}} --- \textit{constituent field of var\_array \textbf{lbc\_scalars}}  \\ 
+\begin{tabular}{|p{.25\textwidth-.5\tabcolsep} |p{.65\textwidth-1.3\tabcolsep} |} \hline
+Description & \textit{Lateral boundary tendency of cloud water mixing ratio} \\ \hline
+Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Array Group & moist \\ \hline
+Allocated by & bl\_mynn\_in, cu\_tiedtke\_in, mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\hspace{.1\textwidth}\noindent\begin{minipage}{.9\textwidth}
+\hypertarget{lbc_qr}
+\noindent\textbf{\normalsize{lbc\_qr}} --- \textit{constituent field of var\_array \textbf{lbc\_scalars}}  \\ 
+\begin{tabular}{|p{.25\textwidth-.5\tabcolsep} |p{.65\textwidth-1.3\tabcolsep} |} \hline
+Description & \textit{Lateral boundary tendency of rain water mixing ratio} \\ \hline
+Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Array Group & moist \\ \hline
+Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\hspace{.1\textwidth}\noindent\begin{minipage}{.9\textwidth}
+\hypertarget{lbc_qi}
+\noindent\textbf{\normalsize{lbc\_qi}} --- \textit{constituent field of var\_array \textbf{lbc\_scalars}}  \\ 
+\begin{tabular}{|p{.25\textwidth-.5\tabcolsep} |p{.65\textwidth-1.3\tabcolsep} |} \hline
+Description & \textit{Lateral boundary tendency of ice mixing ratio} \\ \hline
+Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Array Group & moist \\ \hline
+Allocated by & bl\_mynn\_in, cu\_tiedtke\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\hspace{.1\textwidth}\noindent\begin{minipage}{.9\textwidth}
+\hypertarget{lbc_qs}
+\noindent\textbf{\normalsize{lbc\_qs}} --- \textit{constituent field of var\_array \textbf{lbc\_scalars}}  \\ 
+\begin{tabular}{|p{.25\textwidth-.5\tabcolsep} |p{.65\textwidth-1.3\tabcolsep} |} \hline
+Description & \textit{Lateral boundary tendency of snow mixing ratio} \\ \hline
+Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Array Group & moist \\ \hline
+Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\hspace{.1\textwidth}\noindent\begin{minipage}{.9\textwidth}
+\hypertarget{lbc_qg}
+\noindent\textbf{\normalsize{lbc\_qg}} --- \textit{constituent field of var\_array \textbf{lbc\_scalars}}  \\ 
+\begin{tabular}{|p{.25\textwidth-.5\tabcolsep} |p{.65\textwidth-1.3\tabcolsep} |} \hline
+Description & \textit{Lateral boundary tendency of graupel mixing ratio} \\ \hline
+Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Array Group & moist \\ \hline
+Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\hspace{.1\textwidth}\noindent\begin{minipage}{.9\textwidth}
+\hypertarget{lbc_nr}
+\noindent\textbf{\normalsize{lbc\_nr}} --- \textit{constituent field of var\_array \textbf{lbc\_scalars}}  \\ 
+\begin{tabular}{|p{.25\textwidth-.5\tabcolsep} |p{.65\textwidth-1.3\tabcolsep} |} \hline
+Description & \textit{Lateral boundary tendency of rain number concentration} \\ \hline
+Units & \textit{m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
+Array Group & number \\ \hline
+Allocated by & mp\_thompson\_in \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\hspace{.1\textwidth}\noindent\begin{minipage}{.9\textwidth}
+\hypertarget{lbc_ni}
+\noindent\textbf{\normalsize{lbc\_ni}} --- \textit{constituent field of var\_array \textbf{lbc\_scalars}}  \\ 
+\begin{tabular}{|p{.25\textwidth-.5\tabcolsep} |p{.65\textwidth-1.3\tabcolsep} |} \hline
+Description & \textit{Lateral boundary tendency of ice number concentration} \\ \hline
+Units & \textit{m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
+Array Group & number \\ \hline
+Allocated by & bl\_mynn\_in, mp\_thompson\_in \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{lbc_theta}
+\noindent\textbf{\large{lbc\_theta}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K s\textsuperscript{-2}} \\ \hline
+Description & \textit{Lateral boundary tendency of theta} \\ \hline
+Accessed in code & as \bsq{lbc\_theta} from the \bsq{lbc} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{lbc_u}
+\noindent\textbf{\large{lbc\_u}} (real) (nVertLevels, nEdges, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-2}} \\ \hline
+Description & \textit{Lateral boundary tendency of u} \\ \hline
+Accessed in code & as \bsq{lbc\_u} from the \bsq{lbc} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{lbc_w}
+\noindent\textbf{\large{lbc\_w}} (real) (nVertLevelsP1, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-2}} \\ \hline
+Description & \textit{Lateral boundary tendency of w} \\ \hline
+Accessed in code & as \bsq{lbc\_w} from the \bsq{lbc} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{lh}
 \noindent\textbf{\large{lh}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -1557,6 +2316,50 @@ Units & \textit{W m\textsuperscript{-2}} \\ \hline
 Description & \textit{latent heat flux at the surface} \\ \hline
 Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{lh} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{localVerticalUnitVectors}
+\noindent\textbf{\large{localVerticalUnitVectors}} (real) (R3, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Cartesian components of the vector pointing in the local vertical direction for a cell} \\ \hline
+Accessed in code & as \bsq{localVerticalUnitVectors} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{lonCell}
+\noindent\textbf{\large{lonCell}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{rad} \\ \hline
+Description & \textit{Longitude of cells} \\ \hline
+Accessed in code & as \bsq{lonCell} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{lonEdge}
+\noindent\textbf{\large{lonEdge}} (real) (nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{rad} \\ \hline
+Description & \textit{Longitude of edges} \\ \hline
+Accessed in code & as \bsq{lonEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{lonVertex}
+\noindent\textbf{\large{lonVertex}} (real) (nVertices) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{rad} \\ \hline
+Description & \textit{Longitude of vertices} \\ \hline
+Accessed in code & as \bsq{lonVertex} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1599,7 +2402,7 @@ Accessed in code & as \bsq{lwdnbc} from the \bsq{diag\_physics} pool \\ \hline
 \noindent\textbf{\large{lwdnt}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{W m\textsuperscript{-2}} \\ \hline
-Description & \textit{clear-sky downward surface longwave radiation flux} \\ \hline
+Description & \textit{all-sky downward top-of-the-atmosphere longwave radiation flux} \\ \hline
 Accessed in code & as \bsq{lwdnt} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1610,7 +2413,7 @@ Accessed in code & as \bsq{lwdnt} from the \bsq{diag\_physics} pool \\ \hline
 \noindent\textbf{\large{lwdntc}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{W m\textsuperscript{-2}} \\ \hline
-Description & \textit{clear-sky downward surface longwave radiation flux} \\ \hline
+Description & \textit{clear-sky downward top-of-the-atmosphere longwave radiation flux} \\ \hline
 Accessed in code & as \bsq{lwdntc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1632,7 +2435,7 @@ Accessed in code & as \bsq{lwupb} from the \bsq{diag\_physics} pool \\ \hline
 \noindent\textbf{\large{lwupbc}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{W m\textsuperscript{-2}} \\ \hline
-Description & \textit{all-sky upward surface longwave radiation flux} \\ \hline
+Description & \textit{clear-sky upward surface longwave radiation flux} \\ \hline
 Accessed in code & as \bsq{lwupbc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1643,7 +2446,7 @@ Accessed in code & as \bsq{lwupbc} from the \bsq{diag\_physics} pool \\ \hline
 \noindent\textbf{\large{lwupt}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{W m\textsuperscript{-2}} \\ \hline
-Description & \textit{all-sky upward surface longwave radiation flux} \\ \hline
+Description & \textit{all-sky upward top-of-the-atmosphere longwave radiation flux} \\ \hline
 Accessed in code & as \bsq{lwupt} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1654,7 +2457,7 @@ Accessed in code & as \bsq{lwupt} from the \bsq{diag\_physics} pool \\ \hline
 \noindent\textbf{\large{lwuptc}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{W m\textsuperscript{-2}} \\ \hline
-Description & \textit{all-sky upward surface longwave radiation flux} \\ \hline
+Description & \textit{clear-sky upward top-of-the-atmosphere longwave radiation flux} \\ \hline
 Accessed in code & as \bsq{lwuptc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1695,6 +2498,61 @@ Accessed in code & as \bsq{mavail} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{meshDensity}
+\noindent\textbf{\large{meshDensity}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Mesh density function (used when generating the mesh) evaluated at a cell} \\ \hline
+Accessed in code & as \bsq{meshDensity} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{meshScalingDel2}
+\noindent\textbf{\large{meshScalingDel2}} (real) (nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Scaling coefficient for $\nabla^2$ eddy viscosity} \\ \hline
+Accessed in code & as \bsq{meshScalingDel2} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{meshScalingDel4}
+\noindent\textbf{\large{meshScalingDel4}} (real) (nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Scaling coefficient for $\nabla^4$ eddy hyper-viscosity} \\ \hline
+Accessed in code & as \bsq{meshScalingDel4} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{meshScalingRegionalCell}
+\noindent\textbf{\large{meshScalingRegionalCell}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Cell-centered Scaling coefficient for relaxation zone} \\ \hline
+Accessed in code & as \bsq{meshScalingRegionalCell} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{meshScalingRegionalEdge}
+\noindent\textbf{\large{meshScalingRegionalEdge}} (real) (nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Edge-centered Scaling coefficient for relaxation zone} \\ \hline
+Accessed in code & as \bsq{meshScalingRegionalEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{mminlu}
 \noindent\textbf{\large{mminlu}} (text) () \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -1730,6 +2588,39 @@ Accessed in code & as \bsq{mu\_c} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{nAdvCellsForEdge}
+\noindent\textbf{\large{nAdvCellsForEdge}} (integer) (nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Number of cells used to reconstruct a cell-based field at an edge} \\ \hline
+Accessed in code & as \bsq{nAdvCellsForEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{nEdgesOnCell}
+\noindent\textbf{\large{nEdgesOnCell}} (integer) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Number of edges forming the boundary of a cell} \\ \hline
+Accessed in code & as \bsq{nEdgesOnCell} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{nEdgesOnEdge}
+\noindent\textbf{\large{nEdgesOnEdge}} (integer) (nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Number of edges involved in reconstruction of tangential velocity for an edge} \\ \hline
+Accessed in code & as \bsq{nEdgesOnEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{nca}
 \noindent\textbf{\large{nca}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -1748,6 +2639,17 @@ Accessed in code & as \bsq{nca} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{number of accumulated days in a year} \\ \hline
 Accessed in code & as \bsq{ndays\_accum} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{nearestRelaxationCell}
+\noindent\textbf{\large{nearestRelaxationCell}} (integer) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{For cells in the specified zone, gives the index of the nearest cell in the relaxation zone} \\ \hline
+Accessed in code & as \bsq{nearestRelaxationCell} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1773,6 +2675,17 @@ Accessed in code & as \bsq{nlrad} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{W m\textsuperscript{-2}} \\ \hline
 Description & \textit{residual of the Noah surface energy budget} \\ \hline
 Accessed in code & as \bsq{noahres} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{north}
+\noindent\textbf{\large{north}} (real) (R3, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Cartesian components of the unit vector pointing north} \\ \hline
+Accessed in code & as \bsq{north} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1924,7 +2837,7 @@ Accessed in code & as \bsq{ol4} from the \bsq{sfc\_input} pool \\ \hline
 \noindent\textbf{\large{olrtoa}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{W m\textsuperscript{-2}} \\ \hline
-Description & \textit{top-of-atmosphere outgoing longwave radiation flux} \\ \hline
+Description & \textit{all-sky top-of-atmosphere outgoing longwave radiation flux} \\ \hline
 Accessed in code & as \bsq{olrtoa} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1939,6 +2852,10 @@ Description & \textit{monthly-mean climatological ozone defined at fixed pressur
 Accessed in code & as \bsq{ozmixm} from the \bsq{atm\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\phantomsection
+\addcontentsline{toc}{section}{Fields P--R}
+
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -2268,6 +3185,17 @@ Accessed in code & as \bsq{qsq} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{qv_init}
+\noindent\textbf{\large{qv\_init}} (real) (nVertLevels) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
+Description & \textit{qv reference profile} \\ \hline
+Accessed in code & as \bsq{qv\_init} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{qwt}
 \noindent\textbf{\large{qwt}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -2277,10 +3205,6 @@ Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{qwt} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
-
-\phantomsection
-\addcontentsline{toc}{section}{Fields R--S}
-
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -2339,6 +3263,28 @@ Units & \textit{s\textsuperscript{-1}} \\ \hline
 Description & \textit{rain production rate} \\ \hline
 Allocated by & mp\_thompson\_in \\ \hline
 Accessed in code & as \bsq{rainprod} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{rdzu}
+\noindent\textbf{\large{rdzu}} (real) (nVertLevels) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Reciprocal dzu} \\ \hline
+Accessed in code & as \bsq{rdzu} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{rdzw}
+\noindent\textbf{\large{rdzw}} (real) (nVertLevels) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Reciprocal dzw} \\ \hline
+Accessed in code & as \bsq{rdzw} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -2695,8 +3641,8 @@ Accessed in code & as \bsq{rre\_ice} from the \bsq{diag\_physics} pool \\ \hline
 \hypertarget{rre_snow}
 \noindent\textbf{\large{rre\_snow}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{} \\ \hline
-Description & \textit{} \\ \hline
+Units & \textit{microns} \\ \hline
+Description & \textit{effective radius of snow crystals calculated in RRTMG radiation} \\ \hline
 Accessed in code & as \bsq{rre\_snow} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -3015,6 +3961,10 @@ Description & \textit{predicted value of rho*omega/zz, saved before acoustic ste
 Accessed in code & as \bsq{rw\_save} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\phantomsection
+\addcontentsline{toc}{section}{Fields S--W}
+
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -3351,6 +4301,17 @@ Accessed in code & as \bsq{sfc\_albedo} from the \bsq{diag\_physics} pool \\ \hl
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{sfc_albedo_seaice}
+\noindent\textbf{\large{sfc\_albedo\_seaice}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{surface albedo over seaice} \\ \hline
+Accessed in code & as \bsq{sfc\_albedo\_seaice} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{sfc_emibck}
 \noindent\textbf{\large{sfc\_emibck}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -3574,6 +4535,51 @@ Accessed in code & as \bsq{snowncv} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{specZoneMaskCell}
+\noindent\textbf{\large{specZoneMaskCell}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{0/1 mask on cells, defined as 1 for cells in the limited-area specified zone} \\ \hline
+Accessed in code & as \bsq{specZoneMaskCell} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{specZoneMaskEdge}
+\noindent\textbf{\large{specZoneMaskEdge}} (real) (nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{0/1 mask on edges, defined as 1 for edges in the limited-area specified zone} \\ \hline
+Accessed in code & as \bsq{specZoneMaskEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{specZoneMaskVertex}
+\noindent\textbf{\large{specZoneMaskVertex}} (real) (nVertices) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{0/1 mask on vertices, defined as 1 for vertices in the limited-area specified zone} \\ \hline
+Accessed in code & as \bsq{specZoneMaskVertex} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{spechum}
+\noindent\textbf{\large{spechum}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
+Description & \textit{Specific humidity} \\ \hline
+Allocated by & jedi\_da \\ \hline
+Accessed in code & as \bsq{spechum} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{sr}
 \noindent\textbf{\large{sr}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -3603,7 +4609,7 @@ Accessed in code & as \bsq{sst} from the \bsq{sfc\_input} pool \\ \hline
 \noindent\textbf{\large{sstsk}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{K} \\ \hline
-Description & \textit{skin sea-aurface temperature} \\ \hline
+Description & \textit{skin sea-surface temperature} \\ \hline
 Accessed in code & as \bsq{sstsk} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -3787,10 +4793,6 @@ Accessed in code & as \bsq{swuptc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
-\phantomsection
-\addcontentsline{toc}{section}{Fields T--Z}
-
-
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
 \hypertarget{t2m}
@@ -3800,6 +4802,17 @@ Units & \textit{K} \\ \hline
 Description & \textit{2-meter temperature} \\ \hline
 Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{t2m} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{t_init}
+\noindent\textbf{\large{t\_init}} (real) (nVertLevels, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{theta reference profile} \\ \hline
+Accessed in code & as \bsq{t\_init} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -3844,6 +4857,18 @@ Accessed in code & as \bsq{t\_oml\_initial} from the \bsq{diag\_physics} pool \\
 Units & \textit{K} \\ \hline
 Description & \textit{accumulated daily surface temperature for current day} \\ \hline
 Accessed in code & as \bsq{tday\_accum} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{temperature}
+\noindent\textbf{\large{temperature}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{temperature} \\ \hline
+Allocated by & jedi\_da \\ \hline
+Accessed in code & as \bsq{temperature} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4207,6 +5232,17 @@ Accessed in code & as \bsq{u} from the \bsq{tend\_iau} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{u_init}
+\noindent\textbf{\large{u\_init}} (real) (nVertLevels) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{u reference profile} \\ \hline
+Accessed in code & as \bsq{u\_init} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{udrunoff}
 \noindent\textbf{\large{udrunoff}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -4265,6 +5301,17 @@ Accessed in code & as \bsq{v10} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{v_init}
+\noindent\textbf{\large{v\_init}} (real) (nVertLevels) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{v reference profile} \\ \hline
+Accessed in code & as \bsq{v\_init} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{var2d}
 \noindent\textbf{\large{var2d}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -4282,6 +5329,28 @@ Accessed in code & as \bsq{var2d} from the \bsq{sfc\_input} pool \\ \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{vegetation fraction} \\ \hline
 Accessed in code & as \bsq{vegfra} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{verticesOnCell}
+\noindent\textbf{\large{verticesOnCell}} (integer) (maxEdges, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{IDs of vertices (corner points) of a cell} \\ \hline
+Accessed in code & as \bsq{verticesOnCell} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{verticesOnEdge}
+\noindent\textbf{\large{verticesOnEdge}} (integer) (TWO, nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{IDs of the two vertex endpoints of an edge} \\ \hline
+Accessed in code & as \bsq{verticesOnEdge} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4319,6 +5388,17 @@ Units & \textit{m s\textsuperscript{-1}} \\ \hline
 Description & \textit{time running-averaged vertical velocity} \\ \hline
 Allocated by & cu\_kain\_fritsch\_in \\ \hline
 Accessed in code & as \bsq{w0avg} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{weightsOnEdge}
+\noindent\textbf{\large{weightsOnEdge}} (real) (maxEdges2, nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Weights used in reconstruction of tangential velocity for an edge} \\ \hline
+Accessed in code & as \bsq{weightsOnEdge} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4365,6 +5445,43 @@ Accessed in code & as \bsq{wwAvg} from the \bsq{diag} pool \\ \hline
 Units & \textit{kg m\textsuperscript{-2} s\textsuperscript{-1}} \\ \hline
 Description & \textit{time-averaged rho*omega/zz used in scalar transport} \\ \hline
 Accessed in code & as \bsq{wwAvg\_split} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\phantomsection
+\addcontentsline{toc}{section}{Fields X--Z}
+
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{xCell}
+\noindent\textbf{\large{xCell}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Cartesian x-coordinate of cells} \\ \hline
+Accessed in code & as \bsq{xCell} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{xEdge}
+\noindent\textbf{\large{xEdge}} (real) (nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Cartesian x-coordinate of edges} \\ \hline
+Accessed in code & as \bsq{xEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{xVertex}
+\noindent\textbf{\large{xVertex}} (real) (nVertices) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Cartesian x-coordinate of vertices} \\ \hline
+Accessed in code & as \bsq{xVertex} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4438,12 +5555,133 @@ Accessed in code & as \bsq{xtime} from the \bsq{state} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{yCell}
+\noindent\textbf{\large{yCell}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Cartesian y-coordinate of cells} \\ \hline
+Accessed in code & as \bsq{yCell} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{yEdge}
+\noindent\textbf{\large{yEdge}} (real) (nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Cartesian y-coordinate of edges} \\ \hline
+Accessed in code & as \bsq{yEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{yVertex}
+\noindent\textbf{\large{yVertex}} (real) (nVertices) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Cartesian y-coordinate of vertices} \\ \hline
+Accessed in code & as \bsq{yVertex} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{z0}
 \noindent\textbf{\large{z0}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m} \\ \hline
 Description & \textit{roughness height} \\ \hline
 Accessed in code & as \bsq{z0} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{zCell}
+\noindent\textbf{\large{zCell}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Cartesian z-coordinate of cells} \\ \hline
+Accessed in code & as \bsq{zCell} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{zEdge}
+\noindent\textbf{\large{zEdge}} (real) (nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Cartesian z-coordinate of edges} \\ \hline
+Accessed in code & as \bsq{zEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{zVertex}
+\noindent\textbf{\large{zVertex}} (real) (nVertices) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Cartesian z-coordinate of vertices} \\ \hline
+Accessed in code & as \bsq{zVertex} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{zb}
+\noindent\textbf{\large{zb}} (real) (nVertLevelsP1, TWO, nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Coefficients for contribution from u to omega diagnosis, edge-oriented} \\ \hline
+Accessed in code & as \bsq{zb} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{zb3}
+\noindent\textbf{\large{zb3}} (real) (nVertLevelsP1, TWO, nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Coefficients for 3rd-order correction to contribution from u to omega diagnosis, edge-oriented} \\ \hline
+Accessed in code & as \bsq{zb3} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{zb3_cell}
+\noindent\textbf{\large{zb3\_cell}} (real) (nVertLevelsP1, maxEdges, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Coefficients for 3rd-order correction to contribution from u to omega diagnosis, cell-oriented} \\ \hline
+Accessed in code & as \bsq{zb3\_cell} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{zb_cell}
+\noindent\textbf{\large{zb\_cell}} (real) (nVertLevelsP1, maxEdges, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Coefficients for contribution from u to omega diagnosis, cell-oriented} \\ \hline
+Accessed in code & as \bsq{zb\_cell} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{zgrid}
+\noindent\textbf{\large{zgrid}} (real) (nVertLevelsP1, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m MSL} \\ \hline
+Description & \textit{Geometric height of layer interfaces} \\ \hline
+Accessed in code & as \bsq{zgrid} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4478,5 +5716,27 @@ Accessed in code & as \bsq{zol} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{m} \\ \hline
 Description & \textit{depth of centers of soil layers} \\ \hline
 Accessed in code & as \bsq{zs} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{zxu}
+\noindent\textbf{\large{zxu}} (real) (nVertLevels, nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{dz/dx on horizontal coordinate surfaces at u levels} \\ \hline
+Accessed in code & as \bsq{zxu} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{zz}
+\noindent\textbf{\large{zz}} (real) (nVertLevels, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{d(zeta)/dz, vertical metric term} \\ \hline
+Accessed in code & as \bsq{zz} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}

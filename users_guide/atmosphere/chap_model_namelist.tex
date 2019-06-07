@@ -448,6 +448,64 @@ Description & \textit{Maximum w-damping coefficient at model top} \\ \hline
 Possible Values & 0 $\leq$ config\_xnutr $\leq$ 1 \textit{(default: 0.2)} \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_mpas_cam_coef}
+\noindent\textbf{\large{config\_mpas\_cam\_coef}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Coefficient for scaling the 2nd-order horizontal mixing in the mpas\_cam absorbing layer (hidden by default)} \\ \hline
+Possible Values & 0 $\leq$ config\_mpas\_cam\_coef $\leq$ 1, standard value is 0.2 \textit{(default: 0.0)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_rayleigh_damp_u}
+\noindent\textbf{\large{config\_rayleigh\_damp\_u}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Whether to apply Rayleigh damping on horizontal velocity in the top-most model levels. The number of levels is specified by the config\_number\_rayleigh\_damp\_u\_levels option, and the damping timescale is specified by the config\_rayleigh\_damp\_u\_timescale\_days option. (hidden by default)} \\ \hline
+Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_rayleigh_damp_u_timescale_days}
+\noindent\textbf{\large{config\_rayleigh\_damp\_u\_timescale\_days}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{days} \\ \hline
+Description & \textit{Timescale, in days (86400 s), for the Rayleigh damping on horizontal velocity in the top-most model levels. (hidden by default)} \\ \hline
+Possible Values & Positive real values \textit{(default: 5.0)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_number_rayleigh_damp_u_levels}
+\noindent\textbf{\large{config\_number\_rayleigh\_damp\_u\_levels}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Number layers in which to apply Rayleigh damping on horizontal velocity at top of model; damping linearly ramps to zero by layer number from the top (hidden by default)} \\ \hline
+Possible Values & Positive integer values \textit{(default: 6)} \\ \hline
+\end{tabular} 
+\end{minipage}
+\hypertarget{mrec:limited_area}{}
+\section{limited\_area}
+\small
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_apply_lbcs}
+\noindent\textbf{\large{config\_apply\_lbcs}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Whether to apply lateral boundary conditions} \\ \hline
+Possible Values & true or false; this option must be set to true for limited-area simulations and false for global simulations \textit{(default: false)} \\ \hline
+\end{tabular} 
+\end{minipage}
 \hypertarget{mrec:io}{}
 \section{io}
 \small
@@ -615,6 +673,20 @@ Possible Values & `off' or `on'; `off' turns off IAU, `on' uses equal weighting 
 Units & \textit{s} \\ \hline
 Description & \textit{Length of window over which analysis increments are applied} \\ \hline
 Possible Values & Non-negative real values \textit{(default: 21600.)} \\ \hline
+\end{tabular} 
+\end{minipage}
+\hypertarget{mrec:assimilation}{}
+\section{assimilation}
+\small
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_jedi_da}
+\noindent\textbf{\large{config\_jedi\_da}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Whether this run is within the JEDI data assimilation framework; used to add temperature and specific humidity as diagnostics (hidden by default)} \\ \hline
+Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
 \end{tabular} 
 \end{minipage}
 \hypertarget{mrec:physics}{}
