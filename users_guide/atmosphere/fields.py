@@ -45,7 +45,7 @@ f.write ('\\small\n')
 #	Loop through the var structs/ var arrays
 var_list = []
 for child in root:
-	if child.tag != 'var_struct' or child.get('name') == 'mesh':
+	if child.tag != 'var_struct':
 		continue
 
 	struct_name = translate(child.get('name'))
@@ -119,7 +119,7 @@ num = num // 4
 # Find the section cutoffs, rounded to teh nearest letter
 letters = ['A']
 x = 0
-for k in sorted(counts.iterkeys()):
+for k in sorted(counts.keys()):
 	v = counts[k]
 	if v == 0:
 		continue
