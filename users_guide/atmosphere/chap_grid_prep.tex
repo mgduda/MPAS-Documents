@@ -1,16 +1,20 @@
 \chapter{Preparing Meshes}
 \label{chap:mpas_grid_preparation}
 
-This chapter describes the steps used to prepare SCVT meshes for use in MPAS-A.
+This chapter describes the steps used to prepare SCVT meshes for use in MPAS-Atmosphere.
 For quasi-uniform meshes, very little preparation is actually needed, and
 generally, one only needs to prepare mesh decomposition files --- files that
 describe the decomposition of the SCVT mesh across processors --- when running
-MPAS-A using multiple MPI tasks. The procedure for creating these mesh
+MPAS-Atmosphere using multiple MPI tasks. The procedure for creating these mesh
 decomposition files is described in the first section. 
 
 For variable-resolution SCVT meshes, the area of mesh refinement may be rotated
 to any part of the sphere using a program, grid\_rotate, described in the second
-section. This utility program may be obtained from the MPAS-A download page.
+section. This utility program may be obtained from the MPAS-Atmosphere download page.
+
+When running limited-area simulations, the limited-area mesh may be produced by
+subsetting the elements in an existing SCVT mesh as described in the third section.
+
 \section{Graph partitioning with METIS} 
 \label{sec:metis}
 
@@ -94,4 +98,18 @@ in the script.
 {\em Note: The grid\_rotate program initializes the new, rotated grid file to a copy of the original grid file.
 If the original grid file has only read permission (i.e., no write permission), then so will the copy, and
 consequently, the grid\_rotate program will fail when attempting to update the fields in the copy.}
-   
+
+
+\section{Creating limited-area SCVT meshes}
+\label{sec:mesh_subset} 
+
+The process of creating a limited-area (regional) mesh for MPAS-Atmosphere involves
+selecting any existing mesh -- either a quasi-uniform mesh, or a variable-resolution mesh
+that has been rotated as in section \ref{sec:grid_rotate} -- describing the geographical
+region to be extracted from that mesh, and running the limited-area Python program to extract
+all cells, edges, and vertices in the region. The result is a new netCDF mesh file that can
+be used to make a limited-area simulation as described in Section \ref{sec:regional}.
+
+The limited-area Python program may be obtained from the MPAS-Atmosphere download page. Although
+the set of required Python packages may change over time, the program currently requires
+the {\tt numpy} and {\tt netCDF4} packages, in addition to other standard packages.
