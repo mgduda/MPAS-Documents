@@ -100,11 +100,14 @@ time, with namelist options set as described below.
    \namelist{inl:config_stop_time}       = '2010-10-30\_00:00:00' & time to end processing LBC data \\
 /\\
 \\
+\&dimensions\\
+   \namelist{inl:config_nfglevels}      = 38                      & number of vertical levels in intermediate file \\
+/\\
+\\
 \&data\_sources\\
    \namelist{inl:config_met_prefix}      = 'GFS'                  & the prefix of intermediate data files to be used for LBCs \\
    \namelist{inl:config_fg_interval}     = 10800                  & interval between intermediate files \\
 /\\
-\\
 \\
 \&decomposition\\
    \namelist{inl:config_block_decomp_file_prefix} = 'graph.info.part.' & if running in parallel, needs to match the grid decomposition file prefix \\
@@ -114,21 +117,22 @@ time, with namelist options set as described below.
 
 \noindent When running the LBC processing case, the {\tt output\_interval} for the ``lbc'' stream in the {\tt
 streams.init\_atmosphere} file must be set to match the value of \namelist{inl:config_fg_interval} in
-the {\tt namelist.init\_atmosphere} file. The end result of the LBC processing case should be a set of netCDF files
-containing LBCs for the model integration.
+the {\tt namelist.init\_atmosphere} file. Additionally, the file to be read by the ``input'' stream must contain
+vertical grid information; typically, the model initial-conditions file can be used as the source for the ``input'' stream.
+The end result of the LBC processing case should be a set of netCDF files containing LBCs for the model integration.
 
 The final difference -- application of LBCs during the model integration -- simply requires setting \namelist{mnl:config_apply_lbcs}
 to {\tt true} in the model's {\tt namelist.atmosphere} file, as well as setting the {\tt input\_interval} for the ``lbc\_in'' stream
 in the {\tt streams.atmosphere} file to match the interval at which the LBC netCDF files were produced.
 
-
-\section{Sounding Output}
-\label{sec:soundings}
-
-Describe use of `soundings.txt' file and namelist to obtain periodic soundings at specified locations.
-
-
-\section{Incremental Analysis Update}
-\label{sec:iau}
-
-Describe operation of incremental analysis update.
+%
+%\section{Sounding Output}
+%\label{sec:soundings}
+%
+%Describe use of `soundings.txt' file and namelist to obtain periodic soundings at specified locations.
+%
+%
+%\section{Incremental Analysis Update}
+%\label{sec:iau}
+%
+%Describe operation of incremental analysis update.

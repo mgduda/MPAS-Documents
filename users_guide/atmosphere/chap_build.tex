@@ -6,16 +6,16 @@
 
 To build MPAS, compatible C and Fortran compilers are required. Additionally,
 the MPAS software relies on the PIO parallel I/O library to read and write model
-fields, and the PIO library requires the standard NetCDF library as well as the
-Parallel-NetCDF library from Argonne National Laboratory. All libraries must be
+fields, and the PIO library requires the standard netCDF library as well as the
+parallel-netCDF library from Argonne National Laboratory. All libraries must be
 compiled with the same compilers that will be used to build MPAS. Section
 \ref{sec:build_io} summarizes the basic procedure of installing the required I/O
 libraries for MPAS.
 
-In order for the MPAS makefiles to find the PIO, Parallel-NetCDF, and NetCDF
+In order for the MPAS makefiles to find the PIO, parallel-netCDF, and netCDF
 include files and libraries, the environment variables {\tt PIO}, {\tt PNETCDF},
 and {\tt NETCDF} should be set to the root installation directories of the PIO,
-Parallel-NetCDF, and NetCDF installations, respectively. 
+parallel-netCDF, and netCDF installations, respectively. 
 
 An MPI installation such as MPICH or OpenMPI is also required, and there is no
 option to build a serial version of the MPAS executables. MPAS-Atmosphere v5.0
@@ -35,30 +35,30 @@ recommended that users consult documentation provided by individual library
 vendors should problems arise during installation. The MPAS developers cannot assume
 responsibility for third-party libraries.} \vspace{12pt}
 
-Although most recent versions of the NetCDF and Parallel-NetCDF libraries should work,
-the most tested versions of these libraries are NetCDF 4.4.x and Parallel-NetCDF 1.8.x.
+Although most recent versions of the netCDF and parallel-netCDF libraries should work,
+the most tested versions of these libraries are netCDF 4.4.x and parallel-netCDF 1.8.x.
 Users are strongly encouraged to use either the latest PIO 2.x version from \url{https://github.com/NCAR/ParallelIO/},
 or PIO versions 1.7.1 or 1.9.23, as other versions have not been tested or are known to not work with MPAS.
-The NetCDF and Parallel-NetCDF libraries must be installed before building the PIO library.
+The netCDF and parallel-netCDF libraries must be installed before building the PIO library.
 
 \subsection{NetCDF}
 \label{serial_netcdf}
 
-Version 4.4.x of the NetCDF library may be downloaded from
+Version 4.4.x of the netCDF library may be downloaded from
 \url{http://www.unidata.ucar.edu/downloads/netcdf/index.jsp}.
-The Unidata page provides detailed instructions instructions for building the NetCDF C and Fortran libraries;
-both the C and Fortran interfaces are needed by PIO. If NetCDF-4 support is desired, the zlib and HDF5 libraries
-will need to be installed prior to building NetCDF. {\em Before proceeding to compile PIO
-the {\tt NETCDF} environment variable should be set to the NetCDF root
+The Unidata page provides detailed instructions instructions for building the netCDF C and Fortran libraries;
+both the C and Fortran interfaces are needed by PIO. If netCDF-4 support is desired, the zlib and HDF5 libraries
+will need to be installed prior to building netCDF. {\em Before proceeding to compile PIO
+the {\tt NETCDF} environment variable should be set to the netCDF root
 installation directory.}
 
 \subsection{Parallel-NetCDF}
 \label{parallel_netcdf}
 
-Version 1.8.x of the Parallel-NetCDF library may be downloaded from
+Version 1.8.x of the parallel-netCDF library may be downloaded from
 \url{https://trac.mcs.anl.gov/projects/parallel-netcdf/wiki/Download}. {\em Before proceeding to
 compile PIO the {\tt PNETCDF} environment variable should be set to the
-Parallel-NetCDF root installation directory.}
+parallel-netCDF root installation directory.}
 
 \subsection{PIO}
 \label{pio_build}
@@ -113,6 +113,7 @@ Target & Fortran compiler & C compiler & MPI wrappers \\ \hline \hline
 {\tt pgi} & pgf90 & pgcc & mpif90 / mpicc \\ \hline
 {\tt ifort} & ifort & gcc & mpif90 / mpicc \\ \hline
 {\tt gfortran} & gfortran & gcc & mpif90 / mpicc \\ \hline
+{\tt llvm} & flang & clang & mpifort / mpicc \\ \hline
 {\tt bluegene} & bgxlf95\_r & bgxlc\_r & mpxlf95\_r / mpxlc\_r \\ \hline
 \end{longtable}
 \vspace{12pt}
@@ -168,6 +169,7 @@ Availabe Cores:
     init_atmosphere
     landice
     ocean
+    seaice
     sw
     test
 
@@ -177,15 +179,13 @@ Available Options:
     TAU=true      - builds version using TAU hooks for profiling. Default is off.
     AUTOCLEAN=true    - forces a clean of infrastructure prior to build new core.
     GEN_F90=true  - Generates intermediate .f90 files through CPP, and builds with them.
-    TIMER_LIB=opt - Selects the timer library interface to be used for profiling the model.
-                    Options are:
+    TIMER_LIB=opt - Selects the timer library interface to be used for profiling the model. Options are:
                     TIMER_LIB=native - Uses native built-in timers in MPAS
                     TIMER_LIB=gptl - Uses gptl for the timer interface instead of the native interface
                     TIMER_LIB=tau - Uses TAU for the timer interface instead of the native interface
     OPENMP=true   - builds and links with OpenMP flags. Default is to not use OpenMP.
     USE_PIO2=true - links with the PIO 2 library. Default is to use the PIO 1.x library.
-    PRECISION=single - builds with default single-precision real kind.
-                       Default is to use double-precision.
+    PRECISION=single - builds with default single-precision real kind. Default is to use double-precision.
 
 Ensure that NETCDF, PNETCDF, PIO, and PAPI (if USE_PAPI=true) are environment variables
 that point to the absolute paths for the libraries.

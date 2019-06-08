@@ -2,32 +2,32 @@
 \label{chap:quick_start}
 
 This chapter provides MPAS-Atmosphere users with a high-level description of
-the general process of building and running the model. It is meant merely as a brief overview of the
-process, with more detailed descriptions of each step are provided in later
-chapters.
+the general process of building and running the model. It is meant simply as a brief overview of the
+process, with more detailed descriptions of each step are provided in later chapters.
 
-In general, the build process follows the following steps.
+In general, the build process follows the steps, below.
 
 \begin{enumerate}
-	\item Build or locate an implementation of MPI (MPICH, OpenMPI, MVAPICH2, etc; Section \ref{build_prerequisites}).
-	\item Build the serial NetCDF library (Section \ref{serial_netcdf}).
-	\item Build the Parallel-NetCDF library (Section \ref{parallel_netcdf}).
-	\item Build the Parallel I/O library (Section \ref{pio_build}).
-	\item {\bf Optionally,} build the METIS package (Section \ref{sec:metis}).
-	\item Obtain the MPAS source code.
+	\item Build or locate an MPI implementation (MPICH, OpenMPI, MVAPICH2, MPT, etc; Section \ref{build_prerequisites}).
+	\item Build the serial netCDF library (Section \ref{serial_netcdf}).
+	\item Build the parallel-netCDF library (Section \ref{parallel_netcdf}).
+	\item Build the Parallel I/O (PIO) library (Section \ref{pio_build}).
+	\item (OPTIONAL) build the METIS package (Section \ref{sec:metis}).
+	\item Obtain the MPAS-Model source code.
 	\item Build the {\em init\_atmosphere} and {\em atmosphere} cores (Section \ref{compiling_MPAS}).
 \end{enumerate}
 
 After completing these steps, executable files named {\tt init\_atmosphere\_model}, 
-{\tt atmosphere\_model}, and {\tt build\_tables} should have been created in the top-level MPAS directory. Once
-all three executables have been created, a complete model simulation can be generated with the following steps:
+{\tt atmosphere\_model}, and {\tt build\_tables} should have been created in the top-level MPAS-Model directory. Once
+all three executables have been created, a basic global simulation can be performed using the following steps.
 
 \begin{enumerate}
 	\item Create a run directory.
-	\item Link the {\tt init\_atmosphere\_model} and {\tt atmosphere\_model} executables to the run directory, as well as physics lookup tables ({\tt *TBL}, {\tt *DBL}, {\tt *DATA}).
+	\item Link the {\tt init\_atmosphere\_model} and {\tt atmosphere\_model} executables to the run directory, as well as
+physics lookup tables ({\tt src/core\_atmosphere/physics/physics\_wrf/files/*}).
 	\item Copy the {\tt namelist.*}, {\tt streams.*}, and {\tt stream\_list.*} files to the run directory. 
 	\item Edit the namelist files and the stream files appropriately (Chapter \ref{chap:running_mpas_a}).
-	\item {\bf Optionally,} prepare meshes for the simulation (Chapter \ref{chap:mpas_grid_preparation}).
-	\item Run {\tt init\_atmosphere\_model} to create initial conditions, then run {\tt atmosphere\_model} to perform model integration.
-	\item Visualize output, and perform analyses.
+	\item (OPTIONAL) prepare meshes for the simulation (Chapter \ref{chap:mpas_grid_preparation}).
+	\item Run {\tt init\_atmosphere\_model} to create initial conditions (Section \ref{sec:atm_ideal_init} or Section \ref{sec:atm_real_init}).
+        \item Run {\tt atmosphere\_model} to perform model integration (Section \ref{sec:atm_model_run}).
 \end{enumerate}

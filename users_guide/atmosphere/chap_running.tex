@@ -7,9 +7,20 @@
 
 \setlength\LTleft{0.0in}
 
-Given a CVT mesh, this chapter describes the two main steps to running the MPAS-Atmosphere model: creating initial conditions and running the model itself.  This chapter makes use of two MPAS cores, {\tt init\_atmosphere} and {\tt atmosphere}, which are, respectively, used for initializing and running the non-hydrostatic atmospheric model.  Sections \ref{sec:atm_ideal_init} and \ref{sec:atm_real_init} of this chapter describe the creation of idealized and real-data initial condition files using the {\tt init\_atmosphere} core. Section \ref{sec:atm_model_run} describes the basic procedure of running the model itself.
+Given a CVT mesh, prepared using steps from Chapter \ref{chap:mpas_grid_preparation} as appropriate,
+this chapter describes the two main steps to running the MPAS-Atmosphere model: creating initial
+conditions and running the model itself.  This chapter makes use of two MPAS cores, {\tt
+init\_atmosphere} and {\tt atmosphere}, which are, respectively, used for initializing and running
+the non-hydrostatic atmospheric model.  Sections \ref{sec:atm_ideal_init} and
+\ref{sec:atm_real_init} of this chapter describe the creation of idealized and real-data initial
+condition files using the {\tt init\_atmosphere} core. Section \ref{sec:atm_model_run} describes the
+basic procedure of running the model itself.
 
-Each section of this chapter follows a familiar pattern of compiling and executing MPAS model components, albeit using different cores depending on its intended use.  The compilation will create either an initialization or a model executable, which are named, respectively, {\tt init\_atmosphere\_model} and {\tt atmosphere\_model}.  In general, an executable is run with {\tt mpiexec} or {\tt mpirun}, for example:
+Each section of this chapter follows a familiar pattern of compiling and executing MPAS model
+components, albeit using different cores depending on its intended use.  The compilation will create
+either an initialization or a model executable, which are named, respectively, {\tt
+init\_atmosphere\_model} and {\tt atmosphere\_model}.  In general, an executable is run with {\tt
+mpiexec} or {\tt mpirun}, for example:
 
 \vspace{12pt}
 {\tt > mpiexec -n 8 atmosphere\_model}
@@ -93,7 +104,7 @@ condition files that are ultimately created from the {\tt static.nc} output file
 The generation of a {\tt static.nc} file requires a set of static geographic data.  A suitable dataset can be obtained from the WRF model's download page \\
  \url{http://www2.mmm.ucar.edu/wrf/users/download/get\_source.html}.  These static data files should be downloaded to a directory,
 which will be specified the {\tt namelist.init\_atmosphere} file (described below) prior to running this interpolation step.  The
-result of this run will be the creation of a NetCDF file ({\tt static.nc}), which is used in Section \ref{sec:atm_real_met} to create dynamic initial conditions.  Note that {\tt static.nc} can be generated once and then used repeatedly to generate initial condition files for different start times.
+result of this run will be the creation of a netCDF file ({\tt static.nc}), which is used in Section \ref{sec:atm_real_met} to create dynamic initial conditions.  Note that {\tt static.nc} can be generated once and then used repeatedly to generate initial condition files for different start times.
 
 The following steps summarize the creation of {\tt static.nc}:
 
@@ -121,8 +132,14 @@ Note that it is critical for this step that the initialization core is run seria
 /\\
 \\
 \&data\_sources\\
-   \namelist{inl:config_geog_data_path}  = '/WPS\_GEOG/'         & absolute path to static files obtained from the WRF download page \\
-   \namelist{inl:config_landuse_data} = 'USGS'                               & land-use classification to use in MPAS-Atmosphere \\
+   \namelist{inl:config_geog_data_path}  = '/path/to/WPS\_GEOG/'  & absolute path to static files obtained from the WRF download page \\
+   \namelist{inl:config_landuse_data} = 'MODIFIED\_IGBP\_MODIS\_NOAH' & land use dataset selection \\
+   \namelist{inl:config_topo_data} = 'GMTED2010'                   & terrain dataset selection \\
+   \namelist{inl:config_vegfrac_data} = 'MODIS'                    & monthly vegetation fraction dataset selection \\
+   \namelist{inl:config_albedo_data} = 'MODIS'                     & monthly albedo dataset selection \\
+   \namelist{inl:config_maxsnowalbedo_data} = 'MODIS'              & maximum snow albedo dataset selection \\
+   \namelist{inl:config_supersample_factor} = 1                    & MODIS supersampling factor, generally only needed for meshes with grid distance $< 6$ km \\
+
 /\\
 \\
 \&preproc\_stages                                    & only the static\_interp and native\_gwd\_static \\
@@ -131,6 +148,7 @@ Note that it is critical for this step that the initialization core is run seria
    \namelist{inl:config_vertical_grid}   = false                & \\
    \namelist{inl:config_met_interp}      = false                & \\
    \namelist{inl:config_input_sst}       = false                & \\
+   \namelist{inl:config_frac_seaice}     = false                & \\
 /\\
 
 \end{longtable}
@@ -167,31 +185,31 @@ The following steps summarize the creation of {\tt init.nc}:
 /\\
 \\
 \&dimensions\\
-   \namelist{inl:config_nvertlevels}     = 41                      & number of vertical levels to be used in MPAS \\
+   \namelist{inl:config_nvertlevels}     = 55                      & number of vertical levels to be used in MPAS \\
    \namelist{inl:config_nsoillevels}     = 4                       & number of soil layers to be used in MPAS \\
    \namelist{inl:config_nfglevels}       = 38                      & number of vertical levels in intermediate file \\
    \namelist{inl:config_nfgsoillevels}   = 4                       & number of soil layers in intermediate file \\
 /\\
 \\
 \&data\_sources\\
-   \namelist{inl:config_met_prefix}      = 'FILE'                 & the prefix of the intermediate file to be used for initial conditions \\
-   \namelist{inl:config_landuse_data} = 'USGS'               & must be consistent with choice in \S \ref{sec:atm_real_static} \\
-   \namelist{inl:config_use_spechumd} = true                  & if available, use specific humidity rather than relative humidity \\
+   \namelist{inl:config_met_prefix}      = 'FILE'            & the prefix of the intermediate file to be used for initial conditions \\
+   \namelist{inl:config_use_spechumd}    = true              & if available, use specific humidity rather than relative humidity \\
 /\\
 \\
 \&vertical\_grid\\
-   \namelist{inl:config_ztop}            = 30000.0                 & model top height (m) \\
-   \namelist{inl:config_nsmterrain}      = 1                       & number of smoothing passes for terrain \\
-   \namelist{inl:config_smooth_surfaces} = true                 & whether to smooth zeta surfaces \\
+   \namelist{inl:config_ztop}            = 30000.0           & model top height (m) \\
+   \namelist{inl:config_nsmterrain}      = 1                 & number of smoothing passes for terrain \\
+   \namelist{inl:config_smooth_surfaces} = true              & whether to smooth zeta surfaces \\
+   \namelist{inl:config_blend_boundary_terrain} = false      & whether to blend terrain along domain boundaries; only for regional simulations as described in Section \ref{sec:regional} \\
 /\\
 \\
 \&preproc\_stages                                    & \\
-   \namelist{inl:config_static_interp}   = false                & \\
-   \namelist{inl:config_native_gwd_static} = false           & \\
-   \namelist{inl:config_vertical_grid}   = true                 & only these three stages should be enabled \\
-   \namelist{inl:config_met_interp}      = true                 & \\
-   \namelist{inl:config_input_sst}       = false                & \\
-   \namelist{inl:config_frac_seaice} = true                   & \\
+   \namelist{inl:config_static_interp}   = false     & \\
+   \namelist{inl:config_native_gwd_static} = false   & \\
+   \namelist{inl:config_vertical_grid}   = true      & only these three stages should be enabled \\
+   \namelist{inl:config_met_interp}      = true      & \\
+   \namelist{inl:config_input_sst}       = false     & \\
+   \namelist{inl:config_frac_seaice} = true          & \\
 /\\
 \\
 \&decomposition\\
@@ -209,8 +227,10 @@ Having generated the model initial conditions, {\tt init.nc}, as described in ei
 The following steps summarize running the model:
 
 \begin{itemize}
-\item Include an initial condition NetCDF file (e.g., {\tt init.nc}) in the working directory(Section \ref{sec:atm_ideal_init}, Section \ref{sec:atm_real_init})
-\item If using surface updates, include a surface NetCDF file (e.g., {\tt surface.nc}) in the working directory (Section \ref{sec:sst_update})
+\item Include an initial condition netCDF file (e.g., {\tt init.nc}) in the working directory(Section \ref{sec:atm_ideal_init}, Section \ref{sec:atm_real_init})
+\item (OPTIONAL) If the SST and sea-ice fields are to be periodically updated, include a surface netCDF file (e.g., {\tt surface.nc}) in the working directory (Section \ref{sec:sst_update})
+\item (OPTIONAL) If running a regional simulation, include LBC netCDF files (e.g., {\tt lbc.YYYY-MM-DD\_HH.mm.ss.nc}) in the working
+directory (Section \ref{sec:regional})
 \item If running in parallel, include a graph decomposition file in the working directory (Section \ref{sec:metis})
 \item If the MPAS directory has not been cleaned since running initialization, run {\tt make clean} with the {\tt atmosphere} core specified
 \item Compile MPAS with the {\tt atmosphere} core specified (Section \ref{compiling_MPAS})
@@ -228,6 +248,10 @@ Below is a list of variables in {\tt namelist.atmosphere} that pertain to model 
    \namelist{mnl:config_start_time} = '2010-10-23\_00:00:00'      & the model start time corresponding to {\tt init.nc}\\
    \namelist{mnl:config_run_duration} = '5\_00:00:00'             & the duration of the model run; for format rules, see Appendix \ref{chap:atm_namelist} \\
    \namelist{mnl:config_len_disp} = 120000.0            & the smallest cell-to-cell distance in the mesh, used for computing a dissipation length scale\\
+/                                                    & \\
+\\
+\&limited\_area                                            & \\
+   \namelist{mnl:config_apply_lbcs} = false & must be set to true only if running a regional simulation, as in Section \ref{sec:regional} \\
 /                                                    & \\
 \\
 \&decomposition                                            & \\
@@ -251,13 +275,14 @@ core:
 
 \begin{longtable}{|p{1.25in} |p{5.0in}|}
 \hline
-   input        & the stream used to read model initial conditions for cold-start simulations \\ \hline
-   restart      & the stream used to periodically write restart files during model integration, and to read initial conditions when performing a restart model run \\ \hline
-   output      & the stream responsible for writing model prognostic and diagnostic fields to history files \\ \hline
+   input    & the stream used to read model initial conditions for cold-start simulations \\ \hline
+   restart  & the stream used to periodically write restart files during model integration, and to read initial conditions when performing a restart model run \\ \hline
+   output   & the stream responsible for writing model prognostic and diagnostic fields to history files \\ \hline
    diagnostics & the stream responsible for writing (mostly) 2-d diagnostic fields, typically at higher temporal frequency than the history files \\ \hline
-   surface    & the stream used to read periodic updates of sea-ice and SST from a surface update file created as described in Section 
+   surface  & the stream used to read periodic updates of sea-ice and SST from a surface update file created as described in Section 
 \ref{sec:sst_update} \\ \hline
-   iau          & the stream used to read analysis increments for the Incremental Analysis Update (IAU) scheme \\ \hline
+   iau      & the stream used to read analysis increments for the Incremental Analysis Update (IAU) scheme \\ \hline
+   lbc\_in  & the stream used to read lateral boundary updates for limited-area simulations, described in Section \ref{sec:regional} \\ \hline
 \end{longtable}
 
 \noindent For more information on the options available in the XML I/O configuration file, users are referred to Chapter \ref{chap:mpas_io}.

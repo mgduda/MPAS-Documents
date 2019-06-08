@@ -37,7 +37,7 @@ After installing METIS, a {\tt graph.info} file may be partitioned into $N$
 partitions by running
 
 \vspace{12pt}
-{\tt > gpmetis graph.info} $N$
+{\tt > gpmetis -minconn -contig -niter=200 graph.info} $N$
 \vspace{12pt}
 
 \noindent where $N$ is the required number of partitions. The resulting file, {\tt graph.info.part.}$N$, 
@@ -55,7 +55,7 @@ particularly one with a large number of generating points or a high degree of
 refinement --- can take considerable time.
 
 To build the grid\_rotate program, the Makefile should first be edited to set
-the Fortran compiler to be used; if the NetCDF installation pointed to by the
+the Fortran compiler to be used; if the netCDF installation pointed to by the
 {\tt NETCDF} environment variable was build with a separate Fortran interface
 library, it will also be necessary to add {\tt -lnetcdff} just before {\tt -lnetcdf} in 
 the Makefile. After editing the Makefile, running `make' should
@@ -107,7 +107,7 @@ The process of creating a limited-area (regional) mesh for MPAS-Atmosphere invol
 selecting any existing mesh -- either a quasi-uniform mesh, or a variable-resolution mesh
 that has been rotated as in section \ref{sec:grid_rotate} -- describing the geographical
 region to be extracted from that mesh, and running the limited-area Python program to extract
-all cells, edges, and vertices in the region. The result is a new netCDF mesh file that can
+all cells, edges, and vertices in the designated region. The result is a new netCDF mesh file that can
 be used to make a limited-area simulation as described in Section \ref{sec:regional}.
 
 The limited-area Python program may be obtained from the MPAS-Atmosphere download page. Although
