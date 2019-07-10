@@ -196,6 +196,7 @@ No CORE specified. Quitting.
 \end{verbatim}
 
 \section{Selecting a single-precision build}
+\label{sec:build_single_prec}
 
 Beginning with version 2.0, MPAS-Atmosphere can be compiled and run in single-precision, offering faster 
 model execution and smaller input and output files. Beginning with version 5.0, the selection of the
@@ -206,11 +207,10 @@ To compile a single-precision MPAS-Atmosphere executable, add {\tt PRECISION=sin
 {\tt > make gfortran CORE=atmosphere PRECISION=single}
 \vspace{12pt}
 
-Note that running MPAS-Atmosphere in single-precision requires the user to begin with single-precision SCVT grid files, 
-and all pre-processing steps must be run using a single-precision version of init\_atmosphere\_model with these grid files. 
-In order to obtain suitable grid files, any existing double-precision SCVT grid file that was downloaded from the MPAS-Atmosphere 
-meshes download page may be run through the {\tt double\_to\_float\_grid} converter program to produce a single-precision grid file. 
-Using the double-precision grid files with single-precision executables will not work.
+Regardless of which precision the MPAS-Atmosphere {\tt init\_atmosphere} and {\tt atmosphere} cores were compiled
+with, either single- or double-precision input files may be used. In general, the MPAS infrastructure should
+correctly detect the precision of input files, but one may also explicitly specify the precision of files in
+an input stream by adding the {\tt precision} attribute to the stream definition as described in Section \ref{sec:optional_stream_atts}.
 
 \section{Cleaning}
 
