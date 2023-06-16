@@ -16,7 +16,7 @@
 \noindent\textbf{\large{config\_init\_case}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
-Description & \textit{Type of initial conditions to create: \newline                                         1 = Jablonowski \& Williamson barolinic wave (no initial perturbation), \newline                                         2 = Jablonowski \& Williamson barolinic wave (with initial perturbation), \newline                                         3 = Jablonowski \& Williamson barolinic wave (with normal-mode perturbation), \newline                                         4 = squall line, \newline                                         5 = super-cell, \newline                                         6 = mountain wave, \newline                                         7 = real-data initial conditions from, e.g., GFS, \newline                                         8 = surface field (SST, sea-ice) update file for use with real-data simulations \newline                                         9 = lateral boundary conditions update file for use with real-data simulations} \\ \hline
+Description & \textit{Type of initial conditions to create: \newline                                         1 = Jablonowski \& Williamson barolinic wave (no initial perturbation), \newline                                         2 = Jablonowski \& Williamson barolinic wave (with initial perturbation), \newline                                         3 = Jablonowski \& Williamson barolinic wave (with normal-mode perturbation), \newline                                         4 = squall line, \newline                                         5 = super-cell, \newline                                         6 = mountain wave, \newline                                         7 = real-data initial conditions from, e.g., GFS, \newline                                         8 = surface field (SST, sea-ice) update file for use with real-data simulations \newline                                         9 = lateral boundary conditions update file for use with real-data simulations \newline                                         13 = CAM-MPAS 3-d grid with specified topography and zeta levels} \\ \hline
 Possible Values & 1 -- 9 \textit{(default: 7)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -84,6 +84,17 @@ Possible Values & 0 $\leq$ config\_coef\_3rd\_order $\leq$ 1 \textit{(default: 0
 Units & \textit{-} \\ \hline
 Description & \textit{Number of halo layers for fields (hidden by default)} \\ \hline
 Possible Values & Integer values, typically 2 or 3; DO NOT CHANGE \textit{(default: 2)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{inl:config_interface_projection}
+\noindent\textbf{\large{config\_interface\_projection}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{projecting layer values to the interface, linear vertical interpolation or integral} \\ \hline
+Possible Values & 'linear\_interpolation' or 'layer\_integral' (layer average value) \textit{(default: linear\_interpolation)} \\ \hline
 \end{tabular} 
 \end{minipage}
 \hypertarget{irec:dimensions}{}
@@ -370,7 +381,7 @@ Possible Values & true or false \textit{(default: false)} \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
 Description & \textit{Method of extrapolation of air temperature above/below first-guess levels.} \\ \hline
-Possible Values & `constant' (last valid value), `linear' (linear extrapolation based on last two values), `lapse-rate' (0.0065 K/m from last valid value) \textit{(default: linear)} \\ \hline
+Possible Values & `constant' (last valid value), `linear' (linear extrapolation based on last two values), `lapse-rate' (0.0065 K/m from last valid value) \textit{(default: lapse-rate)} \\ \hline
 \end{tabular} 
 \end{minipage}
 \hypertarget{irec:preproc_stages}{}
@@ -394,7 +405,7 @@ Possible Values & true or false \textit{(default: true)} \\ \hline
 \noindent\textbf{\large{config\_native\_gwd\_static}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
-Description & \textit{Whether to recompute sub-grid-scale orography statistics directly on the native MPAS mesh (case 7 only)} \\ \hline
+Description & \textit{Whether to recompute subgrid-scale orography statistics directly on the native MPAS mesh (case 7 only)} \\ \hline
 Possible Values & true or false \textit{(default: true)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -451,6 +462,20 @@ Possible Values & true or false \textit{(default: false)} \\ \hline
 Units & \textit{-} \\ \hline
 Description & \textit{Whether to switch sea-ice threshold from 0.5 to 0.02} \\ \hline
 Possible Values & true or false \textit{(default: true)} \\ \hline
+\end{tabular} 
+\end{minipage}
+\hypertarget{irec:physics}{}
+\section{physics}
+\small
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{inl:config_tsk_seaice_threshold}
+\noindent\textbf{\large{config\_tsk\_seaice\_threshold}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{surface temperature threshold below which water points are set to seaice points (hidden by default)} \\ \hline
+Possible Values & Positive real values \textit{(default: 100.)} \\ \hline
 \end{tabular} 
 \end{minipage}
 \hypertarget{irec:io}{}

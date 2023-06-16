@@ -94,20 +94,20 @@ Selecting or disabling an individual physics parameterization may be accomplishe
 Parameterization & Namelist variable & Possible options & Details \\
 \hline
 Convection & \namelist{mnl:config_convection_scheme} & {\tt cu\_tiedtke} & Tiedtke (WRF 3.8.1) \\
- &  & {\tt cu\_ntiedtke} & New Tiedtke (WRF 4.0.3)  \\
+ &  & {\tt cu\_ntiedtke} & New Tiedtke (WRF 4.5)  \\
  &  & {\tt cu\_grell\_freitas} & Modified version of scale-aware Grell-Freitas (WRF 3.6.1)  \\
  &  & {\tt cu\_kain\_fritsch} & Kain-Fritsch (WRF 3.2.1) \\
  \hline
-Microphysics & \namelist{mnl:config_microp_scheme} & {\tt mp\_wsm6} & WSM 6-class (WRF 4.1)  \\
+Microphysics & \namelist{mnl:config_microp_scheme} & {\tt mp\_wsm6} & WSM 6-class (WRF 4.5)  \\
  &  & {\tt mp\_thompson} & Thompson non-aerosol aware (WRF 3.8.1)  \\
  &  & {\tt mp\_kessler} & Kessler  \\
  \hline
-Land surface & \namelist{mnl:config_lsm_scheme} & {\tt noah} & Noah (WRF 4.0.3) \\
+Land surface & \namelist{mnl:config_lsm_scheme} & {\tt noah} & Noah (WRF 4.5) \\
 \hline
-Boundary layer & \namelist{mnl:config_pbl_scheme} & {\tt bl\_ysu} & YSU (WRF 4.0.3) \\
+Boundary layer & \namelist{mnl:config_pbl_scheme} & {\tt bl\_ysu} & YSU (WRF 4.5) \\
  &  & {\tt bl\_mynn} & MYNN (WRF 3.6.1)  \\
 \hline
-Surface layer & \namelist{mnl:config_sfclayer_scheme} & {\tt sf\_monin\_obukhov} & Monin-Obukhov (WRF 4.0.3) \\
+Surface layer & \namelist{mnl:config_sfclayer_scheme} & {\tt sf\_monin\_obukhov} & Monin-Obukhov (WRF 4.5) \\
 &  & {\tt sf\_mynn} & MYNN (WRF 3.6.1)  \\
 \hline
 Radiation, LW & \namelist{mnl:config_radt_lw_scheme} & {\tt rrtmg\_lw} & RRTMG (WRF 3.8.1) \\
@@ -119,7 +119,7 @@ Radiation, SW & \namelist{mnl:config_radt_sw_scheme} & {\tt rrtmg\_sw} & RRTMG (
 Cloud fraction for radiation & \namelist{mnl:config_radt_cld_scheme} & {\tt cld\_fraction} & Xu and Randall (1996) \\
 &  & {\tt cld\_incidence} & 0/1 cloud fraction depending on $q_c + q_i$ \\
 \hline
-Gravity wave drag by orography & \namelist{mnl:config_gwdo_scheme} & {\tt bl\_ysu\_gwdo} & YSU (WRF 4.0.3) \\
+Gravity wave drag by orography & \namelist{mnl:config_gwdo_scheme} & {\tt bl\_ysu\_gwdo} & YSU (WRF 4.5) \\
 \hline
 \end{tabular*}
 \end{center}

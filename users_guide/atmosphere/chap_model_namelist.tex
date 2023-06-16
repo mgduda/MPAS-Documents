@@ -122,7 +122,7 @@ Possible Values & Positive integer values \textit{(default: 3)} \\ \hline
 \noindent\textbf{\large{config\_h\_mom\_eddy\_visc2}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript2 s\textsuperscript{-1}} \\ \hline
-Description & \textit{$\nabla^2$ eddy viscosity for horizontal diffusion of momentum} \\ \hline
+Description & \textit{$\nabla^2$ eddy viscosity for horizontal diffusion of momentum (hidden by default)} \\ \hline
 Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -133,7 +133,7 @@ Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
 \noindent\textbf{\large{config\_h\_mom\_eddy\_visc4}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript4 s\textsuperscript{-1}} \\ \hline
-Description & \textit{$\nabla^4$ eddy hyper-viscosity for horizontal diffusion of momentum} \\ \hline
+Description & \textit{$\nabla^4$ eddy hyper-viscosity for horizontal diffusion of momentum (hidden by default)} \\ \hline
 Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -144,7 +144,7 @@ Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
 \noindent\textbf{\large{config\_v\_mom\_eddy\_visc2}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript2 s\textsuperscript{-1}} \\ \hline
-Description & \textit{$\nabla^2$ eddy viscosity for vertical diffusion of momentum} \\ \hline
+Description & \textit{$\nabla^2$ eddy viscosity for vertical diffusion of momentum (hidden by default)} \\ \hline
 Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -155,7 +155,7 @@ Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
 \noindent\textbf{\large{config\_h\_theta\_eddy\_visc2}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript2 s\textsuperscript{-1}} \\ \hline
-Description & \textit{$\nabla^2$ eddy viscosity for horizontal diffusion of theta} \\ \hline
+Description & \textit{$\nabla^2$ eddy viscosity for horizontal diffusion of theta (hidden by default)} \\ \hline
 Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -166,7 +166,7 @@ Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
 \noindent\textbf{\large{config\_h\_theta\_eddy\_visc4}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript4 s\textsuperscript{-1}} \\ \hline
-Description & \textit{$\nabla^4$ eddy hyper-viscosity for horizontal diffusion of theta} \\ \hline
+Description & \textit{$\nabla^4$ eddy hyper-viscosity for horizontal diffusion of theta (hidden by default)} \\ \hline
 Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -177,7 +177,7 @@ Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
 \noindent\textbf{\large{config\_v\_theta\_eddy\_visc2}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m\textsuperscript2 s\textsuperscript{-1}} \\ \hline
-Description & \textit{$\nabla^2$ eddy viscosity for vertical diffusion of theta} \\ \hline
+Description & \textit{$\nabla^2$ eddy viscosity for vertical diffusion of theta (hidden by default)} \\ \hline
 Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -199,8 +199,8 @@ Possible Values & `2d\_fixed' or `2d\_smagorinsky' \textit{(default: 2d\_smagori
 \noindent\textbf{\large{config\_len\_disp}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m} \\ \hline
-Description & \textit{Horizontal length scale, used by the Smagorinsky formulation of horizontal diffusion and by 3-d divergence damping} \\ \hline
-Possible Values & Positive real values \textit{(default: 120000.0)} \\ \hline
+Description & \textit{Horizontal length scale, used by the Smagorinsky formulation of horizontal diffusion and by 3-d divergence damping (hidden by default)} \\ \hline
+Possible Values & Positive real values. A zero value implies that the length scale is prescribed by the nominalMinDc value in the input file. \textit{(default: 0.0)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -232,7 +232,7 @@ Possible Values & Positive real values \textit{(default: 10.0)} \\ \hline
 \noindent\textbf{\large{config\_w\_adv\_order}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
-Description & \textit{Horizontal advection order for w} \\ \hline
+Description & \textit{Horizontal advection order for w (hidden by default)} \\ \hline
 Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -243,7 +243,7 @@ Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
 \noindent\textbf{\large{config\_theta\_adv\_order}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
-Description & \textit{Horizontal advection order for theta} \\ \hline
+Description & \textit{Horizontal advection order for theta (hidden by default)} \\ \hline
 Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -254,7 +254,7 @@ Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
 \noindent\textbf{\large{config\_scalar\_adv\_order}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
-Description & \textit{Horizontal advection order for scalars} \\ \hline
+Description & \textit{Horizontal advection order for scalars (hidden by default)} \\ \hline
 Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -265,7 +265,7 @@ Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
 \noindent\textbf{\large{config\_u\_vadv\_order}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
-Description & \textit{Vertical advection order for normal velocities (u)} \\ \hline
+Description & \textit{Vertical advection order for normal velocities (u) (hidden by default)} \\ \hline
 Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -276,7 +276,7 @@ Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
 \noindent\textbf{\large{config\_w\_vadv\_order}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
-Description & \textit{Vertical advection order for w} \\ \hline
+Description & \textit{Vertical advection order for w (hidden by default)} \\ \hline
 Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -287,7 +287,7 @@ Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
 \noindent\textbf{\large{config\_theta\_vadv\_order}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
-Description & \textit{Vertical advection order for theta} \\ \hline
+Description & \textit{Vertical advection order for theta (hidden by default)} \\ \hline
 Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -298,7 +298,7 @@ Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
 \noindent\textbf{\large{config\_scalar\_vadv\_order}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
-Description & \textit{Vertical advection order for scalars} \\ \hline
+Description & \textit{Vertical advection order for scalars (hidden by default)} \\ \hline
 Possible Values & 2, 3, or 4 \textit{(default: 3)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -320,7 +320,7 @@ Possible Values & .true. or .false. \textit{(default: true)} \\ \hline
 \noindent\textbf{\large{config\_positive\_definite}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
-Description & \textit{Whether to enable positive-definite advection of scalars} \\ \hline
+Description & \textit{Whether to enable positive-definite advection of scalars (hidden by default)} \\ \hline
 Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -423,6 +423,17 @@ Description & \textit{Number of halo layers for fields (hidden by default)} \\ \
 Possible Values & Integer values, typically 2 or 3; DO NOT CHANGE \textit{(default: 2)} \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_relax_zone_divdamp_coef}
+\noindent\textbf{\large{config\_relax\_zone\_divdamp\_coef}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Coefficient for the divergent component of the Laplacian filter of momentum in the relaxation zone (hidden by default)} \\ \hline
+Possible Values & Positive real values \textit{(default: 6.0)} \\ \hline
+\end{tabular} 
+\end{minipage}
 \hypertarget{mrec:damping}{}
 \section{damping}
 \small
@@ -462,6 +473,17 @@ Possible Values & 0 $\leq$ config\_mpas\_cam\_coef $\leq$ 1, standard value is 0
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_number_cam_damping_levels}
+\noindent\textbf{\large{config\_number\_cam\_damping\_levels}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Number of layers in which to apply cam 2nd-order horizontal filter top of model; viscosity linearly ramps to zero by layer number from the top (hidden by default)} \\ \hline
+Possible Values & Positive integer values \textit{(default: 4)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{mnl:config_rayleigh_damp_u}
 \noindent\textbf{\large{config\_rayleigh\_damp\_u}} (logical) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -488,7 +510,7 @@ Possible Values & Positive real values \textit{(default: 5.0)} \\ \hline
 \noindent\textbf{\large{config\_number\_rayleigh\_damp\_u\_levels}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
-Description & \textit{Number layers in which to apply Rayleigh damping on horizontal velocity at top of model; damping linearly ramps to zero by layer number from the top (hidden by default)} \\ \hline
+Description & \textit{Number of layers in which to apply Rayleigh damping on horizontal velocity at top of model; damping linearly ramps to zero by layer number from the top (hidden by default)} \\ \hline
 Possible Values & Positive integer values \textit{(default: 6)} \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -687,6 +709,20 @@ Possible Values & Non-negative real values \textit{(default: 21600.)} \\ \hline
 Units & \textit{-} \\ \hline
 Description & \textit{Whether this run is within the JEDI data assimilation framework; used to add temperature and specific humidity as diagnostics (hidden by default)} \\ \hline
 Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
+\end{tabular} 
+\end{minipage}
+\hypertarget{mrec:development}{}
+\section{development}
+\small
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_halo_exch_method}
+\noindent\textbf{\large{config\_halo\_exch\_method}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Method to use for exchanging halos (hidden by default)} \\ \hline
+Possible Values & `mpas\_dmpar', `mpas\_halo' \textit{(default: mpas\_halo)} \\ \hline
 \end{tabular} 
 \end{minipage}
 \hypertarget{mrec:physics}{}
@@ -1163,5 +1199,19 @@ Possible Values & Real values \textit{(default: 0.14)} \\ \hline
 Units & \textit{s} \\ \hline
 Description & \textit{Relaxation time to initial values in 1-d OML (hidden by default)} \\ \hline
 Possible Values & Non-negative real values \textit{(default: 864000.)} \\ \hline
+\end{tabular} 
+\end{minipage}
+\hypertarget{mrec:soundings}{}
+\section{soundings}
+\small
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_sounding_interval}
+\noindent\textbf{\large{config\_sounding\_interval}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Interval between writing of soundings. A value of 'none' disables writing of soundings.} \\ \hline
+Possible Values & '[DDD\_]hh:mm:ss' or 'none' \textit{(default: none)} \\ \hline
 \end{tabular} 
 \end{minipage}
