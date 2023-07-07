@@ -257,7 +257,7 @@ Accessed in code & as \bsq{advCellsForEdge} from the \bsq{mesh} pool \\ \hline
 \noindent\textbf{\large{adv\_coefs}} (real) (FIFTEEN, nEdges) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
-Description & \textit{Weighting coefficents used for reconstructing cell-based foelds at edges} \\ \hline
+Description & \textit{Weighting coefficients used for reconstructing cell-based fields at edges} \\ \hline
 Accessed in code & as \bsq{adv\_coefs} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -268,7 +268,7 @@ Accessed in code & as \bsq{adv\_coefs} from the \bsq{mesh} pool \\ \hline
 \noindent\textbf{\large{adv\_coefs\_3rd}} (real) (FIFTEEN, nEdges) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
-Description & \textit{Weighting coefficents used for reconstructing cell-based foelds at edges} \\ \hline
+Description & \textit{Weighting coefficients used for reconstructing cell-based fields at edges} \\ \hline
 Accessed in code & as \bsq{adv\_coefs\_3rd} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -424,7 +424,7 @@ Array Group & aer\_cam \\ \hline
 \noindent\textbf{\large{albedo12m}} (real) (nMonths, nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
-Description & \textit{monthly-mean climatological aurface albedo} \\ \hline
+Description & \textit{monthly-mean climatological surface albedo} \\ \hline
 Accessed in code & as \bsq{albedo12m} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -535,6 +535,17 @@ Accessed in code & as \bsq{br} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{kg m\textsuperscript{-2}} \\ \hline
 Description & \textit{water in canopy} \\ \hline
 Accessed in code & as \bsq{canwat} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{cape}
+\noindent\textbf{\large{cape}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{J kg\textsuperscript{-1}} \\ \hline
+Description & \textit{Convective available potential energy} \\ \hline
+Accessed in code & as \bsq{cape} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -688,6 +699,17 @@ Accessed in code & as \bsq{chs2} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{cin}
+\noindent\textbf{\large{cin}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{J kg\textsuperscript{-1}} \\ \hline
+Description & \textit{Convective inhibition} \\ \hline
+Accessed in code & as \bsq{cin} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{circulation}
 \noindent\textbf{\large{circulation}} (real) (nVertLevels, nVertices, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -729,6 +751,50 @@ Accessed in code & as \bsq{cka} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{horizontal cloud fraction} \\ \hline
 Accessed in code & as \bsq{cldfrac} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{cldfrac_high_UPP}
+\noindent\textbf{\large{cldfrac\_high\_UPP}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Cloud fraction at high levels using UPP method} \\ \hline
+Accessed in code & as \bsq{cldfrac\_high\_UPP} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{cldfrac_low_UPP}
+\noindent\textbf{\large{cldfrac\_low\_UPP}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Cloud fraction at low levels using UPP method} \\ \hline
+Accessed in code & as \bsq{cldfrac\_low\_UPP} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{cldfrac_mid_UPP}
+\noindent\textbf{\large{cldfrac\_mid\_UPP}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Cloud fraction at mid levels using UPP method} \\ \hline
+Accessed in code & as \bsq{cldfrac\_mid\_UPP} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{cldfrac_tot_UPP}
+\noindent\textbf{\large{cldfrac\_tot\_UPP}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Total cloud fraction using UPP column max method} \\ \hline
+Accessed in code & as \bsq{cldfrac\_tot\_UPP} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -803,8 +869,8 @@ Accessed in code & as \bsq{cofwz} from the \bsq{diag} pool \\ \hline
 \hypertarget{con}
 \noindent\textbf{\large{con}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{m\textsuperscript{2}} \\ \hline
-Description & \textit{convexity of orography} \\ \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{orographic convexity} \\ \hline
 Accessed in code & as \bsq{con} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -961,12 +1027,221 @@ Accessed in code & as \bsq{delta} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{depv_dt_bl}
+\noindent\textbf{\large{depv\_dt\_bl}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{PVU s\textsuperscript{-1}} \\ \hline
+Description & \textit{Diabatic EPV tendency from PBL} \\ \hline
+Accessed in code & as \bsq{depv\_dt\_bl} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{depv_dt_cu}
+\noindent\textbf{\large{depv\_dt\_cu}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{PVU s\textsuperscript{-1}} \\ \hline
+Description & \textit{Diabatic EPV tendency from convection} \\ \hline
+Accessed in code & as \bsq{depv\_dt\_cu} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{depv_dt_diab}
+\noindent\textbf{\large{depv\_dt\_diab}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{PVU s\textsuperscript{-1}} \\ \hline
+Description & \textit{Sum of calculated EPV tendencies from diabatic processes} \\ \hline
+Accessed in code & as \bsq{depv\_dt\_diab} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{depv_dt_diab_pv}
+\noindent\textbf{\large{depv\_dt\_diab\_pv}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{PVU s\textsuperscript{-1}} \\ \hline
+Description & \textit{Diabatic EPV tendency on dynamic tropopause} \\ \hline
+Accessed in code & as \bsq{depv\_dt\_diab\_pv} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{depv_dt_fric}
+\noindent\textbf{\large{depv\_dt\_fric}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{PVU s\textsuperscript{-1}} \\ \hline
+Description & \textit{Sum of calculated EPV tendencies from frictional processes} \\ \hline
+Accessed in code & as \bsq{depv\_dt\_fric} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{depv_dt_fric_pv}
+\noindent\textbf{\large{depv\_dt\_fric\_pv}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{PVU s\textsuperscript{-1}} \\ \hline
+Description & \textit{Frictional EPV tendency on dynamic tropopause} \\ \hline
+Accessed in code & as \bsq{depv\_dt\_fric\_pv} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{depv_dt_lw}
+\noindent\textbf{\large{depv\_dt\_lw}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{PVU s\textsuperscript{-1}} \\ \hline
+Description & \textit{Diabatic EPV tendency from longwave radiation} \\ \hline
+Accessed in code & as \bsq{depv\_dt\_lw} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{depv_dt_mix}
+\noindent\textbf{\large{depv\_dt\_mix}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{PVU s\textsuperscript{-1}} \\ \hline
+Description & \textit{Diabatic EPV tendency from explicit numerical mixing} \\ \hline
+Accessed in code & as \bsq{depv\_dt\_mix} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{depv_dt_mp}
+\noindent\textbf{\large{depv\_dt\_mp}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{PVU s\textsuperscript{-1}} \\ \hline
+Description & \textit{Diabatic EPV tendency from microphysics} \\ \hline
+Accessed in code & as \bsq{depv\_dt\_mp} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{depv_dt_sw}
+\noindent\textbf{\large{depv\_dt\_sw}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{PVU s\textsuperscript{-1}} \\ \hline
+Description & \textit{Diabatic EPV tendency from shortwave radiation} \\ \hline
+Accessed in code & as \bsq{depv\_dt\_sw} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{deriv_two}
 \noindent\textbf{\large{deriv\_two}} (real) (FIFTEEN, TWO, nEdges) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{weights for cell-centered second derivative, normal to edge, for transport scheme} \\ \hline
 Accessed in code & as \bsq{deriv\_two} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dewpoint_100hPa}
+\noindent\textbf{\large{dewpoint\_100hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{Dewpoint temperature vertically interpolated to 100 hPa} \\ \hline
+Accessed in code & as \bsq{dewpoint\_100hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dewpoint_200hPa}
+\noindent\textbf{\large{dewpoint\_200hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{Dewpoint temperature vertically interpolated to 200 hPa} \\ \hline
+Accessed in code & as \bsq{dewpoint\_200hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dewpoint_250hPa}
+\noindent\textbf{\large{dewpoint\_250hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{Dewpoint temperature vertically interpolated to 250 hPa} \\ \hline
+Accessed in code & as \bsq{dewpoint\_250hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dewpoint_500hPa}
+\noindent\textbf{\large{dewpoint\_500hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{Dewpoint temperature vertically interpolated to 500 hPa} \\ \hline
+Accessed in code & as \bsq{dewpoint\_500hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dewpoint_50hPa}
+\noindent\textbf{\large{dewpoint\_50hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{Dewpoint temperature vertically interpolated to 50 hPa} \\ \hline
+Accessed in code & as \bsq{dewpoint\_50hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dewpoint_700hPa}
+\noindent\textbf{\large{dewpoint\_700hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{Dewpoint temperature vertically interpolated to 700 hPa} \\ \hline
+Accessed in code & as \bsq{dewpoint\_700hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dewpoint_850hPa}
+\noindent\textbf{\large{dewpoint\_850hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{Dewpoint temperature vertically interpolated to 850 hPa} \\ \hline
+Accessed in code & as \bsq{dewpoint\_850hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dewpoint_925hPa}
+\noindent\textbf{\large{dewpoint\_925hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{Dewpoint temperature vertically interpolated to 925 hPa} \\ \hline
+Accessed in code & as \bsq{dewpoint\_925hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dewpoint_surface}
+\noindent\textbf{\large{dewpoint\_surface}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{Dewpoint temperature at midpoint of lowest model layer} \\ \hline
+Accessed in code & as \bsq{dewpoint\_surface} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1023,6 +1298,28 @@ Accessed in code & as \bsq{dtaux3d} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{m s\textsuperscript{-1}} \\ \hline
 Description & \textit{gravity wave drag over orography v-stress} \\ \hline
 Accessed in code & as \bsq{dtauy3d} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dtheta_dt_mix}
+\noindent\textbf{\large{dtheta\_dt\_mix}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K s\textsuperscript{-1}} \\ \hline
+Description & \textit{Potential temperature heating rate from explicit numerical mixing} \\ \hline
+Accessed in code & as \bsq{dtheta\_dt\_mix} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dtheta_dt_mp}
+\noindent\textbf{\large{dtheta\_dt\_mp}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K s\textsuperscript{-1}} \\ \hline
+Description & \textit{Potential temperature heating rate from microphysics} \\ \hline
+Accessed in code & as \bsq{dtheta\_dt\_mp} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1190,6 +1487,17 @@ Accessed in code & as \bsq{el\_pbl} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{-} \\ \hline
 Description & \textit{Total emissivity} \\ \hline
 Accessed in code & as \bsq{emstot} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{ertel_pv}
+\noindent\textbf{\large{ertel\_pv}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{PVU} \\ \hline
+Description & \textit{Ertel's potential vorticity} \\ \hline
+Accessed in code & as \bsq{ertel\_pv} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1478,7 +1786,7 @@ Accessed in code & as \bsq{gz1oz0} from the \bsq{diag\_physics} pool \\ \hline
 \end{minipage}
 
 \phantomsection
-\addcontentsline{toc}{section}{Fields H--O}
+\addcontentsline{toc}{section}{Fields H--P}
 
 
 \vspace{10mm}
@@ -1511,6 +1819,94 @@ Accessed in code & as \bsq{h\_oml} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{m} \\ \hline
 Description & \textit{ocean mixed layer depth at initial time} \\ \hline
 Accessed in code & as \bsq{h\_oml\_initial} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{height_100hPa}
+\noindent\textbf{\large{height\_100hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Geometric height interpolated to 100 hPa} \\ \hline
+Accessed in code & as \bsq{height\_100hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{height_200hPa}
+\noindent\textbf{\large{height\_200hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Geometric height interpolated to 200 hPa} \\ \hline
+Accessed in code & as \bsq{height\_200hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{height_250hPa}
+\noindent\textbf{\large{height\_250hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Geometric height interpolated to 250 hPa} \\ \hline
+Accessed in code & as \bsq{height\_250hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{height_500hPa}
+\noindent\textbf{\large{height\_500hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Geometric height interpolated to 500 hPa} \\ \hline
+Accessed in code & as \bsq{height\_500hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{height_50hPa}
+\noindent\textbf{\large{height\_50hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Geometric height interpolated to 50 hPa} \\ \hline
+Accessed in code & as \bsq{height\_50hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{height_700hPa}
+\noindent\textbf{\large{height\_700hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Geometric height interpolated to 700 hPa} \\ \hline
+Accessed in code & as \bsq{height\_700hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{height_850hPa}
+\noindent\textbf{\large{height\_850hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Geometric height interpolated to 850 hPa} \\ \hline
+Accessed in code & as \bsq{height\_850hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{height_925hPa}
+\noindent\textbf{\large{height\_925hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Geometric height interpolated to 925 hPa} \\ \hline
+Accessed in code & as \bsq{height\_925hPa} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1557,6 +1953,17 @@ Accessed in code & as \bsq{hu\_oml} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{m\textsuperscript2 s\textsuperscript{-1}} \\ \hline
 Description & \textit{ocean mixed layer integrated v (meridional velocity)} \\ \hline
 Accessed in code & as \bsq{hv\_oml} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{iLev_DT}
+\noindent\textbf{\large{iLev\_DT}} (integer) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Lowest vertical level at or above dynamic tropopause (.lt.1 if 2 PVU below column; .gt.nLevels if 2PVU above column)} \\ \hline
+Accessed in code & as \bsq{iLev\_DT} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1757,6 +2164,17 @@ Units & \textit{unitless} \\ \hline
 Description & \textit{incidence of accumulated grid-scale precipitation greater than config\_bucket\_rainnc} \\ \hline
 Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{i\_rainnc} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{inTropo}
+\noindent\textbf{\large{inTropo}} (integer) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{0/1} \\ \hline
+Description & \textit{1 if within troposphere based on EPV flood fill} \\ \hline
+Accessed in code & as \bsq{inTropo} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -2309,6 +2727,28 @@ Accessed in code & as \bsq{lbc\_w} from the \bsq{lbc} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{lcl}
+\noindent\textbf{\large{lcl}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Lifted condensation level} \\ \hline
+Accessed in code & as \bsq{lcl} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{lfc}
+\noindent\textbf{\large{lfc}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Level of free convection} \\ \hline
+Accessed in code & as \bsq{lfc} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{lh}
 \noindent\textbf{\large{lh}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -2498,6 +2938,17 @@ Accessed in code & as \bsq{mavail} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{meanT_500_300}
+\noindent\textbf{\large{meanT\_500\_300}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{Mean temperature in the 300 hPa - 500 hPa layer} \\ \hline
+Accessed in code & as \bsq{meanT\_500\_300} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{meshDensity}
 \noindent\textbf{\large{meshDensity}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -2571,6 +3022,17 @@ Units & \textit{K} \\ \hline
 Description & \textit{T* in similarity theory} \\ \hline
 Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{mol} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mslp}
+\noindent\textbf{\large{mslp}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{Pa} \\ \hline
+Description & \textit{Mean sea-level pressure} \\ \hline
+Accessed in code & as \bsq{mslp} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -2680,6 +3142,17 @@ Accessed in code & as \bsq{noahres} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{nominalMinDc}
+\noindent\textbf{\large{nominalMinDc}} (real) () \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Nominal minimum dcEdge value where meshDensity == 1.0} \\ \hline
+Accessed in code & as \bsq{nominalMinDc} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{north}
 \noindent\textbf{\large{north}} (real) (R3, nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -2743,7 +3216,7 @@ Accessed in code & as \bsq{o3vmr} from the \bsq{diag\_physics} pool \\ \hline
 \noindent\textbf{\large{oa1}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
-Description & \textit{directional asymmetry function of orography} \\ \hline
+Description & \textit{asymmetry of subgrid-scale orography for westerly flow} \\ \hline
 Accessed in code & as \bsq{oa1} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2754,7 +3227,7 @@ Accessed in code & as \bsq{oa1} from the \bsq{sfc\_input} pool \\ \hline
 \noindent\textbf{\large{oa2}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
-Description & \textit{directional asymmetry function of orography} \\ \hline
+Description & \textit{asymmetry of subgrid-scale orography for southerly flow} \\ \hline
 Accessed in code & as \bsq{oa2} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2765,7 +3238,7 @@ Accessed in code & as \bsq{oa2} from the \bsq{sfc\_input} pool \\ \hline
 \noindent\textbf{\large{oa3}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
-Description & \textit{directional asymmetry function of orography} \\ \hline
+Description & \textit{asymmetry of subgrid-scale orography for south-westerly flow} \\ \hline
 Accessed in code & as \bsq{oa3} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2776,7 +3249,7 @@ Accessed in code & as \bsq{oa3} from the \bsq{sfc\_input} pool \\ \hline
 \noindent\textbf{\large{oa4}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
-Description & \textit{directional asymmetry function of orography} \\ \hline
+Description & \textit{asymmetry of subgrid-scale orography for north-westerly flow} \\ \hline
 Accessed in code & as \bsq{oa4} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2793,7 +3266,7 @@ Accessed in code & as \bsq{oa4} from the \bsq{sfc\_input} pool \\ \hline
 \noindent\textbf{\large{ol1}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
-Description & \textit{directional asymmetry function of orography} \\ \hline
+Description & \textit{effective orographic length for westerly flow} \\ \hline
 Accessed in code & as \bsq{ol1} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2804,7 +3277,7 @@ Accessed in code & as \bsq{ol1} from the \bsq{sfc\_input} pool \\ \hline
 \noindent\textbf{\large{ol2}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
-Description & \textit{directional asymmetry function of orography} \\ \hline
+Description & \textit{effective orographic length for southerly flow} \\ \hline
 Accessed in code & as \bsq{ol2} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2815,7 +3288,7 @@ Accessed in code & as \bsq{ol2} from the \bsq{sfc\_input} pool \\ \hline
 \noindent\textbf{\large{ol3}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitles} \\ \hline
-Description & \textit{directional asymmetry function of orography} \\ \hline
+Description & \textit{effective orographic length for south-westerly flow} \\ \hline
 Accessed in code & as \bsq{ol3} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2826,7 +3299,7 @@ Accessed in code & as \bsq{ol3} from the \bsq{sfc\_input} pool \\ \hline
 \noindent\textbf{\large{ol4}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
-Description & \textit{directional asymmetry function of orography} \\ \hline
+Description & \textit{effective orographic length for north-westerly flow} \\ \hline
 Accessed in code & as \bsq{ol4} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2852,10 +3325,6 @@ Description & \textit{monthly-mean climatological ozone defined at fixed pressur
 Accessed in code & as \bsq{ozmixm} from the \bsq{atm\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
-
-\phantomsection
-\addcontentsline{toc}{section}{Fields P--R}
-
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -2963,8 +3432,8 @@ Accessed in code & as \bsq{psim} from the \bsq{diag\_physics} pool \\ \hline
 \hypertarget{pv_cell}
 \noindent\textbf{\large{pv\_cell}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{s\textsuperscript{-1} kg\textsuperscript{-1} m\textsuperscript3} \\ \hline
-Description & \textit{absolute vorticity/rho\_zz averaged to the cell center from the vertices} \\ \hline
+Units & \textit{s\textsuperscript{-1}} \\ \hline
+Description & \textit{absolute vertical vorticity averaged to the cell center from the vertices} \\ \hline
 Accessed in code & as \bsq{pv\_cell} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2974,8 +3443,8 @@ Accessed in code & as \bsq{pv\_cell} from the \bsq{diag} pool \\ \hline
 \hypertarget{pv_edge}
 \noindent\textbf{\large{pv\_edge}} (real) (nVertLevels, nEdges, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{s\textsuperscript{-1} kg\textsuperscript{-1} m\textsuperscript3} \\ \hline
-Description & \textit{absolute vorticity/rho\_zz averaged to the cell edge from the vertices} \\ \hline
+Units & \textit{s\textsuperscript{-1}} \\ \hline
+Description & \textit{absolute vertical vorticity averaged to the cell edge from the vertices} \\ \hline
 Accessed in code & as \bsq{pv\_edge} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2985,11 +3454,15 @@ Accessed in code & as \bsq{pv\_edge} from the \bsq{diag} pool \\ \hline
 \hypertarget{pv_vertex}
 \noindent\textbf{\large{pv\_vertex}} (real) (nVertLevels, nVertices, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{s\textsuperscript{-1} kg\textsuperscript{-1} m\textsuperscript3} \\ \hline
-Description & \textit{absolute vorticity/rho\_zz at a vertex} \\ \hline
+Units & \textit{s\textsuperscript{-1}} \\ \hline
+Description & \textit{absolute vertical vorticity at a vertex} \\ \hline
 Accessed in code & as \bsq{pv\_vertex} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\phantomsection
+\addcontentsline{toc}{section}{Fields Q--S}
+
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -3385,6 +3858,94 @@ Accessed in code & as \bsq{relhum} from the \bsq{diag} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{relhum_100hPa}
+\noindent\textbf{\large{relhum\_100hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{percent} \\ \hline
+Description & \textit{Relative humidity vertically interpolated to 100 hPa} \\ \hline
+Accessed in code & as \bsq{relhum\_100hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{relhum_200hPa}
+\noindent\textbf{\large{relhum\_200hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{percent} \\ \hline
+Description & \textit{Relative humidity vertically interpolated to 200 hPa} \\ \hline
+Accessed in code & as \bsq{relhum\_200hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{relhum_250hPa}
+\noindent\textbf{\large{relhum\_250hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{percent} \\ \hline
+Description & \textit{Relative humidity vertically interpolated to 250 hPa} \\ \hline
+Accessed in code & as \bsq{relhum\_250hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{relhum_500hPa}
+\noindent\textbf{\large{relhum\_500hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{percent} \\ \hline
+Description & \textit{Relative humidity vertically interpolated to 500 hPa} \\ \hline
+Accessed in code & as \bsq{relhum\_500hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{relhum_50hPa}
+\noindent\textbf{\large{relhum\_50hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{percent} \\ \hline
+Description & \textit{Relative humidity vertically interpolated to 50 hPa} \\ \hline
+Accessed in code & as \bsq{relhum\_50hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{relhum_700hPa}
+\noindent\textbf{\large{relhum\_700hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{percent} \\ \hline
+Description & \textit{Relative humidity vertically interpolated to 700 hPa} \\ \hline
+Accessed in code & as \bsq{relhum\_700hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{relhum_850hPa}
+\noindent\textbf{\large{relhum\_850hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{percent} \\ \hline
+Description & \textit{Relative humidity vertically interpolated to 850 hPa} \\ \hline
+Accessed in code & as \bsq{relhum\_850hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{relhum_925hPa}
+\noindent\textbf{\large{relhum\_925hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{percent} \\ \hline
+Description & \textit{Relative humidity vertically interpolated to 925 hPa} \\ \hline
+Accessed in code & as \bsq{relhum\_925hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{rho}
 \noindent\textbf{\large{rho}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -3652,8 +4213,8 @@ Accessed in code & as \bsq{rre\_snow} from the \bsq{diag\_physics} pool \\ \hlin
 \hypertarget{rt_diabatic_tend}
 \noindent\textbf{\large{rt\_diabatic\_tend}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{kg K s\textsuperscript{-1}} \\ \hline
-Description & \textit{Tendency of coupled potential temperature from physics} \\ \hline
+Units & \textit{K s\textsuperscript{-1}} \\ \hline
+Description & \textit{Tendency of modified potential temperature due to cloud microphysics} \\ \hline
 Accessed in code & as \bsq{rt\_diabatic\_tend} from the \bsq{tend} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -3689,7 +4250,6 @@ Accessed in code & as \bsq{rthcuten} from the \bsq{tend\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{K s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of temperature due to horizontal and vertical advections} \\ \hline
-Allocated by & cu\_grell\_freitas\_in, cu\_tiedtke\_in \\ \hline
 Accessed in code & as \bsq{rthdynten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -3755,7 +4315,7 @@ Accessed in code & as \bsq{rtheta\_pp\_old} from the \bsq{diag} pool \\ \hline
 \noindent\textbf{\large{rthratenlw}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{K s\textsuperscript{-1}} \\ \hline
-Description & \textit{tendency of potential temperature due to short wave radiation} \\ \hline
+Description & \textit{tendency of potential temperature due to long wave radiation} \\ \hline
 Accessed in code & as \bsq{rthratenlw} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -3961,10 +4521,6 @@ Description & \textit{predicted value of rho*omega/zz, saved before acoustic ste
 Accessed in code & as \bsq{rw\_save} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
-
-\phantomsection
-\addcontentsline{toc}{section}{Fields S--W}
-
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -4268,6 +4824,17 @@ Allocated by & mp\_thompson\_in \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{scale}
+\noindent\textbf{\large{scale}} (real) (nVertLevels, TWO, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Scaling coefficients for monotonic-limited horizontal fluxes} \\ \hline
+Accessed in code & as \bsq{scale} from the \bsq{halo\_scratch} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{seaice}
 \noindent\textbf{\large{seaice}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -4296,17 +4863,6 @@ Accessed in code & as \bsq{sfc\_albbck} from the \bsq{sfc\_input} pool \\ \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{surface albedo} \\ \hline
 Accessed in code & as \bsq{sfc\_albedo} from the \bsq{diag\_physics} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
-\hypertarget{sfc_albedo_seaice}
-\noindent\textbf{\large{sfc\_albedo\_seaice}} (real) (nCells, Time) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{unitless} \\ \hline
-Description & \textit{surface albedo over seaice} \\ \hline
-Accessed in code & as \bsq{sfc\_albedo\_seaice} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4590,6 +5146,28 @@ Accessed in code & as \bsq{sr} from the \bsq{diag\_physics} pool \\ \hline
 \end{minipage}
 
 \vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{srh_0_1km}
+\noindent\textbf{\large{srh\_0\_1km}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m\textsuperscript2 s\textsuperscript{-2}} \\ \hline
+Description & \textit{Storm relative helicity, 0-1 km AGL} \\ \hline
+Accessed in code & as \bsq{srh\_0\_1km} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{srh_0_3km}
+\noindent\textbf{\large{srh\_0\_3km}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m\textsuperscript2 s\textsuperscript{-2}} \\ \hline
+Description & \textit{Storm relative helicity, 0-3 km AGL} \\ \hline
+Accessed in code & as \bsq{srh\_0\_3km} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
 \noindent\hyperlink{aerosols}{\color{red}{\textbf{\large{sslt}} --- \textit{see \bsq{aerosols}}}}
 
 \vspace{10mm}
@@ -4658,6 +5236,39 @@ Accessed in code & as \bsq{surface\_pressure} from the \bsq{diag} pool \\ \hline
 Units & \textit{W m\textsuperscript{-2}} \\ \hline
 Description & \textit{top-of-atmosphere cloud shortwave radiative forcing} \\ \hline
 Accessed in code & as \bsq{swcf} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{swddif}
+\noindent\textbf{\large{swddif}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{shortwave surface downward diffuse irradiance} \\ \hline
+Accessed in code & as \bsq{swddif} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{swddir}
+\noindent\textbf{\large{swddir}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{shortwave surface downward direct irradiance} \\ \hline
+Accessed in code & as \bsq{swddir} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{swddni}
+\noindent\textbf{\large{swddni}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{shortwave surface downward direct normal irradiance} \\ \hline
+Accessed in code & as \bsq{swddni} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4793,6 +5404,10 @@ Accessed in code & as \bsq{swuptc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
+\phantomsection
+\addcontentsline{toc}{section}{Fields T--Z}
+
+
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
 \hypertarget{t2m}
@@ -4813,6 +5428,28 @@ Accessed in code & as \bsq{t2m} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{K} \\ \hline
 Description & \textit{theta reference profile} \\ \hline
 Accessed in code & as \bsq{t\_init} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{t_iso_levels}
+\noindent\textbf{\large{t\_iso\_levels}} (real) (nIsoLevelsT) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{Pa} \\ \hline
+Description & \textit{Levels for vertical interpolation of temperature to isobaric surfaces} \\ \hline
+Accessed in code & as \bsq{t\_iso\_levels} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{t_isobaric}
+\noindent\textbf{\large{t\_isobaric}} (real) (nIsoLevelsT, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{Temperature interpolated to isobaric surfaces defined in t\_iso\_levels} \\ \hline
+Accessed in code & as \bsq{t\_isobaric} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4873,6 +5510,105 @@ Accessed in code & as \bsq{temperature} from the \bsq{diag} pool \\ \hline
 \end{minipage}
 
 \vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{temperature_100hPa}
+\noindent\textbf{\large{temperature\_100hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{Temperature vertically interpolated to 100 hPa} \\ \hline
+Accessed in code & as \bsq{temperature\_100hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{temperature_200hPa}
+\noindent\textbf{\large{temperature\_200hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{Temperature vertically interpolated to 200 hPa} \\ \hline
+Accessed in code & as \bsq{temperature\_200hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{temperature_250hPa}
+\noindent\textbf{\large{temperature\_250hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{Temperature vertically interpolated to 250 hPa} \\ \hline
+Accessed in code & as \bsq{temperature\_250hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{temperature_500hPa}
+\noindent\textbf{\large{temperature\_500hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{Temperature vertically interpolated to 500 hPa} \\ \hline
+Accessed in code & as \bsq{temperature\_500hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{temperature_50hPa}
+\noindent\textbf{\large{temperature\_50hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{Temperature vertically interpolated to 50 hPa} \\ \hline
+Accessed in code & as \bsq{temperature\_50hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{temperature_700hPa}
+\noindent\textbf{\large{temperature\_700hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{Temperature vertically interpolated to 700 hPa} \\ \hline
+Accessed in code & as \bsq{temperature\_700hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{temperature_850hPa}
+\noindent\textbf{\large{temperature\_850hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{Temperature vertically interpolated to 850 hPa} \\ \hline
+Accessed in code & as \bsq{temperature\_850hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{temperature_925hPa}
+\noindent\textbf{\large{temperature\_925hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{Temperature vertically interpolated to 925 hPa} \\ \hline
+Accessed in code & as \bsq{temperature\_925hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{temperature_surface}
+\noindent\textbf{\large{temperature\_surface}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{Temperature at midpoint of lowest model layer} \\ \hline
+Accessed in code & as \bsq{temperature\_surface} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
 \noindent\hyperlink{scalars_tend}{\color{red}{\textbf{\large{tend\_ni}} --- \textit{see \bsq{scalars\_tend}}}}
 
 \vspace{10mm}
@@ -4909,12 +5645,34 @@ Accessed in code & as \bsq{rho\_zz} from the \bsq{tend} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{tend_rtheta_adv}
-\noindent\textbf{\large{tend\_rtheta\_adv}} (real) (nVertLevels, nCells, Time) \\ 
+\hypertarget{tend_rho_physics}
+\noindent\textbf{\large{tend\_rho\_physics}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{kg K m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
-Description & \textit{flux divergence for rho*theta\_m/zz, used in the Tiedtke convective parameterization} \\ \hline
-Accessed in code & as \bsq{tend\_rtheta\_adv} from the \bsq{diag} pool \\ \hline
+Units & \textit{kg m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
+Description & \textit{Total dry air tendency from physics} \\ \hline
+Accessed in code & as \bsq{tend\_rho\_physics} from the \bsq{tend\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{tend_rtheta_physics}
+\noindent\textbf{\large{tend\_rtheta\_physics}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg K m\textsuperscript{-3}} \\ \hline
+Description & \textit{Total rho*theta/zz tendency from physics} \\ \hline
+Accessed in code & as \bsq{tend\_rtheta\_physics} from the \bsq{tend\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{tend_ru_physics}
+\noindent\textbf{\large{tend\_ru\_physics}} (real) (nVertLevels, nEdges, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg m\textsuperscript{-2} s\textsuperscript{-1}} \\ \hline
+Description & \textit{Total horizontal momentum tendency from physics} \\ \hline
+Accessed in code & as \bsq{tend\_ru\_physics} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4948,6 +5706,39 @@ Accessed in code & as \bsq{theta\_m} from the \bsq{tend} pool \\ \hline
 Units & \textit{m s\textsuperscript{-2}} \\ \hline
 Description & \textit{Tendency of u from dynamics} \\ \hline
 Accessed in code & as \bsq{u} from the \bsq{tend} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{tend_u_phys}
+\noindent\textbf{\large{tend\_u\_phys}} (real) (nVertLevels, nEdges, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-2}} \\ \hline
+Description & \textit{Normal wind tendencies from physics parameterizations} \\ \hline
+Accessed in code & as \bsq{tend\_u\_phys} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{tend_umerid}
+\noindent\textbf{\large{tend\_umerid}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Description & \textit{Total cell-centered meridional wind tendency from physics} \\ \hline
+Accessed in code & as \bsq{tend\_umerid} from the \bsq{tend\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{tend_uzonal}
+\noindent\textbf{\large{tend\_uzonal}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Description & \textit{Total cell-centered zonal wind tendency from physics} \\ \hline
+Accessed in code & as \bsq{tend\_uzonal} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -5059,6 +5850,17 @@ Accessed in code & as \bsq{theta\_base} from the \bsq{diag} pool \\ \hline
 Units & \textit{K} \\ \hline
 Description & \textit{Moist potential temperature: theta*(1+q\_v*R\_v/R\_d)} \\ \hline
 Accessed in code & as \bsq{theta\_m} from the \bsq{state} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{theta_pv}
+\noindent\textbf{\large{theta\_pv}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{Potential temperature on dynamic tropopause} \\ \hline
+Accessed in code & as \bsq{theta\_pv} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -5243,12 +6045,155 @@ Accessed in code & as \bsq{u\_init} from the \bsq{mesh} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{u_pv}
+\noindent\textbf{\large{u\_pv}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Zonal wind on dynamic tropopause} \\ \hline
+Accessed in code & as \bsq{u\_pv} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{udrunoff}
 \noindent\textbf{\large{udrunoff}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{mm} \\ \hline
 Description & \textit{underground runoff} \\ \hline
 Accessed in code & as \bsq{udrunoff} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{umeridional_100hPa}
+\noindent\textbf{\large{umeridional\_100hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Reconstructed meridional wind at cell centers, vertically interpolated to 100 hPa} \\ \hline
+Accessed in code & as \bsq{umeridional\_100hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{umeridional_1km}
+\noindent\textbf{\large{umeridional\_1km}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Meridional wind component at 1 km AGL} \\ \hline
+Accessed in code & as \bsq{umeridional\_1km} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{umeridional_200hPa}
+\noindent\textbf{\large{umeridional\_200hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Reconstructed meridional wind at cell centers, vertically interpolated to 200 hPa} \\ \hline
+Accessed in code & as \bsq{umeridional\_200hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{umeridional_250hPa}
+\noindent\textbf{\large{umeridional\_250hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Reconstructed meridional wind at cell centers, vertically interpolated to 250 hPa} \\ \hline
+Accessed in code & as \bsq{umeridional\_250hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{umeridional_500hPa}
+\noindent\textbf{\large{umeridional\_500hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Reconstructed meridional wind at cell centers, vertically interpolated to 500 hPa} \\ \hline
+Accessed in code & as \bsq{umeridional\_500hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{umeridional_50hPa}
+\noindent\textbf{\large{umeridional\_50hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Reconstructed meridional wind at cell centers, vertically interpolated to 50 hPa} \\ \hline
+Accessed in code & as \bsq{umeridional\_50hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{umeridional_6km}
+\noindent\textbf{\large{umeridional\_6km}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Meridional wind component at 6 km AGL} \\ \hline
+Accessed in code & as \bsq{umeridional\_6km} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{umeridional_700hPa}
+\noindent\textbf{\large{umeridional\_700hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Reconstructed meridional wind at cell centers, vertically interpolated to 700 hPa} \\ \hline
+Accessed in code & as \bsq{umeridional\_700hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{umeridional_850hPa}
+\noindent\textbf{\large{umeridional\_850hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Reconstructed meridional wind at cell centers, vertically interpolated to 850 hPa} \\ \hline
+Accessed in code & as \bsq{umeridional\_850hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{umeridional_925hPa}
+\noindent\textbf{\large{umeridional\_925hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Reconstructed meridional wind at cell centers, vertically interpolated to 925 hPa} \\ \hline
+Accessed in code & as \bsq{umeridional\_925hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{umeridional_surface}
+\noindent\textbf{\large{umeridional\_surface}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Meridional wind component at midpoint of lowest model layer} \\ \hline
+Accessed in code & as \bsq{umeridional\_surface} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{updraft_helicity_max}
+\noindent\textbf{\large{updraft\_helicity\_max}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m\textsuperscript2 s\textsuperscript{-2}} \\ \hline
+Description & \textit{Maximum updraft helicity since last output} \\ \hline
+Accessed in code & as \bsq{updraft\_helicity\_max} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -5273,6 +6218,127 @@ Units & \textit{m s\textsuperscript{-1}} \\ \hline
 Description & \textit{U* in similarity theory without vconv} \\ \hline
 Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{ustm} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{uzonal_100hPa}
+\noindent\textbf{\large{uzonal\_100hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Reconstructed zonal wind at cell centers, vertically interpolated to 100 hPa} \\ \hline
+Accessed in code & as \bsq{uzonal\_100hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{uzonal_1km}
+\noindent\textbf{\large{uzonal\_1km}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Zonal wind component at 1 km AGL} \\ \hline
+Accessed in code & as \bsq{uzonal\_1km} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{uzonal_200hPa}
+\noindent\textbf{\large{uzonal\_200hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Reconstructed zonal wind at cell centers, vertically interpolated to 200 hPa} \\ \hline
+Accessed in code & as \bsq{uzonal\_200hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{uzonal_250hPa}
+\noindent\textbf{\large{uzonal\_250hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Reconstructed zonal wind at cell centers, vertically interpolated to 250 hPa} \\ \hline
+Accessed in code & as \bsq{uzonal\_250hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{uzonal_500hPa}
+\noindent\textbf{\large{uzonal\_500hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Reconstructed zonal wind at cell centers, vertically interpolated to 500 hPa} \\ \hline
+Accessed in code & as \bsq{uzonal\_500hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{uzonal_50hPa}
+\noindent\textbf{\large{uzonal\_50hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Reconstructed zonal wind at cell centers, vertically interpolated to 50 hPa} \\ \hline
+Accessed in code & as \bsq{uzonal\_50hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{uzonal_6km}
+\noindent\textbf{\large{uzonal\_6km}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Zonal wind component at 6 km AGL} \\ \hline
+Accessed in code & as \bsq{uzonal\_6km} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{uzonal_700hPa}
+\noindent\textbf{\large{uzonal\_700hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Reconstructed zonal wind at cell centers, vertically interpolated to 700 hPa} \\ \hline
+Accessed in code & as \bsq{uzonal\_700hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{uzonal_850hPa}
+\noindent\textbf{\large{uzonal\_850hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Reconstructed zonal wind at cell centers, vertically interpolated to 850 hPa} \\ \hline
+Accessed in code & as \bsq{uzonal\_850hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{uzonal_925hPa}
+\noindent\textbf{\large{uzonal\_925hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Reconstructed zonal wind at cell centers, vertically interpolated to 925 hPa} \\ \hline
+Accessed in code & as \bsq{uzonal\_925hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{uzonal_surface}
+\noindent\textbf{\large{uzonal\_surface}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Zonal wind component at midpoint of lowest model layer} \\ \hline
+Accessed in code & as \bsq{uzonal\_surface} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -5312,11 +6378,22 @@ Accessed in code & as \bsq{v\_init} from the \bsq{mesh} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{v_pv}
+\noindent\textbf{\large{v\_pv}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Meridional wind on dynamic tropopause} \\ \hline
+Accessed in code & as \bsq{v\_pv} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{var2d}
 \noindent\textbf{\large{var2d}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{m\textsuperscript{2}} \\ \hline
-Description & \textit{variance of orography} \\ \hline
+Units & \textit{m} \\ \hline
+Description & \textit{standard deviation of subgrid-scale orography} \\ \hline
 Accessed in code & as \bsq{var2d} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -5359,12 +6436,111 @@ Accessed in code & as \bsq{verticesOnEdge} from the \bsq{mesh} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{vort_pv}
+\noindent\textbf{\large{vort\_pv}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{s\textsuperscript{-1}} \\ \hline
+Description & \textit{Relative vertical vorticity on dynamic tropopause} \\ \hline
+Accessed in code & as \bsq{vort\_pv} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{vorticity}
 \noindent\textbf{\large{vorticity}} (real) (nVertLevels, nVertices, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{s\textsuperscript{-1}} \\ \hline
 Description & \textit{Relative vorticity at vertices} \\ \hline
 Accessed in code & as \bsq{vorticity} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{vorticity_100hPa}
+\noindent\textbf{\large{vorticity\_100hPa}} (real) (nVertices, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{s\textsuperscript{-1}} \\ \hline
+Description & \textit{Relative vorticity vertically interpolated to 100 hPa} \\ \hline
+Accessed in code & as \bsq{vorticity\_100hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{vorticity_200hPa}
+\noindent\textbf{\large{vorticity\_200hPa}} (real) (nVertices, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{s\textsuperscript{-1}} \\ \hline
+Description & \textit{Relative vorticity vertically interpolated to 200 hPa} \\ \hline
+Accessed in code & as \bsq{vorticity\_200hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{vorticity_250hPa}
+\noindent\textbf{\large{vorticity\_250hPa}} (real) (nVertices, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{s\textsuperscript{-1}} \\ \hline
+Description & \textit{Relative vorticity vertically interpolated to 250 hPa} \\ \hline
+Accessed in code & as \bsq{vorticity\_250hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{vorticity_500hPa}
+\noindent\textbf{\large{vorticity\_500hPa}} (real) (nVertices, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{s\textsuperscript{-1}} \\ \hline
+Description & \textit{Relative vorticity vertically interpolated to 500 hPa} \\ \hline
+Accessed in code & as \bsq{vorticity\_500hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{vorticity_50hPa}
+\noindent\textbf{\large{vorticity\_50hPa}} (real) (nVertices, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{s\textsuperscript{-1}} \\ \hline
+Description & \textit{Relative vorticity vertically interpolated to 50 hPa} \\ \hline
+Accessed in code & as \bsq{vorticity\_50hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{vorticity_700hPa}
+\noindent\textbf{\large{vorticity\_700hPa}} (real) (nVertices, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{s\textsuperscript{-1}} \\ \hline
+Description & \textit{Relative vorticity vertically interpolated to 700 hPa} \\ \hline
+Accessed in code & as \bsq{vorticity\_700hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{vorticity_850hPa}
+\noindent\textbf{\large{vorticity\_850hPa}} (real) (nVertices, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{s\textsuperscript{-1}} \\ \hline
+Description & \textit{Relative vorticity vertically interpolated to 850 hPa} \\ \hline
+Accessed in code & as \bsq{vorticity\_850hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{vorticity_925hPa}
+\noindent\textbf{\large{vorticity\_925hPa}} (real) (nVertices, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{s\textsuperscript{-1}} \\ \hline
+Description & \textit{Relative vorticity vertically interpolated to 925 hPa} \\ \hline
+Accessed in code & as \bsq{vorticity\_925hPa} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -5393,12 +6569,122 @@ Accessed in code & as \bsq{w0avg} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{w_100hPa}
+\noindent\textbf{\large{w\_100hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Vertical velocity vertically interpolated to 100 hPa} \\ \hline
+Accessed in code & as \bsq{w\_100hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{w_200hPa}
+\noindent\textbf{\large{w\_200hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Vertical velocity vertically interpolated to 200 hPa} \\ \hline
+Accessed in code & as \bsq{w\_200hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{w_250hPa}
+\noindent\textbf{\large{w\_250hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Vertical velocity vertically interpolated to 250 hPa} \\ \hline
+Accessed in code & as \bsq{w\_250hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{w_500hPa}
+\noindent\textbf{\large{w\_500hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Vertical velocity vertically interpolated to 500 hPa} \\ \hline
+Accessed in code & as \bsq{w\_500hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{w_50hPa}
+\noindent\textbf{\large{w\_50hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Vertical velocity vertically interpolated to 50 hPa} \\ \hline
+Accessed in code & as \bsq{w\_50hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{w_700hPa}
+\noindent\textbf{\large{w\_700hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Vertical velocity vertically interpolated to 700 hPa} \\ \hline
+Accessed in code & as \bsq{w\_700hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{w_850hPa}
+\noindent\textbf{\large{w\_850hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Vertical velocity vertically interpolated to 850 hPa} \\ \hline
+Accessed in code & as \bsq{w\_850hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{w_925hPa}
+\noindent\textbf{\large{w\_925hPa}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Vertical velocity vertically interpolated to 925 hPa} \\ \hline
+Accessed in code & as \bsq{w\_925hPa} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{w_velocity_max}
+\noindent\textbf{\large{w\_velocity\_max}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Maximum column w velocity since last output} \\ \hline
+Accessed in code & as \bsq{w\_velocity\_max} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{weightsOnEdge}
 \noindent\textbf{\large{weightsOnEdge}} (real) (maxEdges2, nEdges) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{Weights used in reconstruction of tangential velocity for an edge} \\ \hline
 Accessed in code & as \bsq{weightsOnEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{wind_speed_level1_max}
+\noindent\textbf{\large{wind\_speed\_level1\_max}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Maximum wind speed in lowest model level since last output} \\ \hline
+Accessed in code & as \bsq{wind\_speed\_level1\_max} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -5447,10 +6733,6 @@ Description & \textit{time-averaged rho*omega/zz used in scalar transport} \\ \h
 Accessed in code & as \bsq{wwAvg\_split} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
-
-\phantomsection
-\addcontentsline{toc}{section}{Fields X--Z}
-
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -5627,6 +6909,28 @@ Accessed in code & as \bsq{zEdge} from the \bsq{mesh} pool \\ \hline
 Units & \textit{m} \\ \hline
 Description & \textit{Cartesian z-coordinate of vertices} \\ \hline
 Accessed in code & as \bsq{zVertex} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{z_iso_levels}
+\noindent\textbf{\large{z\_iso\_levels}} (real) (nIsoLevelsZ) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{Pa} \\ \hline
+Description & \textit{Levels for vertical interpolation of height to isobaric surfaces} \\ \hline
+Accessed in code & as \bsq{z\_iso\_levels} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{z_isobaric}
+\noindent\textbf{\large{z\_isobaric}} (real) (nIsoLevelsZ, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Height interpolated to isobaric surfaces defined in z\_iso\_levels} \\ \hline
+Accessed in code & as \bsq{z\_isobaric} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
