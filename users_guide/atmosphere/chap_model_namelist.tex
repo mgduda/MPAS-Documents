@@ -1127,6 +1127,193 @@ Possible Values & 8 \textit{(default: 8)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_mynn_tkeadvect}
+\noindent\textbf{\large{config\_mynn\_tkeadvect}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{= true:do MYNN TKE advection (hidden by default)} \\ \hline
+Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_mynn_tkebudget}
+\noindent\textbf{\large{config\_mynn\_tkebudget}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{=1:option to add the MYNN TKE budget terms to output (hidden by default)} \\ \hline
+Possible Values & 0,1 \textit{(default: 0)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_mynn_closure}
+\noindent\textbf{\large{config\_mynn\_closure}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{2.5 level or 3.0 level for the MYNN TKE turbulence closure (hidden by default)} \\ \hline
+Possible Values & 2.0,2.5,3.0 \textit{(default: 2.5)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_mynn_cloudpdf}
+\noindent\textbf{\large{config\_mynn\_cloudpdf}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{switch to different cloud PDFs to represent subgrid clouds in the MYNN PBL scheme (hidden by default)} \\ \hline
+Possible Values & 0,1,2 \textit{(default: 2)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_mynn_mixlength}
+\noindent\textbf{\large{config\_mynn\_mixlength}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{mixing length in the MYNN PBL scheme:=0(Nakanishi and Niino 2009);=1(RAP/HRRR);=2(Ito et al. 2015) (hidden by default)} \\ \hline
+Possible Values & 0,1,2 \textit{(default: 2)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_mynn_stfunc}
+\noindent\textbf{\large{config\_mynn\_stfunc}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option to switch flux profile relationship for surface (0:Dyer-Hicks, 1:Cheng-Brustaert (hidden by default)} \\ \hline
+Possible Values & 0,1 \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_mynn_topdown}
+\noindent\textbf{\large{config\_mynn\_topdown}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option to add top-down diffusion driven by cloud-top radiative cooling (hidden by default)} \\ \hline
+Possible Values & 0,1 \textit{(default: 0)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_mynn_scaleaware}
+\noindent\textbf{\large{config\_mynn\_scaleaware}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option to turn on the scale-aware option (hidden by default)} \\ \hline
+Possible Values & 0,1 \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_mynn_dheat_opt}
+\noindent\textbf{\large{config\_mynn\_dheat\_opt}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option to activate heating due to dissipation of TKE (hidden by default)} \\ \hline
+Possible Values & 0,1 \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_mynn_edmf}
+\noindent\textbf{\large{config\_mynn\_edmf}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{=1:activate the EDMF option in the MYNN PBL scheme (=0 otherwise) (hidden by default)} \\ \hline
+Possible Values & 0,1 \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_mynn_edmf_dd}
+\noindent\textbf{\large{config\_mynn\_edmf\_dd}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{} \\ \hline
+Description & \textit{=1:activate the EDMF downdraft option in the MYNN PBL scheme (=0 otherwise) (hidden by default)} \\ \hline
+Possible Values & 0,1 \textit{(default: 0)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_mynn_edmf_mom}
+\noindent\textbf{\large{config\_mynn\_edmf\_mom}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{=1:activate momentum transport with the EDMF option of the MYNN PBL scheme(=0 otherwise) (hidden by default)} \\ \hline
+Possible Values & 0,1 \textit{(default: 0)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_mynn_edmf_tke}
+\noindent\textbf{\large{config\_mynn\_edmf\_tke}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{=1:activate TKE transport with the EDMF option of the MYNN PBL scheme (=0 otherwise) (hidden by default)} \\ \hline
+Possible Values & 0,1 \textit{(default: 0)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_mynn_edmf_output}
+\noindent\textbf{\large{config\_mynn\_edmf\_output}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{=0:suppress the allocation of variables needed in the EDMF option of the MYNN PBL scheme (hidden by default)} \\ \hline
+Possible Values & 0,1 \textit{(default: 0)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_mynn_mixscalars}
+\noindent\textbf{\large{config\_mynn\_mixscalars}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{=1:activate mixing of scalars in the MYNN PBL scheme (=0 otherwise) (hidden by default)} \\ \hline
+Possible Values & 0,1 \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_mynn_mixclouds}
+\noindent\textbf{\large{config\_mynn\_mixclouds}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{1:activate mixing of cloud condensates in the MYNN PBL scheme (hidden by default)} \\ \hline
+Possible Values & 0,1 \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_mynn_mixqt}
+\noindent\textbf{\large{config\_mynn\_mixqt}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{=0:activatevmixing of moisture species separately;= 1:activate mixing of total water in the mynn PBL scheme (hidden by default)} \\ \hline
+Possible Values & 0,1 \textit{(default: 0)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{mnl:config_bucket_radt}
 \noindent\textbf{\large{config\_bucket\_radt}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline

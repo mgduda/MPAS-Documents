@@ -242,17 +242,6 @@ Accessed in code & as \bsq{acswuptc} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{advCellsForEdge}
-\noindent\textbf{\large{advCellsForEdge}} (integer) (FIFTEEN, nEdges) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{-} \\ \hline
-Description & \textit{Cells used to reconstruct a cell-based field at an edge} \\ \hline
-Accessed in code & as \bsq{advCellsForEdge} from the \bsq{mesh} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
 \hypertarget{adv_coefs}
 \noindent\textbf{\large{adv\_coefs}} (real) (FIFTEEN, nEdges) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -270,6 +259,17 @@ Accessed in code & as \bsq{adv\_coefs} from the \bsq{mesh} pool \\ \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{Weighting coefficients used for reconstructing cell-based fields at edges} \\ \hline
 Accessed in code & as \bsq{adv\_coefs\_3rd} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{advCellsForEdge}
+\noindent\textbf{\large{advCellsForEdge}} (integer) (FIFTEEN, nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Cells used to reconstruct a cell-based field at an edge} \\ \hline
+Accessed in code & as \bsq{advCellsForEdge} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -575,17 +575,6 @@ Accessed in code & as \bsq{cda} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{cellTangentPlane}
-\noindent\textbf{\large{cellTangentPlane}} (real) (R3, TWO, nCells) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{unitless} \\ \hline
-Description & \textit{Components of a pair of vectors defining the tangent plane at a cell} \\ \hline
-Accessed in code & as \bsq{cellTangentPlane} from the \bsq{mesh} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
 \hypertarget{cellsOnCell}
 \noindent\textbf{\large{cellsOnCell}} (integer) (maxEdges, nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -614,6 +603,17 @@ Accessed in code & as \bsq{cellsOnEdge} from the \bsq{mesh} pool \\ \hline
 Units & \textit{-} \\ \hline
 Description & \textit{IDs of the cells that meet at a vertex} \\ \hline
 Accessed in code & as \bsq{cellsOnVertex} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{cellTangentPlane}
+\noindent\textbf{\large{cellTangentPlane}} (real) (R3, TWO, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Components of a pair of vectors defining the tangent plane at a cell} \\ \hline
+Accessed in code & as \bsq{cellTangentPlane} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -751,6 +751,18 @@ Accessed in code & as \bsq{cka} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{horizontal cloud fraction} \\ \hline
 Accessed in code & as \bsq{cldfrac} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{cldfrac_bl}
+\noindent\textbf{\large{cldfrac\_bl}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{cloud fraction in the MYNN PBL scheme} \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
+Accessed in code & as \bsq{cldfrac\_bl} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -963,7 +975,7 @@ Accessed in code & as \bsq{cubot} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{mm s\textsuperscript{-1}} \\ \hline
 Description & \textit{convective precipitation rate} \\ \hline
-Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_tiedtke\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_ntiedtke\_in \\ \hline
 Accessed in code & as \bsq{cuprec} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1020,7 +1032,7 @@ Accessed in code & as \bsq{defc\_b} from the \bsq{mesh} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m} \\ \hline
 Description & \textit{entrainment layer depth from PBL scheme} \\ \hline
-Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
+Allocated by & bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{delta} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1143,6 +1155,30 @@ Accessed in code & as \bsq{depv\_dt\_sw} from the \bsq{diag} pool \\ \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{weights for cell-centered second derivative, normal to edge, for transport scheme} \\ \hline
 Accessed in code & as \bsq{deriv\_two} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{det_qv}
+\noindent\textbf{\large{det\_qv}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Description & \textit{EDMF detrainment of water vapor mixing ratio in the MYNN PBL scheme} \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
+Accessed in code & as \bsq{det\_qv} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{det_thl}
+\noindent\textbf{\large{det\_thl}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K s\textsuperscript{-1}} \\ \hline
+Description & \textit{EDMF detrainment of liquid-ice potential temperature in the MYNN PBL scheme} \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
+Accessed in code & as \bsq{det\_thl} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1469,6 +1505,78 @@ Accessed in code & as \bsq{edgesOnVertex\_sign} from the \bsq{mesh} pool \\ \hli
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{edmf_a}
+\noindent\textbf{\large{edmf\_a}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{EDMF relative updraft area of moist updrafts in the MYNN PBL scheme} \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
+Accessed in code & as \bsq{edmf\_a} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{edmf_ent}
+\noindent\textbf{\large{edmf\_ent}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m\textsuperscript{-1}} \\ \hline
+Description & \textit{EDMF entrainment rate in moist updrafts in the MYNN PBL scheme} \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
+Accessed in code & as \bsq{edmf\_ent} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{edmf_qc}
+\noindent\textbf{\large{edmf\_qc}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
+Description & \textit{EDMF liquid water mixing ratio in moist updrafts in the MYNN PBL scheme} \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
+Accessed in code & as \bsq{edmf\_qc} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{edmf_qt}
+\noindent\textbf{\large{edmf\_qt}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
+Description & \textit{EDMF total water mixing ratio in moist updrafts in the MYNN PBL scheme} \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
+Accessed in code & as \bsq{edmf\_qt} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{edmf_thl}
+\noindent\textbf{\large{edmf\_thl}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{EDMF liquid-ice water potential temperature in moist updrafts in the MYNN PBL scheme} \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
+Accessed in code & as \bsq{edmf\_thl} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{edmf_w}
+\noindent\textbf{\large{edmf\_w}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{EDMF vertical velocity of  moist updrafts in the MYNN PBL scheme} \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
+Accessed in code & as \bsq{edmf\_w} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{el_pbl}
 \noindent\textbf{\large{el\_pbl}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -1593,17 +1701,6 @@ Accessed in code & as \bsq{fEdge} from the \bsq{mesh} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{fVertex}
-\noindent\textbf{\large{fVertex}} (real) (nVertices) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{unitless} \\ \hline
-Description & \textit{Coriolis parameter at a vertex} \\ \hline
-Accessed in code & as \bsq{fVertex} from the \bsq{mesh} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
 \hypertarget{fh}
 \noindent\textbf{\large{fh}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -1647,6 +1744,17 @@ Units & \textit{unitless} \\ \hline
 Description & \textit{integrated stability function for moisture} \\ \hline
 Allocated by & bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{fm} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{fVertex}
+\noindent\textbf{\large{fVertex}} (real) (nVertices) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Coriolis parameter at a vertex} \\ \hline
+Accessed in code & as \bsq{fVertex} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1958,17 +2066,6 @@ Accessed in code & as \bsq{hv\_oml} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{iLev_DT}
-\noindent\textbf{\large{iLev\_DT}} (integer) (nCells, Time) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{-} \\ \hline
-Description & \textit{Lowest vertical level at or above dynamic tropopause (.lt.1 if 2 PVU below column; .gt.nLevels if 2PVU above column)} \\ \hline
-Accessed in code & as \bsq{iLev\_DT} from the \bsq{diag} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
 \hypertarget{i_aclwdnb}
 \noindent\textbf{\large{i\_aclwdnb}} (integer) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -2150,7 +2247,7 @@ Accessed in code & as \bsq{i\_acswuptc} from the \bsq{diag\_physics} pool \\ \hl
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{incidence of accumulated convective precipitation greater than config\_bucket\_rainc} \\ \hline
-Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_tiedtke\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_ntiedtke\_in \\ \hline
 Accessed in code & as \bsq{i\_rainc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2169,12 +2266,12 @@ Accessed in code & as \bsq{i\_rainnc} from the \bsq{diag\_physics} pool \\ \hlin
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{inTropo}
-\noindent\textbf{\large{inTropo}} (integer) (nVertLevels, nCells, Time) \\ 
+\hypertarget{iLev_DT}
+\noindent\textbf{\large{iLev\_DT}} (integer) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{0/1} \\ \hline
-Description & \textit{1 if within troposphere based on EPV flood fill} \\ \hline
-Accessed in code & as \bsq{inTropo} from the \bsq{diag} pool \\ \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Lowest vertical level at or above dynamic tropopause (.lt.1 if 2 PVU below column; .gt.nLevels if 2PVU above column)} \\ \hline
+Accessed in code & as \bsq{iLev\_DT} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -2219,6 +2316,17 @@ Accessed in code & as \bsq{indexToVertexID} from the \bsq{mesh} pool \\ \hline
 Units & \textit{YYYY-MM-DD\_hh:mm:ss} \\ \hline
 Description & \textit{Model initialization time} \\ \hline
 Accessed in code & as \bsq{initial\_time} from the \bsq{state} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{inTropo}
+\noindent\textbf{\large{inTropo}} (integer) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{0/1} \\ \hline
+Description & \textit{1 if within troposphere based on EPV flood fill} \\ \hline
+Accessed in code & as \bsq{inTropo} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -2616,7 +2724,7 @@ Array Group & moist \\ \hline
 Description & \textit{Lateral boundary tendency of cloud water mixing ratio} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & bl\_mynn\_in, cu\_tiedtke\_in, mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & bl\_mynn\_in, cu\_ntiedtke\_in, mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -2640,7 +2748,7 @@ Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Description & \textit{Lateral boundary tendency of ice mixing ratio} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & bl\_mynn\_in, cu\_tiedtke\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & bl\_mynn\_in, cu\_ntiedtke\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -3061,28 +3169,6 @@ Accessed in code & as \bsq{nAdvCellsForEdge} from the \bsq{mesh} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{nEdgesOnCell}
-\noindent\textbf{\large{nEdgesOnCell}} (integer) (nCells) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{-} \\ \hline
-Description & \textit{Number of edges forming the boundary of a cell} \\ \hline
-Accessed in code & as \bsq{nEdgesOnCell} from the \bsq{mesh} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
-\hypertarget{nEdgesOnEdge}
-\noindent\textbf{\large{nEdgesOnEdge}} (integer) (nEdges) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{-} \\ \hline
-Description & \textit{Number of edges involved in reconstruction of tangential velocity for an edge} \\ \hline
-Accessed in code & as \bsq{nEdgesOnEdge} from the \bsq{mesh} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
 \hypertarget{nca}
 \noindent\textbf{\large{nca}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -3112,6 +3198,28 @@ Accessed in code & as \bsq{ndays\_accum} from the \bsq{diag\_physics} pool \\ \h
 Units & \textit{-} \\ \hline
 Description & \textit{For cells in the specified zone, gives the index of the nearest cell in the relaxation zone} \\ \hline
 Accessed in code & as \bsq{nearestRelaxationCell} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{nEdgesOnCell}
+\noindent\textbf{\large{nEdgesOnCell}} (integer) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Number of edges forming the boundary of a cell} \\ \hline
+Accessed in code & as \bsq{nEdgesOnCell} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{nEdgesOnEdge}
+\noindent\textbf{\large{nEdgesOnEdge}} (integer) (nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Number of edges involved in reconstruction of tangential velocity for an edge} \\ \hline
+Accessed in code & as \bsq{nEdgesOnEdge} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -3496,6 +3604,18 @@ Accessed in code & as \bsq{qbuoy} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{qc_bl}
+\noindent\textbf{\large{qc\_bl}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
+Description & \textit{} \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
+Accessed in code & as \bsq{qc\_bl} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{qc_cu}
 \noindent\textbf{\large{qc\_cu}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -3565,6 +3685,18 @@ Accessed in code & as \bsq{qgh} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\hyperlink{scalars_amb}{\color{red}{\textbf{\large{qi\_amb}} --- \textit{see \bsq{scalars\_amb}}}}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{qi_bl}
+\noindent\textbf{\large{qi\_bl}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
+Description & \textit{} \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
+Accessed in code & as \bsq{qi\_bl} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -3686,7 +3818,7 @@ Accessed in code & as \bsq{qwt} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{mm} \\ \hline
 Description & \textit{accumulated convective precipitation} \\ \hline
-Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_tiedtke\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_ntiedtke\_in \\ \hline
 Accessed in code & as \bsq{rainc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -3698,7 +3830,7 @@ Accessed in code & as \bsq{rainc} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{mm} \\ \hline
 Description & \textit{time-step convective precipitation} \\ \hline
-Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_tiedtke\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_ntiedtke\_in \\ \hline
 Accessed in code & as \bsq{raincv} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4086,7 +4218,7 @@ Accessed in code & as \bsq{rqcblten} from the \bsq{tend\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of cloud water mixing ratio due to cumulus convection} \\ \hline
-Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_tiedtke\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_ntiedtke\_in \\ \hline
 Accessed in code & as \bsq{rqccuten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4110,7 +4242,7 @@ Accessed in code & as \bsq{rqiblten} from the \bsq{tend\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of cloud ice mixing ratio due to cumulus convection} \\ \hline
-Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_tiedtke\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_ntiedtke\_in \\ \hline
 Accessed in code & as \bsq{rqicuten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4124,6 +4256,18 @@ Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of rain mixing ratio due to cumulus convection} \\ \hline
 Allocated by & cu\_kain\_fritsch\_in \\ \hline
 Accessed in code & as \bsq{rqrcuten} from the \bsq{tend\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{rqsblten}
+\noindent\textbf{\large{rqsblten}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Description & \textit{tendency of snow mixing ratio due to pbl processes} \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
+Accessed in code & as \bsq{rqsblten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4158,7 +4302,7 @@ Accessed in code & as \bsq{rqvblten} from the \bsq{tend\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of water vapor mixing ratio due to cumulus convection} \\ \hline
-Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_tiedtke\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_ntiedtke\_in \\ \hline
 Accessed in code & as \bsq{rqvcuten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4170,7 +4314,7 @@ Accessed in code & as \bsq{rqvcuten} from the \bsq{tend\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of water vapor due to horizontal and vertical advections} \\ \hline
-Allocated by & cu\_grell\_freitas\_in, cu\_tiedtke\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_ntiedtke\_in \\ \hline
 Accessed in code & as \bsq{rqvdynten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4238,7 +4382,7 @@ Accessed in code & as \bsq{rthblten} from the \bsq{tend\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{K s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of potential temperature due to cumulus convection} \\ \hline
-Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_tiedtke\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_kain\_fritsch\_in, cu\_ntiedtke\_in \\ \hline
 Accessed in code & as \bsq{rthcuten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4344,28 +4488,6 @@ Accessed in code & as \bsq{ru} from the \bsq{diag} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{ruAvg}
-\noindent\textbf{\large{ruAvg}} (real) (nVertLevels, nEdges, Time) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{kg m\textsuperscript{-2} s\textsuperscript{-1}} \\ \hline
-Description & \textit{time-averaged rho*u/zz used in scalar transport} \\ \hline
-Accessed in code & as \bsq{ruAvg} from the \bsq{diag} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
-\hypertarget{ruAvg_split}
-\noindent\textbf{\large{ruAvg\_split}} (real) (nVertLevels, nEdges, Time) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{kg m\textsuperscript{-2} s\textsuperscript{-1}} \\ \hline
-Description & \textit{time-averaged rho*u/zz used in scalar transport} \\ \hline
-Accessed in code & as \bsq{ruAvg\_split} from the \bsq{diag} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
 \hypertarget{ru_p}
 \noindent\textbf{\large{ru\_p}} (real) (nVertLevels, nEdges, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -4383,6 +4505,28 @@ Accessed in code & as \bsq{ru\_p} from the \bsq{diag} pool \\ \hline
 Units & \textit{kg m\textsuperscript{-2} s\textsuperscript{-1}} \\ \hline
 Description & \textit{predicted value of horizontal momentum, saved before acoustic steps} \\ \hline
 Accessed in code & as \bsq{ru\_save} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{ruAvg}
+\noindent\textbf{\large{ruAvg}} (real) (nVertLevels, nEdges, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg m\textsuperscript{-2} s\textsuperscript{-1}} \\ \hline
+Description & \textit{time-averaged rho*u/zz used in scalar transport} \\ \hline
+Accessed in code & as \bsq{ruAvg} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{ruAvg_split}
+\noindent\textbf{\large{ruAvg\_split}} (real) (nVertLevels, nEdges, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg m\textsuperscript{-2} s\textsuperscript{-1}} \\ \hline
+Description & \textit{time-averaged rho*u/zz used in scalar transport} \\ \hline
+Accessed in code & as \bsq{ruAvg\_split} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4427,7 +4571,7 @@ Accessed in code & as \bsq{rublten\_Edge} from the \bsq{tend\_physics} pool \\ \
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m s\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of zonal wind due to cumulus convection} \\ \hline
-Allocated by & cu\_grell\_freitas\_in, cu\_tiedtke\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_ntiedtke\_in \\ \hline
 Accessed in code & as \bsq{rucuten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4484,7 +4628,7 @@ Accessed in code & as \bsq{rvblten} from the \bsq{tend\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m s\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of meridional wind due to cumulus convection} \\ \hline
-Allocated by & cu\_grell\_freitas\_in, cu\_tiedtke\_in \\ \hline
+Allocated by & cu\_grell\_freitas\_in, cu\_ntiedtke\_in \\ \hline
 Accessed in code & as \bsq{rvcuten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4554,7 +4698,7 @@ Array Group & moist \\ \hline
 Description & \textit{Cloud water mixing ratio} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_tiedtke\_in, mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4578,7 +4722,7 @@ Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Description & \textit{Ice mixing ratio} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_tiedtke\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4590,7 +4734,7 @@ Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_tiedtke\_in, mp\_thompson\_in, mp\
 Description & \textit{Snow mixing ratio} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & bl\_mynn\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4662,7 +4806,7 @@ Array Group & moist \\ \hline
 Description & \textit{Cloud water mixing ratio increment} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_tiedtke\_in, mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4686,7 +4830,7 @@ Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Description & \textit{Ice mixing ratio increment} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_tiedtke\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4746,7 +4890,7 @@ Array Group & moist \\ \hline
 Description & \textit{Tendency of cloud water mass per unit volume divided by d(zeta)/dz} \\ \hline
 Units & \textit{kg m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_tiedtke\_in, mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4770,7 +4914,7 @@ Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Description & \textit{Tendency of ice mass per unit volume divided by d(zeta)/dz} \\ \hline
 Units & \textit{kg m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_tiedtke\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4782,7 +4926,7 @@ Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_tiedtke\_in, mp\_thompson\_in, mp\
 Description & \textit{Tendency of snow mass per unit volume divided by d(zeta)/dz} \\ \hline
 Units & \textit{kg m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & bl\_mynn\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4957,6 +5101,18 @@ Accessed in code & as \bsq{skintemp} from the \bsq{sfc\_input} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{sm3d}
+\noindent\textbf{\large{sm3d}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{stability function for moisture} \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
+Accessed in code & as \bsq{sm3d} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{smcrel}
 \noindent\textbf{\large{smcrel}} (real) (nSoilLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -5091,6 +5247,18 @@ Accessed in code & as \bsq{snowncv} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{spechum}
+\noindent\textbf{\large{spechum}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
+Description & \textit{Specific humidity} \\ \hline
+Allocated by & jedi\_da \\ \hline
+Accessed in code & as \bsq{spechum} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{specZoneMaskCell}
 \noindent\textbf{\large{specZoneMaskCell}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -5119,18 +5287,6 @@ Accessed in code & as \bsq{specZoneMaskEdge} from the \bsq{mesh} pool \\ \hline
 Units & \textit{-} \\ \hline
 Description & \textit{0/1 mask on vertices, defined as 1 for vertices in the limited-area specified zone} \\ \hline
 Accessed in code & as \bsq{specZoneMaskVertex} from the \bsq{mesh} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
-\hypertarget{spechum}
-\noindent\textbf{\large{spechum}} (real) (nVertLevels, nCells, Time) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
-Description & \textit{Specific humidity} \\ \hline
-Allocated by & jedi\_da \\ \hline
-Accessed in code & as \bsq{spechum} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -5211,6 +5367,30 @@ Accessed in code & as \bsq{sstsk\_dtc} from the \bsq{diag\_physics} pool \\ \hli
 Units & \textit{K} \\ \hline
 Description & \textit{skin sea-surface temperature warming} \\ \hline
 Accessed in code & as \bsq{sstsk\_dtw} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{sub_qv}
+\noindent\textbf{\large{sub\_qv}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Description & \textit{EDMF subsidence of water vapor mixing ratio in the MYNN PBL scheme} \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
+Accessed in code & as \bsq{sub\_qv} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{sub_thl}
+\noindent\textbf{\large{sub\_thl}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K s\textsuperscript{-1}} \\ \hline
+Description & \textit{EDMF subsidence of liquid-ice potential temperature in the MYNN PBL scheme} \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
+Accessed in code & as \bsq{sub\_thl} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -5866,6 +6046,17 @@ Accessed in code & as \bsq{theta\_pv} from the \bsq{diag} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{Time}
+\noindent\textbf{\large{Time}} (real) (Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{seconds since YYYY-MM-DD hh:mm:ss} \\ \hline
+Description & \textit{CF-compliant valid time} \\ \hline
+Accessed in code & as \bsq{Time} from the \bsq{state} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{tke_pbl}
 \noindent\textbf{\large{tke\_pbl}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -5963,61 +6154,6 @@ Units & \textit{m s\textsuperscript{-1}} \\ \hline
 Description & \textit{10-meter zonal wind} \\ \hline
 Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{u10} from the \bsq{diag\_physics} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
-\hypertarget{uReconstructMeridional}
-\noindent\textbf{\large{uReconstructMeridional}} (real) (nVertLevels, nCells, Time) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{m s\textsuperscript{-1}} \\ \hline
-Description & \textit{Meridional component of reconstructed horizontal velocity at cell centers} \\ \hline
-Accessed in code & as \bsq{uReconstructMeridional} from the \bsq{diag} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
-\hypertarget{uReconstructX}
-\noindent\textbf{\large{uReconstructX}} (real) (nVertLevels, nCells, Time) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{m s\textsuperscript{-1}} \\ \hline
-Description & \textit{Cartesian x-component of reconstructed horizontal velocity at cell centers} \\ \hline
-Accessed in code & as \bsq{uReconstructX} from the \bsq{diag} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
-\hypertarget{uReconstructY}
-\noindent\textbf{\large{uReconstructY}} (real) (nVertLevels, nCells, Time) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{m s\textsuperscript{-1}} \\ \hline
-Description & \textit{Cartesian y-component of reconstructed horizontal velocity at cell centers} \\ \hline
-Accessed in code & as \bsq{uReconstructY} from the \bsq{diag} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
-\hypertarget{uReconstructZ}
-\noindent\textbf{\large{uReconstructZ}} (real) (nVertLevels, nCells, Time) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{m s\textsuperscript{-1}} \\ \hline
-Description & \textit{Cartesian z-component of reconstructed horizontal velocity at cell centers} \\ \hline
-Accessed in code & as \bsq{uReconstructZ} from the \bsq{diag} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
-\hypertarget{uReconstructZonal}
-\noindent\textbf{\large{uReconstructZonal}} (real) (nVertLevels, nCells, Time) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{m s\textsuperscript{-1}} \\ \hline
-Description & \textit{Zonal component of reconstructed horizontal velocity at cell centers} \\ \hline
-Accessed in code & as \bsq{uReconstructZonal} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -6194,6 +6330,61 @@ Accessed in code & as \bsq{umeridional\_surface} from the \bsq{diag} pool \\ \hl
 Units & \textit{m\textsuperscript2 s\textsuperscript{-2}} \\ \hline
 Description & \textit{Maximum updraft helicity since last output} \\ \hline
 Accessed in code & as \bsq{updraft\_helicity\_max} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{uReconstructMeridional}
+\noindent\textbf{\large{uReconstructMeridional}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Meridional component of reconstructed horizontal velocity at cell centers} \\ \hline
+Accessed in code & as \bsq{uReconstructMeridional} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{uReconstructX}
+\noindent\textbf{\large{uReconstructX}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Cartesian x-component of reconstructed horizontal velocity at cell centers} \\ \hline
+Accessed in code & as \bsq{uReconstructX} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{uReconstructY}
+\noindent\textbf{\large{uReconstructY}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Cartesian y-component of reconstructed horizontal velocity at cell centers} \\ \hline
+Accessed in code & as \bsq{uReconstructY} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{uReconstructZ}
+\noindent\textbf{\large{uReconstructZ}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Cartesian z-component of reconstructed horizontal velocity at cell centers} \\ \hline
+Accessed in code & as \bsq{uReconstructZ} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{uReconstructZonal}
+\noindent\textbf{\large{uReconstructZonal}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Zonal component of reconstructed horizontal velocity at cell centers} \\ \hline
+Accessed in code & as \bsq{uReconstructZonal} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -6707,7 +6898,7 @@ Accessed in code & as \bsq{wspd} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m s\textsuperscript{-1}} \\ \hline
 Description & \textit{mixed velocity scale from PBL scheme} \\ \hline
-Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
+Allocated by & bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{wstar} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -6753,17 +6944,6 @@ Accessed in code & as \bsq{xCell} from the \bsq{mesh} pool \\ \hline
 Units & \textit{m} \\ \hline
 Description & \textit{Cartesian x-coordinate of edges} \\ \hline
 Accessed in code & as \bsq{xEdge} from the \bsq{mesh} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
-\hypertarget{xVertex}
-\noindent\textbf{\large{xVertex}} (real) (nVertices) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{m} \\ \hline
-Description & \textit{Cartesian x-coordinate of vertices} \\ \hline
-Accessed in code & as \bsq{xVertex} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -6837,6 +7017,17 @@ Accessed in code & as \bsq{xtime} from the \bsq{state} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{xVertex}
+\noindent\textbf{\large{xVertex}} (real) (nVertices) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Cartesian x-coordinate of vertices} \\ \hline
+Accessed in code & as \bsq{xVertex} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{yCell}
 \noindent\textbf{\large{yCell}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -6876,39 +7067,6 @@ Accessed in code & as \bsq{yVertex} from the \bsq{mesh} pool \\ \hline
 Units & \textit{m} \\ \hline
 Description & \textit{roughness height} \\ \hline
 Accessed in code & as \bsq{z0} from the \bsq{diag\_physics} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
-\hypertarget{zCell}
-\noindent\textbf{\large{zCell}} (real) (nCells) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{m} \\ \hline
-Description & \textit{Cartesian z-coordinate of cells} \\ \hline
-Accessed in code & as \bsq{zCell} from the \bsq{mesh} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
-\hypertarget{zEdge}
-\noindent\textbf{\large{zEdge}} (real) (nEdges) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{m} \\ \hline
-Description & \textit{Cartesian z-coordinate of edges} \\ \hline
-Accessed in code & as \bsq{zEdge} from the \bsq{mesh} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
-\hypertarget{zVertex}
-\noindent\textbf{\large{zVertex}} (real) (nVertices) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{m} \\ \hline
-Description & \textit{Cartesian z-coordinate of vertices} \\ \hline
-Accessed in code & as \bsq{zVertex} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -6980,6 +7138,28 @@ Accessed in code & as \bsq{zb\_cell} from the \bsq{mesh} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{zCell}
+\noindent\textbf{\large{zCell}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Cartesian z-coordinate of cells} \\ \hline
+Accessed in code & as \bsq{zCell} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{zEdge}
+\noindent\textbf{\large{zEdge}} (real) (nEdges) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Cartesian z-coordinate of edges} \\ \hline
+Accessed in code & as \bsq{zEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{zgrid}
 \noindent\textbf{\large{zgrid}} (real) (nVertLevelsP1, nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -7020,6 +7200,17 @@ Accessed in code & as \bsq{zol} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{m} \\ \hline
 Description & \textit{depth of centers of soil layers} \\ \hline
 Accessed in code & as \bsq{zs} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{zVertex}
+\noindent\textbf{\large{zVertex}} (real) (nVertices) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Cartesian z-coordinate of vertices} \\ \hline
+Accessed in code & as \bsq{zVertex} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
