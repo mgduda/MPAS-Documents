@@ -66,7 +66,7 @@ the {\tt init\_atmosphere\_model} program:
 
 \end{longtable}
 
-After editing the {\tt namelist.init\_atmosphere} namelist file, the name of the static file, as well as the name of the surface update file to be created, must be set in the XML I/O configuration file, {\tt streams.init\_atmosphere}. Specifically, the {\tt filename\_template} attribute must be set to the name of the static file in the {\tt "input"} stream definition, and the {\tt filename\_template} attribute must be set to name of the surface update file to be created in the {\tt "surface"} stream definition. {\em Also, for the ``surface'' stream, ensure that the ``output\_interval'' attribute is set to the interval at which the surface intermediate files are provided.}
+After editing the {\tt namelist.init\_atmosphere} namelist file, the name of the static file, as well as the name of the surface update file to be created, must be set in the XML I/O configuration file, {\tt streams.init\_atmosphere}. Specifically, the {\tt filename\_template} attribute must be set to the name of the static file in the {\tt ``input''} stream definition, and the {\tt filename\_template} attribute must be set to name of the surface update file to be created in the {\tt ``surface''} stream definition. {\em Also, for the ``surface'' stream, ensure that the ``output\_interval'' attribute is set to the interval at which the surface intermediate files are provided.}
 
 
 \section{Regional Simulation}
@@ -136,3 +136,71 @@ in the {\tt streams.atmosphere} file to match the interval at which the LBC netC
 %\label{sec:iau}
 %
 %Describe operation of incremental analysis update.
+
+
+\section{Separate Stream for Invariant Fields}
+\label{sec:invariant}
+
+By default, the MPAS-Atmosphere model reads time-invariant fields (e.g., {\tt
+latCell}, {\tt lonCell}, {\tt areaCell}, {\tt zgrid}, {\tt zz}, etc.) from the
+``input'' and ``restart'' streams (for cold-start and restart runs, respectively),
+and it writes time-invariant fields to the ``restart'' stream. In the case of
+large ensembles, the time-invariant fields that are replicated in the restart
+files for all ensemble members can account for a substantial amount of storage.
+In principle, since these time-invariant fields do not change in time or across
+ensemble members, only one copy of these fields needs to be stored.
+
+MPAS-Atmosphere v8.1.0 introduces a capability to omit time-invariant fields
+from model restart files. When the model restarts, a new ``invariant'' stream may
+be used to read time-invariant fields from a separate file, and many ensemble
+members can share this file.
+
+In order to make use of the new ``invariant'' stream, several changes to the
+standard MPAS-Atmosphere workflow are needed.
+
+\subsection{Preparing an Invariant File}
+\label{sec:invariant_file}
+
+Through the use of the {\tt init\_atmosphere\_model} program, a file containing
+all required time-invariant fields must be prepared. Of course, since the model
+initial conditions (typically referred to as the {\tt init.nc} file) file
+contains time-invariant fields, the initial conditions file from any ensemble
+member may be used.
+
+If a file containing purely time-invariant fields is desired, the output from
+the {\tt init\_atmosphere\_model} program after the following pre-processing
+stages have been run will suffice:
+
+\begin{itemize}
+\item {\tt config\_static\_interp = true}
+\item {\tt config\_native\_gwd\_static = true}
+\item {\tt config\_vertical\_grid = true}
+\end{itemize}
+
+Note that these pre-processing stages do not need to be run all at once. It is
+possible, for example, to first produce a {\tt static.nc} file using the first
+two of these pre-processing stages, and to then produce an invariant file (e.g.,
+{\tt invariant.nc}) by running the vertical grid generation stage using the
+{\tt static.nc} file as input.
+
+\subsection{Activating the Invariant Stream}
+\label{sec:invariant_stream}
+
+When running the model itself ({\tt atmosphere\_model}), the use of the new
+invariant stream may be activated by simply defining the ``invariant'' immutable
+stream in the {\tt streams.atmosphere} file as follows:
+
+\vspace{12pt}
+\noindent {\tt <immutable\_stream name="invariant"} \newline
+\hspace*{\immindent}{\tt type="input"} \newline
+\hspace*{\immindent}{\tt filename\_template="invariant.nc"} \newline
+\hspace*{\immindent}{\tt input\_interval="initial\_only" />} \newline
+\vspace{12pt}
+
+\noindent In the definition of the ``invariant'' stream, the {\tt filename\_template}
+attribute should be set to the actual name of the invariant file.
+
+By the existence of the ``invariant'' stream in the {\tt streams.atmosphere} file,
+the model will omit all time-invariant fields from any restart files that are
+written. When the model restarts, all time-invariant fields will be read from
+the ``invariant'' stream rather than from the ``restart'' stream.
