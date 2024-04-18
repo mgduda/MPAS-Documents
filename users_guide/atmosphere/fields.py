@@ -93,7 +93,7 @@ for child in root:
 
 		var_list.append((field_name, t, d, units, desc, ps, struct_name, code_name))
 
-var_list.sort(key=lambda v: v[0])
+var_list.sort(key=lambda v: v[0].lower())
 
 f.write('\n\\renewcommand{\\arraystretch}{1.5}\n\\def\\bsq#1{\\lq{#1}\\rq}')
 
@@ -106,9 +106,9 @@ for c in range(ord('a'), ord('z')+1):
 	counts[chr(c)] = 0
 for var in var_list:
 	if type(var) == list:
-		counts[var[0][0]] += len(var)
+		counts[var[0][0].lower()] += len(var)
 	else:
-		counts[var[0][0]] += 1
+		counts[var[0][0].lower()] += 1
 
 # Then tally the total number and divide by 4 
 num = 0
