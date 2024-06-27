@@ -25,7 +25,7 @@ Convection & New Tiedtke  \\
 Microphysics & WSM6  \\
 Land surface & Noah \\
 Boundary layer & YSU \\
-Surface layer & Monin-Obukhov \\
+Surface layer & Revised Monin-Obukhov \\
 Radiation, LW & RRTMG \\
 Radiation, SW & RRTMG \\
 Cloud fraction for radiation & Xu-Randall \\
@@ -93,33 +93,46 @@ Selecting or disabling an individual physics parameterization may be accomplishe
 \hline
 Parameterization & Namelist variable & Possible options & Details \\
 \hline
-Convection & \namelist{mnl:config_convection_scheme} & {\tt cu\_tiedtke} & Tiedtke (WRF 3.8.1) \\
+Convection & \namelist{mnl:config_convection_scheme}
+ & {\tt cu\_tiedtke} & Tiedtke (WRF 3.8.1) \\
  &  & {\tt cu\_ntiedtke} & New Tiedtke (WRF 4.5)  \\
  &  & {\tt cu\_grell\_freitas} & Modified version of scale-aware Grell-Freitas (WRF 3.6.1)  \\
  &  & {\tt cu\_kain\_fritsch} & Kain-Fritsch (WRF 3.2.1) \\
  \hline
-Microphysics & \namelist{mnl:config_microp_scheme} & {\tt mp\_wsm6} & WSM 6-class (WRF 4.5)  \\
+Microphysics & \namelist{mnl:config_microp_scheme}
+ & {\tt mp\_wsm6} & WSM 6-class (WRF 4.5)  \\
  &  & {\tt mp\_thompson} & Thompson non-aerosol aware (WRF 3.8.1)  \\
+ &  & {\tt mp\_thompson\_aerosols} & Thompson aerosol-aware (WRF 4.1.4)  \\
  &  & {\tt mp\_kessler} & Kessler  \\
  \hline
-Land surface & \namelist{mnl:config_lsm_scheme} & {\tt noah} & Noah (WRF 4.5) \\
+Land surface & \namelist{mnl:config_lsm_scheme}
+ & {\tt sf\_noah} & Noah (WRF 4.5) \\
+ &  & {\tt sf\_noahmp} & Noah-MP 5.0.1 \\
 \hline
-Boundary layer & \namelist{mnl:config_pbl_scheme} & {\tt bl\_ysu} & YSU (WRF 4.5) \\
+Boundary layer & \namelist{mnl:config_pbl_scheme}
+ & {\tt bl\_ysu} & YSU (WRF 4.5) \\
  &  & {\tt bl\_mynn} & MYNN (WRF 3.6.1)  \\
 \hline
-Surface layer & \namelist{mnl:config_sfclayer_scheme} & {\tt sf\_monin\_obukhov} & Monin-Obukhov (WRF 4.5) \\
-&  & {\tt sf\_mynn} & MYNN (WRF 3.6.1)  \\
+Surface layer & \namelist{mnl:config_sfclayer_scheme}
+ & {\tt sf\_monin\_obukhov} & Monin-Obukhov (WRF 4.5) \\
+ &  & {\tt sf\_monin\_obukhov\_rev} & Revised Monin-Obukhov (WRF 4.5) \\
+ &  & {\tt sf\_mynn} & MYNN (WRF 3.6.1)  \\
 \hline
-Radiation, LW & \namelist{mnl:config_radt_lw_scheme} & {\tt rrtmg\_lw} & RRTMG (WRF 3.8.1) \\
-&  & {\tt cam\_lw} & CAM (WRF 3.3.1) \\
+Radiation, LW & \namelist{mnl:config_radt_lw_scheme}
+ & {\tt rrtmg\_lw} & RRTMG (WRF 3.8.1) \\
+ &  & {\tt cam\_lw} & CAM (WRF 3.3.1) \\
 \hline
-Radiation, SW & \namelist{mnl:config_radt_sw_scheme} & {\tt rrtmg\_sw} & RRTMG (WRF 3.8.1) \\
-&  & {\tt cam\_sw} & CAM (WRF 3.3.1) \\
+Radiation, SW & \namelist{mnl:config_radt_sw_scheme}
+ & {\tt rrtmg\_sw} & RRTMG (WRF 3.8.1) \\
+ &  & {\tt cam\_sw} & CAM (WRF 3.3.1) \\
 \hline
-Cloud fraction for radiation & \namelist{mnl:config_radt_cld_scheme} & {\tt cld\_fraction} & Xu and Randall (1996) \\
-&  & {\tt cld\_incidence} & 0/1 cloud fraction depending on $q_c + q_i$ \\
+Cloud fraction for radiation & \namelist{mnl:config_radt_cld_scheme}
+ & {\tt cld\_fraction} & Xu and Randall (1996) \\
+ &  & {\tt cld\_incidence} & 0/1 cloud fraction depending on $q_c + q_i$ \\
+ &  & {\tt cld\_fraction\_thompson} & Thompson cloud fraction scheme \\
 \hline
-Gravity wave drag by orography & \namelist{mnl:config_gwdo_scheme} & {\tt bl\_ysu\_gwdo} & YSU (WRF 4.5) \\
+Gravity wave drag by orography & \namelist{mnl:config_gwdo_scheme}
+ & {\tt bl\_ysu\_gwdo} & YSU (WRF 4.5) \\
 \hline
 \end{tabular*}
 \end{center}
