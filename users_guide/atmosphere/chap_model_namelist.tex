@@ -907,6 +907,17 @@ Possible Values & .true. to turn on top-down radiation\_driven mixing; .false. o
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_urban_physics}
+\noindent\textbf{\large{config\_urban\_physics}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{logical for turn on/off the urban physics parameterization (hidden by default)} \\ \hline
+Possible Values & .true. to turn on the urban physics; .false. otherwise \textit{(default: false)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{mnl:config_n_microp}
 \noindent\textbf{\large{config\_n\_microp}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -1400,5 +1411,261 @@ Possible Values & Non-negative real values \textit{(default: 864000.)} \\ \hline
 Units & \textit{-} \\ \hline
 Description & \textit{Interval between writing of soundings. A value of 'none' disables writing of soundings.} \\ \hline
 Possible Values & '[DDD\_]hh:mm:ss' or 'none' \textit{(default: none)} \\ \hline
+\end{tabular} 
+\end{minipage}
+\hypertarget{mrec:physics_lsm_noahmp}{}
+\section{physics\_lsm\_noahmp}
+\small
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_dveg}
+\noindent\textbf{\large{config\_noahmp\_iopt\_dveg}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for dynamic vegetation} \\ \hline
+Possible Values & 1 to 6 \textit{(default: 4)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_crs}
+\noindent\textbf{\large{config\_noahmp\_iopt\_crs}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for canopy stomatal resistance} \\ \hline
+Possible Values & 0 or 1 \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_btr}
+\noindent\textbf{\large{config\_noahmp\_iopt\_btr}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for soil moisture in stomatal resistance} \\ \hline
+Possible Values & 0 or 1 \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_runsrf}
+\noindent\textbf{\large{config\_noahmp\_iopt\_runsrf}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for surface runoff} \\ \hline
+Possible Values & 0 or 1 \textit{(default: 3)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_runsub}
+\noindent\textbf{\large{config\_noahmp\_iopt\_runsub}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for sub-surface option} \\ \hline
+Possible Values & 0 or 1 \textit{(default: 3)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_sfc}
+\noindent\textbf{\large{config\_noahmp\_iopt\_sfc}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for surface drag} \\ \hline
+Possible Values & 0 or 1 \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_frz}
+\noindent\textbf{\large{config\_noahmp\_iopt\_frz}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for supercooled water} \\ \hline
+Possible Values & 0 or 1 \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_inf}
+\noindent\textbf{\large{config\_noahmp\_iopt\_inf}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for frozen soil} \\ \hline
+Possible Values & 0 or 1 \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_rad}
+\noindent\textbf{\large{config\_noahmp\_iopt\_rad}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for radiative transfer} \\ \hline
+Possible Values & 0 or 1 \textit{(default: 3)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_alb}
+\noindent\textbf{\large{config\_noahmp\_iopt\_alb}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for snow albedo} \\ \hline
+Possible Values & 0 or 1 \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_snf}
+\noindent\textbf{\large{config\_noahmp\_iopt\_snf}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for pcp partition option} \\ \hline
+Possible Values & 0 or 1 \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_tksno}
+\noindent\textbf{\large{config\_noahmp\_iopt\_tksno}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for snow thermal conductivity} \\ \hline
+Possible Values & 0 or 1 \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_tbot}
+\noindent\textbf{\large{config\_noahmp\_iopt\_tbot}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for lower boundary of soil temperature} \\ \hline
+Possible Values & 0 or 1 \textit{(default: 2)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_stc}
+\noindent\textbf{\large{config\_noahmp\_iopt\_stc}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for soil or snow time scheme} \\ \hline
+Possible Values & 0 or 1 \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_gla}
+\noindent\textbf{\large{config\_noahmp\_iopt\_gla}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for glacier} \\ \hline
+Possible Values & 0 or 1 \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_rsf}
+\noindent\textbf{\large{config\_noahmp\_iopt\_rsf}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for subrface resistance} \\ \hline
+Possible Values & 0 or 1 \textit{(default: 4)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_soil}
+\noindent\textbf{\large{config\_noahmp\_iopt\_soil}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for soil data} \\ \hline
+Possible Values & 0 or 1 \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_pedo}
+\noindent\textbf{\large{config\_noahmp\_iopt\_pedo}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for pedo transfer} \\ \hline
+Possible Values & 0 or 1 \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_crop}
+\noindent\textbf{\large{config\_noahmp\_iopt\_crop}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for crop} \\ \hline
+Possible Values & 0 or 1 \textit{(default: 0)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_irr}
+\noindent\textbf{\large{config\_noahmp\_iopt\_irr}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for irrigation} \\ \hline
+Possible Values & 0 or 1 \textit{(default: 0)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_irrm}
+\noindent\textbf{\large{config\_noahmp\_iopt\_irrm}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for irrigaton method} \\ \hline
+Possible Values & 0 or 1 \textit{(default: 0)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_infdv}
+\noindent\textbf{\large{config\_noahmp\_iopt\_infdv}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{ } \\ \hline
+Description & \textit{option for dvic infiltration} \\ \hline
+Possible Values & 0 or 1 \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_noahmp_iopt_tdrn}
+\noindent\textbf{\large{config\_noahmp\_iopt\_tdrn}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{option for drainage option} \\ \hline
+Possible Values & or 1 \textit{(default: 0)} \\ \hline
 \end{tabular} 
 \end{minipage}

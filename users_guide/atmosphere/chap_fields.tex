@@ -6,7 +6,7 @@ Every field that may be read or written in a NetCDF {\em stream} (as described i
 \renewcommand{\arraystretch}{1.5}
 \def\bsq#1{\lq{#1}\rq}
 \phantomsection
-\addcontentsline{toc}{section}{Fields A--G}
+\addcontentsline{toc}{section}{Fields A--F}
 
 
 \vspace{10mm}
@@ -39,6 +39,204 @@ Accessed in code & as \bsq{absnxt} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{-} \\ \hline
 Description & \textit{Total absorptivity} \\ \hline
 Accessed in code & as \bsq{abstot} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{acc_dwater}
+\noindent\textbf{\large{acc\_dwater}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{accumulated canopy,snow,soil water change between dt\_soil} \\ \hline
+Accessed in code & as \bsq{acc\_dwater} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{acc_dwaterxy}
+\noindent\textbf{\large{acc\_dwaterxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{accumulated snow,soil,canopy water change per soil timestep} \\ \hline
+Accessed in code & as \bsq{acc\_dwaterxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{acc_ecan}
+\noindent\textbf{\large{acc\_ecan}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{accumulated net canopy evaporation between dt\_soil} \\ \hline
+Accessed in code & as \bsq{acc\_ecan} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{acc_ecanxy}
+\noindent\textbf{\large{acc\_ecanxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{accumulated net canopy evaporation per soil timestep} \\ \hline
+Accessed in code & as \bsq{acc\_ecanxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{acc_edir}
+\noindent\textbf{\large{acc\_edir}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{accumulated net soil evaporation between dt\_soil} \\ \hline
+Accessed in code & as \bsq{acc\_edir} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{acc_edirxy}
+\noindent\textbf{\large{acc\_edirxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{accumulated net ground (soil/snow) evaporation per soil timestep} \\ \hline
+Accessed in code & as \bsq{acc\_edirxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{acc_etran}
+\noindent\textbf{\large{acc\_etran}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{accumulated transpiration between dt\_soil} \\ \hline
+Accessed in code & as \bsq{acc\_etran} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{acc_etrani}
+\noindent\textbf{\large{acc\_etrani}} (real) (nSoilLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{accumulated etrani between dt\_soil} \\ \hline
+Accessed in code & as \bsq{acc\_etrani} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{acc_etranixy}
+\noindent\textbf{\large{acc\_etranixy}} (real) (nSoilLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{accumulated  transpiration rate within soil timestep} \\ \hline
+Accessed in code & as \bsq{acc\_etranixy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{acc_etranxy}
+\noindent\textbf{\large{acc\_etranxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{accumulated transpiration per soil timestep} \\ \hline
+Accessed in code & as \bsq{acc\_etranxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{acc_prcp}
+\noindent\textbf{\large{acc\_prcp}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{accumulated precipitation between dt\_soil} \\ \hline
+Accessed in code & as \bsq{acc\_prcp} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{acc_prcpxy}
+\noindent\textbf{\large{acc\_prcpxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{accumulated precipitation per soil timestep} \\ \hline
+Accessed in code & as \bsq{acc\_prcpxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{acc_qinsur}
+\noindent\textbf{\large{acc\_qinsur}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{accumulated qinsur between dt\_soil} \\ \hline
+Accessed in code & as \bsq{acc\_qinsur} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{acc_qinsurxy}
+\noindent\textbf{\large{acc\_qinsurxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{accumulated water flux into soil} \\ \hline
+Accessed in code & as \bsq{acc\_qinsurxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{acc_qseva}
+\noindent\textbf{\large{acc\_qseva}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{accumulated qsevap between dt\_soil} \\ \hline
+Accessed in code & as \bsq{acc\_qseva} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{acc_qsevaxy}
+\noindent\textbf{\large{acc\_qsevaxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{accumulated soil surface evaporation} \\ \hline
+Accessed in code & as \bsq{acc\_qsevaxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{acc_ssoil}
+\noindent\textbf{\large{acc\_ssoil}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{accumulated ssoil between dt\_soil} \\ \hline
+Accessed in code & as \bsq{acc\_ssoil} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{acc_ssoilxy}
+\noindent\textbf{\large{acc\_ssoilxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2} s\textsuperscript{-1}} \\ \hline
+Description & \textit{accumulated ground heat flux} \\ \hline
+Accessed in code & as \bsq{acc\_ssoilxy} from the \bsq{output\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -431,6 +629,17 @@ Accessed in code & as \bsq{albedo12m} from the \bsq{sfc\_input} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{alboldxy}
+\noindent\textbf{\large{alboldxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{snow albedo at last timestep} \\ \hline
+Accessed in code & as \bsq{alboldxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{alpha_tri}
 \noindent\textbf{\large{alpha\_tri}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -448,6 +657,17 @@ Accessed in code & as \bsq{alpha\_tri} from the \bsq{diag} pool \\ \hline
 Units & \textit{rad} \\ \hline
 Description & \textit{Angle between local north and the positive tangential direction of an edge} \\ \hline
 Accessed in code & as \bsq{angleEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{aparxy}
+\noindent\textbf{\large{aparxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{iphotosynthesis active energy by canopy} \\ \hline
+Accessed in code & as \bsq{aparxy} from the \bsq{output\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -517,6 +737,17 @@ Accessed in code & as \bsq{bdyMaskVertex} from the \bsq{mesh} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{bgapxy}
+\noindent\textbf{\large{bgapxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{between canopy gap} \\ \hline
+Accessed in code & as \bsq{bgapxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{br}
 \noindent\textbf{\large{br}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -524,6 +755,39 @@ Units & \textit{unitless} \\ \hline
 Description & \textit{Richardson number} \\ \hline
 Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{br} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{canhsxy}
+\noindent\textbf{\large{canhsxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{canopy heat storage change due to canopy temperature change} \\ \hline
+Accessed in code & as \bsq{canhsxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{canicexy}
+\noindent\textbf{\large{canicexy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{intercepted ice mass} \\ \hline
+Accessed in code & as \bsq{canicexy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{canliqxy}
+\noindent\textbf{\large{canliqxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{intercepted liquid water} \\ \hline
+Accessed in code & as \bsq{canliqxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -664,12 +928,45 @@ Accessed in code & as \bsq{ch} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{chb2xy}
+\noindent\textbf{\large{chb2xy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{under canopy exchange coefficient} \\ \hline
+Accessed in code & as \bsq{chb2xy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{chbxy}
+\noindent\textbf{\large{chbxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{s m\textsuperscript{-1}} \\ \hline
+Description & \textit{bare-ground heat exchange coefficient} \\ \hline
+Accessed in code & as \bsq{chbxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{chklowq}
 \noindent\textbf{\large{chklowq}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{surface saturation flag} \\ \hline
 Accessed in code & as \bsq{chklowq} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{chleafxy}
+\noindent\textbf{\large{chleafxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{leaf exchange coefficient} \\ \hline
+Accessed in code & as \bsq{chleafxy} from the \bsq{output\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -694,6 +991,50 @@ Units & \textit{m s\textsuperscript{-1}} \\ \hline
 Description & \textit{surface exchange coefficient for heat at 2-meter} \\ \hline
 Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{chs2} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{chucxy}
+\noindent\textbf{\large{chucxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{under canopy exchange coefficient} \\ \hline
+Accessed in code & as \bsq{chucxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{chv2xy}
+\noindent\textbf{\large{chv2xy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{leaf exchange coefficient} \\ \hline
+Accessed in code & as \bsq{chv2xy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{chvxy}
+\noindent\textbf{\large{chvxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{s m\textsuperscript{-1}} \\ \hline
+Description & \textit{vegetation heat exchange coefficient} \\ \hline
+Accessed in code & as \bsq{chvxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{chxy}
+\noindent\textbf{\large{chxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{surface exchange coefficient for heat} \\ \hline
+Accessed in code & as \bsq{chxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -807,6 +1148,17 @@ Accessed in code & as \bsq{cldfrac\_mid\_UPP} from the \bsq{diag} pool \\ \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{Total cloud fraction using UPP column max method} \\ \hline
 Accessed in code & as \bsq{cldfrac\_tot\_UPP} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{cmxy}
+\noindent\textbf{\large{cmxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{surface exchange coefficient for momentum} \\ \hline
+Accessed in code & as \bsq{cmxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1000,6 +1352,17 @@ Accessed in code & as \bsq{cutop} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{m} \\ \hline
 Description & \textit{Spherical distance between cells separated by an edge} \\ \hline
 Accessed in code & as \bsq{dcEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{deeprechxy}
+\noindent\textbf{\large{deeprechxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{deep water table recharge} \\ \hline
+Accessed in code & as \bsq{deeprechxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1428,12 +1791,34 @@ Accessed in code & as \bsq{dzu} from the \bsq{mesh} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{eahxy}
+\noindent\textbf{\large{eahxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{Pa} \\ \hline
+Description & \textit{canopy air vapor pressure} \\ \hline
+Accessed in code & as \bsq{eahxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{east}
 \noindent\textbf{\large{east}} (real) (R3, nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{Cartesian components of the local unit vector pointing east} \\ \hline
 Accessed in code & as \bsq{east} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{ecanxy}
+\noindent\textbf{\large{ecanxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{evaporation of intercepted water} \\ \hline
+Accessed in code & as \bsq{ecanxy} from the \bsq{output\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1500,6 +1885,17 @@ Accessed in code & as \bsq{edgesOnVertex} from the \bsq{mesh} pool \\ \hline
 Units & \textit{-} \\ \hline
 Description & \textit{Sign for edges incident with a vertex: positive for positive inward tengential velocity} \\ \hline
 Accessed in code & as \bsq{edgesOnVertex\_sign} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{edirxy}
+\noindent\textbf{\large{edirxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{ground surface evaporation rate} \\ \hline
+Accessed in code & as \bsq{edirxy} from the \bsq{output\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1577,6 +1973,17 @@ Accessed in code & as \bsq{edmf\_w} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{eflxbxy}
+\noindent\textbf{\large{eflxbxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{bottom soil heat flux} \\ \hline
+Accessed in code & as \bsq{eflxbxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{el_pbl}
 \noindent\textbf{\large{el\_pbl}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -1606,6 +2013,17 @@ Accessed in code & as \bsq{emstot} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{PVU} \\ \hline
 Description & \textit{Ertel's potential vorticity} \\ \hline
 Accessed in code & as \bsq{ertel\_pv} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{etranxy}
+\noindent\textbf{\large{etranxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{transpiration rate} \\ \hline
+Accessed in code & as \bsq{etranxy} from the \bsq{output\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1649,8 +2067,41 @@ Accessed in code & as \bsq{w\_euler} from the \bsq{tend} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{s\textsuperscript{-1}} \\ \hline
 Description & \textit{rain evaporation rate} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{evapprod} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{evbxy}
+\noindent\textbf{\large{evbxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{latent heat flux: bare ground to atmosphere} \\ \hline
+Accessed in code & as \bsq{evbxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{evcxy}
+\noindent\textbf{\large{evcxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{canopy evaporation} \\ \hline
+Accessed in code & as \bsq{evcxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{evgxy}
+\noindent\textbf{\large{evgxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{latent heat flux: ground to canopy} \\ \hline
+Accessed in code & as \bsq{evgxy} from the \bsq{output\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1690,6 +2141,17 @@ Accessed in code & as \bsq{exner\_base} from the \bsq{diag} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{fastcpxy}
+\noindent\textbf{\large{fastcpxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{g m\textsuperscript{-2}} \\ \hline
+Description & \textit{short-lived carbon} \\ \hline
+Accessed in code & as \bsq{fastcpxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{fEdge}
 \noindent\textbf{\large{fEdge}} (real) (nEdges) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -1708,6 +2170,28 @@ Units & \textit{unitless} \\ \hline
 Description & \textit{integrated stability function for heat} \\ \hline
 Allocated by & bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{fh} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{fifract}
+\noindent\textbf{\large{fifract}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{flood irrigation fraction} \\ \hline
+Accessed in code & as \bsq{fifract} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{firaxy}
+\noindent\textbf{\large{firaxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{total net longwave radiation} \\ \hline
+Accessed in code & as \bsq{firaxy} from the \bsq{output\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1749,12 +2233,111 @@ Accessed in code & as \bsq{fm} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{forcplsm}
+\noindent\textbf{\large{forcplsm}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{Pa} \\ \hline
+Description & \textit{lowest model P into LSM} \\ \hline
+Accessed in code & as \bsq{forcplsm} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{forcqlsm}
+\noindent\textbf{\large{forcqlsm}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
+Description & \textit{lowest model Q into LSM} \\ \hline
+Accessed in code & as \bsq{forcqlsm} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{forctlsm}
+\noindent\textbf{\large{forctlsm}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{lowest model T into LSM} \\ \hline
+Accessed in code & as \bsq{forctlsm} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{forcwlsm}
+\noindent\textbf{\large{forcwlsm}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{lowest model wind speed into LSM} \\ \hline
+Accessed in code & as \bsq{forcwlsm} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{forczlsm}
+\noindent\textbf{\large{forczlsm}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{lowest model Z into LSM} \\ \hline
+Accessed in code & as \bsq{forczlsm} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{fpicexy}
+\noindent\textbf{\large{fpicexy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{fraction of ice in precipitation} \\ \hline
+Accessed in code & as \bsq{fpicexy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{fsaxy}
+\noindent\textbf{\large{fsaxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{total absorbed solar radiation} \\ \hline
+Accessed in code & as \bsq{fsaxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{fvegxy}
+\noindent\textbf{\large{fvegxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{NOAHMP vegetation fraction} \\ \hline
+Accessed in code & as \bsq{fvegxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{fVertex}
 \noindent\textbf{\large{fVertex}} (real) (nVertices) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{Coriolis parameter at a vertex} \\ \hline
 Accessed in code & as \bsq{fVertex} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{fwetxy}
+\noindent\textbf{\large{fwetxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{wetted or snowed canopy fraction} \\ \hline
+Accessed in code & as \bsq{fwetxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1780,6 +2363,10 @@ Accessed in code & as \bsq{fzp} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
+\phantomsection
+\addcontentsline{toc}{section}{Fields G--P}
+
+
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
 \hypertarget{gamma_tri}
@@ -1793,12 +2380,67 @@ Accessed in code & as \bsq{gamma\_tri} from the \bsq{diag} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{gddxy}
+\noindent\textbf{\large{gddxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{growing degree days} \\ \hline
+Accessed in code & as \bsq{gddxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{gecros_state}
+\noindent\textbf{\large{gecros\_state}} (real) (SIXTY, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{gecros crop} \\ \hline
+Accessed in code & as \bsq{gecros\_state} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{ghbxy}
+\noindent\textbf{\large{ghbxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{heat flux into soil: bare fraction} \\ \hline
+Accessed in code & as \bsq{ghbxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{ghvxy}
+\noindent\textbf{\large{ghvxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{heat flux into soil: under canopy} \\ \hline
+Accessed in code & as \bsq{ghvxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{glw}
 \noindent\textbf{\large{glw}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{W m\textsuperscript{-2}} \\ \hline
 Description & \textit{all-sky downward surface longwave radiation} \\ \hline
 Accessed in code & as \bsq{glw} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{gppxy}
+\noindent\textbf{\large{gppxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{g m\textsuperscript{-2} s\textsuperscript{-1} C} \\ \hline
+Description & \textit{gross primary productivity} \\ \hline
+Accessed in code & as \bsq{gppxy} from the \bsq{output\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1826,12 +2468,23 @@ Accessed in code & as \bsq{gradPVt} from the \bsq{diag} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{grainxy}
+\noindent\textbf{\large{grainxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{g m\textsuperscript{-2}} \\ \hline
+Description & \textit{mass of grain} \\ \hline
+Accessed in code & as \bsq{grainxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{graupelnc}
 \noindent\textbf{\large{graupelnc}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{mm} \\ \hline
 Description & \textit{accumulated grid-scale precipitation of graupel} \\ \hline
-Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{graupelnc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1843,7 +2496,7 @@ Accessed in code & as \bsq{graupelnc} from the \bsq{diag\_physics} pool \\ \hlin
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{mm} \\ \hline
 Description & \textit{time-step grid-scale precipitation of graupel} \\ \hline
-Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{graupelncv} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -1892,10 +2545,6 @@ Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{gz1oz0} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
-
-\phantomsection
-\addcontentsline{toc}{section}{Fields H--P}
-
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -2259,7 +2908,7 @@ Accessed in code & as \bsq{i\_rainc} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{incidence of accumulated grid-scale precipitation greater than config\_bucket\_rainnc} \\ \hline
-Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{i\_rainnc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -2376,6 +3025,171 @@ Accessed in code & as \bsq{invDvEdge} from the \bsq{mesh} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{irbxy}
+\noindent\textbf{\large{irbxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{net longwave at bare fraction surface} \\ \hline
+Accessed in code & as \bsq{irbxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{ircxy}
+\noindent\textbf{\large{ircxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{net longwave in canopy} \\ \hline
+Accessed in code & as \bsq{ircxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{ireloss}
+\noindent\textbf{\large{ireloss}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{spinkler evaporation loss accumulated} \\ \hline
+Accessed in code & as \bsq{ireloss} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{irfivol}
+\noindent\textbf{\large{irfivol}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{flood irrigation water accumulated} \\ \hline
+Accessed in code & as \bsq{irfivol} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{irfract}
+\noindent\textbf{\large{irfract}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{irrigation fraction} \\ \hline
+Accessed in code & as \bsq{irfract} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{irgxy}
+\noindent\textbf{\large{irgxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{net longwave at below canopy surface} \\ \hline
+Accessed in code & as \bsq{irgxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{irmivol}
+\noindent\textbf{\large{irmivol}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{micro irrigation water accumulated} \\ \hline
+Accessed in code & as \bsq{irmivol} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{irnumfi}
+\noindent\textbf{\large{irnumfi}} (integer) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{flood irrigation event count} \\ \hline
+Accessed in code & as \bsq{irnumfi} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{irnummi}
+\noindent\textbf{\large{irnummi}} (integer) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{micro irrigation event count} \\ \hline
+Accessed in code & as \bsq{irnummi} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{irnumsi}
+\noindent\textbf{\large{irnumsi}} (integer) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{sprinkler irrigation event count} \\ \hline
+Accessed in code & as \bsq{irnumsi} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{irrsplh}
+\noindent\textbf{\large{irrsplh}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{Joules m \textsuperscript{-2}} \\ \hline
+Description & \textit{sprinkler evaporation loss accumuated} \\ \hline
+Accessed in code & as \bsq{irrsplh} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{irsivol}
+\noindent\textbf{\large{irsivol}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{sprinkler irrigation water accumulated} \\ \hline
+Accessed in code & as \bsq{irsivol} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{irwatfi}
+\noindent\textbf{\large{irwatfi}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{flood irrigation amount for the event} \\ \hline
+Accessed in code & as \bsq{irwatfi} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{irwatmi}
+\noindent\textbf{\large{irwatmi}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{micro irrigation amount for the event} \\ \hline
+Accessed in code & as \bsq{irwatmi} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{irwatsi}
+\noindent\textbf{\large{irwatsi}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{sprinkler irrigation amount for the event} \\ \hline
+Accessed in code & as \bsq{irwatsi} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{isice_lu}
 \noindent\textbf{\large{isice\_lu}} (integer) () \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -2393,6 +3207,17 @@ Accessed in code & as \bsq{isice} from the \bsq{sfc\_input} pool \\ \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{dominant soil category} \\ \hline
 Accessed in code & as \bsq{isltyp} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{isnowxy}
+\noindent\textbf{\large{isnowxy}} (integer) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{number of snow layers} \\ \hline
+Accessed in code & as \bsq{isnowxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -2614,10 +3439,19 @@ Accessed in code & as \bsq{latVertex} from the \bsq{mesh} pool \\ \hline
 \end{minipage}
 
 \vspace{10mm}
+\noindent\hyperlink{lbc_scalars}{\color{red}{\textbf{\large{lbc\_nc}} --- \textit{see \bsq{lbc\_scalars}}}}
+
+\vspace{10mm}
 \noindent\hyperlink{lbc_scalars}{\color{red}{\textbf{\large{lbc\_ni}} --- \textit{see \bsq{lbc\_scalars}}}}
 
 \vspace{10mm}
+\noindent\hyperlink{lbc_scalars}{\color{red}{\textbf{\large{lbc\_nifa}} --- \textit{see \bsq{lbc\_scalars}}}}
+
+\vspace{10mm}
 \noindent\hyperlink{lbc_scalars}{\color{red}{\textbf{\large{lbc\_nr}} --- \textit{see \bsq{lbc\_scalars}}}}
+
+\vspace{10mm}
+\noindent\hyperlink{lbc_scalars}{\color{red}{\textbf{\large{lbc\_nwfa}} --- \textit{see \bsq{lbc\_scalars}}}}
 
 \vspace{10mm}
 \noindent\hyperlink{lbc_scalars}{\color{red}{\textbf{\large{lbc\_qc}} --- \textit{see \bsq{lbc\_scalars}}}}
@@ -2724,7 +3558,7 @@ Array Group & moist \\ \hline
 Description & \textit{Lateral boundary tendency of cloud water mixing ratio} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & bl\_mynn\_in, cu\_ntiedtke\_in, mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & bl\_mynn\_in, cu\_ntiedtke\_in, mp\_kessler\_in, mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -2736,7 +3570,7 @@ Allocated by & bl\_mynn\_in, cu\_ntiedtke\_in, mp\_kessler\_in, mp\_thompson\_in
 Description & \textit{Lateral boundary tendency of rain water mixing ratio} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -2748,7 +3582,7 @@ Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Description & \textit{Lateral boundary tendency of ice mixing ratio} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & bl\_mynn\_in, cu\_ntiedtke\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & bl\_mynn\_in, cu\_ntiedtke\_in, mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -2760,7 +3594,7 @@ Allocated by & bl\_mynn\_in, cu\_ntiedtke\_in, mp\_thompson\_in, mp\_wsm6\_in \\
 Description & \textit{Lateral boundary tendency of snow mixing ratio} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -2772,7 +3606,7 @@ Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Description & \textit{Lateral boundary tendency of graupel mixing ratio} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -2784,7 +3618,7 @@ Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Description & \textit{Lateral boundary tendency of rain number concentration} \\ \hline
 Units & \textit{m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
 Array Group & number \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -2796,7 +3630,43 @@ Allocated by & mp\_thompson\_in \\ \hline
 Description & \textit{Lateral boundary tendency of ice number concentration} \\ \hline
 Units & \textit{m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
 Array Group & number \\ \hline
-Allocated by & bl\_mynn\_in, mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, mp\_thompson\_in, mp\_thompson\_aers\_in \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\hspace{.1\textwidth}\noindent\begin{minipage}{.9\textwidth}
+\hypertarget{lbc_nc}
+\noindent\textbf{\normalsize{lbc\_nc}} --- \textit{constituent field of var\_array \textbf{lbc\_scalars}}  \\ 
+\begin{tabular}{|p{.25\textwidth-.5\tabcolsep} |p{.65\textwidth-1.3\tabcolsep} |} \hline
+Description & \textit{Lateral boundary tendency of cloud water number concentration} \\ \hline
+Units & \textit{m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
+Array Group & number \\ \hline
+Allocated by & mp\_thompson\_aers\_in \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\hspace{.1\textwidth}\noindent\begin{minipage}{.9\textwidth}
+\hypertarget{lbc_nifa}
+\noindent\textbf{\normalsize{lbc\_nifa}} --- \textit{constituent field of var\_array \textbf{lbc\_scalars}}  \\ 
+\begin{tabular}{|p{.25\textwidth-.5\tabcolsep} |p{.65\textwidth-1.3\tabcolsep} |} \hline
+Description & \textit{Lateral boundary tendency of ice-friendly aerosol number concentration} \\ \hline
+Units & \textit{m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
+Array Group & number \\ \hline
+Allocated by & mp\_thompson\_aers\_in \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\hspace{.1\textwidth}\noindent\begin{minipage}{.9\textwidth}
+\hypertarget{lbc_nwfa}
+\noindent\textbf{\normalsize{lbc\_nwfa}} --- \textit{constituent field of var\_array \textbf{lbc\_scalars}}  \\ 
+\begin{tabular}{|p{.25\textwidth-.5\tabcolsep} |p{.65\textwidth-1.3\tabcolsep} |} \hline
+Description & \textit{Lateral boundary tendency of water-friendly aerosol number concentration} \\ \hline
+Units & \textit{m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
+Array Group & number \\ \hline
+Allocated by & mp\_thompson\_aers\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -2857,6 +3727,17 @@ Accessed in code & as \bsq{lfc} from the \bsq{diag} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{lfmassxy}
+\noindent\textbf{\large{lfmassxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{g m\textsuperscript{-2}} \\ \hline
+Description & \textit{leaf mass} \\ \hline
+Accessed in code & as \bsq{lfmassxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{lh}
 \noindent\textbf{\large{lh}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -2875,6 +3756,17 @@ Accessed in code & as \bsq{lh} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{Cartesian components of the vector pointing in the local vertical direction for a cell} \\ \hline
 Accessed in code & as \bsq{localVerticalUnitVectors} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{loctim}
+\noindent\textbf{\large{loctim}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{local time} \\ \hline
+Accessed in code & as \bsq{loctim} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -3112,6 +4004,17 @@ Accessed in code & as \bsq{meshScalingRegionalEdge} from the \bsq{mesh} pool \\ 
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{mifract}
+\noindent\textbf{\large{mifract}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{micro irrigation fraction} \\ \hline
+Accessed in code & as \bsq{mifract} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{mminlu}
 \noindent\textbf{\large{mminlu}} (text) () \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -3151,7 +4054,7 @@ Accessed in code & as \bsq{mslp} from the \bsq{diag} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{gamma shape parameter} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in \\ \hline
 Accessed in code & as \bsq{mu\_c} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -3166,6 +4069,9 @@ Description & \textit{Number of cells used to reconstruct a cell-based field at 
 Accessed in code & as \bsq{nAdvCellsForEdge} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\vspace{10mm}
+\noindent\hyperlink{scalars}{\color{red}{\textbf{\large{nc}} --- \textit{see \bsq{scalars}}}}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -3224,7 +4130,33 @@ Accessed in code & as \bsq{nEdgesOnEdge} from the \bsq{mesh} pool \\ \hline
 \end{minipage}
 
 \vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{neexy}
+\noindent\textbf{\large{neexy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{g m\textsuperscript{-2} s\textsuperscript{-1} C} \\ \hline
+Description & \textit{net ecosystem exchange} \\ \hline
+Accessed in code & as \bsq{neexy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
 \noindent\hyperlink{scalars}{\color{red}{\textbf{\large{ni}} --- \textit{see \bsq{scalars}}}}
+
+\vspace{10mm}
+\noindent\hyperlink{scalars}{\color{red}{\textbf{\large{nifa}} --- \textit{see \bsq{scalars}}}}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{nifa2d}
+\noindent\textbf{\large{nifa2d}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{nb kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Description & \textit{surface emission of ice-friendly aerosols} \\ \hline
+Allocated by & mp\_thompson\_aers\_in \\ \hline
+Accessed in code & as \bsq{nifa2d} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -3271,6 +4203,17 @@ Accessed in code & as \bsq{north} from the \bsq{mesh} pool \\ \hline
 \end{minipage}
 
 \vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{nppxy}
+\noindent\textbf{\large{nppxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{g m\textsuperscript{-2} s\textsuperscript{-1} C} \\ \hline
+Description & \textit{net primary productivity} \\ \hline
+Accessed in code & as \bsq{nppxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
 \noindent\hyperlink{scalars}{\color{red}{\textbf{\large{nr}} --- \textit{see \bsq{scalars}}}}
 
 \vspace{10mm}
@@ -3291,8 +4234,23 @@ Accessed in code & as \bsq{nsteps\_accum} from the \bsq{diag\_physics} pool \\ \
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{nb kg\textsuperscript{-1}} \\ \hline
 Description & \textit{one-moment constant cloud water droplet concentration} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in \\ \hline
 Accessed in code & as \bsq{nt\_c} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\hyperlink{scalars}{\color{red}{\textbf{\large{nwfa}} --- \textit{see \bsq{scalars}}}}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{nwfa2d}
+\noindent\textbf{\large{nwfa2d}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{nb kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Description & \textit{surface emission of water-friendly aerosols} \\ \hline
+Allocated by & mp\_thompson\_aers\_in \\ \hline
+Accessed in code & as \bsq{nwfa2d} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -3436,6 +4394,50 @@ Accessed in code & as \bsq{ozmixm} from the \bsq{atm\_input} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{pahbxy}
+\noindent\textbf{\large{pahbxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{precipitation advected energy - to bare ground} \\ \hline
+Accessed in code & as \bsq{pahbxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{pahgxy}
+\noindent\textbf{\large{pahgxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{precipitation advected energy - to below canopy} \\ \hline
+Accessed in code & as \bsq{pahgxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{pahvxy}
+\noindent\textbf{\large{pahvxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{precipitation advected energy - to vegetation} \\ \hline
+Accessed in code & as \bsq{pahvxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{pahxy}
+\noindent\textbf{\large{pahxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{precipitation advected energy} \\ \hline
+Accessed in code & as \bsq{pahxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{pin}
 \noindent\textbf{\large{pin}} (real) (nOznLevels) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -3453,6 +4455,17 @@ Accessed in code & as \bsq{pin} from the \bsq{atm\_input} pool \\ \hline
 Units & \textit{Pa} \\ \hline
 Description & \textit{pressure at model-top} \\ \hline
 Accessed in code & as \bsq{plrad} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{pondingxy}
+\noindent\textbf{\large{pondingxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{surface ponding from complete pack melt} \\ \hline
+Accessed in code & as \bsq{pondingxy} from the \bsq{output\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -3537,6 +4550,17 @@ Accessed in code & as \bsq{psim} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{psnxy}
+\noindent\textbf{\large{psnxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{umol CO2 m\textsuperscript{-2} s\textsuperscript{-1}} \\ \hline
+Description & \textit{total photosynthesis} \\ \hline
+Accessed in code & as \bsq{psnxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{pv_cell}
 \noindent\textbf{\large{pv\_cell}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -3581,6 +4605,28 @@ Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Description & \textit{2-meter specific humidity} \\ \hline
 Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{q2} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{q2mbxy}
+\noindent\textbf{\large{q2mbxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
+Description & \textit{2-meter water vapor mixing ratio over bare ground} \\ \hline
+Accessed in code & as \bsq{q2mbxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{q2mvxy}
+\noindent\textbf{\large{q2mvxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
+Description & \textit{2-meter water vapor mixing ratio over canopy} \\ \hline
+Accessed in code & as \bsq{q2mvxy} from the \bsq{output\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -3640,6 +4686,17 @@ Accessed in code & as \bsq{qcg} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{qdewcxy}
+\noindent\textbf{\large{qdewcxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{canopy dew rate} \\ \hline
+Accessed in code & as \bsq{qdewcxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{qdiss}
 \noindent\textbf{\large{qdiss}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -3647,6 +4704,61 @@ Units & \textit{m\textsuperscript{2} s\textsuperscript{-2}} \\ \hline
 Description & \textit{TKE dissipation} \\ \hline
 Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{qdiss} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{qdriprxy}
+\noindent\textbf{\large{qdriprxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{canopy rain drip rate} \\ \hline
+Accessed in code & as \bsq{qdriprxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{qdripsxy}
+\noindent\textbf{\large{qdripsxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{canopy snow drip rate} \\ \hline
+Accessed in code & as \bsq{qdripsxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{qevacxy}
+\noindent\textbf{\large{qevacxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{canopy evaporation rate} \\ \hline
+Accessed in code & as \bsq{qevacxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{qfrocxy}
+\noindent\textbf{\large{qfrocxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{canopy frost rate} \\ \hline
+Accessed in code & as \bsq{qfrocxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{qfrzcxy}
+\noindent\textbf{\large{qfrzcxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{canopy liquid freeze rate} \\ \hline
+Accessed in code & as \bsq{qfrzcxy} from the \bsq{output\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -3712,6 +4824,28 @@ Accessed in code & as \bsq{qi\_cu} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{qintrxy}
+\noindent\textbf{\large{qintrxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{canopy rain interception rate} \\ \hline
+Accessed in code & as \bsq{qintrxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{qintsxy}
+\noindent\textbf{\large{qintsxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{canopy snow interception rate} \\ \hline
+Accessed in code & as \bsq{qintsxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{qke}
 \noindent\textbf{\large{qke}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -3735,10 +4869,43 @@ Accessed in code & as \bsq{qke\_adv} from the \bsq{diag\_physics} pool \\ \hline
 \end{minipage}
 
 \vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{qmeltcxy}
+\noindent\textbf{\large{qmeltcxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{canopy snow melt rate} \\ \hline
+Accessed in code & as \bsq{qmeltcxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{qmeltxy}
+\noindent\textbf{\large{qmeltxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{snowpack melting rate due to phase change} \\ \hline
+Accessed in code & as \bsq{qmeltxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
 \noindent\hyperlink{scalars}{\color{red}{\textbf{\large{qr}} --- \textit{see \bsq{scalars}}}}
 
 \vspace{10mm}
 \noindent\hyperlink{scalars_amb}{\color{red}{\textbf{\large{qr\_amb}} --- \textit{see \bsq{scalars\_amb}}}}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{qrainxy}
+\noindent\textbf{\large{qrainxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{rainfall on the ground} \\ \hline
+Accessed in code & as \bsq{qrainxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
 
 \vspace{10mm}
 \noindent\hyperlink{scalars}{\color{red}{\textbf{\large{qs}} --- \textit{see \bsq{scalars}}}}
@@ -3772,6 +4939,50 @@ Accessed in code & as \bsq{qshear} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{qsnbotxy}
+\noindent\textbf{\large{qsnbotxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{total liquid water (melt + rain through pack) out of snowpack bottom} \\ \hline
+Accessed in code & as \bsq{qsnbotxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{qsnfroxy}
+\noindent\textbf{\large{qsnfroxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{snow pack frost rate} \\ \hline
+Accessed in code & as \bsq{qsnfroxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{qsnowxy}
+\noindent\textbf{\large{qsnowxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{snowfall on the ground} \\ \hline
+Accessed in code & as \bsq{qsnowxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{qsnsubxy}
+\noindent\textbf{\large{qsnsubxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{snow pack sublimation rate} \\ \hline
+Accessed in code & as \bsq{qsnsubxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{qsq}
 \noindent\textbf{\large{qsq}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -3779,6 +4990,50 @@ Units & \textit{{kg kg\textsuperscript{-1}}\textsuperscript2} \\ \hline
 Description & \textit{liquid water variance} \\ \hline
 Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{qsq} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{qsubcxy}
+\noindent\textbf{\large{qsubcxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{canopy sublimation rate} \\ \hline
+Accessed in code & as \bsq{qsubcxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{qtdrain}
+\noindent\textbf{\large{qtdrain}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{tile drainage} \\ \hline
+Accessed in code & as \bsq{qtdrain} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{qthrorxy}
+\noindent\textbf{\large{qthrorxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{rain throughfall rate} \\ \hline
+Accessed in code & as \bsq{qthrorxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{qthrosxy}
+\noindent\textbf{\large{qthrosxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{snow throughfall rate} \\ \hline
+Accessed in code & as \bsq{qthrosxy} from the \bsq{output\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -3837,12 +5092,23 @@ Accessed in code & as \bsq{raincv} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{rainlsm}
+\noindent\textbf{\large{rainlsm}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{accumulated liquid precipitation into LSM} \\ \hline
+Accessed in code & as \bsq{rainlsm} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{rainnc}
 \noindent\textbf{\large{rainnc}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{mm} \\ \hline
 Description & \textit{accumulated total grid-scale precipitation} \\ \hline
-Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{rainnc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -3854,7 +5120,7 @@ Accessed in code & as \bsq{rainnc} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{mm} \\ \hline
 Description & \textit{time-step total grid-scale precipitation} \\ \hline
-Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{rainncv} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -3866,7 +5132,7 @@ Accessed in code & as \bsq{rainncv} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{s\textsuperscript{-1}} \\ \hline
 Description & \textit{rain production rate} \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{rainprod} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -3900,7 +5166,7 @@ Accessed in code & as \bsq{rdzw} from the \bsq{mesh} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m} \\ \hline
 Description & \textit{effective radius of cloud water droplets} \\ \hline
-Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{re\_cloud} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -3912,7 +5178,7 @@ Accessed in code & as \bsq{re\_cloud} from the \bsq{diag\_physics} pool \\ \hlin
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m} \\ \hline
 Description & \textit{effective radius of cloud ice crystals} \\ \hline
-Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{re\_ice} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -3924,8 +5190,19 @@ Accessed in code & as \bsq{re\_ice} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m} \\ \hline
 Description & \textit{effective radius of snow crystals} \\ \hline
-Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{re\_snow} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{rechxy}
+\noindent\textbf{\large{rechxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{water table recharge} \\ \hline
+Accessed in code & as \bsq{rechxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -3936,7 +5213,7 @@ Accessed in code & as \bsq{re\_snow} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{dBZ} \\ \hline
 Description & \textit{diagnosed 10 cm radar reflectivity at 1 km AGL} \\ \hline
-Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{refl10cm\_1km} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -3948,7 +5225,7 @@ Accessed in code & as \bsq{refl10cm\_1km} from the \bsq{diag\_physics} pool \\ \
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{dBZ} \\ \hline
 Description & \textit{maximum diagnosed 10 cm radar reflectivity at 1 km AGL since last output time} \\ \hline
-Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{refl10cm\_1km\_max} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -3960,7 +5237,7 @@ Accessed in code & as \bsq{refl10cm\_1km\_max} from the \bsq{diag\_physics} pool
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{dBZ} \\ \hline
 Description & \textit{10 cm maximum radar reflectivity} \\ \hline
-Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{refl10cm\_max} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -4189,6 +5466,30 @@ Accessed in code & as \bsq{rmol} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{rncblten}
+\noindent\textbf{\large{rncblten}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{nb kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Description & \textit{tendency of cloud liquid water number concentration due to pbl processes} \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
+Accessed in code & as \bsq{rncblten} from the \bsq{tend\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{rncmpten}
+\noindent\textbf{\large{rncmpten}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{nb kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Description & \textit{tendency of cloud water number concentration due to microphysics} \\ \hline
+Allocated by & mp\_thompson\_aers\_in \\ \hline
+Accessed in code & as \bsq{rncmpten} from the \bsq{tend\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{rniblten}
 \noindent\textbf{\large{rniblten}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -4196,6 +5497,78 @@ Units & \textit{nb kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of cloud ice number concentration due to pbl processes} \\ \hline
 Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{rniblten} from the \bsq{tend\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{rnifablten}
+\noindent\textbf{\large{rnifablten}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{nb kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Description & \textit{tendency of ice-friendly aerosol number concentration due to pbl processes} \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
+Accessed in code & as \bsq{rnifablten} from the \bsq{tend\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{rnifampten}
+\noindent\textbf{\large{rnifampten}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{nb kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Description & \textit{tendency of ice-friendly aerosol number concentration due to microphysics} \\ \hline
+Allocated by & mp\_thompson\_aers\_in \\ \hline
+Accessed in code & as \bsq{rnifampten} from the \bsq{tend\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{rnimpten}
+\noindent\textbf{\large{rnimpten}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{nb kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Description & \textit{tendency of cloud ice number concentration due to microphysics} \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in \\ \hline
+Accessed in code & as \bsq{rnimpten} from the \bsq{tend\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{rnrmpten}
+\noindent\textbf{\large{rnrmpten}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{nb kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Description & \textit{tendency of rain number concentration due to microphysics} \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in \\ \hline
+Accessed in code & as \bsq{rnrmpten} from the \bsq{tend\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{rnwfablten}
+\noindent\textbf{\large{rnwfablten}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{nb kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Description & \textit{tendency of water-friendly aerosol number concentration due to pbl processes} \\ \hline
+Allocated by & bl\_mynn\_in \\ \hline
+Accessed in code & as \bsq{rnwfablten} from the \bsq{tend\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{rnwfampten}
+\noindent\textbf{\large{rnwfampten}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{nb kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Description & \textit{tendency of water-friendly aerosol number concentration due to microphysics} \\ \hline
+Allocated by & mp\_thompson\_aers\_in \\ \hline
+Accessed in code & as \bsq{rnwfampten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4225,6 +5598,30 @@ Accessed in code & as \bsq{rqccuten} from the \bsq{tend\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{rqcmpten}
+\noindent\textbf{\large{rqcmpten}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Description & \textit{tendency of cloud water mixing ratio due to cloud microphysics} \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
+Accessed in code & as \bsq{rqcmpten} from the \bsq{tend\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{rqgmpten}
+\noindent\textbf{\large{rqgmpten}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Description & \textit{tendency of graupel mixing ratio due to cloud microphysics} \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
+Accessed in code & as \bsq{rqgmpten} from the \bsq{tend\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{rqiblten}
 \noindent\textbf{\large{rqiblten}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -4249,6 +5646,18 @@ Accessed in code & as \bsq{rqicuten} from the \bsq{tend\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{rqimpten}
+\noindent\textbf{\large{rqimpten}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Description & \textit{tendency of cloud ice mixing ratio due to cloud microphysics} \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
+Accessed in code & as \bsq{rqimpten} from the \bsq{tend\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{rqrcuten}
 \noindent\textbf{\large{rqrcuten}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -4256,6 +5665,18 @@ Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of rain mixing ratio due to cumulus convection} \\ \hline
 Allocated by & cu\_kain\_fritsch\_in \\ \hline
 Accessed in code & as \bsq{rqrcuten} from the \bsq{tend\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{rqrmpten}
+\noindent\textbf{\large{rqrmpten}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Description & \textit{tendency of rain mixing ratio due to cloud microphysics} \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
+Accessed in code & as \bsq{rqrmpten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4280,6 +5701,18 @@ Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of snow mixing ratio due to cumulus convection} \\ \hline
 Allocated by & cu\_kain\_fritsch\_in \\ \hline
 Accessed in code & as \bsq{rqscuten} from the \bsq{tend\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{rqsmpten}
+\noindent\textbf{\large{rqsmpten}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Description & \textit{tendency of snow mixing ratio due to cloud microphysics} \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
+Accessed in code & as \bsq{rqsmpten} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4321,6 +5754,18 @@ Accessed in code & as \bsq{rqvdynten} from the \bsq{tend\_physics} pool \\ \hlin
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{rqvmpten}
+\noindent\textbf{\large{rqvmpten}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg kg\textsuperscript{-1} s\textsuperscript{-1}} \\ \hline
+Description & \textit{tendency of water vapor mixing ratio due to cloud microphysics} \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
+Accessed in code & as \bsq{rqvmpten} from the \bsq{tend\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{rre_cloud}
 \noindent\textbf{\large{rre\_cloud}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -4349,6 +5794,39 @@ Accessed in code & as \bsq{rre\_ice} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{microns} \\ \hline
 Description & \textit{effective radius of snow crystals calculated in RRTMG radiation} \\ \hline
 Accessed in code & as \bsq{rre\_snow} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{rs}
+\noindent\textbf{\large{rs}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{s m\textsuperscript{-1}} \\ \hline
+Description & \textit{total stomatal resistance} \\ \hline
+Accessed in code & as \bsq{rs} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{rsshaxy}
+\noindent\textbf{\large{rsshaxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{s m\textsuperscript{-1}} \\ \hline
+Description & \textit{shaded stomatal resistance} \\ \hline
+Accessed in code & as \bsq{rsshaxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{rssunxy}
+\noindent\textbf{\large{rssunxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{s m\textsuperscript{-1}} \\ \hline
+Description & \textit{sunlit stomatal resistance} \\ \hline
+Accessed in code & as \bsq{rssunxy} from the \bsq{output\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4455,6 +5933,18 @@ Accessed in code & as \bsq{rtheta\_pp\_old} from the \bsq{diag} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{rthmpten}
+\noindent\textbf{\large{rthmpten}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K s\textsuperscript{-1}} \\ \hline
+Description & \textit{tendency of potential temperature due to cloud microphysics} \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
+Accessed in code & as \bsq{rthmpten} from the \bsq{tend\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{rthratenlw}
 \noindent\textbf{\large{rthratenlw}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -4472,6 +5962,17 @@ Accessed in code & as \bsq{rthratenlw} from the \bsq{tend\_physics} pool \\ \hli
 Units & \textit{K s\textsuperscript{-1}} \\ \hline
 Description & \textit{tendency of potential temperature due to short wave radiation} \\ \hline
 Accessed in code & as \bsq{rthratensw} from the \bsq{tend\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{rtmassxy}
+\noindent\textbf{\large{rtmassxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{g m\textsuperscript{-2}} \\ \hline
+Description & \textit{mass of fine roots} \\ \hline
+Accessed in code & as \bsq{rtmassxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4589,6 +6090,28 @@ Accessed in code & as \bsq{rucuten\_Edge} from the \bsq{tend\_physics} pool \\ \
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{runsbxy}
+\noindent\textbf{\large{runsbxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{sub-surface runoff} \\ \hline
+Accessed in code & as \bsq{runsbxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{runsfxy}
+\noindent\textbf{\large{runsfxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{surface runoff} \\ \hline
+Accessed in code & as \bsq{runsfxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{rv}
 \noindent\textbf{\large{rv}} (real) (nVertLevels, nEdges, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -4668,6 +6191,28 @@ Accessed in code & as \bsq{rw\_save} from the \bsq{diag} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{sagxy}
+\noindent\textbf{\large{sagxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{solar radiation absorbed by ground} \\ \hline
+Accessed in code & as \bsq{sagxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{savxy}
+\noindent\textbf{\large{savxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{solar radiation absorbed by vegetation} \\ \hline
+Accessed in code & as \bsq{savxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{scalars}
 \noindent\textbf{\Large{scalars}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -4698,7 +6243,7 @@ Array Group & moist \\ \hline
 Description & \textit{Cloud water mixing ratio} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_kessler\_in, mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4710,7 +6255,7 @@ Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_kessler\_in, mp\
 Description & \textit{Rain water mixing ratio} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4722,7 +6267,7 @@ Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Description & \textit{Ice mixing ratio} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4734,7 +6279,7 @@ Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_thompson\_in, mp
 Description & \textit{Snow mixing ratio} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & bl\_mynn\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & bl\_mynn\_in, mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4746,7 +6291,7 @@ Allocated by & bl\_mynn\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Description & \textit{Graupel mixing ratio} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4758,7 +6303,7 @@ Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Description & \textit{Cloud ice number concentration} \\ \hline
 Units & \textit{nb kg\textsuperscript{-1}} \\ \hline
 Array Group & number \\ \hline
-Allocated by & bl\_mynn\_in, mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, mp\_thompson\_in, mp\_thompson\_aers\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4770,7 +6315,43 @@ Allocated by & bl\_mynn\_in, mp\_thompson\_in \\ \hline
 Description & \textit{Rain number concentration} \\ \hline
 Units & \textit{nb kg\textsuperscript{-1}} \\ \hline
 Array Group & number \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\hspace{.1\textwidth}\noindent\begin{minipage}{.9\textwidth}
+\hypertarget{nc}
+\noindent\textbf{\normalsize{nc}} --- \textit{constituent field of var\_array \textbf{scalars}}  \\ 
+\begin{tabular}{|p{.25\textwidth-.5\tabcolsep} |p{.65\textwidth-1.3\tabcolsep} |} \hline
+Description & \textit{Cloud water number concentration} \\ \hline
+Units & \textit{nb kg\textsuperscript{-1}} \\ \hline
+Array Group & number \\ \hline
+Allocated by & bl\_mynn\_in, mp\_thompson\_aers\_in \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\hspace{.1\textwidth}\noindent\begin{minipage}{.9\textwidth}
+\hypertarget{nifa}
+\noindent\textbf{\normalsize{nifa}} --- \textit{constituent field of var\_array \textbf{scalars}}  \\ 
+\begin{tabular}{|p{.25\textwidth-.5\tabcolsep} |p{.65\textwidth-1.3\tabcolsep} |} \hline
+Description & \textit{Ice-friendly aerosol number concentration} \\ \hline
+Units & \textit{nb kg\textsuperscript{-1}} \\ \hline
+Array Group & number \\ \hline
+Allocated by & mp\_thompson\_aers\_in \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\hspace{.1\textwidth}\noindent\begin{minipage}{.9\textwidth}
+\hypertarget{nwfa}
+\noindent\textbf{\normalsize{nwfa}} --- \textit{constituent field of var\_array \textbf{scalars}}  \\ 
+\begin{tabular}{|p{.25\textwidth-.5\tabcolsep} |p{.65\textwidth-1.3\tabcolsep} |} \hline
+Description & \textit{Water-friendly aerosol number concentration} \\ \hline
+Units & \textit{nb kg\textsuperscript{-1}} \\ \hline
+Array Group & number \\ \hline
+Allocated by & mp\_thompson\_aers\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4806,7 +6387,7 @@ Array Group & moist \\ \hline
 Description & \textit{Cloud water mixing ratio increment} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_kessler\_in, mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4818,7 +6399,7 @@ Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_kessler\_in, mp\
 Description & \textit{Rain water mixing ratio increment} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4830,7 +6411,7 @@ Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Description & \textit{Ice mixing ratio increment} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4842,7 +6423,7 @@ Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_thompson\_in, mp
 Description & \textit{Snow mixing ratio increment} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4854,7 +6435,7 @@ Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Description & \textit{Graupel mixing ratio increment} \\ \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4890,7 +6471,7 @@ Array Group & moist \\ \hline
 Description & \textit{Tendency of cloud water mass per unit volume divided by d(zeta)/dz} \\ \hline
 Units & \textit{kg m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_kessler\_in, mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4902,7 +6483,7 @@ Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_kessler\_in, mp\
 Description & \textit{Tendency of rain water mass per unit volume divided by d(zeta)/dz} \\ \hline
 Units & \textit{kg m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4914,7 +6495,7 @@ Allocated by & mp\_kessler\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Description & \textit{Tendency of ice mass per unit volume divided by d(zeta)/dz} \\ \hline
 Units & \textit{kg m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4926,7 +6507,7 @@ Allocated by & bl\_mynn\_in, bl\_ysu\_in, cu\_ntiedtke\_in, mp\_thompson\_in, mp
 Description & \textit{Tendency of snow mass per unit volume divided by d(zeta)/dz} \\ \hline
 Units & \textit{kg m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & bl\_mynn\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & bl\_mynn\_in, mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4938,7 +6519,7 @@ Allocated by & bl\_mynn\_in, mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Description & \textit{Tendency of graupel mass per unit volume divided by d(zeta)/dz} \\ \hline
 Units & \textit{kg m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
 Array Group & moist \\ \hline
-Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4950,7 +6531,7 @@ Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
 Description & \textit{Tendency of cloud ice number concentration multiplied by dry air density divided by d(zeta)/dz} \\ \hline
 Units & \textit{nb m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
 Array Group & number \\ \hline
-Allocated by & bl\_mynn\_in, mp\_thompson\_in \\ \hline
+Allocated by & bl\_mynn\_in, mp\_thompson\_in, mp\_thompson\_aers\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4962,7 +6543,43 @@ Allocated by & bl\_mynn\_in, mp\_thompson\_in \\ \hline
 Description & \textit{Tendency of rain number concentration multiplied by dry air density divided by d(zeta)/dz} \\ \hline
 Units & \textit{nb m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
 Array Group & number \\ \hline
-Allocated by & mp\_thompson\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\hspace{.1\textwidth}\noindent\begin{minipage}{.9\textwidth}
+\hypertarget{tend_nc}
+\noindent\textbf{\normalsize{tend\_nc}} --- \textit{constituent field of var\_array \textbf{scalars\_tend}}  \\ 
+\begin{tabular}{|p{.25\textwidth-.5\tabcolsep} |p{.65\textwidth-1.3\tabcolsep} |} \hline
+Description & \textit{Tendency of cloud water number concentration multiplied by dry air density divided by d(zeta)/dz} \\ \hline
+Units & \textit{nb m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
+Array Group & number \\ \hline
+Allocated by & bl\_mynn\_in, mp\_thompson\_aers\_in \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\hspace{.1\textwidth}\noindent\begin{minipage}{.9\textwidth}
+\hypertarget{tend_nifa}
+\noindent\textbf{\normalsize{tend\_nifa}} --- \textit{constituent field of var\_array \textbf{scalars\_tend}}  \\ 
+\begin{tabular}{|p{.25\textwidth-.5\tabcolsep} |p{.65\textwidth-1.3\tabcolsep} |} \hline
+Description & \textit{Tendency of ice-friendly aerosol number concentration multiplied by dry air density divided by d(zeta)/dz} \\ \hline
+Units & \textit{nb m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
+Array Group & number \\ \hline
+Allocated by & mp\_thompson\_aers\_in \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\hspace{.1\textwidth}\noindent\begin{minipage}{.9\textwidth}
+\hypertarget{tend_nwfa}
+\noindent\textbf{\normalsize{tend\_nwfa}} --- \textit{constituent field of var\_array \textbf{scalars\_tend}}  \\ 
+\begin{tabular}{|p{.25\textwidth-.5\tabcolsep} |p{.65\textwidth-1.3\tabcolsep} |} \hline
+Description & \textit{Tendency of water-friendly aerosol number concentration multiplied by dry air density divided by d(zeta)/dz} \\ \hline
+Units & \textit{nb m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
+Array Group & number \\ \hline
+Allocated by & mp\_thompson\_aers\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -5068,6 +6685,28 @@ Accessed in code & as \bsq{sh3d} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{shbxy}
+\noindent\textbf{\large{shbxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{sensible heat flux: bare ground to atmosphere} \\ \hline
+Accessed in code & as \bsq{shbxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{shcxy}
+\noindent\textbf{\large{shcxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{sensible heat flux: leaf to canopy} \\ \hline
+Accessed in code & as \bsq{shcxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{shdmax}
 \noindent\textbf{\large{shdmax}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -5085,6 +6724,28 @@ Accessed in code & as \bsq{shdmax} from the \bsq{sfc\_input} pool \\ \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{minimum fractional coverage of annual green vegetation fraction} \\ \hline
 Accessed in code & as \bsq{shdmin} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{shgxy}
+\noindent\textbf{\large{shgxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{W m\textsuperscript{-2}} \\ \hline
+Description & \textit{sensible heat flux: ground to canopy} \\ \hline
+Accessed in code & as \bsq{shgxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{sifract}
+\noindent\textbf{\large{sifract}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{sprinkler irrigation fraction} \\ \hline
+Accessed in code & as \bsq{sifract} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -5157,6 +6818,39 @@ Accessed in code & as \bsq{smstot} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{sneqvoxy}
+\noindent\textbf{\large{sneqvoxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{snow mass at last time step} \\ \hline
+Accessed in code & as \bsq{sneqvoxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{snicexy}
+\noindent\textbf{\large{snicexy}} (real) (nSnowLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{snow layer ice} \\ \hline
+Accessed in code & as \bsq{snicexy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{snliqxy}
+\noindent\textbf{\large{snliqxy}} (real) (nSnowLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{snow layer liquid} \\ \hline
+Accessed in code & as \bsq{snliqxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{snoalb}
 \noindent\textbf{\large{snoalb}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -5212,6 +6906,17 @@ Accessed in code & as \bsq{snowc} from the \bsq{sfc\_input} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{snowenergy}
+\noindent\textbf{\large{snowenergy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kJ m\textsuperscript{-2}} \\ \hline
+Description & \textit{energy content in snow relative to 273.16} \\ \hline
+Accessed in code & as \bsq{snowenergy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{snowh}
 \noindent\textbf{\large{snowh}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -5223,12 +6928,23 @@ Accessed in code & as \bsq{snowh} from the \bsq{sfc\_input} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{snowlsm}
+\noindent\textbf{\large{snowlsm}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{accumulated frozen precipitation into LSM} \\ \hline
+Accessed in code & as \bsq{snowlsm} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{snownc}
 \noindent\textbf{\large{snownc}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{mm} \\ \hline
 Description & \textit{accumulated grid-scale precipitation of snow} \\ \hline
-Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{snownc} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -5240,8 +6956,79 @@ Accessed in code & as \bsq{snownc} from the \bsq{diag\_physics} pool \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{mm} \\ \hline
 Description & \textit{time-step grid-scale precipitation of snow} \\ \hline
-Allocated by & mp\_thompson\_in, mp\_wsm6\_in \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
 Accessed in code & as \bsq{snowncv} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{soilcl1}
+\noindent\textbf{\large{soilcl1}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{soil texture class level 1 needed as input for the NOAH-MP land surface model} \\ \hline
+Allocated by & sf\_noahmp\_in \\ \hline
+Accessed in code & as \bsq{soilcl1} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{soilcl2}
+\noindent\textbf{\large{soilcl2}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{soil texture class level 2 needed as input for the NOAH-MP land surface model} \\ \hline
+Allocated by & sf\_noahmp\_in \\ \hline
+Accessed in code & as \bsq{soilcl2} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{soilcl3}
+\noindent\textbf{\large{soilcl3}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{soil texture class level 3 needed as input for the NOAH-MP land surface model} \\ \hline
+Allocated by & sf\_noahmp\_in \\ \hline
+Accessed in code & as \bsq{soilcl3} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{soilcl4}
+\noindent\textbf{\large{soilcl4}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{soil texture class level 4 needed as input for the NOAH-MP land surface model} \\ \hline
+Allocated by & sf\_noahmp\_in \\ \hline
+Accessed in code & as \bsq{soilcl4} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{soilcomp}
+\noindent\textbf{\large{soilcomp}} (real) (nSoilComps, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{soil composition needed as input in the NOAH-MP land surface model} \\ \hline
+Allocated by & sf\_noahmp\_in \\ \hline
+Accessed in code & as \bsq{soilcomp} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{soilenergy}
+\noindent\textbf{\large{soilenergy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kJ m\textsuperscript{-2}} \\ \hline
+Description & \textit{energy content in soil relative to 273.16} \\ \hline
+Accessed in code & as \bsq{soilenergy} from the \bsq{output\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -5367,6 +7154,40 @@ Accessed in code & as \bsq{sstsk\_dtc} from the \bsq{diag\_physics} pool \\ \hli
 Units & \textit{K} \\ \hline
 Description & \textit{skin sea-surface temperature warming} \\ \hline
 Accessed in code & as \bsq{sstsk\_dtw} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{stblcpxy}
+\noindent\textbf{\large{stblcpxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{g m\textsuperscript{-2}} \\ \hline
+Description & \textit{stable carbon pool} \\ \hline
+Accessed in code & as \bsq{stblcpxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{stmassxy}
+\noindent\textbf{\large{stmassxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{g m\textsuperscript{-2}} \\ \hline
+Description & \textit{stem mass} \\ \hline
+Accessed in code & as \bsq{stmassxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{stream_function}
+\noindent\textbf{\large{stream\_function}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m\textsuperscript2 s\textsuperscript{-1}} \\ \hline
+Description & \textit{Stream function} \\ \hline
+Allocated by & jedi\_da \\ \hline
+Accessed in code & as \bsq{stream\_function} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -5602,6 +7423,28 @@ Accessed in code & as \bsq{t2m} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{t2mbxy}
+\noindent\textbf{\large{t2mbxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{2-meter temperature over bare ground} \\ \hline
+Accessed in code & as \bsq{t2mbxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{t2mvxy}
+\noindent\textbf{\large{t2mvxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{2-meter temperature over canopy} \\ \hline
+Accessed in code & as \bsq{t2mvxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{t_init}
 \noindent\textbf{\large{t\_init}} (real) (nVertLevels, nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -5663,6 +7506,52 @@ Accessed in code & as \bsq{t\_oml\_200m\_initial} from the \bsq{diag\_physics} p
 Units & \textit{K} \\ \hline
 Description & \textit{ocean mixed layer temperature at initial time} \\ \hline
 Accessed in code & as \bsq{t\_oml\_initial} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{tahxy}
+\noindent\textbf{\large{tahxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{canopy air temperature} \\ \hline
+Accessed in code & as \bsq{tahxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{taod5502d}
+\noindent\textbf{\large{taod5502d}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{total aerosol optical depth at 550 nm from the Thompson cloud microphysics} \\ \hline
+Allocated by & mp\_thompson\_aers\_in \\ \hline
+Accessed in code & as \bsq{taod5502d} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{taod5503d}
+\noindent\textbf{\large{taod5503d}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{aerosol optical depth at 550 nm from the Thompson cloud microphysics} \\ \hline
+Allocated by & mp\_thompson\_aers\_in \\ \hline
+Accessed in code & as \bsq{taod5503d} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{taussxy}
+\noindent\textbf{\large{taussxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{non-dimensional snow age} \\ \hline
+Accessed in code & as \bsq{taussxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -5789,10 +7678,19 @@ Accessed in code & as \bsq{temperature\_surface} from the \bsq{diag} pool \\ \hl
 \end{minipage}
 
 \vspace{10mm}
+\noindent\hyperlink{scalars_tend}{\color{red}{\textbf{\large{tend\_nc}} --- \textit{see \bsq{scalars\_tend}}}}
+
+\vspace{10mm}
 \noindent\hyperlink{scalars_tend}{\color{red}{\textbf{\large{tend\_ni}} --- \textit{see \bsq{scalars\_tend}}}}
 
 \vspace{10mm}
+\noindent\hyperlink{scalars_tend}{\color{red}{\textbf{\large{tend\_nifa}} --- \textit{see \bsq{scalars\_tend}}}}
+
+\vspace{10mm}
 \noindent\hyperlink{scalars_tend}{\color{red}{\textbf{\large{tend\_nr}} --- \textit{see \bsq{scalars\_tend}}}}
+
+\vspace{10mm}
+\noindent\hyperlink{scalars_tend}{\color{red}{\textbf{\large{tend\_nwfa}} --- \textit{see \bsq{scalars\_tend}}}}
 
 \vspace{10mm}
 \noindent\hyperlink{scalars_tend}{\color{red}{\textbf{\large{tend\_qc}} --- \textit{see \bsq{scalars\_tend}}}}
@@ -5968,6 +7866,39 @@ Accessed in code & as \bsq{ter} from the \bsq{sfc\_input} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{tgbxy}
+\noindent\textbf{\large{tgbxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{bare ground temperature} \\ \hline
+Accessed in code & as \bsq{tgbxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{tgvxy}
+\noindent\textbf{\large{tgvxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{ground temperature under canopy} \\ \hline
+Accessed in code & as \bsq{tgvxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{tgxy}
+\noindent\textbf{\large{tgxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{bulk ground temperature} \\ \hline
+Accessed in code & as \bsq{tgxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{th2m}
 \noindent\textbf{\large{th2m}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -6091,12 +8022,45 @@ Accessed in code & as \bsq{tmn} from the \bsq{sfc\_input} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{tradxy}
+\noindent\textbf{\large{tradxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{surface radiative temperature} \\ \hline
+Accessed in code & as \bsq{tradxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{trxy}
+\noindent\textbf{\large{trxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm s\textsuperscript{-1}} \\ \hline
+Description & \textit{canopy rain interception ratio} \\ \hline
+Accessed in code & as \bsq{trxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{tslb}
 \noindent\textbf{\large{tslb}} (real) (nSoilLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{K} \\ \hline
 Description & \textit{soil layer temperature} \\ \hline
 Accessed in code & as \bsq{tslb} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{tsnoxy}
+\noindent\textbf{\large{tsnoxy}} (real) (nSnowLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{snow temperature} \\ \hline
+Accessed in code & as \bsq{tsnoxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -6109,6 +8073,17 @@ Units & \textit{K\textsuperscript{2}} \\ \hline
 Description & \textit{liquid water potential temperature variance} \\ \hline
 Allocated by & bl\_mynn\_in \\ \hline
 Accessed in code & as \bsq{tsq} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{tvxy}
+\noindent\textbf{\large{tvxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{vegetation leaf temperature} \\ \hline
+Accessed in code & as \bsq{tvxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -6602,6 +8577,18 @@ Accessed in code & as \bsq{vegfra} from the \bsq{sfc\_input} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{velocity_potential}
+\noindent\textbf{\large{velocity\_potential}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m\textsuperscript2 s\textsuperscript{-1}} \\ \hline
+Description & \textit{Velocity potential} \\ \hline
+Allocated by & jedi\_da \\ \hline
+Accessed in code & as \bsq{velocity\_potential} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{verticesOnCell}
 \noindent\textbf{\large{verticesOnCell}} (integer) (maxEdges, nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -6859,6 +8846,17 @@ Accessed in code & as \bsq{w\_velocity\_max} from the \bsq{diag} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{waxy}
+\noindent\textbf{\large{waxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{water in the acquifer} \\ \hline
+Accessed in code & as \bsq{waxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{weightsOnEdge}
 \noindent\textbf{\large{weightsOnEdge}} (real) (maxEdges2, nEdges) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -6870,12 +8868,45 @@ Accessed in code & as \bsq{weightsOnEdge} from the \bsq{mesh} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{wgapxy}
+\noindent\textbf{\large{wgapxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{within canopy gap} \\ \hline
+Accessed in code & as \bsq{wgapxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{wind_speed_level1_max}
 \noindent\textbf{\large{wind\_speed\_level1\_max}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m s\textsuperscript{-1}} \\ \hline
 Description & \textit{Maximum wind speed in lowest model level since last output} \\ \hline
 Accessed in code & as \bsq{wind\_speed\_level1\_max} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{woodxy}
+\noindent\textbf{\large{woodxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{g m\textsuperscript{-2}} \\ \hline
+Description & \textit{mass of wood} \\ \hline
+Accessed in code & as \bsq{woodxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{wslakexy}
+\noindent\textbf{\large{wslakexy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{lake water storage} \\ \hline
+Accessed in code & as \bsq{wslakexy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -6900,6 +8931,17 @@ Units & \textit{m s\textsuperscript{-1}} \\ \hline
 Description & \textit{mixed velocity scale from PBL scheme} \\ \hline
 Allocated by & bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{wstar} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{wtxy}
+\noindent\textbf{\large{wtxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{mm} \\ \hline
+Description & \textit{groundwater storage} \\ \hline
+Accessed in code & as \bsq{wtxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -7001,6 +9043,17 @@ Units & \textit{kg m\textsuperscript{-2} s\textsuperscript{-1}} \\ \hline
 Description & \textit{cloud-base mass flux} \\ \hline
 Allocated by & cu\_grell\_freitas\_in \\ \hline
 Accessed in code & as \bsq{xmb\_total} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{xsaixy}
+\noindent\textbf{\large{xsaixy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{stem area index} \\ \hline
+Accessed in code & as \bsq{xsaixy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -7205,12 +9258,34 @@ Accessed in code & as \bsq{zs} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{zsnsoxy}
+\noindent\textbf{\large{zsnsoxy}} (real) (nzSnowLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{layer-bottom depth from snow surf} \\ \hline
+Accessed in code & as \bsq{zsnsoxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{zVertex}
 \noindent\textbf{\large{zVertex}} (real) (nVertices) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m} \\ \hline
 Description & \textit{Cartesian z-coordinate of vertices} \\ \hline
 Accessed in code & as \bsq{zVertex} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{zwtxy}
+\noindent\textbf{\large{zwtxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{water table depth} \\ \hline
+Accessed in code & as \bsq{zwtxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
