@@ -6,7 +6,7 @@ Every field that may be read or written in a NetCDF {\em stream} (as described i
 \renewcommand{\arraystretch}{1.5}
 \def\bsq#1{\lq{#1}\rq}
 \phantomsection
-\addcontentsline{toc}{section}{Fields A--F}
+\addcontentsline{toc}{section}{Fields A--E}
 
 
 \vspace{10mm}
@@ -17,6 +17,18 @@ Every field that may be read or written in a NetCDF {\em stream} (as described i
 Units & \textit{unitless} \\ \hline
 Description & \textit{implicit tridiagonal solve coefficients} \\ \hline
 Accessed in code & as \bsq{a\_tri} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{ABSMF}
+\noindent\textbf{\large{ABSMF}} (real) (lat, days) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{Pa} \\ \hline
+Description & \textit{gravity wave absolute momentum flux from NGW file} \\ \hline
+Allocated by & ugwp\_ngw\_stream \\ \hline
+Accessed in code & as \bsq{ABSMF} from the \bsq{ngw\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -621,7 +633,7 @@ Array Group & aer\_cam \\ \hline
 \hypertarget{albedo12m}
 \noindent\textbf{\large{albedo12m}} (real) (nMonths, nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{unitless} \\ \hline
+Units & \textit{percent} \\ \hline
 Description & \textit{monthly-mean climatological surface albedo} \\ \hline
 Accessed in code & as \bsq{albedo12m} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 
@@ -755,6 +767,18 @@ Units & \textit{unitless} \\ \hline
 Description & \textit{Richardson number} \\ \hline
 Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{br} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{brtemp}
+\noindent\textbf{\large{brtemp}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{brightness temperature to calculate cloud top height; usually from geostationary IR window channel} \\ \hline
+Allocated by & jedi\_da \\ \hline
+Accessed in code & as \bsq{brtemp} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1153,6 +1177,18 @@ Accessed in code & as \bsq{cldfrac\_tot\_UPP} from the \bsq{diag} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{cldmask}
+\noindent\textbf{\large{cldmask}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{cloud mask (1=cloudy ; 0=clear)} \\ \hline
+Allocated by & jedi\_da \\ \hline
+Accessed in code & as \bsq{cldmask} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{cmxy}
 \noindent\textbf{\large{cmxy}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -1236,6 +1272,30 @@ Accessed in code & as \bsq{cofwz} from the \bsq{diag} pool \\ \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{orographic convexity} \\ \hline
 Accessed in code & as \bsq{con} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{conls}
+\noindent\textbf{\large{conls}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{orographic convexity (meso-scale GWD)} \\ \hline
+Allocated by & ugwp\_orog\_stream \\ \hline
+Accessed in code & as \bsq{conls} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{conss}
+\noindent\textbf{\large{conss}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{orographic convexity (small-scale GWD)} \\ \hline
+Allocated by & ugwp\_orog\_stream \\ \hline
+Accessed in code & as \bsq{conss} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1346,12 +1406,48 @@ Accessed in code & as \bsq{cutop} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{DAYS}
+\noindent\textbf{\large{DAYS}} (real) (days) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{day of year in the input ugwp\_limb\_tau NGW file} \\ \hline
+Allocated by & ugwp\_ngw\_stream \\ \hline
+Accessed in code & as \bsq{DAYS} from the \bsq{ngw\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{dcEdge}
 \noindent\textbf{\large{dcEdge}} (real) (nEdges) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m} \\ \hline
 Description & \textit{Spherical distance between cells separated by an edge} \\ \hline
 Accessed in code & as \bsq{dcEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{ddy_j1tau}
+\noindent\textbf{\large{ddy\_j1tau}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{latitude interpolation weight complement for absolute momentum flux due to nonorographic gravity wave drag} \\ \hline
+Allocated by & ugwp\_ngw\_stream \\ \hline
+Accessed in code & as \bsq{ddy\_j1tau} from the \bsq{ngw\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{ddy_j2tau}
+\noindent\textbf{\large{ddy\_j2tau}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{latitude interpolation weight for absolute momentum flux due to nonorographic gravity wave drag} \\ \hline
+Allocated by & ugwp\_ngw\_stream \\ \hline
+Accessed in code & as \bsq{ddy\_j2tau} from the \bsq{ngw\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1691,12 +1787,120 @@ Accessed in code & as \bsq{dtaux3d} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{dtaux3d_bl}
+\noindent\textbf{\large{dtaux3d\_bl}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-2}} \\ \hline
+Description & \textit{orog blocking drag u-tendency} \\ \hline
+Allocated by & ugwp\_diags\_stream \\ \hline
+Accessed in code & as \bsq{dtaux3d\_bl} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dtaux3d_fd}
+\noindent\textbf{\large{dtaux3d\_fd}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-2}} \\ \hline
+Description & \textit{turb orog form drag u-tendency} \\ \hline
+Allocated by & ugwp\_diags\_stream \\ \hline
+Accessed in code & as \bsq{dtaux3d\_fd} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dtaux3d_ls}
+\noindent\textbf{\large{dtaux3d\_ls}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-2}} \\ \hline
+Description & \textit{mesoscale orog gravity wave drag u-tendency} \\ \hline
+Allocated by & ugwp\_diags\_stream \\ \hline
+Accessed in code & as \bsq{dtaux3d\_ls} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dtaux3d_ss}
+\noindent\textbf{\large{dtaux3d\_ss}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-2}} \\ \hline
+Description & \textit{small-scale orog gravity wave drag u-tendency} \\ \hline
+Allocated by & ugwp\_diags\_stream \\ \hline
+Accessed in code & as \bsq{dtaux3d\_ss} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{dtauy3d}
 \noindent\textbf{\large{dtauy3d}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m s\textsuperscript{-1}} \\ \hline
 Description & \textit{gravity wave drag over orography v-stress} \\ \hline
 Accessed in code & as \bsq{dtauy3d} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dtauy3d_bl}
+\noindent\textbf{\large{dtauy3d\_bl}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-2}} \\ \hline
+Description & \textit{orog blocking drag v-tendency} \\ \hline
+Allocated by & ugwp\_diags\_stream \\ \hline
+Accessed in code & as \bsq{dtauy3d\_bl} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dtauy3d_fd}
+\noindent\textbf{\large{dtauy3d\_fd}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-2}} \\ \hline
+Description & \textit{turb orog form drag v-tendency} \\ \hline
+Allocated by & ugwp\_diags\_stream \\ \hline
+Accessed in code & as \bsq{dtauy3d\_fd} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dtauy3d_ls}
+\noindent\textbf{\large{dtauy3d\_ls}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-2}} \\ \hline
+Description & \textit{mesoscale orog gravity wave drag v-tendency} \\ \hline
+Allocated by & ugwp\_diags\_stream \\ \hline
+Accessed in code & as \bsq{dtauy3d\_ls} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dtauy3d_ss}
+\noindent\textbf{\large{dtauy3d\_ss}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-2}} \\ \hline
+Description & \textit{small-scale orog gravity wave drag v-tendency} \\ \hline
+Allocated by & ugwp\_diags\_stream \\ \hline
+Accessed in code & as \bsq{dtauy3d\_ss} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dtdt_ngw}
+\noindent\textbf{\large{dtdt\_ngw}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K s\textsuperscript{-1}} \\ \hline
+Description & \textit{temperature tendency due to non-stationary gravity wave drag} \\ \hline
+Allocated by & ugwp\_ngw\_stream, ugwp\_diags\_stream \\ \hline
+Accessed in code & as \bsq{dtdt\_ngw} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1719,6 +1923,66 @@ Accessed in code & as \bsq{dtheta\_dt\_mix} from the \bsq{diag} pool \\ \hline
 Units & \textit{K s\textsuperscript{-1}} \\ \hline
 Description & \textit{Potential temperature heating rate from microphysics} \\ \hline
 Accessed in code & as \bsq{dtheta\_dt\_mp} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dudt_ngw}
+\noindent\textbf{\large{dudt\_ngw}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-2}} \\ \hline
+Description & \textit{u-momentum tendency due to non-stationary gravity wave drag} \\ \hline
+Allocated by & ugwp\_ngw\_stream, ugwp\_diags\_stream \\ \hline
+Accessed in code & as \bsq{dudt\_ngw} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dusfc_bl}
+\noindent\textbf{\large{dusfc\_bl}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{Pa} \\ \hline
+Description & \textit{vertically-integrated orog blocking drag u-stress} \\ \hline
+Allocated by & ugwp\_diags\_stream \\ \hline
+Accessed in code & as \bsq{dusfc\_bl} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dusfc_fd}
+\noindent\textbf{\large{dusfc\_fd}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{Pa} \\ \hline
+Description & \textit{vertically-integrated turb orog form drag u-stress} \\ \hline
+Allocated by & ugwp\_diags\_stream \\ \hline
+Accessed in code & as \bsq{dusfc\_fd} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dusfc_ls}
+\noindent\textbf{\large{dusfc\_ls}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{Pa} \\ \hline
+Description & \textit{vertically-integrated mesoscale orog gravity wave drag u-stress} \\ \hline
+Allocated by & ugwp\_diags\_stream \\ \hline
+Accessed in code & as \bsq{dusfc\_ls} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dusfc_ss}
+\noindent\textbf{\large{dusfc\_ss}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{Pa} \\ \hline
+Description & \textit{vertically-integrated small-scale orog gravity wave drag u-stress} \\ \hline
+Allocated by & ugwp\_diags\_stream \\ \hline
+Accessed in code & as \bsq{dusfc\_ss} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1747,12 +2011,72 @@ Accessed in code & as \bsq{dusfcg} from the \bsq{diag\_physics} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{dvdt_ngw}
+\noindent\textbf{\large{dvdt\_ngw}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m s\textsuperscript{-2}} \\ \hline
+Description & \textit{v-momentum tendency due to non-stationary gravity wave drag} \\ \hline
+Allocated by & ugwp\_ngw\_stream, ugwp\_diags\_stream \\ \hline
+Accessed in code & as \bsq{dvdt\_ngw} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{dvEdge}
 \noindent\textbf{\large{dvEdge}} (real) (nEdges) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m} \\ \hline
 Description & \textit{Spherical distance between vertex endpoints of an edge} \\ \hline
 Accessed in code & as \bsq{dvEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dvsfc_bl}
+\noindent\textbf{\large{dvsfc\_bl}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{Pa} \\ \hline
+Description & \textit{vertically-integrated orog blocking drag v-stress} \\ \hline
+Allocated by & ugwp\_diags\_stream \\ \hline
+Accessed in code & as \bsq{dvsfc\_bl} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dvsfc_fd}
+\noindent\textbf{\large{dvsfc\_fd}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{Pa} \\ \hline
+Description & \textit{vertically-integrated turb orog form drag v-stress} \\ \hline
+Allocated by & ugwp\_diags\_stream \\ \hline
+Accessed in code & as \bsq{dvsfc\_fd} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dvsfc_ls}
+\noindent\textbf{\large{dvsfc\_ls}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{Pa} \\ \hline
+Description & \textit{vertically-integrated mesoscale orog gravity wave drag v-stress} \\ \hline
+Allocated by & ugwp\_diags\_stream \\ \hline
+Accessed in code & as \bsq{dvsfc\_ls} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{dvsfc_ss}
+\noindent\textbf{\large{dvsfc\_ss}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{Pa} \\ \hline
+Description & \textit{vertically-integrated small-scale orog gravity wave drag v-stress} \\ \hline
+Allocated by & ugwp\_diags\_stream \\ \hline
+Accessed in code & as \bsq{dvsfc\_ss} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -2139,6 +2463,10 @@ Accessed in code & as \bsq{exner\_base} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
+\phantomsection
+\addcontentsline{toc}{section}{Fields F--O}
+
+
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
 \hypertarget{fastcpxy}
@@ -2363,10 +2691,6 @@ Accessed in code & as \bsq{fzp} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
-\phantomsection
-\addcontentsline{toc}{section}{Fields G--P}
-
-
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
 \hypertarget{gamma_tri}
@@ -2517,8 +2841,8 @@ Accessed in code & as \bsq{grdflx} from the \bsq{diag\_physics} pool \\ \hline
 \hypertarget{greenfrac}
 \noindent\textbf{\large{greenfrac}} (real) (nMonths, nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{unitless} \\ \hline
-Description & \textit{monthly-mean climatological greeness fraction} \\ \hline
+Units & \textit{percent} \\ \hline
+Description & \textit{monthly-mean climatological greenness fraction} \\ \hline
 Accessed in code & as \bsq{greenfrac} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
@@ -3245,6 +3569,30 @@ Accessed in code & as \bsq{ivgtyp} from the \bsq{sfc\_input} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{jindx1_tau}
+\noindent\textbf{\large{jindx1\_tau}} (integer) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{lower latitude index of absolute momentum flux due to nonorographic gravity wave drag for interpolation} \\ \hline
+Allocated by & ugwp\_ngw\_stream \\ \hline
+Accessed in code & as \bsq{jindx1\_tau} from the \bsq{ngw\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{jindx2_tau}
+\noindent\textbf{\large{jindx2\_tau}} (integer) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{upper latitude index of absolute momentum flux due to nonorographic gravity wave drag for interpolation} \\ \hline
+Allocated by & ugwp\_ngw\_stream \\ \hline
+Accessed in code & as \bsq{jindx2\_tau} from the \bsq{ngw\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{k22_shallow}
 \noindent\textbf{\large{k22\_shallow}} (integer) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -3424,6 +3772,18 @@ Accessed in code & as \bsq{latCell} from the \bsq{mesh} pool \\ \hline
 Units & \textit{rad} \\ \hline
 Description & \textit{Latitude of edges} \\ \hline
 Accessed in code & as \bsq{latEdge} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{LATS}
+\noindent\textbf{\large{LATS}} (real) (lat) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{degrees} \\ \hline
+Description & \textit{latitude in the input ugwp\_limb\_tau NGW file} \\ \hline
+Allocated by & ugwp\_ngw\_stream \\ \hline
+Accessed in code & as \bsq{LATS} from the \bsq{ngw\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4289,12 +4649,60 @@ Accessed in code & as \bsq{oa1} from the \bsq{sfc\_input} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{oa1ls}
+\noindent\textbf{\large{oa1ls}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{asymmetry of subgrid-scale orography for westerly flow (meso-scale GWD)} \\ \hline
+Allocated by & ugwp\_orog\_stream \\ \hline
+Accessed in code & as \bsq{oa1ls} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{oa1ss}
+\noindent\textbf{\large{oa1ss}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{asymmetry of subgrid-scale orography for westerly flow (small-scale GWD)} \\ \hline
+Allocated by & ugwp\_orog\_stream \\ \hline
+Accessed in code & as \bsq{oa1ss} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{oa2}
 \noindent\textbf{\large{oa2}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{asymmetry of subgrid-scale orography for southerly flow} \\ \hline
 Accessed in code & as \bsq{oa2} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{oa2ls}
+\noindent\textbf{\large{oa2ls}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{asymmetry of subgrid-scale orography for southerly flow (meso-scale GWD)} \\ \hline
+Allocated by & ugwp\_orog\_stream \\ \hline
+Accessed in code & as \bsq{oa2ls} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{oa2ss}
+\noindent\textbf{\large{oa2ss}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{asymmetry of subgrid-scale orography for southerly flow (small-scale GWD)} \\ \hline
+Allocated by & ugwp\_orog\_stream \\ \hline
+Accessed in code & as \bsq{oa2ss} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4311,12 +4719,60 @@ Accessed in code & as \bsq{oa3} from the \bsq{sfc\_input} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{oa3ls}
+\noindent\textbf{\large{oa3ls}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{asymmetry of subgrid-scale orography for south-westerly flow (meso-scale GWD)} \\ \hline
+Allocated by & ugwp\_orog\_stream \\ \hline
+Accessed in code & as \bsq{oa3ls} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{oa3ss}
+\noindent\textbf{\large{oa3ss}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{asymmetry of subgrid-scale orography for south-westerly flow (small-scale GWD)} \\ \hline
+Allocated by & ugwp\_orog\_stream \\ \hline
+Accessed in code & as \bsq{oa3ss} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{oa4}
 \noindent\textbf{\large{oa4}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{asymmetry of subgrid-scale orography for north-westerly flow} \\ \hline
 Accessed in code & as \bsq{oa4} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{oa4ls}
+\noindent\textbf{\large{oa4ls}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{asymmetry of subgrid-scale orography for north-westerly flow (meso-scale GWD)} \\ \hline
+Allocated by & ugwp\_orog\_stream \\ \hline
+Accessed in code & as \bsq{oa4ls} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{oa4ss}
+\noindent\textbf{\large{oa4ss}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{asymmetry of subgrid-scale orography for north-westerly flow (small-scale GWD)} \\ \hline
+Allocated by & ugwp\_orog\_stream \\ \hline
+Accessed in code & as \bsq{oa4ss} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4339,6 +4795,30 @@ Accessed in code & as \bsq{ol1} from the \bsq{sfc\_input} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{ol1ls}
+\noindent\textbf{\large{ol1ls}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{effective orographic length for westerly flow (meso-scale GWD)} \\ \hline
+Allocated by & ugwp\_orog\_stream \\ \hline
+Accessed in code & as \bsq{ol1ls} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{ol1ss}
+\noindent\textbf{\large{ol1ss}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{effective orographic length for westerly flow (small-scale GWD)} \\ \hline
+Allocated by & ugwp\_orog\_stream \\ \hline
+Accessed in code & as \bsq{ol1ss} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{ol2}
 \noindent\textbf{\large{ol2}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -4350,12 +4830,60 @@ Accessed in code & as \bsq{ol2} from the \bsq{sfc\_input} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{ol2ls}
+\noindent\textbf{\large{ol2ls}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{effective orographic length for southerly flow (meso-scale GWD)} \\ \hline
+Allocated by & ugwp\_orog\_stream \\ \hline
+Accessed in code & as \bsq{ol2ls} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{ol2ss}
+\noindent\textbf{\large{ol2ss}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{effective orographic length for southerly flow (small-scale GWD)} \\ \hline
+Allocated by & ugwp\_orog\_stream \\ \hline
+Accessed in code & as \bsq{ol2ss} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{ol3}
 \noindent\textbf{\large{ol3}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{unitles} \\ \hline
+Units & \textit{unitless} \\ \hline
 Description & \textit{effective orographic length for south-westerly flow} \\ \hline
 Accessed in code & as \bsq{ol3} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{ol3ls}
+\noindent\textbf{\large{ol3ls}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{effective orographic length for south-westerly flow (meso-scale GWD)} \\ \hline
+Allocated by & ugwp\_orog\_stream \\ \hline
+Accessed in code & as \bsq{ol3ls} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{ol3ss}
+\noindent\textbf{\large{ol3ss}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{effective orographic length for south-westerly flow (small-scale GWD)} \\ \hline
+Allocated by & ugwp\_orog\_stream \\ \hline
+Accessed in code & as \bsq{ol3ss} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4367,6 +4895,30 @@ Accessed in code & as \bsq{ol3} from the \bsq{sfc\_input} pool \\ \hline
 Units & \textit{unitless} \\ \hline
 Description & \textit{effective orographic length for north-westerly flow} \\ \hline
 Accessed in code & as \bsq{ol4} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{ol4ls}
+\noindent\textbf{\large{ol4ls}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{effective orographic length for north-westerly flow (meso-scale GWD)} \\ \hline
+Allocated by & ugwp\_orog\_stream \\ \hline
+Accessed in code & as \bsq{ol4ls} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{ol4ss}
+\noindent\textbf{\large{ol4ss}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{effective orographic length for north-westerly flow (small-scale GWD)} \\ \hline
+Allocated by & ugwp\_orog\_stream \\ \hline
+Accessed in code & as \bsq{ol4ss} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -4391,6 +4943,10 @@ Description & \textit{monthly-mean climatological ozone defined at fixed pressur
 Accessed in code & as \bsq{ozmixm} from the \bsq{atm\_input} pool \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\phantomsection
+\addcontentsline{toc}{section}{Fields P--S}
+
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -4592,10 +5148,6 @@ Accessed in code & as \bsq{pv\_vertex} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
-\phantomsection
-\addcontentsline{toc}{section}{Fields Q--S}
-
-
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
 \hypertarget{q2}
@@ -4627,6 +5179,17 @@ Accessed in code & as \bsq{q2mbxy} from the \bsq{output\_noahmp} pool \\ \hline
 Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
 Description & \textit{2-meter water vapor mixing ratio over canopy} \\ \hline
 Accessed in code & as \bsq{q2mvxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{q2mxy}
+\noindent\textbf{\large{q2mxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg kg\textsuperscript{-1}} \\ \hline
+Description & \textit{grid-mean 2-meter water vapor mixing ratio} \\ \hline
+Accessed in code & as \bsq{q2mxy} from the \bsq{output\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -5203,6 +5766,18 @@ Accessed in code & as \bsq{re\_snow} from the \bsq{diag\_physics} pool \\ \hline
 Units & \textit{mm} \\ \hline
 Description & \textit{water table recharge} \\ \hline
 Accessed in code & as \bsq{rechxy} from the \bsq{diag\_physics\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{refl10cm}
+\noindent\textbf{\large{refl10cm}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{dBZ} \\ \hline
+Description & \textit{10 cm radar reflectivity} \\ \hline
+Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in, mp\_wsm6\_in \\ \hline
+Accessed in code & as \bsq{refl10cm} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -6327,7 +6902,7 @@ Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in \\ \hline
 Description & \textit{Cloud water number concentration} \\ \hline
 Units & \textit{nb kg\textsuperscript{-1}} \\ \hline
 Array Group & number \\ \hline
-Allocated by & bl\_mynn\_in, mp\_thompson\_aers\_in \\ \hline
+Allocated by & mp\_thompson\_aers\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -6555,7 +7130,7 @@ Allocated by & mp\_thompson\_in, mp\_thompson\_aers\_in \\ \hline
 Description & \textit{Tendency of cloud water number concentration multiplied by dry air density divided by d(zeta)/dz} \\ \hline
 Units & \textit{nb m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
 Array Group & number \\ \hline
-Allocated by & bl\_mynn\_in, mp\_thompson\_aers\_in \\ \hline
+Allocated by & mp\_thompson\_aers\_in \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -6710,7 +7285,7 @@ Accessed in code & as \bsq{shcxy} from the \bsq{output\_noahmp} pool \\ \hline
 \hypertarget{shdmax}
 \noindent\textbf{\large{shdmax}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{unitless} \\ \hline
+Units & \textit{percent} \\ \hline
 Description & \textit{maximum fractional coverage of annual green vegetation fraction} \\ \hline
 Accessed in code & as \bsq{shdmax} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 
@@ -6721,7 +7296,7 @@ Accessed in code & as \bsq{shdmax} from the \bsq{sfc\_input} pool \\ \hline
 \hypertarget{shdmin}
 \noindent\textbf{\large{shdmin}} (real) (nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{unitless} \\ \hline
+Units & \textit{percent} \\ \hline
 Description & \textit{minimum fractional coverage of annual green vegetation fraction} \\ \hline
 Accessed in code & as \bsq{shdmin} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 
@@ -7440,6 +8015,17 @@ Accessed in code & as \bsq{t2mbxy} from the \bsq{output\_noahmp} pool \\ \hline
 Units & \textit{K} \\ \hline
 Description & \textit{2-meter temperature over canopy} \\ \hline
 Accessed in code & as \bsq{t2mvxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{t2mxy}
+\noindent\textbf{\large{t2mxy}} (real) (nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K} \\ \hline
+Description & \textit{grid-mean 2-meter temperature} \\ \hline
+Accessed in code & as \bsq{t2mxy} from the \bsq{output\_noahmp} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -8566,10 +9152,34 @@ Accessed in code & as \bsq{var2d} from the \bsq{sfc\_input} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{var2dls}
+\noindent\textbf{\large{var2dls}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{standard deviation of subgrid-scale orography (meso-scale GWD)} \\ \hline
+Allocated by & ugwp\_orog\_stream \\ \hline
+Accessed in code & as \bsq{var2dls} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{var2dss}
+\noindent\textbf{\large{var2dss}} (real) (nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{standard deviation of subgrid-scale orography (small-scale GWD)} \\ \hline
+Allocated by & ugwp\_orog\_stream \\ \hline
+Accessed in code & as \bsq{var2dss} from the \bsq{sfc\_input} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{vegfra}
 \noindent\textbf{\large{vegfra}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{unitless} \\ \hline
+Units & \textit{percent} \\ \hline
 Description & \textit{vegetation fraction} \\ \hline
 Accessed in code & as \bsq{vegfra} from the \bsq{sfc\_input} pool \\ \hline
 \end{tabular} 

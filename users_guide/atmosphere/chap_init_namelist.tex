@@ -17,7 +17,7 @@
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
 Description & \textit{Type of initial conditions to create: \newline                                         1 = Jablonowski \& Williamson barolinic wave (no initial perturbation), \newline                                         2 = Jablonowski \& Williamson barolinic wave (with initial perturbation), \newline                                         3 = Jablonowski \& Williamson barolinic wave (with normal-mode perturbation), \newline                                         4 = squall line, \newline                                         5 = super-cell, \newline                                         6 = mountain wave, \newline                                         7 = real-data initial conditions from, e.g., GFS, \newline                                         8 = surface field (SST, sea-ice) update file for use with real-data simulations \newline                                         9 = lateral boundary conditions update file for use with real-data simulations \newline                                         13 = CAM-MPAS 3-d grid with specified topography and zeta levels} \\ \hline
-Possible Values & 1 -- 9 \textit{(default: 7)} \\ \hline
+Possible Values & 1 -- 9, or 13 \textit{(default: 7)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -221,7 +221,18 @@ Possible Values & [DDD\_]hh:mm:ss \textit{(default: 86400)} \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
 Description & \textit{The land use classification to use (case 7 only)} \\ \hline
-Possible Values & `USGS' or `MODIFIED\_IGBP\_MODIS\_NOAH' \textit{(default: MODIFIED\_IGBP\_MODIS\_NOAH)} \\ \hline
+Possible Values & `USGS', `MODIFIED\_IGBP\_MODIS\_NOAH', or `MODIFIED\_IGBP\_MODIS\_NOAH\_15s' \textit{(default: MODIFIED\_IGBP\_MODIS\_NOAH)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{inl:config_soilcat_data}
+\noindent\textbf{\large{config\_soilcat\_data}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{The soil category classification to use} \\ \hline
+Possible Values & `STATSGO' or `BNU' \textit{(default: STATSGO)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -282,12 +293,34 @@ Possible Values & Positive integer values \textit{(default: 3)} \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{inl:config_lu_supersample_factor}
+\noindent\textbf{\large{config\_lu\_supersample\_factor}} (integer) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{The supersampling factor to be used for 30s or 15s MODIS land use, or for 30s USGS land use, as selected by `config\_landuse\_data' (case 7 only)} \\ \hline
+Possible Values & Positive integer values \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{inl:config_30s_supersample_factor}
 \noindent\textbf{\large{config\_30s\_supersample\_factor}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
-Description & \textit{The supersampling factor to be used for 30s terrain, MODIS land use, soil category, and MODIS FPAR monthly vegetation fraction (case 7 only)} \\ \hline
+Description & \textit{The supersampling factor to be used for 30s terrain, soil category, and MODIS FPAR monthly vegetation fraction (case 7 only)} \\ \hline
 Possible Values & Positive integer values \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{inl:config_noahmp_static}
+\noindent\textbf{\large{config\_noahmp\_static}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Whether to process, read, and write static fields only required by Noah-MP (hidden by default)} \\ \hline
+Possible Values & true or false \textit{(default: true)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -429,6 +462,17 @@ Possible Values & true or false \textit{(default: true)} \\ \hline
 Units & \textit{-} \\ \hline
 Description & \textit{Whether to recompute subgrid-scale orography statistics directly on the native MPAS mesh (case 7 only)} \\ \hline
 Possible Values & true or false \textit{(default: true)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{inl:config_native_gwd_gsl_static}
+\noindent\textbf{\large{config\_native\_gwd\_gsl\_static}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Whether to recompute subgrid-scale orography statistics for the GSL drag directly on the native MPAS mesh (case 7 only)} \\ \hline
+Possible Values & true or false \textit{(default: false)} \\ \hline
 \end{tabular} 
 \end{minipage}
 

@@ -1022,7 +1022,7 @@ Possible Values & `mesoscale\_reference',`convection\_permitting',`none' \textit
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
 Description & \textit{configuration for cloud microphysics schemes (hidden by default)} \\ \hline
-Possible Values & `suite',`mp\_wsm6',`mp\_thompson',`mp\_kessler',`off' \textit{(default: suite)} \\ \hline
+Possible Values & `suite',`mp\_wsm6',`mp\_thompson',`mp\_thompson\_aerosols', `mp\_kessler',`off' \textit{(default: suite)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1044,7 +1044,7 @@ Possible Values & `suite',`cu\_kain\_fritsch',`cu\_tiedtke',`cu\_ntiedtke',`cu\_
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
 Description & \textit{configuration for land-surface schemes (hidden by default)} \\ \hline
-Possible Values & `suite',`noah',`off' \textit{(default: suite)} \\ \hline
+Possible Values & `suite',`sf\_noah',`sf\_noahmp`, `off' \textit{(default: suite)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1066,7 +1066,40 @@ Possible Values & `suite',`bl\_ysu',`bl\_mynn',`off' \textit{(default: suite)} \
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
 Description & \textit{configuration of gravity wave drag over orography (hidden by default)} \\ \hline
-Possible Values & `suite',`bl\_ysu\_gwdo',`off' \textit{(default: suite)} \\ \hline
+Possible Values & `suite',`bl\_ysu\_gwdo',`bl\_ugwp\_gwdo',`off' \textit{(default: suite)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_ngw_scheme}
+\noindent\textbf{\large{config\_ngw\_scheme}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{logical for non-stationary gravity wave drag scheme (hidden by default)} \\ \hline
+Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_knob_ugwp_tauamp}
+\noindent\textbf{\large{config\_knob\_ugwp\_tauamp}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{non-stationary gravity wave drag absolute momentum flux at launch level (hidden by default)} \\ \hline
+Possible Values & Non-negative real values \textit{(default: 0.13e-3)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_ugwp_diags}
+\noindent\textbf{\large{config\_ugwp\_diags}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{logical for outputting ugwp drag suite diagnostic variables (hidden by default)} \\ \hline
+Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1111,6 +1144,28 @@ Possible Values & `suite',`rrtmg\_sw',`cam\_sw',`off' \textit{(default: suite)} 
 Units & \textit{-} \\ \hline
 Description & \textit{configuration for surface layer-scheme (hidden by default)} \\ \hline
 Possible Values & `suite',`sf\_monin\_obukhov',`sf\_mynn',`off' \textit{(default: suite)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_radt_cld_overlap}
+\noindent\textbf{\large{config\_radt\_cld\_overlap}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{} \\ \hline
+Description & \textit{cloud overlapping option in the RRTMG lw and sw radiation schemes (hidden by default)} \\ \hline
+Possible Values & `none',`random',`maximum\_random',`maximum',`exponential',`'exponential\_random' \textit{(default: maximum\_random)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_radt_cld_dcorrlen}
+\noindent\textbf{\large{config\_radt\_cld\_dcorrlen}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{} \\ \hline
+Description & \textit{decorrelation length for cloud overlapping option in the RRTMG lw and sw radiation schemes (hidden by default)} \\ \hline
+Possible Values & `constant',`latitude\_varying' \textit{(default: constant)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
