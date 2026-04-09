@@ -760,6 +760,17 @@ Accessed in code & as \bsq{bgapxy} from the \bsq{output\_noahmp} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{bn2}
+\noindent\textbf{\large{bn2}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{s\textsuperscript{-2}} \\ \hline
+Description & \textit{Square of Brunt-Vaisala frequency} \\ \hline
+Accessed in code & as \bsq{bn2} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{br}
 \noindent\textbf{\large{br}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -1464,23 +1475,56 @@ Accessed in code & as \bsq{deeprechxy} from the \bsq{diag\_physics\_noahmp} pool
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{defc_a}
-\noindent\textbf{\large{defc\_a}} (real) (maxEdges, nCells) \\ 
+\hypertarget{deformation_coef_c}
+\noindent\textbf{\large{deformation\_coef\_c}} (real) (maxEdges, nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
-Description & \textit{Coefficients for computing the off-diagonal components of the horizontal deformation} \\ \hline
-Accessed in code & as \bsq{defc\_a} from the \bsq{mesh} pool \\ \hline
+Description & \textit{Coefficients for computing the cos-only terms of the 3d deformation} \\ \hline
+Accessed in code & as \bsq{deformation\_coef\_c} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{defc_b}
-\noindent\textbf{\large{defc\_b}} (real) (maxEdges, nCells) \\ 
+\hypertarget{deformation_coef_c2}
+\noindent\textbf{\large{deformation\_coef\_c2}} (real) (maxEdges, nCells) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{unitless} \\ \hline
-Description & \textit{Coefficients for computing the diagonal components of the horizontal deformation} \\ \hline
-Accessed in code & as \bsq{defc\_b} from the \bsq{mesh} pool \\ \hline
+Description & \textit{Coefficients for computing the cos-squared terms of the 3d deformation} \\ \hline
+Accessed in code & as \bsq{deformation\_coef\_c2} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{deformation_coef_cs}
+\noindent\textbf{\large{deformation\_coef\_cs}} (real) (maxEdges, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Coefficients for computing the cos-sine terms of the 3d deformation} \\ \hline
+Accessed in code & as \bsq{deformation\_coef\_cs} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{deformation_coef_s}
+\noindent\textbf{\large{deformation\_coef\_s}} (real) (maxEdges, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Coefficients for computing the sine-only terms of the 3d deformation} \\ \hline
+Accessed in code & as \bsq{deformation\_coef\_s} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{deformation_coef_s2}
+\noindent\textbf{\large{deformation\_coef\_s2}} (real) (maxEdges, nCells) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Coefficients for computing the sine-squared terms of the 3d deformation} \\ \hline
+Accessed in code & as \bsq{deformation\_coef\_s2} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -1779,7 +1823,7 @@ Accessed in code & as \bsq{dss} from the \bsq{mesh} pool \\ \hline
 \hypertarget{dtaux3d}
 \noindent\textbf{\large{dtaux3d}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Units & \textit{m s\textsuperscript{-2}} \\ \hline
 Description & \textit{gravity wave drag over orography u-stress} \\ \hline
 Accessed in code & as \bsq{dtaux3d} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
@@ -1838,7 +1882,7 @@ Accessed in code & as \bsq{dtaux3d\_ss} from the \bsq{diag\_physics} pool \\ \hl
 \hypertarget{dtauy3d}
 \noindent\textbf{\large{dtauy3d}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Units & \textit{m s\textsuperscript{-2}} \\ \hline
 Description & \textit{gravity wave drag over orography v-stress} \\ \hline
 Accessed in code & as \bsq{dtauy3d} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
@@ -1991,7 +2035,7 @@ Accessed in code & as \bsq{dusfc\_ss} from the \bsq{diag\_physics} pool \\ \hlin
 \hypertarget{dusfcg}
 \noindent\textbf{\large{dusfcg}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{Pa m s\textsuperscript{-1}} \\ \hline
+Units & \textit{Pa} \\ \hline
 Description & \textit{vertically-integrated gravity wave drag over orography u-stress} \\ \hline
 Accessed in code & as \bsq{dusfcg} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
@@ -2085,7 +2129,7 @@ Accessed in code & as \bsq{dvsfc\_ss} from the \bsq{diag\_physics} pool \\ \hlin
 \hypertarget{dvsfcg}
 \noindent\textbf{\large{dvsfcg}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{Pa m s\textsuperscript{-1}} \\ \hline
+Units & \textit{Pa} \\ \hline
 Description & \textit{vertically-integrated gravity wave drag over orography v-stress} \\ \hline
 Accessed in code & as \bsq{dvsfcg} from the \bsq{diag\_physics} pool \\ \hline
 \end{tabular} 
@@ -2143,6 +2187,28 @@ Accessed in code & as \bsq{east} from the \bsq{mesh} pool \\ \hline
 Units & \textit{mm s\textsuperscript{-1}} \\ \hline
 Description & \textit{evaporation of intercepted water} \\ \hline
 Accessed in code & as \bsq{ecanxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{eddy_visc_horz}
+\noindent\textbf{\large{eddy\_visc\_horz}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m\textsuperscript2 s\textsuperscript{-1}} \\ \hline
+Description & \textit{horizontal eddy viscosity for les models} \\ \hline
+Accessed in code & as \bsq{eddy\_visc\_horz} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{eddy_visc_vert}
+\noindent\textbf{\large{eddy\_visc\_vert}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m\textsuperscript2 s\textsuperscript{-1}} \\ \hline
+Description & \textit{vertical eddy viscosity for les models} \\ \hline
+Accessed in code & as \bsq{eddy\_visc\_vert} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -2342,6 +2408,28 @@ Accessed in code & as \bsq{ertel\_pv} from the \bsq{diag} pool \\ \hline
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{etm}
+\noindent\textbf{\large{etm}} (real) (nVertLevels) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{etm = (1-epssm(z))/2 at theta point} \\ \hline
+Accessed in code & as \bsq{etm} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{etp}
+\noindent\textbf{\large{etp}} (real) (nVertLevels) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{etp = (1+epssm(z))/2 at theta point} \\ \hline
+Accessed in code & as \bsq{etp} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{etranxy}
 \noindent\textbf{\large{etranxy}} (real) (nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -2426,6 +2514,28 @@ Accessed in code & as \bsq{evcxy} from the \bsq{output\_noahmp} pool \\ \hline
 Units & \textit{W m\textsuperscript{-2}} \\ \hline
 Description & \textit{latent heat flux: ground to canopy} \\ \hline
 Accessed in code & as \bsq{evgxy} from the \bsq{output\_noahmp} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{ewm}
+\noindent\textbf{\large{ewm}} (real) (nVertLevelsP1) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{ewm = (1-epssm(z))/2 at w point} \\ \hline
+Accessed in code & as \bsq{ewm} from the \bsq{mesh} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{ewp}
+\noindent\textbf{\large{ewp}} (real) (nVertLevelsP1) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{ewp = (1+epssm(z))/2 at w point} \\ \hline
+Accessed in code & as \bsq{ewp} from the \bsq{mesh} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -3617,17 +3727,6 @@ Accessed in code & as \bsq{kbcon\_shallow} from the \bsq{diag\_physics} pool \\ 
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
-\hypertarget{kdiff}
-\noindent\textbf{\large{kdiff}} (real) (nVertLevels, nCells, Time) \\ 
-\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{m\textsuperscript2 s\textsuperscript{-1}} \\ \hline
-Description & \textit{Smagorinsky horizontal eddy viscosity} \\ \hline
-Accessed in code & as \bsq{kdiff} from the \bsq{diag} pool \\ \hline
-\end{tabular} 
-\end{minipage}
-
-\vspace{10mm}
-\noindent\begin{minipage}{\textwidth}
 \hypertarget{ke}
 \noindent\textbf{\large{ke}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -4031,6 +4130,18 @@ Allocated by & mp\_thompson\_aers\_in \\ \hline
 \end{minipage}
 
 \vspace{10mm}
+\hspace{.1\textwidth}\noindent\begin{minipage}{.9\textwidth}
+\hypertarget{lbc_tke}
+\noindent\textbf{\normalsize{lbc\_tke}} --- \textit{constituent field of var\_array \textbf{lbc\_scalars}}  \\ 
+\begin{tabular}{|p{.25\textwidth-.5\tabcolsep} |p{.65\textwidth-1.3\tabcolsep} |} \hline
+Description & \textit{Lateral boundary tendency of TKE} \\ \hline
+Units & \textit{m\textsuperscript2 s\textsuperscript{-3}} \\ \hline
+Array Group & turbulence \\ \hline
+Allocated by & les \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
 \hypertarget{lbc_theta}
 \noindent\textbf{\large{lbc\_theta}} (real) (nVertLevels, nCells, Time) \\ 
@@ -4040,6 +4151,9 @@ Description & \textit{Lateral boundary tendency of theta} \\ \hline
 Accessed in code & as \bsq{lbc\_theta} from the \bsq{lbc} pool \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\vspace{10mm}
+\noindent\hyperlink{lbc_scalars}{\color{red}{\textbf{\large{lbc\_tke}} --- \textit{see \bsq{lbc\_scalars}}}}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -4393,6 +4507,17 @@ Units & \textit{K} \\ \hline
 Description & \textit{T* in similarity theory} \\ \hline
 Allocated by & bl\_mynn\_in, bl\_ysu\_in \\ \hline
 Accessed in code & as \bsq{mol} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mp_top_level}
+\noindent\textbf{\large{mp\_top\_level}} (integer) () \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Vertical layer above which microphysics tendency is ignored} \\ \hline
+Accessed in code & as \bsq{mp\_top\_level} from the \bsq{tend\_physics} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -5033,6 +5158,17 @@ Accessed in code & as \bsq{pondingxy} from the \bsq{output\_noahmp} pool \\ \hli
 Units & \textit{m} \\ \hline
 Description & \textit{accumulated potential evaporation} \\ \hline
 Accessed in code & as \bsq{potevp} from the \bsq{diag\_physics} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{prandtl_3d_inv}
+\noindent\textbf{\large{prandtl\_3d\_inv}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{unitless} \\ \hline
+Description & \textit{Inverse prandtl number used for vertical mixing in prognostic LES formulation} \\ \hline
+Accessed in code & as \bsq{prandtl\_3d\_inv} from the \bsq{diag} pool \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -6931,6 +7067,18 @@ Allocated by & mp\_thompson\_aers\_in \\ \hline
 \end{minipage}
 
 \vspace{10mm}
+\hspace{.1\textwidth}\noindent\begin{minipage}{.9\textwidth}
+\hypertarget{tke}
+\noindent\textbf{\normalsize{tke}} --- \textit{constituent field of var\_array \textbf{scalars}}  \\ 
+\begin{tabular}{|p{.25\textwidth-.5\tabcolsep} |p{.65\textwidth-1.3\tabcolsep} |} \hline
+Description & \textit{Turbulent kinetic energy for the prognostic tke LES scheme} \\ \hline
+Units & \textit{m\textsuperscript2 s\textsuperscript{-2}} \\ \hline
+Array Group & turbulence \\ \hline
+Allocated by & les \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
 \hypertarget{scalars_amb}
 \noindent\textbf{\Large{scalars\_amb}} (real) (nVertLevels, nCells, Time) \\ 
@@ -7155,6 +7303,18 @@ Description & \textit{Tendency of water-friendly aerosol number concentration mu
 Units & \textit{nb m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
 Array Group & number \\ \hline
 Allocated by & mp\_thompson\_aers\_in \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\hspace{.1\textwidth}\noindent\begin{minipage}{.9\textwidth}
+\hypertarget{tend_tke}
+\noindent\textbf{\normalsize{tend\_tke}} --- \textit{constituent field of var\_array \textbf{scalars\_tend}}  \\ 
+\begin{tabular}{|p{.25\textwidth-.5\tabcolsep} |p{.65\textwidth-1.3\tabcolsep} |} \hline
+Description & \textit{Tendency of tke multiplied by dry air density divided by d(zeta)/dz} \\ \hline
+Units & \textit{kg m\textsuperscript{-3} m\textsuperscript2 s\textsuperscript{-2} s\textsuperscript{-1}} \\ \hline
+Array Group & turbulence \\ \hline
+Allocated by & les \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -8320,6 +8480,17 @@ Accessed in code & as \bsq{tend\_rho\_physics} from the \bsq{tend\_physics} pool
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{tend_rtheta_adv}
+\noindent\textbf{\large{tend\_rtheta\_adv}} (real) (nVertLevels, nCells, Time) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg K m\textsuperscript{-3} s\textsuperscript{-1}} \\ \hline
+Description & \textit{flux divergence for rho*theta\_m/zz, used in the Tiedtke convective parameterization} \\ \hline
+Accessed in code & as \bsq{tend\_rtheta\_adv} from the \bsq{diag} pool \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{tend_rtheta_physics}
 \noindent\textbf{\large{tend\_rtheta\_physics}} (real) (nVertLevels, nCells, Time) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -8361,6 +8532,9 @@ Description & \textit{tendency of coupled potential temperature rho*theta\_m/zz 
 Accessed in code & as \bsq{theta\_m} from the \bsq{tend} pool \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\vspace{10mm}
+\noindent\hyperlink{scalars_tend}{\color{red}{\textbf{\large{tend\_tke}} --- \textit{see \bsq{scalars\_tend}}}}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
@@ -8571,6 +8745,9 @@ Description & \textit{CF-compliant valid time} \\ \hline
 Accessed in code & as \bsq{Time} from the \bsq{state} pool \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\vspace{10mm}
+\noindent\hyperlink{scalars}{\color{red}{\textbf{\large{tke}} --- \textit{see \bsq{scalars}}}}
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}

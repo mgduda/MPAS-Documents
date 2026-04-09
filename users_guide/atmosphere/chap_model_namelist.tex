@@ -195,6 +195,61 @@ Possible Values & `2d\_fixed' or `2d\_smagorinsky' \textit{(default: 2d\_smagori
 
 \vspace{10mm}
 \noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_les_model}
+\noindent\textbf{\large{config\_les\_model}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{LES dissipation model} \\ \hline
+Possible Values & `none', `3d\_smagorinsky', `prognostic\_1.5\_order' \textit{(default: none)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_les_surface}
+\noindent\textbf{\large{config\_les\_surface}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{LES surface flux option} \\ \hline
+Possible Values & `specified', `varying' \textit{(default: none)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_surface_heat_flux}
+\noindent\textbf{\large{config\_surface\_heat\_flux}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{K m s-1} \\ \hline
+Description & \textit{specified surface heat flux w'theta'} \\ \hline
+Possible Values & real number \textit{(default: 0.0)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_surface_moisture_flux}
+\noindent\textbf{\large{config\_surface\_moisture\_flux}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{kg m s-1} \\ \hline
+Description & \textit{specified surface moisture flux w'q'} \\ \hline
+Possible Values & real number \textit{(default: 0.0)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_surface_drag_coefficient}
+\noindent\textbf{\large{config\_surface\_drag\_coefficient}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Cd 10m drag coefficient} \\ \hline
+Possible Values & real number \textit{(default: 0.0)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
 \hypertarget{mnl:config_len_disp}
 \noindent\textbf{\large{config\_len\_disp}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
@@ -209,9 +264,20 @@ Possible Values & Positive real values. A zero value implies that the length sca
 \hypertarget{mnl:config_visc4_2dsmag}
 \noindent\textbf{\large{config\_visc4\_2dsmag}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{-} \\ \hline
-Description & \textit{Scaling coefficient of $\delta x^3$ to obtain $\nabla^4$ diffusion coefficient} \\ \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
+Description & \textit{Coefficient multiplied by $\delta x^3$ to obtain $\nabla^4$ physical hyperviscosity} \\ \hline
 Possible Values & Non-negative real values \textit{(default: 0.05)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_mix_scalars}
+\noindent\textbf{\large{config\_mix\_scalars}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Whether to enable horizontal and vertical mixing for scalars} \\ \hline
+Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -375,8 +441,8 @@ Possible Values & .true. or .false. \textit{(default: true)} \\ \hline
 \noindent\textbf{\large{config\_epssm}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
-Description & \textit{Off-centering parameter for the vertically implicit acoustic integration} \\ \hline
-Possible Values & Positive real values \textit{(default: 0.1)} \\ \hline
+Description & \textit{Off-centering parameter for the vertically implicit acoustic integration (hidden by default)} \\ \hline
+Possible Values & Positive real values \textit{(default: 0.0)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -454,7 +520,7 @@ Possible Values & Positive real values \textit{(default: 22000.0)} \\ \hline
 \hypertarget{mnl:config_xnutr}
 \noindent\textbf{\large{config\_xnutr}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{-} \\ \hline
+Units & \textit{s\textsuperscript{-1}} \\ \hline
 Description & \textit{Maximum w-damping coefficient at model top} \\ \hline
 Possible Values & 0 $\leq$ config\_xnutr $\leq$ 1 \textit{(default: 0.2)} \\ \hline
 \end{tabular} 
@@ -465,7 +531,7 @@ Possible Values & 0 $\leq$ config\_xnutr $\leq$ 1 \textit{(default: 0.2)} \\ \hl
 \hypertarget{mnl:config_mpas_cam_coef}
 \noindent\textbf{\large{config\_mpas\_cam\_coef}} (real) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
-Units & \textit{-} \\ \hline
+Units & \textit{m s\textsuperscript{-1}} \\ \hline
 Description & \textit{Coefficient for scaling the 2nd-order horizontal mixing in the mpas\_cam absorbing layer (hidden by default)} \\ \hline
 Possible Values & 0 $\leq$ config\_mpas\_cam\_coef $\leq$ 1, standard value is 0.2 \textit{(default: 0.0)} \\ \hline
 \end{tabular} 
@@ -512,6 +578,50 @@ Possible Values & Positive real values \textit{(default: 5.0)} \\ \hline
 Units & \textit{-} \\ \hline
 Description & \textit{Number of layers in which to apply Rayleigh damping on horizontal velocity at top of model; damping linearly ramps to zero by layer number from the top (hidden by default)} \\ \hline
 Possible Values & Positive integer values \textit{(default: 6)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_epssm_minimum}
+\noindent\textbf{\large{config\_epssm\_minimum}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Value of epssm below transition zone} \\ \hline
+Possible Values & Positive real values between 0 and 1 \textit{(default: 0.1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_epssm_maximum}
+\noindent\textbf{\large{config\_epssm\_maximum}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Value of epssm above transition zone} \\ \hline
+Possible Values & Positive real values between 0 and 1 \textit{(default: 0.5)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_epssm_transition_bottom_z}
+\noindent\textbf{\large{config\_epssm\_transition\_bottom\_z}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Height MSL of bottom of transition zone for epssm} \\ \hline
+Possible Values & Positive real values \textit{(default: 30000.)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_epssm_transition_top_z}
+\noindent\textbf{\large{config\_epssm\_transition\_top\_z}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{Height MSL of top of transition zone for epssm} \\ \hline
+Possible Values & Positive real values \textit{(default: 50000.)} \\ \hline
 \end{tabular} 
 \end{minipage}
 \hypertarget{mrec:limited_area}{}
@@ -725,6 +835,31 @@ Description & \textit{Method to use for exchanging halos (hidden by default)} \\
 Possible Values & `mpas\_dmpar', `mpas\_halo' \textit{(default: mpas\_halo)} \\ \hline
 \end{tabular} 
 \end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_gpu_aware_mpi}
+\noindent\textbf{\large{config\_gpu\_aware\_mpi}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Whether to use GPU-aware MPI for halo exchanges. GPU-aware MPI is only implemented for config\_halo\_exch\_method='mpas\_halo' (hidden by default)} \\ \hline
+Possible Values & .true. or .false. \textit{(default: false)} \\ \hline
+\end{tabular} 
+\end{minipage}
+\hypertarget{mrec:musica}{}
+\section{musica}
+\small
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_micm_file}
+\noindent\textbf{\large{config\_micm\_file}} (character) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{MICM configuration file name} \\ \hline
+Possible Values & Any valid filename \textit{(default: )} \\ \hline
+\end{tabular} 
+\end{minipage}
 \hypertarget{mrec:physics}{}
 \section{physics}
 \small
@@ -924,6 +1059,17 @@ Possible Values & .true. to turn on the urban physics; .false. otherwise \textit
 Units & \textit{-} \\ \hline
 Description & \textit{number of microphysics time-steps per physics time-steps (hidden by default)} \\ \hline
 Possible Values & Positive integers \textit{(default: 1)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{mnl:config_microphysics_top}
+\noindent\textbf{\large{config\_microphysics\_top}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{m} \\ \hline
+Description & \textit{height above which to exclude microphysics tendencies (hidden by default)} \\ \hline
+Possible Values & Positive reals \textit{(default: 45000.)} \\ \hline
 \end{tabular} 
 \end{minipage}
 

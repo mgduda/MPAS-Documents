@@ -16,8 +16,8 @@
 \noindent\textbf{\large{config\_init\_case}} (integer) \\ 
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{-} \\ \hline
-Description & \textit{Type of initial conditions to create: \newline                                         1 = Jablonowski \& Williamson barolinic wave (no initial perturbation), \newline                                         2 = Jablonowski \& Williamson barolinic wave (with initial perturbation), \newline                                         3 = Jablonowski \& Williamson barolinic wave (with normal-mode perturbation), \newline                                         4 = squall line, \newline                                         5 = super-cell, \newline                                         6 = mountain wave, \newline                                         7 = real-data initial conditions from, e.g., GFS, \newline                                         8 = surface field (SST, sea-ice) update file for use with real-data simulations \newline                                         9 = lateral boundary conditions update file for use with real-data simulations \newline                                         13 = CAM-MPAS 3-d grid with specified topography and zeta levels} \\ \hline
-Possible Values & 1 -- 9, or 13 \textit{(default: 7)} \\ \hline
+Description & \textit{Type of initial conditions to create: \newline                                         1 = Jablonowski \& Williamson barolinic wave (no initial perturbation), \newline                                         2 = Jablonowski \& Williamson barolinic wave (with initial perturbation), \newline                                         3 = Jablonowski \& Williamson barolinic wave (with normal-mode perturbation), \newline                                         4 = squall line, \newline                                         5 = super-cell, \newline                                         6 = mountain wave, \newline                                         7 = real-data initial conditions from, e.g., GFS, \newline                                         8 = surface field (SST, sea-ice) update file for use with real-data simulations \newline                                         9 = lateral boundary conditions update file for use with real-data simulations \newline                                         10 = idealized LES case \newline                                         13 = CAM-MPAS 3-d grid with specified topography and zeta levels} \\ \hline
+Possible Values & 1 -- 10, or 13 \textit{(default: 7)} \\ \hline
 \end{tabular} 
 \end{minipage}
 
@@ -345,6 +345,28 @@ Possible Values & true or false \textit{(default: false)} \\ \hline
 \begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
 Units & \textit{m} \\ \hline
 Description & \textit{Model top height} \\ \hline
+Possible Values & Positive real values \textit{(default: 30000.0)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{inl:config_hybrid_coordinate}
+\noindent\textbf{\large{config\_hybrid\_coordinate}} (logical) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Whether to employ a hybrid vertical coordinate} \\ \hline
+Possible Values & true or false \textit{(default: true)} \\ \hline
+\end{tabular} 
+\end{minipage}
+
+\vspace{10mm}
+\noindent\begin{minipage}{\textwidth}
+\hypertarget{inl:config_hybrid_top_z}
+\noindent\textbf{\large{config\_hybrid\_top\_z}} (real) \\ 
+\begin{tabular}{|p{.3\textwidth-2\tabcolsep} |p{.7\textwidth-2\tabcolsep} |} \hline
+Units & \textit{-} \\ \hline
+Description & \textit{Height at which coordinate surfaces become constant height surfaces} \\ \hline
 Possible Values & Positive real values \textit{(default: 30000.0)} \\ \hline
 \end{tabular} 
 \end{minipage}
