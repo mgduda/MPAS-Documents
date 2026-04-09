@@ -204,3 +204,68 @@ By the existence of the ``invariant'' stream in the {\tt streams.atmosphere} fil
 the model will omit all time-invariant fields from any restart files that are
 written. When the model restarts, all time-invariant fields will be read from
 the ``invariant'' stream rather than from the ``restart'' stream.
+
+
+\section{Large Eddy Simulation (LES)}
+\label{sec:LES}
+
+MPAS-Atmosphere Version 8.4 contains the first release of a Large-Eddy Simulation (LES) capability. Similar to WRF, it contains two subgrid turbulence models --- a diagnostic Turbulent Kinetic Energy (TKE) formulation based on a 3D Smagorinsky formulation, and a 1.5-order prognostic TKE formulation. These formulations generally follow the implementation in WRF (see the \href{https://www2.mmm.ucar.edu/wrf/users/docs/technote/v4_technote.pdf}{WRF Technical Note Version 4}, sections 4.2.3 and 4.2.4, for a description of the formulations).  The MPAS-A implementation differs from WRF in the following ways:
+
+\begin{itemize}
+\item horizontal derivatives are taken along coordinate surfaces, and thus, the MPAS LES formulation does not take into account sloping coordinate surfaces (i.e., terrain effects); and
+\item the vertical diffusion operators are integrated explicitly.
+\end{itemize}
+
+Additionally, beginning with MPAS-A v8.4.0, application of LES mixing, `2d\_smagorinsky', and the background 4th-order filter can be enabled for scalar variables ($q_v$, etc.) by setting \namelist{mnl:config_mix_scalars} to {\tt true} (default is {\tt false}). Previously, the `2d\_smagorinsky' filtering and the background 4th-order filtering were not applied to scalar variables in the time integration because the monotonic transport scheme provides sufficient filtering.
+
+Note that the default filtering configuration for MPAS-A v8.4 is unchanged from previous versions ---
+\namelist{config_horiz_mixing}{\tt ~= `2d\_smagorinsky'}, and a 4th-order horizontal background filter is active for the dry dynamics variables $u$, $w$, and $\theta_m$.
+
+\subsection{Preparing idealized LES initial conditions}
+\label{sec:les_ics}
+
+Beginning with MPAS-Atmosphere v8.4.0, the {\tt init\_atmosphere} core provides a new idealized LES initialization case. This case uses a 48-meter hexagonal grid on square flat plane with periodic boundary conditions, 100 vertical levels with 3 km top, and a uniform vertical spacing, i.e., $\Delta z = 30$ meters. In the {\tt namelist.init\_atmosphere} file, the following namelist options must be set:
+
+\begin{itemize}
+\item \namelist{inl:config_init_case}{\tt ~= 10}
+\item \namelist{inl:config_ztop}{\tt ~= 3000.0}
+\item \namelist{inl:config_nvertlevels}{\tt ~= 100}
+\end{itemize}
+
+The initial state is specified in the source file {\tt src/core\_init\_atmosphere/mpas\_init\_atm\_cases.F}, where
+the subroutine \href{https://github.com/MPAS-Dev/MPAS-Model/blob/release-v8.4.0/src/core\_init\_atmosphere/mpas\_init\_atm\_cases.F#L6222}{init\_atm\_case\_les} calls \href{https://github.com/MPAS-Dev/MPAS-Model/blob/release-v8.4.0/src/core\_init\_atmosphere/mpas\_init\_atm\_cases.F\#L6799}{atm\_get\_sounding} for $\theta$, $q_v$, $u$, and $v$. Other details of the case are as follows:
+
+\begin{itemize}
+\item SAS (Southeast Atmosphere Study) Case
+\item $\theta$ 296.6 K up to 352.5 m, increasing to 298.1 K at 442.5 m, then at a rate of 3 K/km to the model top
+\item $q_v$ 11.8 g/kg up to 352.5 m, decreasing to 7.8 g/kg at 442.5 m, then at rate of -4 g/kg/km to zero at 2.4 km
+\item $u$ = 2 m/s, $v$ = 0 m/s at all levels (with assumed geostrophic \field{u_init} and \field{v_init})
+\item Coriolis set to 7.2921e-05
+\item $\theta$ perturbations in the PBL (397 m) +/-0.5 K
+\item TKE scalar initialized 0.4 $m^2 / s^2$ at the surface, decreasing rapidly to zero at 255 m (as specified for the SAS case)
+\end{itemize}
+
+\subsection{Model configuration for LES}
+\label{sec:les_configuration}
+
+The LES capability is controlled by the namelist configuration variable \namelist{mnl:config_les_model}.
+Choosing either `3d\_smagorinsky' or `prognostic\_1.5\_order' disables `2d\_smagorinsky' even if \namelist{mnl:config_horiz_mixing}{\tt ~= `2d\_smagorinsky'} is set in the namelist.
+The 4th-order horizontal background filter is still enabled when using either of the LES schemes. The 4th-order filter can be controlled by setting \namelist{mnl:config_visc4_2dsmag} (default value 0.05). Setting this value to zero disables the 4th-order filter.
+
+Other namelist parameters associated with the LES models include:
+
+\begin{itemize}
+\item \namelist{config_les_surface}
+\begin{itemize}
+    \item `none' --- (default) no surface effect
+    \item `specified' --- use fixed values from {\tt config\_surface\_*} inputs below
+    \item `varying' --- use inputs from physics surface heat flux, moisture flux and friction velocity
+\end{itemize}
+\item \namelist{config_surface_heat_flux} = real (K m s-1), 0.0 (default) \newline
+$w'\theta'$ at surface
+\item \namelist{mnl:config_surface_moisture_flux} = real (kg/kg m s-1), 0.0 (default) \newline
+$w'q'$ at surface
+\item \namelist{mnl:config_surface_drag_coefficient} = real (unitless), 0.0 (default) \newline
+$C_d$ defined from lowest level $V$ such that surface stress is given as $\rho * C_d * V^2$
+\end{itemize}
+
