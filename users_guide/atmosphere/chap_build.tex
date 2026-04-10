@@ -212,6 +212,16 @@ with, either single- or double-precision input files may be used. In general, th
 correctly detect the precision of input files, but one may also explicitly specify the precision of files in
 an input stream by adding the {\tt precision} attribute to the stream definition as described in Section \ref{sec:optional_stream_atts}.
 
+\section{Linking with an external ESMF library}
+\label{sec:build_esmf}
+
+Beginning with MPAS v8.4.0, the Make build system provides a new option, {\tt MPAS\_ESMF}, to simplify linking with an external \href{https://earthsystemmodeling.org/}{Earth System Modeling Framework (ESMF)} library.
+Although users of stand-alone MPAS-Atmosphere will generally see no benefit to using the full, external ESMF library, linking with this library supports ongoing development work to couple MPAS-Atmosphere with other Earth-system component models.
+
+If {\tt MPAS\_ESMF} is not specified, it takes on its default value of {\tt embedded}. Equivalently, {\tt MPAS\_ESMF=embedded} may be specified in the build command. In this case, MPAS will use its built-in (``embedded'') subset of an older ESMF library for time management.
+
+If {\tt MPAS\_ESMF} is specified as {\tt external} (i.e., {\tt MPAS\_ESMF=external} is specified in the build command), then the environment variable {\tt \$ESMFMKFILE} will be used by the MPAS build system to discover details of the full, external ESMF library to be used.
+
 \section{Cleaning}
 
 To remove all files  that were created when the model was built,
