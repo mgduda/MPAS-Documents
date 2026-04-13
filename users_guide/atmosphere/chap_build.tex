@@ -244,6 +244,60 @@ If MPAS has been successfully compiled and linked with the full, external ESMF l
 {\tt *******************************************************************************}
 \vspace{12pt}
 
+
+\section{Linking with the MUSICA library}
+\label{sec:build_musica}
+
+To support the development of a chemistry capability for MPAS-Atmosphere (tentatively named ``CheMPAS-A'' --- Chemistry for MPAS-A), MPAS v8.4.0 introduces an option in the Make build system to link with the \href{https://github.com/NCAR/musica}{Multi-Scale Infrastructure for Chemistry and Aerosols (MUSICA)} library.
+After installing the MUSICA library --- including its Fortran interface --- ensure that the {\tt \$PKG\_CONFIG\_PATH} environment variable contains MUSICA's {\tt pkgconfig} directory so that {\tt pkg-config} can find the {\tt musica-fortran} package. If the MUSICA Fortran interface was successfully installed and findable by {\tt pkg-config}, running
+
+\vspace{12pt}
+{\tt > pkg-config --version musica-fortran}
+\vspace{12pt}
+
+\noindent should print the MUSICA library version. Linking with the MUSICA library when building MPAS is accomplished by simply adding {\tt MUSICA=true} to the build command.
+If MPAS has been successfully compiled and linked with the MUSICA library, the build summary will indicate this with a message:
+
+\vspace{12pt}
+\noindent {\tt *******************************************************************************} \newline
+{\tt MPAS was built with default single-precision reals.} \newline
+{\tt Debugging is off.} \newline
+{\tt Parallel version is on.} \newline
+{\tt Using the mpi\_f08 module.} \newline
+{\tt Papi libraries are off.} \newline
+{\tt TAU Hooks are off.} \newline
+{\tt MPAS was built without OpenMP support.} \newline
+{\tt MPAS was built without OpenMP-offload GPU support.} \newline
+{\tt MPAS was built without OpenACC accelerator support.} \newline
+{\tt \hl{MPAS was linked with the MUSICA-Fortran library version 0.12.2.}} \newline
+{\tt MPAS has been linked with the Scotch graph partitioning library.} \newline
+{\tt Position-dependent code was generated.} \newline
+{\tt MPAS was built with .F files.} \newline
+{\tt The native timer interface is being used} \newline
+{\tt Using the SMIOL library.} \newline
+{\tt MPAS was built with the embedded ESMF timekeeping library.} \newline
+{\tt *******************************************************************************}
+\vspace{12pt}
+
+When running MPAS-Atmosphere, the log files will also indicate that the executable was compiled with the MUSICA library:
+
+\vspace{12pt}
+\noindent
+{\tt Compile-time options:} \newline
+{\tt   Build target: gnu} \newline
+{\tt   OpenMP support: no} \newline
+{\tt   OpenACC support: no} \newline
+{\tt   Default real precision: single} \newline
+{\tt   Compiler flags: optimize} \newline
+{\tt   I/O layer: SMIOL} \newline
+{\tt   \hl{MUSICA support: yes}} \newline
+{\tt   \hl{- MICM version: 3.9.0}} \newline
+{\tt   SCOTCH support: no} \newline
+\vspace{12pt}
+
+\noindent Note that the version of the Model Independent Chemistry Module (MICM), which is provided by MUSICA, is independent of the MUSICA library version.
+
+
 \section{Cleaning}
 
 To remove all files  that were created when the model was built,
