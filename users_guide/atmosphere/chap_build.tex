@@ -297,6 +297,66 @@ When running MPAS-Atmosphere, the log files will also indicate that the executab
 
 \noindent Note that the version of the Model Independent Chemistry Module (MICM), which is provided by MUSICA, is independent of the MUSICA library version.
 
+\section{Linking with the PT-Scotch graph partitioning library}
+\label{scotch_build}
+Starting with the v8.4.0 release, MPAS also provides an option to enable online graph partitioning using the PT-Scotch library
+(\url{https://www.labri.fr/perso/pelegrin/scotch/}). To be able to use this feature, the PT-Scotch library
+must first be installed on the system, and then MPAS must be linked with PT-Scotch library. 
+
+The instructions to build PT-Scotch are available from the Scotch website. The minimum supported PT-Scotch version is v7.0.8. 
+As MPAS does not presently support 64-bit integer indices, the PT-Scotch build must also be built with 32-bit integers to maintain 
+compatibility with MPAS. To be able to use the distributed graph partitioning provided by PT-Scotch, you will need to pass an appropriate MPI
+installation path during the Scotch build. Other system pre-requisites are Bison and Flex. Note that a more recent version of Flex (>v2.6.4) is recommended.
+Scotch documentation also references the requirement for a Bison version > 3.4.
+
+After building and installing PT-Scotch, with a minimum version of at least 7.0.8, the MPAS atmosphere
+and init\_atmosphere cores can be linked with Scotch by setting the path to SCOTCH prior to building MPAS.
+
+\vspace{12pt}
+{\tt > export SCOTCH=/path/to/scotch/installation}
+
+{\tt > make nvhpc CORE=atmosphere}
+\vspace{12pt}
+
+If MPAS has been successfully compiled and linked with the PT-Scotch library, the build summary will indicate this with a message:
+
+\vspace{12pt}
+\noindent {\tt *******************************************************************************} \newline
+{\tt MPAS was built with default single-precision reals.} \newline
+{\tt Debugging is off.} \newline
+{\tt Parallel version is on.} \newline
+{\tt Using the mpi\_f08 module.} \newline
+{\tt Papi libraries are off.} \newline
+{\tt TAU Hooks are off.} \newline
+{\tt MPAS was built without OpenMP support.} \newline
+{\tt MPAS was built without OpenMP-offload GPU support.} \newline
+{\tt MPAS was built without OpenACC accelerator support.} \newline
+{\tt MPAS was not linked with the MUSICA-Fortran library.} \newline
+{\tt \hl{MPAS has been linked with the Scotch graph partitioning library.}} \newline
+{\tt Position-dependent code was generated.} \newline
+{\tt MPAS was built with .F files.} \newline
+{\tt The native timer interface is being used} \newline
+{\tt Using the SMIOL library.} \newline
+{\tt MPAS was built with the embedded ESMF timekeeping library.} \newline
+{\tt *******************************************************************************}
+\vspace{12pt}
+
+When running MPAS-Atmosphere, the log files will also indicate that the executable was compiled with the PT-Scotch library:
+
+\vspace{12pt}
+\noindent
+{\tt Compile-time options:} \newline
+{\tt   Build target: gnu} \newline
+{\tt   OpenMP support: no} \newline
+{\tt   OpenACC support: no} \newline
+{\tt   Default real precision: single} \newline
+{\tt   Compiler flags: optimize} \newline
+{\tt   I/O layer: SMIOL} \newline
+{\tt   MUSICA support: no} \newline
+{\tt   \hl{SCOTCH support: yes}} \newline
+\vspace{12pt}
+
+See Section \ref{sec:scotch_running} for instructions on how to use the PT-Scotch online graph partitioning feature with MPAS.
 
 \section{Cleaning}
 
