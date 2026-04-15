@@ -44,6 +44,54 @@ partitions by running
 can then be copied into the MPAS run directory before running the model with $N$ MPI tasks.
 
 
+
+\section{Online graph partitioning with PT-Scotch}
+\label{sec:scotch_running}
+Starting with the v8.4.0 release, MPAS provides an option to enable online graph partitioning using the PT-Scotch library
+(\url{https://www.labri.fr/perso/pelegrin/scotch/}). To be able to use this feature, the PT-Scotch library
+must first be installed on the system, and then MPAS must be built with PT-Scotch support. Section \ref{sec:scotch_build} provides more details on building MPAS with PT-Scotch support.
+
+Once MPAS has been built with PT-Scotch support, then the model can partition meshes at runtime, using only the connectivity information
+present in the input file, and without the need for any {\tt graph.info} files. After computing the graph partitioning,
+MPAS will write the generated partition file to disk for future use. The online partitioning feature can be most beneficial when starting from a fresh run directory, changing the
+MPI task count frequently, or when running workflows where pre-computing many {\tt graph.info.part.*} files might be inconvenient.
+
+Using the partial global graph read by the MPAS bootstrapping framework, a PT-Scotch distributed graph is constructed.
+Internally, PT-Scotch performs the partitioning operation through distributed graph mapping algorithms. Presently, the
+MPAS interface to PT-Scotch only specifies the number of partitions that the graph should be partitioned into, and assumes
+that the edge and vertex weights are all uniformly distributed. 
+ 
+The exact behavior of the online graph partitioning can be controlled through a namelist option, as described in Section \ref{sec:scotch_runtime_behavior}.
+
+
+\subsection{Usage and run-time behavior}
+\label{sec:scotch_runtime_behavior}
+After building MPAS with PT-Scotch, the user can still choose between using pre-computed graph partition files or the PT-Scotch online graph partitioning,
+by setting appropriate values for the \namelist{mnl:config_block_decomp_file_prefix} namelist option. Assuming that {\tt mpi\_tasks} denotes the number 
+MPI tasks to be used in the model run, MPAS decides whether to use a pre-computed graph partition file or to invoke PT-Scotch online partitioning based on the following logic:
+
+If {\tt \namelist{mnl:config_block_decomp_file_prefix} + mpi\_tasks} points to a valid graph partition file that already exists in the run directory, then it is used to proceed with the model run without invoking PT-Scotch.
+
+If {\tt \namelist{mnl:config_block_decomp_file_prefix}==''} or {\tt \namelist{mnl:config_block_decomp_file_prefix} + mpi\_tasks} does not match any valid graph partition file in the run directory, then PT-Scotch graph partitioning is invoked. During this process, the generated partition is saved as a graph partition file to the run directory so that it may be reused in the following runs without needing to invoke PT-Scotch again.
+
+If MPAS has not been built with PT-Scotch, any code paths relating to PT-Scotch will not be taken. And an incorrect specification of {\tt \namelist{mnl:config_block_decomp_file_prefix}+mpi\_tasks} should lead to the model halting. The run-time behavior is summarized in Table~\ref{tab:scotch_runtime_behavior}.
+
+\vspace{12pt}
+\begin{longtable}{|p{0.6in}|p{2.7in}|p{2.7in}|}
+\hline
+\textbf{PT-Scotch support} & \textbf{\namelist{mnl:config_block_decomp_file_prefix} + mpi\_tasks} & \textbf{Run-time behavior} \\ \hline
+Yes/No & Set to a valid graph partition file that exists in the run directory &
+The existing graph partition file is used to proceed with the model run without invoking PT-Scotch. \\ \hline
+Yes & Unset or set to a value that does not match any valid graph partition file in the run directory &
+PT-Scotch graph partitioning is invoked. The generated partition is saved to the run directory for reuse in later runs. \\ \hline
+No & Unset or set to a value that does not match any valid graph partition file in the run directory &
+MPAS model run halts with an error \\ \hline
+\caption{PT-Scotch online partitioning run-time behavior}\label{tab:scotch_runtime_behavior} \\
+\end{longtable}
+\vspace{12pt}
+
+
+
 \section{Relocating refinement regions on the sphere}
 \label{sec:grid_rotate} 
 
