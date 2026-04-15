@@ -298,16 +298,16 @@ When running MPAS-Atmosphere, the log files will also indicate that the executab
 \noindent Note that the version of the Model Independent Chemistry Module (MICM), which is provided by MUSICA, is independent of the MUSICA library version.
 
 \section{Linking with the PT-Scotch graph partitioning library}
-\label{scotch_build}
+\label{sec:scotch_build}
 Starting with the v8.4.0 release, MPAS also provides an option to enable online graph partitioning using the PT-Scotch library
 (\url{https://www.labri.fr/perso/pelegrin/scotch/}). To be able to use this feature, the PT-Scotch library
-must first be installed on the system, and then MPAS must be linked with PT-Scotch library. 
+must first be installed on the system, and then MPAS must be linked with the PT-Scotch library. 
 
-The instructions to build PT-Scotch are available from the Scotch website. The minimum supported PT-Scotch version is v7.0.8. 
-As MPAS does not presently support 64-bit integer indices, the PT-Scotch build must also be built with 32-bit integers to maintain 
+Instructions for building PT-Scotch are available on the Scotch website. The minimum supported PT-Scotch version is v7.0.8. 
+As MPAS does not presently support 64-bit integer indices, PT-Scotch build must also be built with 32-bit integers to maintain 
 compatibility with MPAS. To be able to use the distributed graph partitioning provided by PT-Scotch, you will need to pass an appropriate MPI
-installation path during the Scotch build. Other system pre-requisites are Bison and Flex. Note that a more recent version of Flex (>v2.6.4) is recommended.
-Scotch documentation also references the requirement for a Bison version > 3.4.
+installation path during the Scotch build. Other system prerequisites are Bison and Flex. Note that a more recent version of Flex (>v2.6.4) is recommended.
+Scotch documentation also references a requirement for a Bison version > 3.4.
 
 After building and installing PT-Scotch, with a minimum version of at least 7.0.8, the MPAS atmosphere
 and init\_atmosphere cores can be linked with Scotch by setting the path to SCOTCH prior to building MPAS.

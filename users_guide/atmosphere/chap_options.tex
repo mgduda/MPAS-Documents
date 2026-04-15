@@ -273,14 +273,14 @@ $C_d$ defined from lowest level $V$ such that surface stress is given as $\rho *
 \section{Model runs on GPUs}
 \label{sec:gpu_runs}
 
-Beginning with MPAS v8.3.0, a GPU-enabled version of the dynamical core in the atmosphere core has been available. 
-The GPU-acceleration is enabled with the use of OpenACC directives, and has been tested on work on several Nvidia GPU architectures 
+Beginning with MPAS v8.3.0, a GPU-enabled version of the MPAS-Atmosphere dynamical core has been available. 
+The GPU-acceleration is enabled with OpenACC directives, and has been tested on several Nvidia GPU architectures 
 (e.g., V100, A100, H100) with the NVHPC compiler. MPAS v8.4.0 continues the v8 GPU porting efforts, introducing optimizations to the
-data movements between host (CPU) and device (GPU) memory. New to v8.4.0, much of the host to device data movements are performed once
+data movements between host (CPU) and device (GPU) memory. New to v8.4.0, much of the host-to-device data movements are performed once
 per time step, before and after the dynamical core execution, rather than at each subroutine call within the dynamical core. Additionally,
 GPU-aware halo exchanges have been implemented for the dynamical core. 
 
-Presently, the GPU-execution is only available for the dynamical core, and not for the physics suites. Future efforts will focus on porting physics suites to GPUs as well.
+Presently, GPU execution is only available for the dynamical core, and not for the physics suites. Future efforts will focus on porting physics suites to GPUs as well.
 
 To enable GPU-acceleration, the model must be built with OpenACC support, by using the nvhpc toolchain and adding {\tt OPENACC=true} to the build command
 
@@ -292,10 +292,49 @@ The standard MPAS requirements from Chapter \ref{chap:mpas_build_instructions} s
 
 \subsection{Runtime configuration on GPU nodes}
 
-Typical MPAS-Atmoshere model runs on GPU nodes use one MPI task per GPU. The mapping of MPI tasks to individual GPU devices
+Typical MPAS-Atmosphere model runs on GPU nodes use one MPI task per GPU. The mapping of MPI tasks to individual GPU devices
 is controlled by the environment variable {\tt CUDA\_VISIBLE\_DEVICES}, which should be set to a comma-separated list of GPU device IDs corresponding to each MPI rank.
 
-In many managed cluster environments, there may be convience wrappers for launching GPU-enabled jobs, which will automatically set the {\tt CUDA\_VISIBLE\_DEVICES} variable.
+When running MPAS-Atmosphere on GPUs, the log files will also indicate the devices (GPUs) visible to the run, and the device driver in use:
+
+\vspace{12pt}
+\noindent
+{\tt OpenACC configuration:} \newline
+{\tt   Number of visible devices: 1} \newline
+{\tt   Device \# for this MPI task: 0} \newline
+{\tt   Device vendor: NVIDIA} \newline
+{\tt   Device name: NVIDIA A100-SXM4-40GB} \newline
+{\tt   Device driver version: 13000} \newline
+\vspace{12pt}
+
+
+An additional consideration is to bind MPI ranks to certain CPU cores for optimal performance. In systems with NUMA architectures,
+it is generally recommended to bind each MPI rank to CPU cores separate NUMA domains. Accessing memory across NUMA domains can lead to performance degradation.
+
+
+\subsection{Using GPU-aware halo exchanges}
+MPAS v8.4.0 also includes support for GPU-aware halo exchanges, which can be enabled by setting \namelist{mnl:config_gpu_aware_mpi} to {\tt true} in the model namelist.
+When this option is enabled, most halo exchanges occurring within the dynamical core execution will be performed directly from the device (GPU) memory,
+without needing to stage data through host (CPU) memory. Enabling GPU-aware halo exchanges typically improves performance by reducing data transfers between the host and device. 
+This option requires that the MPI implementation used to build MPAS supports GPU-aware or GPU-direct communications.
+
+
+\subsection{Verifying and debugging GPU runs}
+In general, the results obtained from GPU model runs may not be bitwise identical to those obtained from CPU runs, largely due to differences in the 
+order of operations, the use of fused multiply-add (FMA) operations, and the differences in the implementation of instrinsic mathematical functions (e.g., sin, cos, etc.) on CPUs and GPUs.
+However, under certain conditions, it is possible to verify that the NVHPC GPU runs are producing bitwise identical results to NVHPC CPU runs by the use of some compile-time options. Build flag {\tt -Mnofma}
+switches off the use of fused multiply-add (FMA) operations, and the option {\tt -gpu=math\_uniform} ensures that the CPU algorithms for intrinsic functions are used on the GPU as well. As these
+options can lead to performance degradation, they are not recommended for production runs, but they can be useful for verifying that GPU and CPU runs are producing identical results.
+
+\vspace{12pt}
+
+The NVHPC compiler provides run-time options for generating debugging information from OpenACC model runs,
+which can be useful for diagnosing issues with GPU runs. For example, setting the environment variable {\tt NVCOMPILER\_ACC\_NOTIFY=3} prior to 
+launching the model generates detailed information about OpenACC kernel launches and host-device data movements.
+
+\subsection{Tips for running on GPU nodes}
+
+In many managed cluster environments, there may be convenience wrappers for launching GPU-enabled jobs, which will automatically set the {\tt CUDA\_VISIBLE\_DEVICES} variable.
 For example, on the NCAR Derecho and Casper systems, the {\tt set\_gpu\_rank} utility automatically sets the mapping of MPI ranks to GPU devices. As an example on Derecho,
 launching the MPAS-Atmosphere model on 4 GPUs with 1 MPI rank per GPU can be done with the following command in a batch job script:
 
@@ -303,8 +342,6 @@ launching the MPAS-Atmosphere model on 4 GPUs with 1 MPI rank per GPU can be don
 {\tt > mpiexec -n 4 -ppn 4 set\_gpu\_rank ./atmosphere\_model}
 \vspace{12pt}
 
-An additional consideration is to bind MPI ranks to certain CPU cores for optimal performance. In systems with NUMA architectures,
-it is generally recommended to bind each MPI rank to CPU cores separate NUMA domains. Accessing memory across NUMA domains can lead to performance degradation.
 
 For example, on the NCAR Derecho system, to execute the MPAS-Atmosphere model on 4 GPUs with 1 MPI rank per GPU, and binding each MPI rank to a different NUMA domain,
 the following command can be used in a batch job script:
@@ -313,10 +350,4 @@ the following command can be used in a batch job script:
 {\tt > mpiexec -n 4 -ppn 4 --cpu-bind verbose,list:0:16:32:48 set\_gpu\_rank ./atmosphere\_model}
 \vspace{12pt}
 
-
-\subsection{Using GPU-aware halo exchanges}
-MPAS v8.4.0 also includes support for GPU-aware halo exchanges, which can be enabled by setting \namelist{mnl:config_gpu_aware_mpi} to {\tt true} in the model namelist.
-When this option is enabled, most halo exchanges occuring within the dynamical core execution will be performed directly from the device (GPU) memory,
-without needing to stage data through host (CPU) memory. Enabling GPU-aware halo exchanges typically improves performance by reducing data transfers between the host and device. 
-This option requires that the MPI implementation use to build MPAS supports GPU-aware communication
 
