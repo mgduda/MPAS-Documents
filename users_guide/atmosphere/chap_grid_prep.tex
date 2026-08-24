@@ -15,9 +15,7 @@ section. This utility program may be obtained from the MPAS-Atmosphere download 
 When running limited-area simulations, the limited-area mesh may be produced by
 subsetting the elements in an existing SCVT mesh as described in the third section.
 
-\section{Graph partitioning with METIS} 
-\label{sec:metis}
-
+\section{Graph partitioning}
 Before MPAS can be run in parallel, a mesh decomposition file with an
 appropriate number of partitions (equal to the number of MPI tasks that will be
 used) is required. A limited number of mesh decomposition files, named {\tt
@@ -25,6 +23,8 @@ graph.info.part.*}, are provided with each mesh, as is the mesh
 connectivity file, named {\tt graph.info}. If the number of MPI tasks to be used when
 running MPAS matches one of the pre-computed decomposition files, then there
 is no need to run METIS.
+\subsection{Pre-computing graph partition files with METIS} 
+\label{sec:metis}
 
 In order to create new mesh decomposition files for some particular number of MPI tasks, 
 only the {\tt graph.info} file is required.  The currently supported method for partitioning
@@ -42,6 +42,91 @@ partitions by running
 
 \noindent where $N$ is the required number of partitions. The resulting file, {\tt graph.info.part.}$N$, 
 can then be copied into the MPAS run directory before running the model with $N$ MPI tasks.
+
+\subsection{Online graph partitioning with Scotch}
+\label{sec:scotch}
+Starting with the v8.4.0 release, MPAS also provides an option to enable online graph partitioning using the SCOTCH library
+(\url{https://www.labri.fr/perso/pelegrin/scotch/}). To be able to use this feature, the SCOTCH library
+must first be installed on the system, and then MPAS must be built with SCOTCH support. 
+
+MPAS does not currently presently support 64-bit integer indices, and to maintain compatibility, the Scotch build must also use 32-bit integers.
+The minimum supported SCOTCH version is v7.0.8.
+
+If these conditions are met, then the model can partition the mesh at runtime, using only the connectivity information
+present in the input file, and without the need for any {\tt graph.info} files. After computing the graph partitioning,
+MPAS will write the generated partition file to disk for future use. The online partitioning feature can be most beneficial when starting from a fresh run directory, changing the
+MPI task count frequently, or when running workflows where pre-computing many {\tt graph.info.part.*} files might be inconvenient.
+
+Using the partial global graph read by the MPAS bootstrapping framework, a PT-Scotch distributed graph is constructed.
+Internally, PT-Scotch performs the partitioning operation through distributed graph mapping algorithms. Presently, the
+MPAS interface to SCOTCH only specifies the number of partitions that the graph should be partitioned into, and assumes
+that the edge and vertex weights are all uniformly distributed. 
+ 
+The exact behavior of the online graph partitioning can be controlled through a namelist option, as described in
+ Section \ref{sec:scotch_runtime_behavior}.
+
+\subsubsection{Building Scotch}
+To build Scotch, first download the source code from the Scotch website. You can either download and extract release
+tarballs from this link:
+\url{https://gitlab.inria.fr/scotch/scotch/-/releases}, or clone the git repository using the command below:
+
+\vspace{12pt}
+{\tt > git clone https://gitlab.inria.fr/scotch/scotch.git \&\& cd scotch}
+
+{\tt > git checkout v7.0.8}
+\vspace{12pt}
+
+To be able to use the distributed graph partitioning provided by PT-Scotch, you will need to pass an appropriate MPI installation path during the Scotch build.
+
+Other system pre-requisites are Bison and Flex. Note that a more recent version of Flex (>v2.6.4) is recommended. Scotch documentation also references the requirement for a Bison version > 3.4.
+
+\subsubsection{Building MPAS with SCOTCH support}
+After building and installing SCOTCH, with a minimum version of at least 7.0.8, as described above,
+the MPAS atmosphere and init\_atmosphere cores can be built with online graph partitioning support
+by setting the path to SCOTCH prior to building MPAS.
+
+\vspace{12pt}
+{\tt > export SCOTCH=/path/to/scotch/installation}
+
+{\tt > make nvhpc CORE=atmosphere}
+\vspace{12pt}
+
+If MPAS is built and linked with Scotch successfully, a message indicating Scotch support will appear near the
+end of the build output.
+
+\subsubsection{Usage and run-time behavior}
+\label{sec:scotch_runtime_behavior}
+After building MPAS with Scotch, the user can still choose between using a pre-computed graph partition
+file or the SCOTCH online graph partitioning, by setting appropriate values for the      
+{\tt config\_block\_decomp\_file\_prefix} namelist option.
+
+If {\tt config\_block\_decomp\_file\_prefix+mpi\_tasks} points to a valid graph partition file that already exists in the run directory, then it is used to proceed with the model run without invoking Scotch.
+
+If {\tt config\_block\_decomp\_file\_prefix==''} or {\tt config\_block\_decomp\_file\_prefix+mpi\_tasks} does not match any valid graph partition file in the run directory, then Scotch graph partitioning is invoked. During this process, the generated partition is saved as a graph partition file to the run directory so that it may be reused in the following runs without needing to invoke Scotch again.
+
+
+
+If {\tt config\_block\_decomp\_file\_prefix+mpi\_tasks} points to a valid graph partition file that already exists in the run directory, then it is used to proceed with the model run without invoking Scotch.
+
+If {\tt config\_block\_decomp\_file\_prefix==''} or {\tt config\_block\_decomp\_file\_prefix+mpi\_tasks} does not match any valid graph partition file in the run directory, then Scotch graph partitioning is invoked. During this process, the generated partition is saved as a graph partition file to the run directory so that it may be reused in the following runs without needing to invoke Scotch again. These run-time choices are summarized in Table~\ref{tab:scotch_runtime_behavior}.
+
+If MPAS has not been built with SCOTCH, any code paths relating to Scotch will not be taken. And an incorrect specification of {\tt config\_block\_decomp\_file\_prefix+mpi\_tasks} should lead to the model halting. The run-time behavior is summarized in Table~\ref{tab:scotch_runtime_behavior}.
+
+\vspace{12pt}
+\begin{longtable}{|p{0.6in}|p{2.7in}|p{2.7in}|}
+\hline
+\textbf{SCOTCH support} & \textbf{config\_block\_decomp\_file\_prefix} & \textbf{Run-time behavior} \\ \hline
+Yes/No & Set to a valid graph partition file that exists in the run directory &
+The existing graph partition file is used to proceed with the model run without invoking Scotch. \\ \hline
+Yes & Unset or set to a value that does not match any valid graph partition file in the run directory &
+Scotch graph partitioning is invoked. The generated partition is saved to the run directory for reuse in later runs. \\ \hline
+No & Unset or set to a value that does not match any valid graph partition file in the run directory &
+MPAS model run halts with an error \\ \hline
+\caption{SCOTCH online partitioning run-time behavior}\label{tab:scotch_runtime_behavior} \\
+\end{longtable}
+\vspace{12pt}
+
+
 
 
 
